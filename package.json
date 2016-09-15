@@ -10,6 +10,7 @@
   },
   "homepage": "https://github.com/alphagov/govuk_frontend_alpha#readme",
   "devDependencies": {
+    "@gemmaleigh/prototype-scss-refactor": "0.0.9",
     "gulp": "^3.9.1"
   }
 }
