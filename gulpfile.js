@@ -1,8 +1,11 @@
+'use strict'
+
 var gulp = require('gulp')
 var del = require('del')
+var erbTranspiler = require('./lib/transpilation/erb_transpiler.js')
 
 // Config for paths
-paths = {
+var paths = {
   assets: 'app/assets/',
   assets_scss: 'app/assets/scss/',
   dist: 'dist/',
@@ -24,8 +27,6 @@ gulp.task('dist:del', function () {
 })
 
 gulp.task('transpile:erb', function () {
-  let erbTranspiler = require('./lib/transpilation/erb_transpiler.js')
-
   return gulp.src(paths.templates + 'govuk_template.html')
     .pipe(erbTranspiler())
     .pipe(gulp.dest(paths.dist))
