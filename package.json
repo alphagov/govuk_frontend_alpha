@@ -10,7 +10,9 @@
   },
   "homepage": "https://github.com/alphagov/govuk_frontend_alpha#readme",
   "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
     "prototype-scss-refactor": "alphagov/prototype-scss-refactor",
-    "gulp": "^3.9.1"
+    "through2": "^2.0.1"
   }
 }

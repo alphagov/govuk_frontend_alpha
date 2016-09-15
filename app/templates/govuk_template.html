@@ -6,25 +6,25 @@
     <meta charset="utf-8" />
     <title>{% block page_title %}GOV.UK - The best place to find government services and information{% endblock %}</title>
 
-    <!--[if gt IE 8]><!--><link href="{{ asset_path }}stylesheets/govuk-template.css?0.18.2" media="screen" rel="stylesheet" /><!--<![endif]-->
-    <!--[if IE 6]><link href="{{ asset_path }}stylesheets/govuk-template-ie6.css?0.18.2" media="screen" rel="stylesheet" /><![endif]-->
-    <!--[if IE 7]><link href="{{ asset_path }}stylesheets/govuk-template-ie7.css?0.18.2" media="screen" rel="stylesheet" /><![endif]-->
-    <!--[if IE 8]><link href="{{ asset_path }}stylesheets/govuk-template-ie8.css?0.18.2" media="screen" rel="stylesheet" /><![endif]-->
-    <link href="{{ asset_path }}stylesheets/govuk-template-print.css?0.18.2" media="print" rel="stylesheet" />
+    <!--[if gt IE 8]><!--><link href="{{ asset_path + 'stylesheets/govuk-template.css?0.18.2' }}" media="screen" rel="stylesheet" /><!--<![endif]-->
+    <!--[if IE 6]><link href="{{ asset_path + 'stylesheets/govuk-template-ie6.css?0.18.2' }}" media="screen" rel="stylesheet" /><![endif]-->
+    <!--[if IE 7]><link href="{{ asset_path + 'stylesheets/govuk-template-ie7.css?0.18.2' }}" media="screen" rel="stylesheet" /><![endif]-->
+    <!--[if IE 8]><link href="{{ asset_path + 'stylesheets/govuk-template-ie8.css?0.18.2' }}" media="screen" rel="stylesheet" /><![endif]-->
+    <link href="{{ asset_path + 'stylesheets/govuk-template-print.css?0.18.2' }}" media="print" rel="stylesheet" />
 
-    <!--[if IE 8]><link href="{{ asset_path }}stylesheets/fonts-ie8.css?0.18.2" media="all" rel="stylesheet" /><![endif]-->
-    <!--[if gte IE 9]><!--><link href="{{ asset_path }}stylesheets/fonts.css?0.18.2" media="all" rel="stylesheet" /><!--<![endif]-->
-    <!--[if lt IE 9]><script src="{{ asset_path }}javascripts/ie.js?0.18.2"></script><![endif]-->
+    <!--[if IE 8]><link href="{{ asset_path + 'stylesheets/fonts-ie8.css?0.18.2' }}" media="all" rel="stylesheet" /><![endif]-->
+    <!--[if gte IE 9]><!--><link href="{{ asset_path + 'stylesheets/fonts.css?0.18.2' }}" media="all" rel="stylesheet" /><!--<![endif]-->
+    <!--[if lt IE 9]><script src="{{ asset_path + 'javascripts/ie.js?0.18.2' }}"></script><![endif]-->
 
-    <link rel="shortcut icon" href="{{ asset_path }}images/favicon.ico?0.18.2" type="image/x-icon" />
-    <link rel="mask-icon" href="{{ asset_path }}images/gov.uk_logotype_crown.svg?0.18.2" color="#0b0c0c">
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ asset_path }}images/apple-touch-icon-152x152.png?0.18.2">
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ asset_path }}images/apple-touch-icon-120x120.png?0.18.2">
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="{{ asset_path }}images/apple-touch-icon-76x76.png?0.18.2">
-    <link rel="apple-touch-icon-precomposed" href="{{ asset_path }}images/apple-touch-icon-60x60.png?0.18.2">
+    <link rel="shortcut icon" href="{{ asset_path + 'images/favicon.ico?0.18.2' }}" type="image/x-icon" />
+    <link rel="mask-icon" href="{{ asset_path + 'images/gov.uk_logotype_crown.svg?0.18.2' }}" color="#0b0c0c">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ asset_path + 'images/apple-touch-icon-152x152.png?0.18.2' }}">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ asset_path + 'images/apple-touch-icon-120x120.png?0.18.2' }}">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="{{ asset_path + 'images/apple-touch-icon-76x76.png?0.18.2' }}">
+    <link rel="apple-touch-icon-precomposed" href="{{ asset_path + 'images/apple-touch-icon-60x60.png?0.18.2' }}">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:image" content="{{ asset_path }}images/opengraph-image.png?0.18.2">
+    <meta property="og:image" content="{{ asset_path + 'images/opengraph-image.png?0.18.2' }}">
 
     {% block head %}{% endblock %}
   </head>
@@ -52,7 +52,7 @@
         <div class="header-global">
           <div class="header-logo">
             <a href="{{ homepage_url|default('https://www.gov.uk') }}" title="{{ logo_link_title|default('Go to the GOV.UK homepage') }}" id="logo" class="content">
-              <img src="{{ asset_path }}images/gov.uk_logotype_crown_invert_trans.png?0.18.2" width="35" height="31" alt=""> {{ global_header_text|default('GOV.UK') }}
+              <img src="{{ asset_path + 'images/gov.uk_logotype_crown_invert_trans.png?0.18.2' }}" width="35" height="31" alt=""> {{ global_header_text|default('GOV.UK') }}
             </a>
           </div>
           {% block inside_header %}{% endblock %}
@@ -94,7 +94,7 @@
 
     <div id="global-app-error" class="app-error hidden"></div>
 
-    <script src="{{ asset_path }}javascripts/govuk-template.js?0.18.2"></script>
+    <script src="{{ asset_path + 'javascripts/govuk-template.js?0.18.2' }}"></script>
 
     {% block body_end %}{% endblock %}
 
