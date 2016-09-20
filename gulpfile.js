@@ -34,3 +34,11 @@ gulp.task('transpile:erb', function () {
     .pipe(rename({extname: '.html.' + templateLanguage}))
     .pipe(gulp.dest(paths.dist))
 })
+
+gulp.task('transpile:handlebars', function () {
+  var templateLanguage = 'handlebars'
+  return gulp.src(paths.templates + 'govuk_template.html')
+    .pipe(transpiler(templateLanguage))
+    .pipe(rename({extname: '.html.' + templateLanguage}))
+    .pipe(gulp.dest(paths.dist))
+})
