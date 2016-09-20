@@ -2,7 +2,7 @@
 
 var gulp = require('gulp')
 var del = require('del')
-var erbTranspiler = require('./lib/transpilation/erb_transpiler.js')
+var transpiler = require('./lib/transpilation/transpiler.js')
 
 // Config for paths
 var paths = {
@@ -22,12 +22,12 @@ gulp.task('copy:prototype-scss-refactor', function () {
     .pipe(gulp.dest(paths.assets_scss))
 })
 
-gulp.task('dist:del', function () {
+gulp.task('clean', function () {
   return del([paths.dist + '*'])
 })
 
 gulp.task('transpile:erb', function () {
   return gulp.src(paths.templates + 'govuk_template.html')
-    .pipe(erbTranspiler())
+    .pipe(transpiler('erb'))
     .pipe(gulp.dest(paths.dist))
 })
