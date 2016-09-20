@@ -12,6 +12,7 @@
   "devDependencies": {
     "del": "^2.2.2",
     "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
     "prototype-scss-refactor": "alphagov/prototype-scss-refactor",
     "through2": "^2.0.1"
   }

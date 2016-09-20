@@ -2,6 +2,7 @@
 
 var gulp = require('gulp')
 var del = require('del')
+var rename = require('gulp-rename')
 var transpiler = require('./lib/transpilation/transpiler.js')
 
 // Config for paths
@@ -27,7 +28,9 @@ gulp.task('clean', function () {
 })
 
 gulp.task('transpile:erb', function () {
+  var templateLanguage = 'erb'
   return gulp.src(paths.templates + 'govuk_template.html')
-    .pipe(transpiler('erb'))
+    .pipe(transpiler(templateLanguage))
+    .pipe(rename({extname: '.html.' + templateLanguage}))
     .pipe(gulp.dest(paths.dist))
 })
