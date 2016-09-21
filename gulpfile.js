@@ -34,6 +34,11 @@ gulp.task('clean', function () {
   return del([paths.dist + '*'])
 })
 
-gulp.task('transpile', ['transpile:erb', 'transpile:handlebars'])
+gulp.task('transpile', ['transpile:nunjucks', 'transpile:erb', 'transpile:handlebars'])
+gulp.task('transpile:nunjucks', function () {
+  return gulp.src(paths.templates + 'govuk_template.html')
+    .pipe(rename({extname: '.html.nunjucks'}))
+    .pipe(gulp.dest(paths.dist))
+})
 gulp.task('transpile:erb', transpileRunner.bind(null, 'erb'))
 gulp.task('transpile:handlebars', transpileRunner.bind(null, 'handlebars'))
