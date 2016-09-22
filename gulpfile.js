@@ -4,6 +4,7 @@ const gulp = require('gulp')
 const del = require('del')
 const rename = require('gulp-rename')
 const transpiler = require('./lib/transpilation/transpiler.js')
+const mocha = require('gulp-mocha')
 
 // Config for paths
 const paths = {
@@ -12,6 +13,7 @@ const paths = {
   dist: 'dist/',
   templates: 'app/templates/',
   npm: 'node_modules/',
+  specs: 'test/specs/',
   prototype_scss: 'node_modules/@gemmaleigh/prototype-scss-refactor/**/*.scss' // This can be removed later
 }
 
@@ -42,3 +44,8 @@ gulp.task('transpile:nunjucks', () => {
 gulp.task('transpile:erb', transpileRunner.bind(null, 'erb'))
 gulp.task('transpile:handlebars', transpileRunner.bind(null, 'handlebars'))
 gulp.task('transpile:django', transpileRunner.bind(null, 'django'))
+
+// Task to run the tests
+gulp.task('test', () => gulp.src(paths.specs + '*.js', {read: false})
+  .pipe(mocha())
+)

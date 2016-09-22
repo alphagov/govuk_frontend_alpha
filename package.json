@@ -10,10 +10,16 @@
   },
   "homepage": "https://github.com/alphagov/govuk_frontend_alpha#readme",
   "devDependencies": {
+    "chai": "^3.5.0",
     "del": "^2.2.2",
+    "event-stream": "^3.3.4",
     "gulp": "^3.9.1",
+    "gulp-mocha": "^3.0.1",
     "gulp-rename": "^1.2.2",
     "prototype-scss-refactor": "alphagov/prototype-scss-refactor",
     "through2": "^2.0.1"
+  },
+  "scripts": {
+    "test": "gulp test"
   }
 }
