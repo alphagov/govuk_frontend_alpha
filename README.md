@@ -1,4 +1,4 @@
-GOV.UK Frontend Alpha
+GOV.UK Frontend Alpha [![Build Status](https://travis-ci.org/alphagov/govuk_frontend_alpha.svg?branch=master)](https://travis-ci.org/alphagov/govuk_frontend_alpha)
 =====================
 
 ---
