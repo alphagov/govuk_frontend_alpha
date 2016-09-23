@@ -1,3 +1,9 @@
+language: node_js
+node_js:
+ - "6.6.0"
+before_script:
+  - npm install -g gulp
+script: gulp test
 notifications:
   email: false
 sudo: false
