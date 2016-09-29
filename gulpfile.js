@@ -30,14 +30,14 @@ gulp.task('copy:prototype-scss-refactor', () => {
 
 // Task for transpiling the templates
 let transpileRunner = templateLanguage => {
-  return gulp.src(paths.templates + 'govuk_template.html')
+  return gulp.src(paths.templates + '*.html')
     .pipe(transpiler(templateLanguage))
     .pipe(rename({extname: '.html.' + templateLanguage}))
     .pipe(gulp.dest(paths.dist))
 }
 gulp.task('transpile', ['transpile:nunjucks', 'transpile:erb', 'transpile:handlebars', 'transpile:django'])
 gulp.task('transpile:nunjucks', () => {
-  return gulp.src(paths.templates + 'govuk_template.html')
+  return gulp.src(paths.templates + '*.html')
     .pipe(rename({extname: '.html.nunjucks'}))
     .pipe(gulp.dest(paths.dist))
 })
