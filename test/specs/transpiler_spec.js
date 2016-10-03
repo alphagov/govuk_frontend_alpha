@@ -35,9 +35,19 @@ describe('Transpilation', function () {
       erbTranspiler = transpiler('erb')
     })
 
-    it('should have a correct asset_path', function (done) {
-      const erbAssetPath = `<link href="<%= asset_path 'stylesheets/govuk-template.css' %>" media="screen" rel="stylesheet" />`
-      transpilationTest(erbTranspiler, nunjucksAssetPath, erbAssetPath, done)
+    it('should have a correct asset_path for stylesheets', function (done) {
+      const erbStylesheetsAssetPath = `<link href="<%= asset_path 'govuk-template.css' %>" media="screen" rel="stylesheet" />`
+      transpilationTest(erbTranspiler, nunjucksAssetPath, erbStylesheetsAssetPath, done)
+    })
+    it('should have a correct asset_path for javascript', function (done) {
+      const nunjucksJavascriptAssetPath = `<script src="{{ asset_path + 'javascript/govuk-template.js' }}"></script>`
+      const erbJavascriptAssetPath = `<script src="<%= asset_path 'govuk-template.js' %>"></script>`
+      transpilationTest(erbTranspiler, nunjucksJavascriptAssetPath, erbJavascriptAssetPath, done)
+    })
+    it('should have a correct asset_path for images', function (done) {
+      const nunjucksImageAssetPath = `<img src="{{ asset_path + 'images/govuk-template.png' }}" alt="" />`
+      const erbImageAssetPath = `<img src="<%= asset_path 'govuk-template.png' %>" alt="" />`
+      transpilationTest(erbTranspiler, nunjucksImageAssetPath, erbImageAssetPath, done)
     })
     it('should have a correct text_for', function (done) {
       const erbTextFor = `<a href="#content" class="skiplink"><%= content_for?(:skip_link_message) ? yield(:skip_link_message) : 'Skip to main content' %></a>`
