@@ -12,12 +12,12 @@ const mocha = require('gulp-mocha')
 // Config for paths
 const paths = {
   assets: 'app/assets/',
-  assets_scss: 'app/assets/scss/',
+  assetsScss: 'app/assets/scss/',
   dist: 'dist/',
   templates: 'app/templates/',
   npm: 'node_modules/',
   specs: 'test/specs/',
-  prototype_scss: 'node_modules/@gemmaleigh/prototype-scss-refactor/**/*.scss' // This can be removed later
+  prototypeScss: 'node_modules/@gemmaleigh/prototype-scss-refactor/**/*.scss' // This can be removed later
 }
 
 // Task for cleaning the distribution
@@ -27,8 +27,8 @@ gulp.task('clean', () => {
 
 // Task for copying the assets
 gulp.task('copy:prototype-scss-refactor', () => {
-  gulp.src(paths.prototype_scss)
-    .pipe(gulp.dest(paths.assets_scss))
+  gulp.src(paths.prototypeScss)
+    .pipe(gulp.dest(paths.assetsScss))
 })
 
 // Task for transpiling the templates
