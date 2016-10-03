@@ -1,5 +1,8 @@
 'use strict'
 
+const packageJson = require('./package.json')
+const version = packageJson.version
+
 const gulp = require('gulp')
 const del = require('del')
 const rename = require('gulp-rename')
@@ -31,7 +34,7 @@ gulp.task('copy:prototype-scss-refactor', () => {
 // Task for transpiling the templates
 let transpileRunner = templateLanguage => {
   return gulp.src(paths.templates + '*.html')
-    .pipe(transpiler(templateLanguage))
+    .pipe(transpiler(templateLanguage, version))
     .pipe(rename({extname: '.html.' + templateLanguage}))
     .pipe(gulp.dest(paths.dist))
 }

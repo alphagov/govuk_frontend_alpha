@@ -14,13 +14,14 @@ const transpilationTest = function (transpiler, originalString, expectedString, 
 }
 
 const nunjucksAssetPath = `<link href="{{ asset_path + 'stylesheets/govuk-template.css' }}" media="screen" rel="stylesheet" />`
+const nunjucksAssetVersion = '1.0.0'
 const nunjucksTextFor = `<a href="#content" class="skiplink">{{ skip_link_message|default('Skip to main content') }}</a>`
 const nunjucksBlockFor = `{% block top_of_page %}{% endblock %}`
 
 describe('Transpilation', function () {
   it('should return a Buffer', function (done) {
     let inputFile = new File({contents: new Buffer('test')})
-    let testTranspiler = transpiler('erb')
+    let testTranspiler = transpiler('erb', nunjucksAssetVersion)
     testTranspiler.write(inputFile)
     testTranspiler.once('data', function (file) {
       expect(file.isBuffer()).to.equal(true)
@@ -32,21 +33,21 @@ describe('Transpilation', function () {
     let erbTranspiler
 
     beforeEach(function () {
-      erbTranspiler = transpiler('erb')
+      erbTranspiler = transpiler('erb', nunjucksAssetVersion)
     })
 
     it('should have a correct asset_path for stylesheets', function (done) {
-      const erbStylesheetsAssetPath = `<link href="<%= asset_path 'govuk-template.css' %>" media="screen" rel="stylesheet" />`
+      const erbStylesheetsAssetPath = `<link href="<%= asset_path 'govuk-template.css?1.0.0' %>" media="screen" rel="stylesheet" />`
       transpilationTest(erbTranspiler, nunjucksAssetPath, erbStylesheetsAssetPath, done)
     })
     it('should have a correct asset_path for javascript', function (done) {
       const nunjucksJavascriptAssetPath = `<script src="{{ asset_path + 'javascript/govuk-template.js' }}"></script>`
-      const erbJavascriptAssetPath = `<script src="<%= asset_path 'govuk-template.js' %>"></script>`
+      const erbJavascriptAssetPath = `<script src="<%= asset_path 'govuk-template.js?1.0.0' %>"></script>`
       transpilationTest(erbTranspiler, nunjucksJavascriptAssetPath, erbJavascriptAssetPath, done)
     })
     it('should have a correct asset_path for images', function (done) {
       const nunjucksImageAssetPath = `<img src="{{ asset_path + 'images/govuk-template.png' }}" alt="" />`
-      const erbImageAssetPath = `<img src="<%= asset_path 'govuk-template.png' %>" alt="" />`
+      const erbImageAssetPath = `<img src="<%= asset_path 'govuk-template.png?1.0.0' %>" alt="" />`
       transpilationTest(erbTranspiler, nunjucksImageAssetPath, erbImageAssetPath, done)
     })
     it('should have a correct text_for', function (done) {
@@ -68,11 +69,11 @@ describe('Transpilation', function () {
     let handlebarsTranspiler
 
     beforeEach(function () {
-      handlebarsTranspiler = transpiler('handlebars')
+      handlebarsTranspiler = transpiler('handlebars', nunjucksAssetVersion)
     })
 
     it('should have a correct asset_path', function (done) {
-      const handlebarsAssetPath = `<link href="{{{ asset_path }}}stylesheets/govuk-template.css" media="screen" rel="stylesheet" />`
+      const handlebarsAssetPath = `<link href="{{{ asset_path }}}stylesheets/govuk-template.css?1.0.0" media="screen" rel="stylesheet" />`
       transpilationTest(handlebarsTranspiler, nunjucksAssetPath, handlebarsAssetPath, done)
     })
     it('should have a correct text_for', function (done) {
@@ -89,11 +90,11 @@ describe('Transpilation', function () {
     let djangoTranspiler
 
     beforeEach(function () {
-      djangoTranspiler = transpiler('django')
+      djangoTranspiler = transpiler('django', nunjucksAssetVersion)
     })
 
     it('should have a correct asset_path', function (done) {
-      const djangoAssetPath = `<link href="{% static 'stylesheets/govuk-template.css' %}" media="screen" rel="stylesheet" />`
+      const djangoAssetPath = `<link href="{% static 'stylesheets/govuk-template.css?1.0.0' %}" media="screen" rel="stylesheet" />`
       transpilationTest(djangoTranspiler, nunjucksAssetPath, djangoAssetPath, done)
     })
     it('should have a correct text_for', function (done) {
