@@ -50,11 +50,11 @@ describe('Transpilation', function () {
       transpilationTest(erbTranspiler, nunjucksImageAssetPath, erbImageAssetPath, done)
     })
     it('should have a correct text_for', function (done) {
-      const erbTextFor = `<a href="#content" class="skiplink"><%= content_for?(:skip_link_message) ? yield(:skip_link_message) : 'Skip to main content' %></a>`
+      const erbTextFor = `<a href="#content" class="skiplink"><%= content_for?(:skip_link_message) ? yield(:skip_link_message) : 'Skip to main content'.html_safe %></a>`
       transpilationTest(erbTranspiler, nunjucksTextFor, erbTextFor, done)
     })
     it('should have a correct block_for', function (done) {
-      const erbBlockFor = `<%= content_for?(:top_of_page) ? yield(:top_of_page) : '' %>`
+      const erbBlockFor = `<%= content_for?(:top_of_page) ? yield(:top_of_page) : ''.html_safe %>`
       transpilationTest(erbTranspiler, nunjucksBlockFor, erbBlockFor, done)
     })
     it('should have a correct block_for for the special case content block', function (done) {
