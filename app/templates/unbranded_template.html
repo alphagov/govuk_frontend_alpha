@@ -39,22 +39,22 @@
       </div>
     </div>
 
-    <div id="global-cookie-message">
-
-        {% block cookie_message %}{% endblock %}
-
-    </div>
+    <div id="global-cookie-message">{% block cookie_message %}{% endblock %}</div>
 
 
     <header role="banner" id="global-header" class="{% block header_class %}{% endblock %}">
       <div class="header-wrapper">
         <div class="header-global">
+          <div class="header-logo">
+            <a href="{{ homepage_url|default('#') }}" title="{{ logo_link_title|default('Go to the service homepage') }}" id="logo" class="content">
+              {{ global_header_text|default('Service title') }}
+            </a>
+          </div>
           {% block inside_header %}{% endblock %}
         </div>
         {% block proposition_header %}{% endblock %}
       </div>
     </header>
-
 
     {% block after_header %}{% endblock %}
 

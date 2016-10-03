@@ -40,12 +40,7 @@
       </div>
     </div>
 
-    <div id="global-cookie-message">
-
-        {% block cookie_message %}{% endblock %}
-
-    </div>
-
+    <div id="global-cookie-message">{% block cookie_message %}{% endblock %}</div>
 
     <header role="banner" id="global-header" class="{% block header_class %}{% endblock %}">
       <div class="header-wrapper">
@@ -60,7 +55,6 @@
         {% block proposition_header %}{% endblock %}
       </div>
     </header>
-
 
     {% block after_header %}{% endblock %}
 
