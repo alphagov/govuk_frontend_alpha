@@ -1,0 +1,58 @@
+// Bold font sizes
+.#{$govuk-namespace}#{$prefix-utility}text-bold-xxxlarge {
+  @include bold-80();
+}
+
+.#{$govuk-namespace}#{$prefix-utility}text-bold-xxlarge {
+  @include bold-48();
+}
+
+.#{$govuk-namespace}#{$prefix-utility}text-bold-xlarge {
+  @include bold-36();
+}
+
+.#{$govuk-namespace}#{$prefix-utility}text-bold-large {
+  @include bold-27;
+}
+
+.#{$govuk-namespace}#{$prefix-utility}text-bold-medium {
+  @include bold-24;
+}
+
+.#{$govuk-namespace}#{$prefix-utility}text-bold-small {
+  @include bold-19;
+}
+
+.#{$govuk-namespace}#{$prefix-utility}text-bold-xsmall {
+  @include bold-16;
+}
+
+// Core font sizes
+.#{$govuk-namespace}#{$prefix-utility}text-xxxlarge {
+  @include core-80();
+}
+
+.#{$govuk-namespace}#{$prefix-utility}text-xxlarge {
+  @include core-48();
+}
+
+.#{$govuk-namespace}#{$prefix-utility}text-xlarge {
+  @include core-36();
+}
+
+.#{$govuk-namespace}#{$prefix-utility}text-large {
+  @include core-27;
+}
+
+.#{$govuk-namespace}#{$prefix-utility}text-lede,
+.#{$govuk-namespace}#{$prefix-utility}text-medium {
+  @include core-24;
+}
+
+.#{$govuk-namespace}#{$prefix-utility}text-small {
+  @include core-19;
+}
+
+.#{$govuk-namespace}#{$prefix-utility}text-xsmall {
+  @include core-16;
+}

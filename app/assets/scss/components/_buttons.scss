@@ -1,0 +1,181 @@
+// Refactoring:
+// https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/design-patterns/_buttons.scss
+// https://raw.githubusercontent.com/alphagov/govuk_elements/master/public/sass/elements/_buttons.scss
+// .button
+
+@mixin button($colour: $button-colour) {
+  // Colour
+  background-color: $colour;
+
+  // Size and shape
+  position: relative;
+  @include inline-block;
+  padding: .526315em .789473em .263157em; // 10px 15px 5px
+  border: none;
+  @include border-radius(0);
+  -webkit-appearance: none;
+
+  // Bottom edge effect
+  @include box-shadow(0 2px 0 darken($colour, 15%));
+  @include ie-lte(8) {
+    border-bottom: 2px solid darken($colour, 15%);
+  }
+
+  // Text
+  font-size: 1em; // inherit from parent
+  line-height: 1.25;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+
+  // Interaction
+  cursor: pointer;
+
+  &:visited {
+    background-color: $colour;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: darken($colour, 5%);
+  }
+
+  &:active {
+    top: 2px;
+    @include box-shadow(0 0 0 $colour);
+  }
+
+  // Disabled button styles
+  &.disabled,
+  &[disabled="disabled"],
+  &[disabled] {
+    @include opacity(0.5);
+    &:hover {
+      cursor: default;
+      background-color: $colour;
+    }
+
+    &:active {
+      top: 0;
+      @include box-shadow(0 2px 0 darken($colour, 15%));
+      @include ie-lte(8) {
+        border-bottom: 2px solid darken($colour, 15%);
+      }
+    }
+  }
+
+  // Set text colour depending on background colour
+  @if lightness($colour) < 50% {
+    color: $white;
+
+    &:link,
+    &:hover,
+    &:focus,
+    &:visited {
+      color: $white;
+    }
+  } @else {
+    color: $text-colour;
+
+    &:link,
+    &:hover,
+    &:focus,
+    &:visited {
+      color: $text-colour;
+    }
+  }
+
+  // making the click target bigger than the button
+  // (and fill the space made when the button moves)
+  &:before {
+    content: "";
+    height: 110%;
+    width: 100%;
+    display: block;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &:active:before {
+    top: -10%;
+    height: 120%;
+
+    // IE6 ignores the :before psuedo-class but applies the block to :active
+    // It therefore needs to be reset
+    @include ie(6) {
+      top: auto;
+      height: 100%;
+    }
+  }
+
+  // Reset styles applied to external links
+  &[rel="external"]:after {
+    display: none;
+    content: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  // Fixes a bug where IE puts a black border around certain elements
+  @include ie-lte(8) {
+    &[type="submit"],
+    &[type="reset"],
+    &[type="button"] {
+      filter: chroma(color = $black);
+    }
+
+    &[type=submit].button {
+      filter: none;
+    }
+  }
+}
+
+.#{$govuk-namespace}#{$prefix-component}button {
+  @include button ($button-colour);
+
+  @include box-sizing (border-box);
+  vertical-align: top;
+
+  @include media (mobile) {
+    width: 100%;
+  }
+
+  // Fix unwanted button padding in Firefox
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  &:focus {
+    outline: 3px solid $focus-colour;
+  }
+
+  &button--disabled {
+  background: $button-colour;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+
+// TODO: Think of sensible names for button modifiers
+.#{$govuk-namespace}#{$prefix-component}button--get-started {
+  @include bold-24;
+
+  background-image: file-url("icon-pointer.png");
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+  padding: em(7) em(41) em(4) em(16);
+
+  @include device-pixel-ratio {
+    background-image: file-url("icon-pointer-2x.png");
+    background-size: 30px 19px;
+  }
+
+  @include ie(6) {
+    background-image: file-url("icon-pointer-2x.png");
+  }
+}

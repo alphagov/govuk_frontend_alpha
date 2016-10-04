@@ -16,7 +16,6 @@
     "gulp": "^3.9.1",
     "gulp-mocha": "^3.0.1",
     "gulp-rename": "^1.2.2",
-    "prototype-scss-refactor": "alphagov/prototype-scss-refactor",
     "through2": "^2.0.1"
   },
   "scripts": {

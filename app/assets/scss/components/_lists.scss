@@ -1,0 +1,25 @@
+// Refactoring
+// https://github.com/alphagov/govuk_elements/blob/master/public/sass/elements/_lists.scss
+.#{$govuk-namespace}#{$prefix-component}list {
+
+  padding: 0;
+  margin-top: 5px;
+  margin-bottom: 20px;
+
+  &__item {
+    margin-bottom: 5px;
+  }
+
+  &--bullet {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  &--number {
+    list-style-type: decimal;
+    padding-left: 20px;
+
+    @include ie-lte(7) {
+      padding-left: 28px;
+    }
+  }
+}

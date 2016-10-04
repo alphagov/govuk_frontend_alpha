@@ -1,0 +1,80 @@
+.#{$govuk-namespace}#{$prefix-component}form-custom {
+
+  @include media(mobile) {
+    float: none;
+    clear: left;
+  }
+
+  display: block;
+
+  position: relative;
+
+  background: $panel-colour;
+  border: 1px solid $panel-colour;
+  padding: (18px $gutter $gutter-half $gutter * 1.8);
+
+  margin-bottom: 10px;
+  cursor: pointer; // Encourage clicking on block labels
+
+  // States
+  // Using .selected here as this is set by selection-buttons.js
+  &.selected,
+  // Ideally we'd use a state class, e.g. .is-selected
+  &.is-selected {
+    background: $white;
+    border-color: $black;
+  }
+
+  // Using .focused here as this is set by selection-buttons.js
+  &.focused,
+  // Ideally we'd use a state class, e.g. .has-focus, or is-focused
+  &.is-focused {
+    outline: $width-focus-outline solid $focus-colour;
+  }
+
+  // Absolutely position inputs within label, to allow text to wrap
+  &__control {
+    position: absolute;
+    top: 15px;
+    left: $gutter-half;
+    cursor: pointer;
+    margin: 0;
+    width: 29px;
+    height: 29px;
+
+    @include ie(8) {
+      top: 12px;
+    }
+
+    // Don't add an outline here
+    outline: 0 !important;
+
+    // Change border on hover
+    &:hover {
+      border-color: $black;
+    }
+
+    &--last {
+      margin-bottom: 0;
+    }
+
+  }
+
+  // To stack horizontally, use .--inline, to sit block labels next to each other
+  // &--inline {
+  //   clear: none;
+  //   @include media (tablet) {
+  //     margin-bottom: 0;
+  //     margin-right: 10px;
+  //   }
+  // }
+
+  // Use these for custom radios and checkboxes
+  &--radio {
+
+  }
+  &--checkbox {
+
+  }
+
+}

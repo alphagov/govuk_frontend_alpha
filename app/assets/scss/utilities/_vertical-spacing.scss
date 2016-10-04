@@ -1,0 +1,52 @@
+.govuk-u-mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.govuk-u-pb-0 {
+  padding-bottom: 0 !important;
+}
+
+// These are all setting vertical spacing and should be generic spacing helpers
+
+// Form section is used to wrap .form-group and has twice its margin
+.form-section {
+  margin-bottom: $gutter;
+
+  @include media(tablet) {
+    margin-bottom: $gutter * 2;
+  }
+}
+
+// Form group is used to wrap label and input pairs
+.form-group {
+  margin-bottom: $gutter-half;
+
+  @include media(tablet) {
+    margin-bottom: $gutter;
+  }
+}
+
+// Form group related is used to reduce the space between label and input pairs
+.form-group-related {
+  margin-bottom: 10px;
+
+  @include media(tablet) {
+    margin-bottom: 20px;
+  }
+}
+
+// Form group compound is used to reduce the space between label and input pairs
+.form-group-compound {
+  margin-bottom: 10px;
+}
+
+// Used for the 'or' in between block label options
+.form-block {
+  margin-top: -5px;
+  margin-bottom: 5px;
+
+  @include media(tablet) {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+}
