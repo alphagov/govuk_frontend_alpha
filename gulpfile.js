@@ -16,19 +16,12 @@ const paths = {
   dist: 'dist/',
   templates: 'app/templates/',
   npm: 'node_modules/',
-  specs: 'test/specs/',
-  prototypeScss: 'node_modules/@gemmaleigh/prototype-scss-refactor/**/*.scss' // This can be removed later
+  specs: 'test/specs/'
 }
 
 // Task for cleaning the distribution
 gulp.task('clean', () => {
   return del([paths.dist + '*'])
-})
-
-// Task for copying the assets
-gulp.task('copy:prototype-scss-refactor', () => {
-  gulp.src(paths.prototypeScss)
-    .pipe(gulp.dest(paths.assetsScss))
 })
 
 // Task for transpiling the templates
