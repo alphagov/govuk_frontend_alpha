@@ -39,11 +39,7 @@ let transpileRunner = templateLanguage => {
     .pipe(gulp.dest(paths.dist))
 }
 gulp.task('transpile', ['transpile:nunjucks', 'transpile:erb', 'transpile:handlebars', 'transpile:django'])
-gulp.task('transpile:nunjucks', () => {
-  return gulp.src(paths.templates + '*.html')
-    .pipe(rename({extname: '.html.nunjucks'}))
-    .pipe(gulp.dest(paths.dist))
-})
+gulp.task('transpile:nunjucks', transpileRunner.bind(null, 'nunjucks'))
 gulp.task('transpile:erb', transpileRunner.bind(null, 'erb'))
 gulp.task('transpile:handlebars', transpileRunner.bind(null, 'handlebars'))
 gulp.task('transpile:django', transpileRunner.bind(null, 'django'))
