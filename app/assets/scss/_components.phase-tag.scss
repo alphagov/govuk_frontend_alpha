@@ -1,0 +1,27 @@
+// Refactoring:
+// https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/design-patterns/_alpha-beta.scss#L50
+
+// Usage:
+// <strong class="govuk-c-phase-tag govuk-c-phase-tag--alpha">ALPHA</strong>
+
+.#{$govuk-namespace}#{$prefix-component}phase-tag {
+  @include inline-block;
+  margin: 0 8px 0 0;
+  padding: 2px 5px 0;
+
+  @include bold-16($line-height: 20 / 16);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+
+  color: $white;
+
+  &--alpha {
+    background-color: $alpha-colour;
+  }
+
+  &--beta {
+    background-color: $beta-colour;
+  }
+
+}

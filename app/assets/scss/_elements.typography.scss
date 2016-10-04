@@ -1,0 +1,33 @@
+// Increase the base font size to 19px for the main content area
+// Using the core-19 mixin from the govuk_toolkit _typography.scss file
+// From GOV.UK elements
+main {
+  @include core-19;
+  -webkit-font-smoothing: antialiased;
+}
+
+// Text
+p {
+  margin-top: em(5, 16);
+  margin-bottom: em(20, 16);
+
+  @include media(tablet) {
+    margin-top: em(5);
+    margin-bottom: em(20);
+  }
+}
+
+// Horizontal rule style
+hr {
+  display: block;
+  background: $border-colour;
+  border: 0;
+  height: 1px;
+  margin-top: $gutter;
+  margin-bottom: $gutter;
+  padding: 0;
+
+  @include ie-lte(7) {
+    color: $border-colour;
+  }
+}

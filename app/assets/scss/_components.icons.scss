@@ -1,0 +1,76 @@
+// Refactoring:
+// https://github.com/alphagov/govuk_elements/blob/master/public/sass/elements/_icons.scss
+
+// Icons
+// ==========================================================================
+
+// Icon mixin
+@mixin icon($icon-name, $icon-width, $icon-height, $icon-sub-folder:false) {
+
+  width: #{$icon-width}px;
+  height: #{$icon-height}px;
+
+  @if $icon-sub-folder {
+    background-image: file-url("#{$icon-sub-folder}/#{$icon-name}.png");
+
+    @include device-pixel-ratio() {
+      background-image: file-url("#{$icon-sub-folder}/#{$icon-name}-2x.png");
+      background-size: 100%;
+    }
+
+  } @else {
+    background-image: file-url("#{$icon-name}.png");
+
+    @include device-pixel-ratio() {
+      background-image: file-url("#{$icon-name}-2x.png");
+      background-size: 100%;
+    }
+  }
+}
+
+.#{$govuk-namespace}#{$prefix-component}icon {
+  display: inline-block;
+
+  background-position: 0 0;
+  background-repeat: no-repeat;
+
+  &---calendar {
+    @include icon(icon-calendar, 27, 27);
+  }
+
+  &--file-download {
+    @include icon(icon-file-download, 30, 39);
+  }
+
+  &--important {
+    @include icon(icon-important, 35, 35);
+  }
+
+  &--information {
+    @include icon(icon-information, 27, 27);
+  }
+
+  &--locator {
+    @include icon(icon-locator, 26, 36);
+  }
+
+  &--pointer {
+    @include icon(icon-pointer, 30, 19);
+  }
+
+  &--pointer-black {
+    @include icon(icon-pointer-black, 23, 23);
+  }
+
+  &--search {
+    @include icon(icon-search, 30, 22);
+  }
+}
+
+
+// GOV.UK step icons
+@for $i from 1 through 14 {
+  &--step-#{$i} {
+    @include icon(icon-step--#{$i}, 23, 23, icon-steps);
+  }
+}

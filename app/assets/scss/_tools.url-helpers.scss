@@ -1,0 +1,21 @@
+// https://raw.githubusercontent.com/alphagov/govuk_frontend_toolkit/master/stylesheets/_url-helpers.scss
+
+// URL Helpers
+// A function which can either output a image-url to be used with the Rails
+// Asset Pipeline or Compass or a plain url which is prefixed with a defined
+// path variable.
+@function file-url($file) {
+  $url: '';
+  @if $path {
+    $url: url($path + $file);
+  } @else {
+    $url: image-url($file);
+  }
+  @return $url;
+}
+
+// If image-url is not defined (if we are not in a Rails environment)
+// Set a path to /public/images (this is used by the GOV.UK elements app)
+@if not(function-exists(image-url)) {
+  $path: "/public/images/";
+}

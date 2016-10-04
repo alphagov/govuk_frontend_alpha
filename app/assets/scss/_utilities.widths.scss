@@ -1,0 +1,85 @@
+// Grid layout widths
+
+@mixin grid-column($width) {
+  @include media(tablet) {
+    width: percentage($width);
+  }
+  @include ie-lte(7) {
+    width: (($site-width + $gutter) * $width) - $gutter;
+  }
+}
+
+.#{$govuk-namespace}#{$prefix-utility}full {
+  @include grid-column(1);
+}
+
+.#{$govuk-namespace}#{$prefix-utility}one-quarter {
+  @include grid-column(1 / 4);
+}
+
+.#{$govuk-namespace}#{$prefix-utility}one-half {
+  @include grid-column(1 / 2);
+}
+
+.#{$govuk-namespace}#{$prefix-utility}one-third {
+  @include grid-column(1 / 3);
+}
+
+.#{$govuk-namespace}#{$prefix-utility}two-thirds {
+  @include grid-column(2 / 3);
+}
+
+
+// 6. Form control widths
+// ==========================================================================
+
+// TODO: Update these
+// Form control widths
+
+.form-control-3-4 {
+  width: 100%;
+
+  @include media(tablet) {
+    width: 75%;
+  }
+}
+
+.form-control-2-3 {
+  width: 100%;
+
+  @include media(tablet) {
+    width: 66.66%;
+  }
+}
+
+.form-control-1-2 {
+  width: 100%;
+
+  @include media(tablet) {
+    width: 50%;
+  }
+}
+
+.form-control-1-3 {
+  width: 100%;
+
+  @include media(tablet) {
+    width: 33.33%;
+  }
+}
+
+.form-control-1-4 {
+  width: 100%;
+
+  @include media(tablet) {
+    width: 25%;
+  }
+}
+
+.form-control-1-8 {
+  width: 100%;
+
+  @include media(tablet) {
+    width: 12.5%;
+  }
+}

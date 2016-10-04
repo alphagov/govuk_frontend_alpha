@@ -1,0 +1,16 @@
+// Refactoring:
+// https://github.com/alphagov/govuk_elements/blob/master/public/sass/elements/_components.scss
+// .govuk-box-highlight
+
+.#{$govuk-namespace}#{$prefix-component}box {
+  // TODO: Use consistent units
+  margin: 1em 0;
+  padding: 2em 0 1em;
+  text-align: center;
+
+  &--highlight {
+    color: $white;
+    background: $turquoise;
+  }
+
+}

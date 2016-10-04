@@ -1,0 +1,112 @@
+// Refactor:
+// https://github.com/alphagov/govuk_elements/blob/master/public/sass/elements/_elements-typography.scss
+
+// Typography
+// ==========================================================================
+
+// Set a max-width for text blocks
+// Less than 75 characters per line of text
+.#{$govuk-namespace}text {
+  max-width: 30em;
+}
+
+.#{$govuk-namespace}text-secondary {
+  color: $secondary-text-colour;
+}
+
+// Link styles
+.#{$govuk-namespace}link {
+  color: $link-colour;
+  text-decoration: underline;
+}
+
+.#{$govuk-namespace}link:visited {
+  color: $link-visited-colour;
+}
+
+.#{$govuk-namespace}link:hover {
+  color: $link-hover-colour;
+}
+
+.#{$govuk-namespace}link:active {
+  color: $link-colour;
+}
+
+// Back link styles - with left pointing arrow
+
+.#{$govuk-namespace}link-back {
+  @include inline-block;
+  position: relative;
+
+  @include core-16;
+
+  margin-top: $gutter-half;
+  margin-bottom: $gutter-half;
+  padding-left: 14px;
+
+  color: $black;
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: $black;
+  }
+
+  text-decoration: none;
+  border-bottom: 1px solid $black;
+
+  // Back arrow - left pointing black arrow
+  &::before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+
+    border-top: 5px solid transparent;
+    border-right: 6px solid $text-colour;
+    border-bottom: 5px solid transparent;
+
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -6px;
+  }
+
+  // Fallback
+  // IE8 doesn't support rgba and only supports the single colon syntax for :before
+  // IE7 doesn't support pseudo-elements, let's fallback to an image instead.
+  // Ref: http://caniuse.com/#search=%3Abefore, http://caniuse.com/#search=rgba
+  @include ie-lte(8) {
+    background: file-url("icon-arrow-left.png") no-repeat 0 4px;
+  }
+
+}
+
+// Code styles
+.#{$govuk-namespace}code {
+  color: $text-colour;
+  background-color: $highlight-colour;
+
+  text-shadow: 0 1px $page-colour;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 14px;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+
+  border: 1px solid $border-colour;
+  padding: 4px 4px 2px;
+}

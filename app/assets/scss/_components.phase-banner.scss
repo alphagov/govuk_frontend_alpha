@@ -1,0 +1,32 @@
+// Refactoring:
+// https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/design-patterns/_alpha-beta.scss
+// .phase-banner
+// Usage:
+// <div class="c-phase-banner c-phase-banner--alpha">
+//   <div class="c-phase-banner__content">
+//     <strong class="c-phase-tag c-phase-tag--alpha">ALPHA</strong>
+//     <span class="c-phase-banner__text">You can help us improve this app by completing our <a href="https://www.surveymonkey.co.uk/r/2MZRS9H">5 minute survey</a>.</span>
+//   </div>
+// </div>
+
+.#{$govuk-namespace}#{$prefix-component}phase-banner {
+  padding: 10px 0 8px;
+
+  @include media(tablet) {
+    padding-bottom: 10px;
+  }
+
+  border-bottom: 1px solid $border-colour;
+
+  &__content {
+    display: table;
+    margin: 0;
+    color: $banner-text-colour;
+    @include core-16;
+  }
+
+  &___text {
+    display: table-cell;
+    vertical-align: baseline;
+  }
+}

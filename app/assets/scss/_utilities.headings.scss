@@ -1,0 +1,93 @@
+// I'm not using a --modifier for the variants here
+// as we don't have a base .heading block
+.#{$govuk-namespace}#{$prefix-utility}heading-xxxlarge {
+  @include bold-80;
+}
+.#{$govuk-namespace}#{$prefix-utility}heading-xxlarge {
+  @include bold-48;
+}
+.#{$govuk-namespace}#{$prefix-utility}heading-xlarge {
+  @include bold-36
+}
+.#{$govuk-namespace}#{$prefix-utility}heading-large {
+  @include bold-27;
+}
+.#{$govuk-namespace}#{$prefix-utility}heading-medium {
+  @include bold-24;
+}
+// We don't have this yet, but we probably need a heading-small
+// .#{$govuk-namespace}#{$prefix-utility}heading-small {
+//   @include heading-19;
+// }
+
+// These are the GOV.UK elements version of these headings
+// TODO: Figure out how to combine utility classes for these
+
+// Common heading sizes
+// Using the bold-xx mixins from the govuk_toolkit _typography.scss file
+// Spacing is set in em, using the px to em function in the elements _helpers.scss file
+
+// Headings
+// .#{$govuk-namespace}heading-xlarge {
+//   @include bold-48();
+
+//   margin-top: em(15, 32);
+//   margin-bottom: em(30, 32);
+
+//   @include media(tablet) {
+//     margin-top: em(30, 48);
+//     margin-bottom: em(60, 48);
+//   }
+
+//   &__context {
+//     @include heading-27();
+
+//     display: block;
+//     color: $secondary-text-colour;
+//   }
+
+// }
+// .#{$govuk-namespace}heading-large {
+//   @include bold-36();
+
+//   margin-top: em(25, 24);
+//   margin-bottom: em(10, 24);
+
+//   @include media(tablet) {
+//     margin-top: em(45, 36);
+//     margin-bottom: em(20, 36);
+//   }
+
+//   .heading-secondary {
+//     @include heading-24();
+
+//     display: block;
+//     color: $secondary-#{$prefix-utility}colour;
+//   }
+
+// }
+
+// .#{$govuk-namespace}heading-medium {
+//   @include bold-24();
+
+//   margin-top: em(25, 20);
+//   margin-bottom: em(10, 20);
+
+//   @include media(tablet) {
+//     margin-top: em(45, 24);
+//     margin-bottom: em(20, 24);
+//   }
+
+// }
+
+// .#{$govuk-namespace}heading-small {
+//   @include bold-19();
+
+//   margin-top: em(10, 16);
+//   margin-bottom: em(5, 16);
+
+//   @include media(tablet) {
+//     margin-top: em(20, 19);
+//   }
+
+// }

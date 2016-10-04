@@ -1,0 +1,7 @@
+// https://github.com/alphagov/govuk_template/blob/master/source/assets/stylesheets/styleguide/_print.scss
+
+@mixin print {
+  @if $is-print {
+    @content;
+  }
+}

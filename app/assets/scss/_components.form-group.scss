@@ -1,0 +1,88 @@
+.#{$govuk-namespace}#{$prefix-component}form-group {
+
+  // Set spacing here for now
+  // TODO: this should be moved into a utility class
+  margin-bottom: $gutter-half;
+
+  @include media(tablet) {
+    margin-bottom: $gutter;
+  }
+
+  @include box-sizing(border-box);
+
+  @include clearfix;
+
+  // This is standard form label
+  &__label {
+    @include core-19;
+
+    display: block;
+    color: $text-colour;
+    padding-bottom: 2px;
+  }
+
+  // Sometimes bold labels are needed
+  &__label--bold {
+    @include bold-19;
+  }
+
+  // Form hints and example text are light grey and sit above a form control
+  // These might not be grey in the future, we need evidence to support this
+  &__hint {
+    @include core-19;
+    display: block;
+    color: $secondary-text-colour;
+    font-weight: normal;
+
+    margin-top: -2px;
+    padding-bottom: 2px;
+  }
+
+  // If a hint sits inside a label, we need to remove the spacing
+  // todo: This shoud be refactored but exists to have a class for how things are at present
+  &__hint--no-spacing {
+    margin-top: 0;
+    padding-bottom: 0;
+  }
+
+  // Used for inputs and textareas
+  &__control {
+    @include box-sizing(border-box);
+    @include core-19;
+    width: 100%;
+
+    padding: 4px;
+    background-color: $white;
+    border: 2px solid $grey-1;
+  }
+
+  // Used for native controls
+  &__native-control {
+    padding-right: 4px;
+  }
+
+}
+
+// Default radio buttons and checkboxes - not sure about these, own components, or .form-component--modifiers?
+// Using component names but leaving in this file for now
+.#{$govuk-namespace}#{$prefix-component}form-element-radio {
+  display: block;
+  margin: 10px 0;
+
+  // Input vs. control?
+  &__input {
+    vertical-align: middle;
+    margin: -4px 5px 0 0;
+  }
+}
+
+// Checkboxes
+.#{$govuk-namespace}#{$prefix-component}form-element-checkbox {
+  display: block;
+  margin: $gutter-half 0;
+
+  &__input {
+    vertical-align: middle;
+    margin: -2px 5px 0 0;
+  }
+}
