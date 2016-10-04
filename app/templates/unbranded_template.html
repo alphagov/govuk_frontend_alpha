@@ -4,7 +4,7 @@
 <!--[if gt IE 8]><!--><html lang="{{ html_lang|default('en') }}"><!--<![endif]-->
   <head>
     <meta charset="utf-8" />
-    <title>{% block page_title %}GOV.UK - The best place to find government services and information{% endblock %}</title>
+    <title>{% block page_title %}{% endblock %}</title>
 
     <!--[if gt IE 8]><!--><link href="{{ asset_path + 'stylesheets/govuk-template.css' }}" media="screen" rel="stylesheet" /><!--<![endif]-->
     <!--[if IE 6]><link href="{{ asset_path + 'stylesheets/govuk-template-ie6.css' }}" media="screen" rel="stylesheet" /><![endif]-->
@@ -17,7 +17,6 @@
     <!--[if lt IE 9]><script src="{{ asset_path + 'javascripts/ie.js' }}"></script><![endif]-->
 
     <link rel="shortcut icon" href="{{ asset_path + 'images/favicon.ico' }}" type="image/x-icon" />
-    <link rel="mask-icon" href="{{ asset_path + 'images/gov.uk_logotype_crown.svg' }}" color="#0b0c0c">
     <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ asset_path + 'images/apple-touch-icon-152x152.png' }}">
     <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ asset_path + 'images/apple-touch-icon-120x120.png' }}">
     <link rel="apple-touch-icon-precomposed" sizes="76x76" href="{{ asset_path + 'images/apple-touch-icon-76x76.png' }}">
@@ -42,12 +41,13 @@
 
     <div id="global-cookie-message">{% block cookie_message %}{% endblock %}</div>
 
+
     <header role="banner" id="global-header" class="{% block header_class %}{% endblock %}">
       <div class="header-wrapper">
         <div class="header-global">
           <div class="header-logo">
-            <a href="{{ homepage_url|default('https://www.gov.uk') }}" title="{{ logo_link_title|default('Go to the GOV.UK homepage') }}" id="logo" class="content">
-              <img src="{{ asset_path + 'images/gov.uk_logotype_crown_invert_trans.png' }}" width="35" height="31" alt=""> {{ global_header_text|default('GOV.UK') }}
+            <a href="{{ homepage_url|default('#') }}" title="{{ logo_link_title|default('Go to the service homepage') }}" id="logo" class="content">
+              {{ global_header_text|default('Service title') }}
             </a>
           </div>
           {% block inside_header %}{% endblock %}
@@ -62,29 +62,7 @@
 
     {% block content %}{% endblock %}
 
-    <footer class="group js-footer" id="footer" role="contentinfo">
-
-      <div class="footer-wrapper">
-        {% block footer_top %}{% endblock %}
-
-        <div class="footer-meta">
-          <div class="footer-meta-inner">
-            {% block footer_support_links %}{% endblock %}
-
-            <div class="open-government-licence">
-              <p class="logo"><a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence</a></p>
-
-                {% block licence_message %}<p>All content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated</p>{% endblock %}
-
-            </div>
-          </div>
-
-          <div class="copyright">
-            <a href="http://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/copyright-and-re-use/crown-copyright/">{{ crown_copyright_message|default('© Crown copyright') }}</a>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <footer class="group js-footer" id="footer" role="contentinfo"></footer>
 
     <div id="global-app-error" class="app-error hidden"></div>
 
