@@ -29,6 +29,25 @@ describe('Transpilation', function () {
     })
   })
 
+  describe('into Nunjucks', function () {
+    let nunjucksTranspiler
+
+    beforeEach(function () {
+      nunjucksTranspiler = transpiler('nunjucks', nunjucksAssetVersion)
+    })
+
+    it('should have a correct asset_path', function (done) {
+      const transpiledAssetPath = `<link href="{{ asset_path }}stylesheets/govuk-template.css?1.0.0" media="screen" rel="stylesheet" />`
+      transpilationTest(nunjucksTranspiler, nunjucksAssetPath, transpiledAssetPath, done)
+    })
+    it('should have a correct text_for', function (done) {
+      transpilationTest(nunjucksTranspiler, nunjucksTextFor, nunjucksTextFor, done)
+    })
+    it('should have a correct block_for', function (done) {
+      transpilationTest(nunjucksTranspiler, nunjucksBlockFor, nunjucksBlockFor, done)
+    })
+  })
+
   describe('into ERB', function () {
     let erbTranspiler
 
