@@ -19,7 +19,9 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-sass-lint": "^1.2.0",
-    "through2": "^2.0.1"
+    "rollup-stream": "^1.14.0",
+    "through2": "^2.0.1",
+    "vinyl-source-stream": "^1.1.0"
   },
   "scripts": {
     "test": "gulp test"

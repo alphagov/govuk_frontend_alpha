@@ -3,18 +3,28 @@
 const packageJson = require('./package.json')
 const version = packageJson.version
 
-// Configuration
-const paths = require('./config/paths.js')
-
+// Gulp utility
 const gulp = require('gulp')
 const del = require('del')
 const rename = require('gulp-rename')
-const transpiler = require('./lib/transpilation/transpiler.js')
-const mocha = require('gulp-mocha')
 
+// Templates
+const transpiler = require('./lib/transpilation/transpiler.js')
+
+// Styles
 const sass = require('gulp-sass')
 const sasslint = require('gulp-sass-lint')
 const nano = require('gulp-cssnano')
+
+// Javascript
+const rollup = require('rollup-stream')
+const vinylSource = require('vinyl-source-stream')
+
+// Testing
+const mocha = require('gulp-mocha')
+
+// Configuration
+const paths = require('./config/paths.js')
 
 // Task for cleaning the distribution
 gulp.task('clean', () => {
@@ -53,6 +63,19 @@ gulp.task('styles:copy', function () {
   gulp.src(paths.assetsScss + '**/*.scss')
     .pipe(gulp.dest(paths.distScss))
 })
+
+// Build single Javascript file from modules
+let scriptsBuilder = fileName => {
+  return rollup({
+    entry: paths.assetsJs + 'template/' + fileName + '.js',
+    context: 'window'
+  })
+    .pipe(vinylSource(fileName + '.js'))
+    .pipe(gulp.dest(paths.distJs))
+}
+gulp.task('scripts', ['scripts:govuk-template', 'scripts:govuk-template-ie'])
+gulp.task('scripts:govuk-template', scriptsBuilder.bind(null, 'govuk-template'))
+gulp.task('scripts:govuk-template-ie', scriptsBuilder.bind(null, 'govuk-template-ie'))
 
 // Task to run the tests
 gulp.task('test', () => gulp.src(paths.specs + '*.js', {read: false})
