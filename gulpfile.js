@@ -10,6 +10,7 @@ const transpiler = require('./lib/transpilation/transpiler.js')
 const mocha = require('gulp-mocha')
 
 const sass = require('gulp-sass')
+const sasslint = require('gulp-sass-lint')
 
 // Config for paths
 const paths = {
@@ -43,6 +44,11 @@ gulp.task('transpile:django', transpileRunner.bind(null, 'django'))
 // Compile Sass to CSS
 gulp.task('styles', function() {
   gulp.src(paths.assetsScss + '**/*.scss')
+    .pipe(sasslint({
+      config: '.sass-lint.yml'
+    }))
+    .pipe(sasslint.format())
+    .pipe(sasslint.failOnError())
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest(paths.distCSS));
 });
