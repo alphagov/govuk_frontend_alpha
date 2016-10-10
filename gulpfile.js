@@ -9,11 +9,14 @@ const rename = require('gulp-rename')
 const transpiler = require('./lib/transpilation/transpiler.js')
 const mocha = require('gulp-mocha')
 
+const sass = require('gulp-sass')
+
 // Config for paths
 const paths = {
   assets: 'app/assets/',
   assetsScss: 'app/assets/scss/',
   dist: 'dist/',
+  distCSS: 'dist/assets/css/',
   templates: 'app/templates/',
   npm: 'node_modules/',
   specs: 'test/specs/'
@@ -37,7 +40,15 @@ gulp.task('transpile:erb', transpileRunner.bind(null, 'erb'))
 gulp.task('transpile:handlebars', transpileRunner.bind(null, 'handlebars'))
 gulp.task('transpile:django', transpileRunner.bind(null, 'django'))
 
+// Compile Sass to CSS
+gulp.task('styles', function() {
+  gulp.src(paths.assetsScss + '**/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest(paths.distCSS));
+});
+
 // Task to run the tests
 gulp.task('test', () => gulp.src(paths.specs + '*.js', {read: false})
   .pipe(mocha())
 )
+
