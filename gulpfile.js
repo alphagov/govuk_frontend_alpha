@@ -18,6 +18,7 @@ const paths = {
   assetsScss: 'app/assets/scss/',
   dist: 'dist/',
   distCSS: 'dist/assets/css/',
+  distScss: 'dist/assets/scss/',
   templates: 'app/templates/',
   npm: 'node_modules/',
   specs: 'test/specs/'
@@ -42,7 +43,8 @@ gulp.task('transpile:handlebars', transpileRunner.bind(null, 'handlebars'))
 gulp.task('transpile:django', transpileRunner.bind(null, 'django'))
 
 // Compile Sass to CSS
-gulp.task('styles', function() {
+gulp.task('styles', ['styles:build', 'styles:copy'])
+gulp.task('styles:build', function() {
   gulp.src(paths.assetsScss + '**/*.scss')
     .pipe(sasslint({
       config: '.sass-lint.yml'
@@ -51,7 +53,11 @@ gulp.task('styles', function() {
     .pipe(sasslint.failOnError())
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest(paths.distCSS));
-});
+})
+gulp.task('styles:copy', function() {
+  gulp.src(paths.assetsScss + '**/*.scss')
+    .pipe(gulp.dest(paths.distScss))
+})
 
 // Task to run the tests
 gulp.task('test', () => gulp.src(paths.specs + '*.js', {read: false})
