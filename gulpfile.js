@@ -19,6 +19,9 @@ const nano = require('gulp-cssnano')
 // Javascript
 const rollup = require('rollup-stream')
 const vinylSource = require('vinyl-source-stream')
+const vinylBuffer = require('vinyl-buffer')
+const uglify = require('gulp-uglify')
+const uglifySaveLicense = require('uglify-save-license')
 
 // Testing
 const mocha = require('gulp-mocha')
@@ -71,6 +74,12 @@ let scriptsBuilder = fileName => {
     context: 'window'
   })
     .pipe(vinylSource(fileName + '.js'))
+    .pipe(gulp.dest(paths.distJs))
+    .pipe(vinylBuffer())
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(uglify({
+      preserveComments: uglifySaveLicense
+    }))
     .pipe(gulp.dest(paths.distJs))
 }
 gulp.task('scripts', ['scripts:govuk-template', 'scripts:govuk-template-ie'])
