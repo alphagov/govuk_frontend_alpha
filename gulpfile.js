@@ -17,6 +17,7 @@ const sasslint = require('gulp-sass-lint')
 const nano = require('gulp-cssnano')
 
 // Javascript
+const standard = require('gulp-standard')
 const rollup = require('rollup-stream')
 const vinylSource = require('vinyl-source-stream')
 const vinylBuffer = require('vinyl-buffer')
@@ -82,7 +83,18 @@ let scriptsBuilder = fileName => {
     }))
     .pipe(gulp.dest(paths.distJs))
 }
-gulp.task('scripts', ['scripts:govuk-template', 'scripts:govuk-template-ie'])
+gulp.task('scripts', ['scripts:lint', 'scripts:govuk-template', 'scripts:govuk-template-ie'])
+gulp.task('scripts:lint', () => {
+  gulp.src([
+    '!' + paths.assetsJs + '**/vendor/**/*.js',
+    paths.assetsJs + '**/*.js'
+  ])
+    .pipe(standard())
+    .pipe(standard.reporter('default', {
+      breakOnError: true,
+      quiet: true
+    }))
+})
 gulp.task('scripts:govuk-template', scriptsBuilder.bind(null, 'govuk-template'))
 gulp.task('scripts:govuk-template-ie', scriptsBuilder.bind(null, 'govuk-template-ie'))
 
