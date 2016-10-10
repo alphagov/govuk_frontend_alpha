@@ -50,7 +50,7 @@ gulp.task('transpile:django', transpileRunner.bind(null, 'django'))
 
 // Compile Sass to CSS
 gulp.task('styles', ['styles:build', 'styles:copy'])
-gulp.task('styles:build', function () {
+gulp.task('styles:build', () => {
   gulp.src(paths.assetsScss + '**/*.scss')
     .pipe(sasslint({
       config: paths.config + '.sass-lint.yml'
@@ -63,7 +63,7 @@ gulp.task('styles:build', function () {
     .pipe(nano())
     .pipe(gulp.dest(paths.distCSS))
 })
-gulp.task('styles:copy', function () {
+gulp.task('styles:copy', () => {
   gulp.src(paths.assetsScss + '**/*.scss')
     .pipe(gulp.dest(paths.distScss))
 })
