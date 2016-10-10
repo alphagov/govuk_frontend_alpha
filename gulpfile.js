@@ -102,3 +102,6 @@ gulp.task('scripts:govuk-template-ie', scriptsBuilder.bind(null, 'govuk-template
 gulp.task('test', () => gulp.src(paths.specs + '*.js', {read: false})
   .pipe(mocha())
 )
+
+// Build distribution
+gulp.task('build', ['clean', 'transpile', 'styles', 'scripts'])
