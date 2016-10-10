@@ -11,6 +11,7 @@ const mocha = require('gulp-mocha')
 
 const sass = require('gulp-sass')
 const sasslint = require('gulp-sass-lint')
+const nano = require('gulp-cssnano')
 
 // Config for paths
 const paths = {
@@ -52,7 +53,10 @@ gulp.task('styles:build', function() {
     .pipe(sasslint.format())
     .pipe(sasslint.failOnError())
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(paths.distCSS));
+    .pipe(gulp.dest(paths.distCSS))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(nano())
+    .pipe(gulp.dest(paths.distCSS))
 })
 gulp.task('styles:copy', function() {
   gulp.src(paths.assetsScss + '**/*.scss')
