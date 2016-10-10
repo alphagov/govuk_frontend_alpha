@@ -3,6 +3,9 @@
 const packageJson = require('./package.json')
 const version = packageJson.version
 
+// Configuration
+const paths = require('./config/paths.js')
+
 const gulp = require('gulp')
 const del = require('del')
 const rename = require('gulp-rename')
@@ -12,18 +15,6 @@ const mocha = require('gulp-mocha')
 const sass = require('gulp-sass')
 const sasslint = require('gulp-sass-lint')
 const nano = require('gulp-cssnano')
-
-// Config for paths
-const paths = {
-  assets: 'app/assets/',
-  assetsScss: 'app/assets/scss/',
-  dist: 'dist/',
-  distCSS: 'dist/assets/css/',
-  distScss: 'dist/assets/scss/',
-  templates: 'app/templates/',
-  npm: 'node_modules/',
-  specs: 'test/specs/'
-}
 
 // Task for cleaning the distribution
 gulp.task('clean', () => {
@@ -45,10 +36,10 @@ gulp.task('transpile:django', transpileRunner.bind(null, 'django'))
 
 // Compile Sass to CSS
 gulp.task('styles', ['styles:build', 'styles:copy'])
-gulp.task('styles:build', function() {
+gulp.task('styles:build', function () {
   gulp.src(paths.assetsScss + '**/*.scss')
     .pipe(sasslint({
-      config: '.sass-lint.yml'
+      config: paths.config + '.sass-lint.yml'
     }))
     .pipe(sasslint.format())
     .pipe(sasslint.failOnError())
@@ -58,7 +49,7 @@ gulp.task('styles:build', function() {
     .pipe(nano())
     .pipe(gulp.dest(paths.distCSS))
 })
-gulp.task('styles:copy', function() {
+gulp.task('styles:copy', function () {
   gulp.src(paths.assetsScss + '**/*.scss')
     .pipe(gulp.dest(paths.distScss))
 })
@@ -67,4 +58,3 @@ gulp.task('styles:copy', function() {
 gulp.task('test', () => gulp.src(paths.specs + '*.js', {read: false})
   .pipe(mocha())
 )
-
