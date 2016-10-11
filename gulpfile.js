@@ -7,6 +7,7 @@ const version = packageJson.version
 const gulp = require('gulp')
 const del = require('del')
 const rename = require('gulp-rename')
+const runSequence = require('run-sequence')
 
 // Templates
 const transpiler = require('./lib/transpilation/transpiler.js')
@@ -42,28 +43,33 @@ let transpileRunner = templateLanguage => {
     .pipe(rename({extname: '.html.' + templateLanguage}))
     .pipe(gulp.dest(paths.distTemplates))
 }
-gulp.task('transpile', ['transpile:nunjucks', 'transpile:erb', 'transpile:handlebars', 'transpile:django'])
-gulp.task('transpile:nunjucks', transpileRunner.bind(null, 'nunjucks'))
-gulp.task('transpile:erb', transpileRunner.bind(null, 'erb'))
-gulp.task('transpile:handlebars', transpileRunner.bind(null, 'handlebars'))
-gulp.task('transpile:django', transpileRunner.bind(null, 'django'))
+gulp.task('build:templates', ['build:templates:nunjucks', 'build:templates:erb', 'build:templates:handlebars', 'build:templates:django'])
+gulp.task('build:templates:nunjucks', transpileRunner.bind(null, 'nunjucks'))
+gulp.task('build:templates:erb', transpileRunner.bind(null, 'erb'))
+gulp.task('build:templates:handlebars', transpileRunner.bind(null, 'handlebars'))
+gulp.task('build:templates:django', transpileRunner.bind(null, 'django'))
 
 // Compile Sass to CSS
-gulp.task('styles', ['styles:build', 'styles:copy'])
-gulp.task('styles:build', () => {
+gulp.task('build:styles', cb => {
+  runSequence('build:styles:lint', ['build:styles:compile', 'build:styles:copy'], cb)
+})
+gulp.task('build:styles:lint', () => {
   gulp.src(paths.assetsScss + '**/*.scss')
     .pipe(sasslint({
       config: paths.config + '.sass-lint.yml'
     }))
     .pipe(sasslint.format())
     .pipe(sasslint.failOnError())
+})
+gulp.task('build:styles:compile', () => {
+  gulp.src(paths.assetsScss + '**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest(paths.distCSS))
     .pipe(rename({ suffix: '.min' }))
     .pipe(nano())
     .pipe(gulp.dest(paths.distCSS))
 })
-gulp.task('styles:copy', () => {
+gulp.task('build:styles:copy', () => {
   gulp.src(paths.assetsScss + '**/*.scss')
     .pipe(gulp.dest(paths.distScss))
 })
@@ -83,8 +89,10 @@ let scriptsBuilder = fileName => {
     }))
     .pipe(gulp.dest(paths.distJs))
 }
-gulp.task('scripts', ['scripts:lint', 'scripts:govuk-template', 'scripts:govuk-template-ie'])
-gulp.task('scripts:lint', () => {
+gulp.task('build:scripts', cb => {
+  runSequence('build:scripts:lint', ['build:scripts:govuk-template', 'build:scripts:govuk-template-ie'], cb)
+})
+gulp.task('build:scripts:lint', () => {
   gulp.src([
     '!' + paths.assetsJs + '**/vendor/**/*.js',
     paths.assetsJs + '**/*.js'
@@ -95,8 +103,8 @@ gulp.task('scripts:lint', () => {
       quiet: true
     }))
 })
-gulp.task('scripts:govuk-template', scriptsBuilder.bind(null, 'govuk-template'))
-gulp.task('scripts:govuk-template-ie', scriptsBuilder.bind(null, 'govuk-template-ie'))
+gulp.task('build:scripts:govuk-template', scriptsBuilder.bind(null, 'govuk-template'))
+gulp.task('build:scripts:govuk-template-ie', scriptsBuilder.bind(null, 'govuk-template-ie'))
 
 // Task to run the tests
 gulp.task('test', () => gulp.src(paths.specs + '*.js', {read: false})
@@ -104,4 +112,6 @@ gulp.task('test', () => gulp.src(paths.specs + '*.js', {read: false})
 )
 
 // Build distribution
-gulp.task('build', ['clean', 'transpile', 'styles', 'scripts'])
+gulp.task('build', cb => {
+  runSequence('clean', ['build:templates', 'build:styles', 'build:scripts'], cb)
+})

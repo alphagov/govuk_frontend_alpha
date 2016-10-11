@@ -22,6 +22,7 @@
     "gulp-standard": "^8.0.2",
     "gulp-uglify": "^2.0.0",
     "rollup-stream": "^1.14.0",
+    "run-sequence": "^1.2.2",
     "through2": "^2.0.1",
     "uglify-save-license": "^0.4.1",
     "vinyl-buffer": "^1.0.0",
