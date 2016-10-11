@@ -51,7 +51,7 @@ gulp.task('build:templates:django', transpileRunner.bind(null, 'django'))
 
 // Compile Sass to CSS
 gulp.task('build:styles', cb => {
-  runSequence('build:styles:lint', ['build:styles:compile', 'build:styles:copy'], cb)
+  runSequence('build:styles:lint', ['build:styles:copy', 'build:styles:compile'], cb)
 })
 gulp.task('build:styles:lint', () => {
   gulp.src(paths.assetsScss + '**/*.scss')
@@ -90,7 +90,7 @@ let scriptsBuilder = fileName => {
     .pipe(gulp.dest(paths.distJs))
 }
 gulp.task('build:scripts', cb => {
-  runSequence('build:scripts:lint', ['build:scripts:govuk-template', 'build:scripts:govuk-template-ie'], cb)
+  runSequence('build:scripts:lint', ['build:scripts:copy', 'build:scripts:govuk-template', 'build:scripts:govuk-template-ie'], cb)
 })
 gulp.task('build:scripts:lint', () => {
   gulp.src([
@@ -105,6 +105,10 @@ gulp.task('build:scripts:lint', () => {
 })
 gulp.task('build:scripts:govuk-template', scriptsBuilder.bind(null, 'govuk-template'))
 gulp.task('build:scripts:govuk-template-ie', scriptsBuilder.bind(null, 'govuk-template-ie'))
+gulp.task('build:scripts:copy', () => {
+  gulp.src(paths.assetsJs + '**/*.js')
+    .pipe(gulp.dest(paths.distJs))
+})
 
 // Task to run the tests
 gulp.task('test', () => gulp.src(paths.specs + '*.js', {read: false})
