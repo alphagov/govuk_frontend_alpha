@@ -90,7 +90,13 @@ let scriptsBuilder = fileName => {
     .pipe(gulp.dest(paths.distJs))
 }
 gulp.task('build:scripts', cb => {
-  runSequence('build:scripts:lint', ['build:scripts:copy', 'build:scripts:elements', 'build:scripts:govuk-template', 'build:scripts:govuk-template-ie'], cb)
+  runSequence('build:scripts:lint', [
+    'build:scripts:copy',
+    'build:scripts:elements',
+    'build:scripts:govuk-template',
+    'build:scripts:govuk-template-ie',
+    'build:scripts:toolkit'
+  ], cb)
 })
 gulp.task('build:scripts:lint', () => {
   gulp.src([
@@ -106,6 +112,7 @@ gulp.task('build:scripts:lint', () => {
 gulp.task('build:scripts:elements', scriptsBuilder.bind(null, 'elements'))
 gulp.task('build:scripts:govuk-template', scriptsBuilder.bind(null, 'govuk-template'))
 gulp.task('build:scripts:govuk-template-ie', scriptsBuilder.bind(null, 'govuk-template-ie'))
+gulp.task('build:scripts:toolkit', scriptsBuilder.bind(null, 'toolkit'))
 gulp.task('build:scripts:copy', () => {
   gulp.src(paths.assetsJs + '**/*.js')
     .pipe(gulp.dest(paths.distJs))
