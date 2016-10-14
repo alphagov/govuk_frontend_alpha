@@ -121,9 +121,11 @@ gulp.task('test:toolkit', () => gulp.src([
 gulp.task('lint', ['lint:styles', 'lint:scripts', 'lint:tests'])
 gulp.task('lint:styles', () => {
   gulp.src(paths.assetsScss + '**/*.scss')
-    .pipe(sasslint({
-      config: paths.config + '.sass-lint.yml'
-    }))
+    .pipe(sasslint())
+    // if the .yml file is in /config, this fails :(
+    // .pipe(sasslint({
+    //   config: paths.config + '.sass-lint.yml'
+    // }))
     .pipe(sasslint.format())
     .pipe(sasslint.failOnError())
 })
