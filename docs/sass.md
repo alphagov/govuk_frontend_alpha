@@ -160,3 +160,5 @@ If you want to import all components, use
 This will import all the components listed in
 
     /app/assets/scss/_components.scss
+
+[Linting Sass](sass-linting.md)
