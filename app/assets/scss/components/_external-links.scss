@@ -94,7 +94,7 @@
 }
 
 // TODO: Should this be a component?
-.#{$govuk-namespace}#{$prefix-component}external-link {
+.gv-c-external-link {
   @include external-link-12-no-hover;
   @include external-link-heading;
 }

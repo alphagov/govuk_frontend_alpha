@@ -9,7 +9,7 @@
 //   </div>
 // </div>
 
-.#{$govuk-namespace}#{$prefix-component}phase-banner {
+.gv-c-phase-banner {
   padding: 10px 0 8px;
 
   @include media(tablet) {
