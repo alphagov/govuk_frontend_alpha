@@ -27,6 +27,8 @@ const uglifySaveLicense = require('uglify-save-license')
 
 // Testing
 const mocha = require('gulp-mocha')
+const jasmineBrowser = require('gulp-jasmine-browser')
+const specReporter = require('jasmine-spec-reporter')
 
 // Configuration
 const paths = require('./config/paths.js')
@@ -119,8 +121,19 @@ gulp.task('build:scripts:copy', () => {
 })
 
 // Task to run the tests
-gulp.task('test', () => gulp.src(paths.specs + '*.js', {read: false})
+gulp.task('test', ['test:lib', 'test:toolkit'])
+gulp.task('test:lib', () => gulp.src(paths.specs + '*.js', {read: false})
   .pipe(mocha())
+)
+// Ideally these pre-existing toolkit tests will be rewritten at some point
+// to use mocha rather than requiring Jasmine as well.
+gulp.task('test:toolkit', () => gulp.src([
+  'node_modules/jquery/dist/jquery.js',
+  'app/assets/js/toolkit/**/*.js',
+  'test/specs/toolkit/unit/**/*.spec.js'
+])
+  .pipe(jasmineBrowser.specRunner({console: true}))
+  .pipe(jasmineBrowser.headless({reporter: new specReporter()}))
 )
 
 // Build distribution
