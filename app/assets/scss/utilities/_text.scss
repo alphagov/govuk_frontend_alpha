@@ -1,58 +1,58 @@
 // Bold font sizes
-.#{$govuk-namespace}#{$prefix-utility}text-bold-xxxlarge {
+.gv-u-text-bold-xxxlarge {
   @include bold-80;
 }
 
-.#{$govuk-namespace}#{$prefix-utility}text-bold-xxlarge {
+.gv-u-text-bold-xxlarge {
   @include bold-48;
 }
 
-.#{$govuk-namespace}#{$prefix-utility}text-bold-xlarge {
+.gv-u-text-bold-xlarge {
   @include bold-36;
 }
 
-.#{$govuk-namespace}#{$prefix-utility}text-bold-large {
+.gv-u-text-bold-large {
   @include bold-27;
 }
 
-.#{$govuk-namespace}#{$prefix-utility}text-bold-medium {
+.gv-u-text-bold-medium {
   @include bold-24;
 }
 
-.#{$govuk-namespace}#{$prefix-utility}text-bold-small {
+.gv-u-text-bold-small {
   @include bold-19;
 }
 
-.#{$govuk-namespace}#{$prefix-utility}text-bold-xsmall {
+.gv-u-text-bold-xsmall {
   @include bold-16;
 }
 
 // Core font sizes
-.#{$govuk-namespace}#{$prefix-utility}text-xxxlarge {
+.gv-u-text-xxxlarge {
   @include core-80;
 }
 
-.#{$govuk-namespace}#{$prefix-utility}text-xxlarge {
+.gv-u-text-xxlarge {
   @include core-48;
 }
 
-.#{$govuk-namespace}#{$prefix-utility}text-xlarge {
+.gv-u-text-xlarge {
   @include core-36;
 }
 
-.#{$govuk-namespace}#{$prefix-utility}text-large {
+.gv-u-text-large {
   @include core-27;
 }
 
-.#{$govuk-namespace}#{$prefix-utility}text-lede,
-.#{$govuk-namespace}#{$prefix-utility}text-medium {
+.gv-u-text-lede,
+.gv-u-text-medium {
   @include core-24;
 }
 
-.#{$govuk-namespace}#{$prefix-utility}text-small {
+.gv-u-text-small {
   @include core-19;
 }
 
-.#{$govuk-namespace}#{$prefix-utility}text-xsmall {
+.gv-u-text-xsmall {
   @include core-16;
 }

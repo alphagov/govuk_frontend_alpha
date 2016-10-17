@@ -1,5 +1,5 @@
 // Hide, but not for screenreaders
-.#{$govuk-namespace}#{$prefix-utility}visually-hidden {
+.gv-u-visually-hidden {
   position: absolute;
 
   width: 1px;
