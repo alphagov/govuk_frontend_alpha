@@ -69,10 +69,3 @@ $is-print:          false !default;
 // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/_font_stack.scss#L19
 // Font reset for print
 $print-reset:       sans-serif;
-
-// Namespaces and prefixes
-// http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/
-
-$prefix-scope:      s- !default;
-
-$prefix-js:         js- !default;
