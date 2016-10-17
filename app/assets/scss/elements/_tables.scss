@@ -1,12 +1,17 @@
 // Tables
 // ==========================================================================
 
-table, td, th { font-family: $NTA-Light; }
+table,
+td,
+th {
+  font-family: $NTA-Light;
+}
 
 table {
+  width: 100%;
+
   border-collapse: collapse;
   border-spacing: 0;
-  width: 100%;
 
   th,
   td {

@@ -58,8 +58,8 @@
 @mixin grid-column($width, $full-width: tablet, $float: left) {
 
   @include media($full-width) {
-    float: $float;
     width: percentage($width);
+    float: $float;
   }
 
   @include ie-lte(7) {
@@ -85,11 +85,11 @@
 //   @extend %outdent-to-full-width;
 // }
 %outdent-to-full-width {
-  margin-left: -$gutter-half;
   margin-right: -$gutter-half;
+  margin-left: -$gutter-half;
 
   @include media(tablet) {
-    margin-left: -$gutter;
     margin-right: -$gutter;
+    margin-left: -$gutter;
   }
 }

@@ -22,8 +22,8 @@
   }
 
   @include ie-lte(7) {
-    zoom: 1;
     display: inline;
+    zoom: 1;
   }
 
   @include ie(6) {

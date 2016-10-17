@@ -3,15 +3,19 @@
 .#{$govuk-namespace}#{$prefix-utility}heading-xxxlarge {
   @include bold-80;
 }
+
 .#{$govuk-namespace}#{$prefix-utility}heading-xxlarge {
   @include bold-48;
 }
+
 .#{$govuk-namespace}#{$prefix-utility}heading-xlarge {
   @include bold-36
 }
+
 .#{$govuk-namespace}#{$prefix-utility}heading-large {
   @include bold-27;
 }
+
 .#{$govuk-namespace}#{$prefix-utility}heading-medium {
   @include bold-24;
 }

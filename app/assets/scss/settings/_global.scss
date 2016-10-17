@@ -4,11 +4,11 @@ $site-width:          960px !default;
 
 // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/_measurements.scss#L3
 $full-width:          100%;
-$one-quarter:         $full-width/4;
-$one-third:           $full-width/3;
-$half:                $full-width/2;
-$two-thirds:          ($full-width)-($one-third);
-$three-quarters:      ($full-width)-($one-quarter);
+$one-quarter:         $full-width / 4;
+$one-third:           $full-width / 3;
+$half:                $full-width / 2;
+$two-thirds:          ($full-width) - ($one-third);
+$three-quarters:      ($full-width) - ($one-quarter);
 
 // Widths of things
 $width-focus-outline: 3px;
@@ -16,9 +16,9 @@ $width-focus-outline: 3px;
 // Guttters
 // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/_measurements.scss#L10
 $gutter:              30px;
-$gutter-one-quarter:  $gutter/4;
-$gutter-one-third:    $gutter/3;
-$gutter-half:         $gutter/2;
+$gutter-one-quarter:  $gutter / 4;
+$gutter-one-third:    $gutter / 3;
+$gutter-half:         $gutter / 2;
 $gutter-two-thirds:   $gutter - $gutter-one-third;
 
 // Breakpoints
@@ -68,7 +68,7 @@ $is-print:          false !default;
 
 // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/_font_stack.scss#L19
 // Font reset for print
-$Print-reset:       sans-serif;
+$print-reset:       sans-serif;
 
 // Namespaces and prefixes
 // http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/

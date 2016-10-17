@@ -1,14 +1,14 @@
 // Bold font sizes
 .#{$govuk-namespace}#{$prefix-utility}text-bold-xxxlarge {
-  @include bold-80();
+  @include bold-80;
 }
 
 .#{$govuk-namespace}#{$prefix-utility}text-bold-xxlarge {
-  @include bold-48();
+  @include bold-48;
 }
 
 .#{$govuk-namespace}#{$prefix-utility}text-bold-xlarge {
-  @include bold-36();
+  @include bold-36;
 }
 
 .#{$govuk-namespace}#{$prefix-utility}text-bold-large {
@@ -29,15 +29,15 @@
 
 // Core font sizes
 .#{$govuk-namespace}#{$prefix-utility}text-xxxlarge {
-  @include core-80();
+  @include core-80;
 }
 
 .#{$govuk-namespace}#{$prefix-utility}text-xxlarge {
-  @include core-48();
+  @include core-48;
 }
 
 .#{$govuk-namespace}#{$prefix-utility}text-xlarge {
-  @include core-36();
+  @include core-36;
 }
 
 .#{$govuk-namespace}#{$prefix-utility}text-large {

@@ -26,13 +26,13 @@ $is-print: false !default;
   @if $tabular-numbers == true {
     font-family: $toolkit-font-stack-tabular;
   } @else if $is-print {
-    font-family: $Print-reset;
+    font-family: $print-reset;
   } @else {
     font-family: $toolkit-font-stack;
   }
   font-size: $font-size-640;
-  line-height: $line-height-640;
   font-weight: $font-weight;
+  line-height: $line-height-640;
   text-transform: none;
 
   @if $toolkit-font-stack == $NTA-Light {

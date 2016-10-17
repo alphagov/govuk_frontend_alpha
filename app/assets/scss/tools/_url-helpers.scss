@@ -5,7 +5,7 @@
 // Asset Pipeline or Compass or a plain url which is prefixed with a defined
 // path variable.
 @function file-url($file) {
-  $url: '';
+  $url: "";
   @if $path {
     $url: url($path + $file);
   } @else {

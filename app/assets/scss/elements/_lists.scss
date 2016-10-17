@@ -1,13 +1,20 @@
 // Lists
 // ==========================================================================
 
-// From the template
-ol, ul, nav ol, nav ul {
-  list-style: inherit;
-}
-
 // From elements
 ul,
 ol {
   list-style-type: none;
+}
+
+nav {
+  ol {
+    list-style: inherit;
+  }
+}
+
+nav {
+  ul {
+    list-style: inherit;
+  }
 }

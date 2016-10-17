@@ -1,8 +1,8 @@
 @mixin clearfix {
-  &:after {
-    content: "";
+  &::after {
     display: block;
     clear: both;
+    content: "";
   }
 
   @include ie-lte(7) {
