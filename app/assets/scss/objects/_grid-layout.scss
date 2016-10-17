@@ -15,14 +15,14 @@
 
 // Use .grid-row to define a row for grid columns to sit in
 // .o-layout?
-.#{$govuk-namespace}#{$prefix-object}grid-row {
+.gv-o-grid-row {
   // Should we use a utility class, or OK to use a mixin here?
   @include clearfix;
 
   margin: 0 (-$gutter-half);
 }
 
-.#{$govuk-namespace}#{$prefix-object}grid-item {
+.gv-o-grid-item {
   @include box-sizing(border-box);
 
   @include media(tablet) {
