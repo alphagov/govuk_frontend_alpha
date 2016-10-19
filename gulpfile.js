@@ -30,6 +30,10 @@ const mocha = require('gulp-mocha')
 const jasmineBrowser = require('gulp-jasmine-browser')
 const SpecReporter = require('jasmine-spec-reporter')
 
+// Packaging
+const tar = require('gulp-tar')
+const gzip = require('gulp-gzip')
+
 // Configuration
 const paths = require('./config/paths.js')
 
@@ -151,3 +155,11 @@ gulp.task('lint:tests', () => {
 gulp.task('build', cb => {
   runSequence('clean', ['build:templates', 'build:styles', 'build:scripts'], cb)
 })
+
+// Packaging
+gulp.task('package', () => gulp.src('src/*')
+  .pipe(tar('dist/*'))
+  .pipe(gzip())
+  .pipe(gulp.dest('dist/pkg/*'))
+)
+
