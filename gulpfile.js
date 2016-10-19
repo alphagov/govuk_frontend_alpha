@@ -157,9 +157,10 @@ gulp.task('build', cb => {
 })
 
 // Packaging
-gulp.task('package', () => gulp.src('src/*')
-  .pipe(tar('dist/*'))
-  .pipe(gzip())
-  .pipe(gulp.dest('dist/pkg/*'))
+gulp.task('package', () =>
+  gulp.src(paths.dist + '*')
+    .pipe(tar(packageName + '.tar'))
+    .pipe(gzip())
+    .pipe(gulp.dest(paths.dist))
 )
 
