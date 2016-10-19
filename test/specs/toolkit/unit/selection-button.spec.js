@@ -1,43 +1,51 @@
+/* global describe it expect beforeEach afterEach spyOn */
+
+var $ = window.jQuery
+
 describe('selection-buttons', function () {
-  var $radioButtons,
-    $radioLabels,
-    $checkboxButtons,
-    $checkboxLabels,
-    buttonsInstance
+  'use strict'
+  var GOVUK = window.GOVUK
+
+  var $radioButtons
+  var $radioLabels
+  var $checkboxButtons
+  var $checkboxLabels
+  var buttonsInstance
+  var $content
 
   beforeEach(function () {
     $radioLabels = $(
-      '<label class="selectable">' +
-      'Small' +
-      '<input type="radio" name="size" id="small" value="small" />' +
-      '</label>' +
-      '<label class="selectable">' +
-      'Medium' +
-      '<input type="radio" name="size" id="medium" value="medium" />' +
-      '</label>' +
-      '<label class="selectable">' +
-      'Large' +
-      '<input type="radio" name="size" id="large" value="large" />' +
-      '</label>'
+        '<label class="selectable">' +
+          'Small' +
+          '<input type="radio" name="size" id="small" value="small" />' +
+        '</label>' +
+        '<label class="selectable">' +
+          'Medium' +
+          '<input type="radio" name="size" id="medium" value="medium" />' +
+        '</label>' +
+        '<label class="selectable">' +
+          'Large' +
+          '<input type="radio" name="size" id="large" value="large" />' +
+        '</label>'
     )
     $checkboxLabels = $(
-      '<label class="selectable">' +
-      'Eggs' +
-      '<input id="eggs" name="food" value="eggs" type="checkbox" />' +
-      '</label>' +
-      '<label class="selectable">' +
-      'Bread' +
-      '<input id="bread" name="food" value="bread" type="checkbox" />' +
-      '</label>' +
-      '<label class="selectable">' +
-      'Fruit' +
-      '<input id="fruit" name="food" value="fruit" type="checkbox" />' +
-      '</label>'
+        '<label class="selectable">' +
+          'Eggs' +
+          '<input id="eggs" name="food" value="eggs" type="checkbox" />' +
+        '</label>' +
+        '<label class="selectable">' +
+          'Bread' +
+          '<input id="bread" name="food" value="bread" type="checkbox" />' +
+        '</label>' +
+        '<label class="selectable">' +
+          'Fruit' +
+          '<input id="fruit" name="food" value="fruit" type="checkbox" />' +
+        '</label>'
     )
     $radioButtons = $radioLabels.find('input')
     $checkboxButtons = $checkboxLabels.find('input')
-    $radioForm = $('<form action="" method="post" />')
-    $checkboxForm = $('<form action="" method="post" />')
+    var $radioForm = $('<form action="" method="post" />')
+    var $checkboxForm = $('<form action="" method="post" />')
     $content = $('<div id="content" />')
     $radioForm.append($radioLabels)
     $checkboxForm.append($checkboxLabels)
@@ -677,10 +685,10 @@ describe('selection-buttons', function () {
 
   describe('GOVUK.SelectionButtons.prototype.destroy', function () {
     it('Should remove the events bound to the jQuery-wrapped elements sent into GOVUK.SelectionButtons', function () {
-      var clickCallbackBound = false,
-        focusBlurCallbackBound = false,
-        clickCallbackCancelled = false,
-        focusBlurCallbackCancelled = false
+      var clickCallbackBound = false
+      var focusBlurCallbackBound = false
+      var clickCallbackCancelled = false
+      var focusBlurCallbackCancelled = false
 
       spyOn($.fn, 'on').and.callFake(function (evt, callback) {
         if (this === $radioButtons) {
@@ -714,10 +722,10 @@ describe('selection-buttons', function () {
     })
 
     it('Should remove the events bound to the document for the selector was sent into GOVUK.SelectionButtons', function () {
-      var clickCallbackBound = false,
-        focusBlurCallbackBound = false,
-        clickCallbackCancelled = false,
-        focusBlurCallbackCancelled = false
+      var clickCallbackBound = false
+      var focusBlurCallbackBound = false
+      var clickCallbackCancelled = false
+      var focusBlurCallbackCancelled = false
 
       spyOn($.fn, 'on').and.callFake(function (evt, selector, callback) {
         if ((this[0] === document) && (selector === "label.selectable input[type='checkbox']")) {

@@ -1,39 +1,45 @@
-describe("stick-at-top-when-scrolling", function(){
-  var $stickyElement,
-      $stickyWrapper;
+/* global describe it expect beforeEach afterEach */
 
-  beforeEach(function(){
-    $stickyElement = $('<div class="stick-at-top-when-scrolling"></div>');
-    $stickyWrapper = $('<div>').append($stickyElement);
+var $ = window.jQuery
 
-    $('body').append($stickyWrapper);
-  });
+describe('stick-at-top-when-scrolling', function () {
+  'use strict'
+  var GOVUK = window.GOVUK
 
-  afterEach(function(){
-    $stickyWrapper.remove();
-  });
+  var $stickyElement
+  var $stickyWrapper
 
-  it('should add fixed class on stick', function(){
-    expect(!$stickyElement.hasClass('content-fixed')).toBe(true);
-    GOVUK.stickAtTopWhenScrolling.stick($stickyElement);
-    expect($stickyElement.hasClass('content-fixed')).toBe(true);
-  });
+  beforeEach(function () {
+    $stickyElement = $('<div class="stick-at-top-when-scrolling"></div>')
+    $stickyWrapper = $('<div>').append($stickyElement)
 
-  it('should remove fixed class on release', function(){
-    $stickyElement.addClass('content-fixed');
-    GOVUK.stickAtTopWhenScrolling.release($stickyElement);
-    expect(!$stickyElement.hasClass('content-fixed')).toBe(true);
-  });
+    $('body').append($stickyWrapper)
+  })
 
-  it('should insert shim when sticking content', function(){
-    expect($('.shim').length).toBe(0);
-    GOVUK.stickAtTopWhenScrolling.stick($stickyElement);
-    expect($('.shim').length).toBe(1);
-  });
+  afterEach(function () {
+    $stickyWrapper.remove()
+  })
 
-  it('should insert shim with minimum height', function(){
-    GOVUK.stickAtTopWhenScrolling.stick($stickyElement);
-    expect($('.shim').height()).toBe(1);
-  });
-});
+  it('should add fixed class on stick', function () {
+    expect(!$stickyElement.hasClass('content-fixed')).toBe(true)
+    GOVUK.stickAtTopWhenScrolling.stick($stickyElement)
+    expect($stickyElement.hasClass('content-fixed')).toBe(true)
+  })
 
+  it('should remove fixed class on release', function () {
+    $stickyElement.addClass('content-fixed')
+    GOVUK.stickAtTopWhenScrolling.release($stickyElement)
+    expect(!$stickyElement.hasClass('content-fixed')).toBe(true)
+  })
+
+  it('should insert shim when sticking content', function () {
+    expect($('.shim').length).toBe(0)
+    GOVUK.stickAtTopWhenScrolling.stick($stickyElement)
+    expect($('.shim').length).toBe(1)
+  })
+
+  it('should insert shim with minimum height', function () {
+    GOVUK.stickAtTopWhenScrolling.stick($stickyElement)
+    expect($('.shim').height()).toBe(1)
+  })
+})

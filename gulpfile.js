@@ -28,7 +28,7 @@ const uglifySaveLicense = require('uglify-save-license')
 // Testing
 const mocha = require('gulp-mocha')
 const jasmineBrowser = require('gulp-jasmine-browser')
-const specReporter = require('jasmine-spec-reporter')
+const SpecReporter = require('jasmine-spec-reporter')
 
 // Configuration
 const paths = require('./config/paths.js')
@@ -114,7 +114,7 @@ gulp.task('test:toolkit', () => gulp.src([
   paths.testSpecs + 'toolkit/unit/**/*.spec.js'
 ])
   .pipe(jasmineBrowser.specRunner({console: true}))
-  .pipe(jasmineBrowser.headless({reporter: new specReporter()}))
+  .pipe(jasmineBrowser.headless({reporter: new SpecReporter()}))
 )
 
 // Linting
