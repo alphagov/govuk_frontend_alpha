@@ -10,7 +10,8 @@ const paths = {
   distJs: 'dist/assets/javascripts/',
   distTemplates: 'dist/templates/',
   npm: 'node_modules/',
-  specs: 'test/specs/'
+  test: 'test/',
+  testSpecs: 'test/specs/'
 }
 
 module.exports = paths
