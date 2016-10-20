@@ -62,10 +62,10 @@ gulp.task('build:styles', cb => {
 gulp.task('build:styles:compile', () => {
   gulp.src(paths.assetsScss + '**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(paths.distCSS))
+    .pipe(gulp.dest(paths.distCss))
     .pipe(rename({ suffix: '.min' }))
     .pipe(nano())
-    .pipe(gulp.dest(paths.distCSS))
+    .pipe(gulp.dest(paths.distCss))
 })
 gulp.task('build:styles:copy', () => {
   gulp.src(paths.assetsScss + '**/*.scss')
