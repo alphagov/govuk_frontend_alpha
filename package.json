@@ -34,5 +34,23 @@
   },
   "scripts": {
     "test": "gulp test"
+  },
+  "standard": {
+    "globals": [
+      "afterEach",
+      "assert",
+      "beforeEach",
+      "describe",
+      "es",
+      "expect",
+      "ga",
+      "GOVUK",
+      "Image",
+      "it",
+      "jasmine",
+      "spyOn",
+      "$",
+      "_gaq"
+    ]
   }
 }

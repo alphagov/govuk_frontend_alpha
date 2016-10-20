@@ -1,6 +1,4 @@
 const expect = require('chai').expect
-const assert = require('assert')
-const es = require('event-stream')
 const File = require('vinyl')
 const transpiler = require('../../lib/transpilation/transpiler.js')
 

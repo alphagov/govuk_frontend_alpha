@@ -28,7 +28,7 @@ const uglifySaveLicense = require('uglify-save-license')
 // Testing
 const mocha = require('gulp-mocha')
 const jasmineBrowser = require('gulp-jasmine-browser')
-const specReporter = require('jasmine-spec-reporter')
+const SpecReporter = require('jasmine-spec-reporter')
 
 // Configuration
 const paths = require('./config/paths.js')
@@ -53,15 +53,7 @@ gulp.task('build:templates:django', transpileRunner.bind(null, 'django'))
 
 // Compile Sass to CSS
 gulp.task('build:styles', cb => {
-  runSequence('build:styles:lint', ['build:styles:copy', 'build:styles:compile'], cb)
-})
-gulp.task('build:styles:lint', () => {
-  gulp.src(paths.assetsScss + '**/*.scss')
-    .pipe(sasslint({
-      config: paths.config + '.sass-lint.yml'
-    }))
-    .pipe(sasslint.format())
-    .pipe(sasslint.failOnError())
+  runSequence('lint:styles', ['build:styles:copy', 'build:styles:compile'], cb)
 })
 gulp.task('build:styles:compile', () => {
   gulp.src(paths.assetsScss + '**/*.scss')
@@ -92,24 +84,13 @@ let scriptsBuilder = fileName => {
     .pipe(gulp.dest(paths.distJs))
 }
 gulp.task('build:scripts', cb => {
-  runSequence('build:scripts:lint', [
+  runSequence('lint:scripts', [
     'build:scripts:copy',
     'build:scripts:elements',
     'build:scripts:govuk-template',
     'build:scripts:govuk-template-ie',
     'build:scripts:toolkit'
   ], cb)
-})
-gulp.task('build:scripts:lint', () => {
-  gulp.src([
-    '!' + paths.assetsJs + '**/vendor/**/*.js',
-    paths.assetsJs + '**/*.js'
-  ])
-    .pipe(standard())
-    .pipe(standard.reporter('default', {
-      breakOnError: true,
-      quiet: true
-    }))
 })
 gulp.task('build:scripts:elements', scriptsBuilder.bind(null, 'elements'))
 gulp.task('build:scripts:govuk-template', scriptsBuilder.bind(null, 'govuk-template'))
@@ -122,19 +103,49 @@ gulp.task('build:scripts:copy', () => {
 
 // Task to run the tests
 gulp.task('test', ['test:lib', 'test:toolkit'])
-gulp.task('test:lib', () => gulp.src(paths.specs + '*.js', {read: false})
+gulp.task('test:lib', () => gulp.src(paths.testSpecs + '*.js', {read: false})
   .pipe(mocha())
 )
 // Ideally these pre-existing toolkit tests will be rewritten at some point
 // to use mocha rather than requiring Jasmine as well.
 gulp.task('test:toolkit', () => gulp.src([
-  'node_modules/jquery/dist/jquery.js',
-  'app/assets/js/toolkit/**/*.js',
-  'test/specs/toolkit/unit/**/*.spec.js'
+  paths.npm + 'jquery/dist/jquery.js',
+  paths.assetsJs + 'toolkit/**/*.js',
+  paths.testSpecs + 'toolkit/unit/**/*.spec.js'
 ])
   .pipe(jasmineBrowser.specRunner({console: true}))
-  .pipe(jasmineBrowser.headless({reporter: new specReporter()}))
+  .pipe(jasmineBrowser.headless({reporter: new SpecReporter()}))
 )
+
+// Linting
+gulp.task('lint', ['lint:styles', 'lint:scripts', 'lint:tests'])
+gulp.task('lint:styles', () => {
+  gulp.src(paths.assetsScss + '**/*.scss')
+    .pipe(sasslint({
+      config: paths.config + '.sass-lint.yml'
+    }))
+    .pipe(sasslint.format())
+    .pipe(sasslint.failOnError())
+})
+gulp.task('lint:scripts', () => {
+  gulp.src([
+    '!' + paths.assetsJs + '**/vendor/**/*.js',
+    paths.assetsJs + '**/*.js'
+  ])
+    .pipe(standard())
+    .pipe(standard.reporter('default', {
+      breakOnError: true,
+      quiet: true
+    }))
+})
+gulp.task('lint:tests', () => {
+  gulp.src(paths.test + '**/*.js')
+    .pipe(standard())
+    .pipe(standard.reporter('default', {
+      breakOnError: true,
+      quiet: true
+    }))
+})
 
 // Build distribution
 gulp.task('build', cb => {
