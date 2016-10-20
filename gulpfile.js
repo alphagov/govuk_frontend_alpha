@@ -1,7 +1,6 @@
 'use strict'
 
 const packageJson = require('./package.json')
-const version = packageJson.version
 
 // Gulp utility
 const gulp = require('gulp')
@@ -45,7 +44,7 @@ gulp.task('clean', () => {
 // Task for transpiling the templates
 let transpileRunner = templateLanguage => {
   return gulp.src(paths.templates + '*.html')
-    .pipe(transpiler(templateLanguage, version))
+    .pipe(transpiler(templateLanguage, packageJson.version))
     .pipe(rename({extname: '.html.' + templateLanguage}))
     .pipe(gulp.dest(paths.distTemplates))
 }
@@ -156,11 +155,11 @@ gulp.task('build', cb => {
   runSequence('clean', ['build:templates', 'build:styles', 'build:scripts'], cb)
 })
 
-// Packaging
-gulp.task('package', () =>
+// Package the contents of dist
+gulp.task('package', ['package:tgz'])
+gulp.task('package:tgz', () => {
   gulp.src(paths.dist + '*')
-    .pipe(tar(packageName + '.tar'))
+    .pipe(tar(packageJson.name + '-' + packageJson.version + '.tar'))
     .pipe(gzip())
-    .pipe(gulp.dest(paths.dist))
-)
-
+    .pipe(gulp.dest(paths.distPkg))
+})

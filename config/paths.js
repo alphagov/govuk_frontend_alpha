@@ -8,6 +8,7 @@ const paths = {
   distScss: 'dist/assets/scss/',
   distJs: 'dist/assets/js/',
   distTemplates: 'dist/templates/',
+  distPkg: 'dist/pkg/',
   npm: 'node_modules/',
   test: 'test/',
   testSpecs: 'test/specs/'
