@@ -3,6 +3,8 @@
 // Some Normalize styles exist here:
 // https://github.com/alphagov/govuk_template/blob/master/source/assets/stylesheets/_basic.scss
 
+// sass-lint:disable no-css-comments no-duplicate-properties no-color-literals
+
 /*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
 
 /**
@@ -437,3 +439,5 @@ textarea {
   -webkit-appearance: button; /* 1 */
   font: inherit; /* 2 */
 }
+
+// sass-lint:enable no-css-comments no-duplicate-properties no-color-literals

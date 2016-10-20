@@ -18,7 +18,7 @@
 // CORE FONTS - NEW TRANSPORT
 
 // Allow uppercase letters in font stack variable names
-// scss-lint:disable NameFormat
+// sass-lint:disable variable-name-format
 
 $is-print: false !default;
 
@@ -52,7 +52,6 @@ $is-print: false !default;
     font-size: $font-size-print;
   }
 }
-// scss-lint:enable NameFormat
 
 @mixin core-80($line-height: (80 / 80), $line-height-640: (55 / 53), $tabular-numbers: false, $font-weight: 400) {
   $font-size: 80px;
@@ -178,3 +177,5 @@ $is-print: false !default;
     padding-bottom: 5px;
   }
 }
+
+// sass-lint:enable variable-name-format

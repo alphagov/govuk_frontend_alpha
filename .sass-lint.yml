@@ -38,6 +38,10 @@ rules:
   final-newline:
     - 1
     - include: true
+  force-attribute-nesting:
+    - 0
+  force-pseudo-nesting:
+    - 0
   function-name-format:
     - 1
     - allow-leading-underscore: true
@@ -113,7 +117,7 @@ rules:
 
   # Enforce the order in which declarations are written.
   property-sort-order:
-    - 1
+    - 0
     - order: 'smacss'
 
   # Disallow the use of units not specified in global or per-property.

@@ -8,17 +8,16 @@
   width: device-width;
 }
 
-/*
- * 2. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
- *    http://clagnut.com/blog/348/#c790
- *    note - font-size reduced to 62.5% to allow simple rem/px font-sizing and fallback
- *    http://snook.ca/archives/html_and_css/font-size-with-rem
- * 3. Keeps page centred in all browsers regardless of content height
- * 4. Removes Android and iOS tap highlight color to prevent entire container being highlighted
- *    www.yuiblog.com/blog/2010/10/01/quick-tip-customizing-the-mobile-safari-tap-highlight-color/
- */
+// 2. Corrects text resizing oddly in IE6/7 when body font-size is set using em units
+//    http://clagnut.com/blog/348/#c790
+//    note - font-size reduced to 62.5% to allow simple rem/px font-sizing and fallback
+//    http://snook.ca/archives/html_and_css/font-size-with-rem
+// 3. Keeps page centred in all browsers regardless of content height
+// 4. Removes Android and iOS tap highlight color to prevent entire container being highlighted
+//    www.yuiblog.com/blog/2010/10/01/quick-tip-customizing-the-mobile-safari-tap-highlight-color/
 
 html {
+  // sass-lint:disable variable-name-format
   font-family: $NTA-Light;
 
   // Set background colour to match footer background
@@ -27,21 +26,22 @@ html {
   // Force the scrollbar to always display in IE10/11
   -ms-overflow-style: scrollbar;
 
-  font-size: 62.5%; /* 2 */
-  overflow-y: scroll; /* 3 */
-  -webkit-tap-highlight-color: rgba(0,0,0,0); /* 4 */
+  font-size: 62.5%; // 2
+  overflow-y: scroll; // 3
+  // sass-lint:disable no-color-literals
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);  // 4
 }
 
 
-/*
- * 1. Font-size increased to compensate for change to html element font-size in
- *    order to support beta typography which was set in ems
- *    (62.5% * 160% = 100%)
- */
+//
+// 1. Font-size increased to compensate for change to html element font-size in
+//    order to support beta typography which was set in ems
+//    (62.5% * 160% = 100%)
 
 body {
+  // sass-lint:disable variable-name-format
   font-family: $NTA-Light;
-  font-size: 160%; /* 1 */
+  font-size: 160%; // 1
   background: $white;
   color: $text-colour;
   line-height: 1.5;
@@ -55,8 +55,8 @@ p {
   padding: 0;
 }
 
-/* Text-level semantics
-   ========================================================================== */
+// Text-level semantics
+// ==========================================================================
 // Override normalize.css line 140
 b,
 strong {
@@ -65,14 +65,29 @@ strong {
 
 @include ie-lte(7) {
   button {
-    overflow:visible;
+    overflow: visible;
   }
 }
 
 // Form base styles are in _base/form-elements.scss
 
 // COPIED FROM GOV.UK TEMPLATE, DO WE NEED ANYTHING BELOW THIS LINE?
-html, body, div, h1, h2, h3, h4, h5, h6, article, aside, footer, header, hgroup, nav, section {
+html,
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+article,
+aside,
+footer,
+header,
+hgroup,
+nav,
+section {
   vertical-align: baseline;
 }
 

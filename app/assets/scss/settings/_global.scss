@@ -45,10 +45,12 @@ $path:                false !default;
 //  GOV.UK font stacks, referred to in typography.scss
 
 // Allow uppercase letters in font stack variable names
-// scss-lint:disable NameFormat
+// sass-lint:disable NameFormat
 
 // New Transport Light
 // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/_font_stack.scss#L7
+// sass-lint:disable variable-name-format
+
 $NTA-Light: "nta", Arial, sans-serif;
 $NTA-Light-Tabular: "ntatabularnumbers", $NTA-Light;
 

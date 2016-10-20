@@ -7,12 +7,11 @@
   color: $white;
 
   // Allow uppercase letters in font stack variable names
-  // scss-lint:disable NameFormat
+  // sass-lint:disable variable-name-format
   font-family: $NTA-Light-Tabular;
   font-size: 12px;
   font-weight: bold;
   text-align: center;
-
 
   // All step circles are 24px x 24px
   &--step-default {

@@ -38,6 +38,8 @@
 }
 
 // Let's put this in utilities when decide where they sit in the layer structure
-.js-enabled .js-hidden {
-  display: none;
+.js-enabled {
+  .js-hidden {
+    display: none;
+  }
 }

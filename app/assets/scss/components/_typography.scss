@@ -58,7 +58,7 @@
 
   // Back arrow - left pointing black arrow
   &::before {
-    content: '';
+    content: "";
     display: block;
     width: 0;
     height: 0;
@@ -89,7 +89,7 @@
   background-color: $highlight-colour;
 
   text-shadow: 0 1px $page-colour;
-  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   font-size: 14px;
   direction: ltr;
   text-align: left;

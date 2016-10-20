@@ -131,9 +131,11 @@
       filter: chroma(color = $black);
     }
 
+    // sass-lint:disable force-element-nesting
     &[type="submit"].button {
       filter: none;
     }
+    // sass-lint:enable force-element-nesting
   }
 }
 
