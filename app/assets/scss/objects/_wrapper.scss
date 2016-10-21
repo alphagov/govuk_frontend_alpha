@@ -21,7 +21,7 @@ $site-width: 960px;
   }
 }
 
-.#{$govuk-namespace}o-wrapper {
+.gv-o-wrapper {
   @include o-wrapper;
 
   @include clearfix;

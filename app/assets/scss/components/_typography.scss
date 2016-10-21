@@ -6,35 +6,35 @@
 
 // Set a max-width for text blocks
 // Less than 75 characters per line of text
-.#{$govuk-namespace}text {
+.gv-text {
   max-width: 30em;
 }
 
-.#{$govuk-namespace}text-secondary {
+.gv-text-secondary {
   color: $secondary-text-colour;
 }
 
 // Link styles
-.#{$govuk-namespace}link {
+.gv-link {
   color: $link-colour;
   text-decoration: underline;
 }
 
-.#{$govuk-namespace}link:visited {
+.gv-link:visited {
   color: $link-visited-colour;
 }
 
-.#{$govuk-namespace}link:hover {
+.gv-link:hover {
   color: $link-hover-colour;
 }
 
-.#{$govuk-namespace}link:active {
+.gv-link:active {
   color: $link-colour;
 }
 
 // Back link styles - with left pointing arrow
 
-.#{$govuk-namespace}link-back {
+.gv-link-back {
   @include inline-block;
   position: relative;
 
@@ -84,7 +84,7 @@
 }
 
 // Code styles
-.#{$govuk-namespace}code {
+.gv-code {
   color: $text-colour;
   background-color: $highlight-colour;
 

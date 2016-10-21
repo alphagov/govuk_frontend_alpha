@@ -32,7 +32,7 @@
 // Spacing is set in em, using the px to em function in the elements _helpers.scss file
 
 // Headings
-// .#{$govuk-namespace}heading-xlarge {
+// .gv-heading-xlarge {
 //   @include bold-48();
 
 //   margin-top: em(15, 32);
@@ -51,7 +51,7 @@
 //   }
 
 // }
-// .#{$govuk-namespace}heading-large {
+// .gv-heading-large {
 //   @include bold-36();
 
 //   margin-top: em(25, 24);
@@ -71,7 +71,7 @@
 
 // }
 
-// .#{$govuk-namespace}heading-medium {
+// .gv-heading-medium {
 //   @include bold-24();
 
 //   margin-top: em(25, 20);
@@ -84,7 +84,7 @@
 
 // }
 
-// .#{$govuk-namespace}heading-small {
+// .gv-heading-small {
 //   @include bold-19();
 
 //   margin-top: em(10, 16);
