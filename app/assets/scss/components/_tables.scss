@@ -2,12 +2,14 @@
 // https://github.com/alphagov/govuk_elements/blob/master/public/sass/elements/_tables.scss
 // .table-font-xsmall
 
-.#{$govuk-namespace}#{$prefix-component}table {
+.gv-c-table {
   &__cell {
+
     &--numeric {
       @include core-19($tabular-numbers: true);
       text-align: right;
     }
+
     &--xsmall {
       @include core-16;
       padding: em(12, 16) em(20, 16) em(9, 16) 0;
@@ -16,9 +18,11 @@
 
   &__header {
     @include bold-19;
+
     &--numeric {
       text-align: right;
     }
+
     &--xsmall {
       @include bold-16;
       padding: em(12, 16) em(20, 16) em(9, 16) 0;

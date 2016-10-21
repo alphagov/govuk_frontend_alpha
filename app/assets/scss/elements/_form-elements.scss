@@ -5,18 +5,18 @@ input,
 optgroup,
 select,
 textarea {
+  // sass-lint:disable variable-name-format
   font-family: $NTA-Light;
 }
 
-/*    This has been removed from Normalize (line 408), is it needed here?
- * 2. Addresses `box-sizing` set to `border-box` in Safari 5 and Chrome
- *    (include `-moz` to future-proof).
- */
+//    This has been removed from Normalize (line 408), is it needed here?
+// 2. Addresses `box-sizing` set to `border-box` in Safari 5 and Chrome
+//    (include `-moz` to future-proof).
 
 input[type="search"] {
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box; /* 2 */
-    box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box; // 2
+  box-sizing: content-box;
 }
 
 input:focus {
@@ -40,9 +40,9 @@ textarea:focus {
 fieldset {
   width: 100%;
   // Override normalize
-  border: none;
   margin: 0;
   padding: 0;
+  border: none;
 }
 
 // Fix left hand gap in IE7 and below
@@ -57,5 +57,5 @@ fieldset {
 // Indicate that certain elements are interactive
 [role="button"],
 label {
-    cursor: pointer;
+  cursor: pointer;
 }

@@ -27,7 +27,8 @@ a:active {
 // }
 
 // https://raw.githubusercontent.com/alphagov/govuk_template/master/source/assets/stylesheets/_accessibility.scss
-/* Give a strong clear visual idea as to what is currently in focus */
+//  Give a strong clear visual idea as to what is currently in focus
+// sass-lint:disable no-color-literals
 a {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
 }

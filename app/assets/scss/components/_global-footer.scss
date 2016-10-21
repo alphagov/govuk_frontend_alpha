@@ -2,6 +2,7 @@
 // https://raw.githubusercontent.com/alphagov/govuk_template/master/source/assets/stylesheets/_footer.scss
 // #footer
 
+// sass-lint:disable no-ids
 #footer {
   background-color: $footer-background;
   border-top: 1px solid $footer-border-top;
@@ -57,7 +58,7 @@
       }
 
       ul {
-        @include core-16($line-height: (24/16), $line-height-640: (24/16));
+        @include core-16($line-height: (24 / 16), $line-height-640: (24 / 16));
         display: inline-block;
         list-style: none;
         margin: 0 0 1.5em 0;
@@ -106,10 +107,10 @@
             display: block;
             width: 41px;
             height: 17px;
-            overflow:hidden;
+            overflow: hidden;
             text-indent: -999em;
             background: image-url("images/open-government-licence.png") 0 0 no-repeat;
-            @include device-pixel-ratio() {
+            @include device-pixel-ratio {
               background-image: image-url("images/open-government-licence_2x.png");
               background-size: 41px 17px;
             }
@@ -156,7 +157,7 @@
           background-position: 100% 0%;
         }
 
-        @include device-pixel-ratio() {
+        @include device-pixel-ratio {
           background-image: image-url("images/govuk-crest-2x.png");
           background-size: 125px 102px;
         }
@@ -178,19 +179,16 @@
     }
   }
 }
+// sass-lint:enable no-ids
 
 // TODO: REFACTOR
-.#{$govuk-namespace}#{$prefix-component}footer {
-
-  &footer__inner {
-  }
-
-  &footer__metadata {
-  }
-
-  &footer__ogl {
-  }
-
-  &footer__crown-copyright {
-  }
-}
+// .gv-c-footer {
+//   &footer__inner {
+//   }
+//   &footer__metadata {
+//   }
+//   &footer__ogl {
+//   }
+//   &footer__crown-copyright {
+//   }
+// }

@@ -2,7 +2,7 @@
 // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/design-patterns/_breadcrumbs.scss
 // .breadcrumbs
 
-.#{$govuk-namespace}#{$prefix-component}breadcrumb {
+.gv-c-breadcrumb {
   // TODO: Use consistent units
   padding-top: 0.75em;
   padding-bottom: 0.75em;
@@ -13,23 +13,23 @@
 
   &__list-item {
     @include core-16;
+    margin-bottom: 0.4em;
+    margin-left: 0.6em;
+    padding-left: 0.9em;
+
     float: left;
 
     background-image: file-url("separator.png");
 
-    @include device-pixel-ratio() {
+    @include device-pixel-ratio {
       background-image: file-url("separator-2x.png");
       background-size: 6px 11px;
     }
 
-    background-position: 0% 50%;
     background-repeat: no-repeat;
+    background-position: 0% 50%;
 
     list-style: none;
-
-    margin-left: 0.6em;
-    margin-bottom: 0.4em;
-    padding-left: 0.9em;
   }
 
   &__link {
@@ -37,8 +37,9 @@
   }
 
   &__list-item--first {
-    background-image: none;
     margin-left: 0;
     padding-left: 0;
+
+    background-image: none;
   }
 }

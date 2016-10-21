@@ -67,11 +67,11 @@
       }
 
       .play {
-        background-image: file-url('player-icon-play.png');
+        background-image: file-url("player-icon-play.png");
       }
 
       .pause {
-        background-image: file-url('player-icon-pause.png');
+        background-image: file-url("player-icon-pause.png");
       }
 
       .rewind,
@@ -89,13 +89,13 @@
 
       .rewind {
         left: 0;
-        background-image: file-url('player-icon-rewind.png');
+        background-image: file-url("player-icon-rewind.png");
       }
 
       .forward {
         left: 100%;
         margin-left: -40px;
-        background-image: file-url('player-icon-forward.png');
+        background-image: file-url("player-icon-forward.png");
       }
     }
 
@@ -178,7 +178,7 @@
         line-height: 40px;
         background-repeat: no-repeat;
         background-position: center left;
-        background-image: file-url('player-icon-volume.png');
+        background-image: file-url("player-icon-volume.png");
       }
     }
 
@@ -228,7 +228,7 @@
         padding-bottom: 1px;
         width: 20px;
         // Allow RGBA here, it is the only colour value with alpha transparency
-        // scss-lint:disable ColorVariable
+        // sass-lint:disable no-color-literals
         color: rgba(0, 0, 0, 0.5);
         z-index: 10;
       }
@@ -242,8 +242,7 @@
 }
 
 // TODO: REFACTOR
-.#{$govuk-namespace}media-player {
-}
-
-.#{$govuk-namespace}media-player-header__control-bar {
-}
+// .gv-c-media-player {
+// }
+// .gv-c-media-player-header__control-bar {
+// }

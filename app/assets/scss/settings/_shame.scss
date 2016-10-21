@@ -6,10 +6,13 @@
 // Hopefully they’ll fix <summary> first but if not it’ll fall back to no arrow:
 // https://bugzilla.mozilla.org/show_bug.cgi?id=1270163
 // If Mozilla add display: revert and remove list-item from summary then this will fall through.
-@-moz-document regexp('.*') {
+
+// sass-lint:disable force-element-nesting
+// sass-lint:disable force-pseudo-nesting
+@-moz-document regexp(".*") {
   details summary:not([tabindex]) {
     // Allow duplicate properties, override the summary display property
-    // scss-lint:disable DuplicateProperty
+    // sass-lint:disable no-duplicate-properties
     display: list-item;
     display: revert;
   }

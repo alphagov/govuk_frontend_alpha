@@ -1,22 +1,26 @@
 // I'm not using a --modifier for the variants here
 // as we don't have a base .heading block
-.#{$govuk-namespace}#{$prefix-utility}heading-xxxlarge {
+.gv-u-heading-xxxlarge {
   @include bold-80;
 }
-.#{$govuk-namespace}#{$prefix-utility}heading-xxlarge {
+
+.gv-u-heading-xxlarge {
   @include bold-48;
 }
-.#{$govuk-namespace}#{$prefix-utility}heading-xlarge {
+
+.gv-u-heading-xlarge {
   @include bold-36
 }
-.#{$govuk-namespace}#{$prefix-utility}heading-large {
+
+.gv-u-heading-large {
   @include bold-27;
 }
-.#{$govuk-namespace}#{$prefix-utility}heading-medium {
+
+.gv-u-heading-medium {
   @include bold-24;
 }
 // We don't have this yet, but we probably need a heading-small
-// .#{$govuk-namespace}#{$prefix-utility}heading-small {
+// .gv-u-heading-small {
 //   @include heading-19;
 // }
 
@@ -28,7 +32,7 @@
 // Spacing is set in em, using the px to em function in the elements _helpers.scss file
 
 // Headings
-// .#{$govuk-namespace}heading-xlarge {
+// .gv-heading-xlarge {
 //   @include bold-48();
 
 //   margin-top: em(15, 32);
@@ -47,7 +51,7 @@
 //   }
 
 // }
-// .#{$govuk-namespace}heading-large {
+// .gv-heading-large {
 //   @include bold-36();
 
 //   margin-top: em(25, 24);
@@ -67,7 +71,7 @@
 
 // }
 
-// .#{$govuk-namespace}heading-medium {
+// .gv-heading-medium {
 //   @include bold-24();
 
 //   margin-top: em(25, 20);
@@ -80,7 +84,7 @@
 
 // }
 
-// .#{$govuk-namespace}heading-small {
+// .gv-heading-small {
 //   @include bold-19();
 
 //   margin-top: em(10, 16);

@@ -9,23 +9,23 @@
   }
 }
 
-.#{$govuk-namespace}#{$prefix-utility}full {
+.gv-u-full {
   @include grid-column(1);
 }
 
-.#{$govuk-namespace}#{$prefix-utility}one-quarter {
+.gv-u-one-quarter {
   @include grid-column(1 / 4);
 }
 
-.#{$govuk-namespace}#{$prefix-utility}one-half {
+.gv-u-one-half {
   @include grid-column(1 / 2);
 }
 
-.#{$govuk-namespace}#{$prefix-utility}one-third {
+.gv-u-one-third {
   @include grid-column(1 / 3);
 }
 
-.#{$govuk-namespace}#{$prefix-utility}two-thirds {
+.gv-u-two-thirds {
   @include grid-column(2 / 3);
 }
 

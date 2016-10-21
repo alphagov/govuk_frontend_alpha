@@ -1,4 +1,4 @@
-.#{$govuk-namespace}#{$prefix-component}form-group {
+.gv-c-form-group {
 
   // Set spacing here for now
   // TODO: this should be moved into a utility class
@@ -65,7 +65,7 @@
 
 // Default radio buttons and checkboxes - not sure about these, own components, or .form-component--modifiers?
 // Using component names but leaving in this file for now
-.#{$govuk-namespace}#{$prefix-component}form-element-radio {
+.gv-c-form-element-radio {
   display: block;
   margin: 10px 0;
 
@@ -77,7 +77,7 @@
 }
 
 // Checkboxes
-.#{$govuk-namespace}#{$prefix-component}form-element-checkbox {
+.gv-c-form-element-checkbox {
   display: block;
   margin: $gutter-half 0;
 

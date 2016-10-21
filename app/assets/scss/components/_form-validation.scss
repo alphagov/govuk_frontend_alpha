@@ -47,11 +47,13 @@
   padding: 2px 0;
 }
 
+// sass-lint:disable force-element-nesting
 .form-label .error-message,
 .form-label-bold .error-message {
   padding-top: 4px;
   padding-bottom: 0;
 }
+// sass-lint:enable force-element-nesting
 
 // Summary of multiple error messages
 .error-summary {

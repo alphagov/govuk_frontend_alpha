@@ -2,7 +2,7 @@
 // https://github.com/alphagov/govuk_elements/blob/master/public/sass/elements/_details.scss
 // details
 
-.#{$govuk-namespace}#{$prefix-component}details {
+.gv-c-details {
   display: block;
 
   &__summary {
@@ -25,7 +25,7 @@
 
   // Underline only summary text (not the arrow)
   &__summary-text {
-   text-decoration: underline;
+    text-decoration: underline;
   }
 
   // Match fallback arrow spacing with -webkit default

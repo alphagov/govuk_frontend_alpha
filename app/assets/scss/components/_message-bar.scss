@@ -26,7 +26,7 @@
 //   </div>
 // </div>
 
-.#{$govuk-namespace}#{$prefix-component}message-bar {
+.gv-c-message-bar {
   background-color: $light-blue-25;
   // TODO: Use consistent units
   padding-top: 10px;
@@ -38,6 +38,8 @@
 }
 
 // Let's put this in utilities when decide where they sit in the layer structure
-.js-enabled .js-hidden {
-  display: none;
+.js-enabled {
+  .js-hidden {
+    display: none;
+  }
 }

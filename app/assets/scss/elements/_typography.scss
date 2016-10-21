@@ -19,12 +19,14 @@ p {
 
 // Horizontal rule style
 hr {
-  display: block;
-  background: $border-colour;
-  border: 0;
   height: 1px;
+
   margin-top: $gutter;
   margin-bottom: $gutter;
+
+  display: block;
+  border: 0;
+  background: $border-colour;
   padding: 0;
 
   @include ie-lte(7) {

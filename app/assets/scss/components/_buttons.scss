@@ -4,15 +4,25 @@
 // .button
 
 @mixin button($colour: $button-colour) {
-  // Colour
+
+  @include inline-block;
+
+  @include border-radius(0);
+
+  position: relative;
+  padding: .526315em .789473em .263157em; // 10px 15px 5px
+
+  border: none;
   background-color: $colour;
 
-  // Size and shape
-  position: relative;
-  @include inline-block;
-  padding: .526315em .789473em .263157em; // 10px 15px 5px
-  border: none;
-  @include border-radius(0);
+
+  font-size: 1em; // inherit from parent
+  line-height: 1.25;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  -webkit-font-smoothing: antialiased;
   -webkit-appearance: none;
 
   // Bottom edge effect
@@ -20,15 +30,6 @@
   @include ie-lte(8) {
     border-bottom: 2px solid darken($colour, 15%);
   }
-
-  // Text
-  font-size: 1em; // inherit from parent
-  line-height: 1.25;
-  text-decoration: none;
-  -webkit-font-smoothing: antialiased;
-
-  // Interaction
-  cursor: pointer;
 
   &:visited {
     background-color: $colour;
@@ -49,9 +50,10 @@
   &[disabled="disabled"],
   &[disabled] {
     @include opacity(0.5);
+
     &:hover {
-      cursor: default;
       background-color: $colour;
+      cursor: default;
     }
 
     &:active {
@@ -86,35 +88,39 @@
 
   // making the click target bigger than the button
   // (and fill the space made when the button moves)
-  &:before {
-    content: "";
-    height: 110%;
-    width: 100%;
+  &::before {
     display: block;
-    background: transparent;
     position: absolute;
     top: 0;
     left: 0;
-  }
+    width: 100%;
+    height: 110%;
+    background: transparent;
 
-  &:active:before {
-    top: -10%;
-    height: 120%;
+    content: "";
+   }
 
-    // IE6 ignores the :before psuedo-class but applies the block to :active
-    // It therefore needs to be reset
-    @include ie(6) {
-      top: auto;
-      height: 100%;
+  &:active {
+
+    &::before {
+      top: -10%;
+      height: 120%;
+
+      // IE6 ignores the :before psuedo-class but applies the block to :active
+      // It therefore needs to be reset
+      @include ie(6) {
+        top: auto;
+        height: 100%;
+      }
     }
-  }
 
-  // Reset styles applied to external links
-  &[rel="external"]:after {
-    display: none;
-    content: none;
-    margin-left: 0;
-    margin-right: 0;
+    // Reset styles applied to external links
+    &[rel="external"]::after {
+      display: none;
+      margin-right: 0;
+      margin-left: 0;
+      content: none;
+    }
   }
 
   // Fixes a bug where IE puts a black border around certain elements
@@ -125,13 +131,15 @@
       filter: chroma(color = $black);
     }
 
-    &[type=submit].button {
+    // sass-lint:disable force-element-nesting
+    &[type="submit"].button {
       filter: none;
     }
+    // sass-lint:enable force-element-nesting
   }
 }
 
-.#{$govuk-namespace}#{$prefix-component}button {
+.gv-c-button {
   @include button ($button-colour);
 
   @include box-sizing (border-box);
@@ -142,17 +150,17 @@
   }
 
   // Fix unwanted button padding in Firefox
-  &::-moz-focus-inner {
-    border: 0;
+  &:-moz-focus-inner {
     padding: 0;
+    border: 0;
   }
 
   &:focus {
     outline: 3px solid $focus-colour;
   }
 
-  &button--disabled {
-  background: $button-colour;
+  &--disabled {
+    background: $button-colour;
 
     &:focus {
       outline: none;
@@ -162,13 +170,14 @@
 
 
 // TODO: Think of sensible names for button modifiers
-.#{$govuk-namespace}#{$prefix-component}button--get-started {
+.gv-c-button--get-started {
   @include bold-24;
+
+  padding: em(7) em(41) em(4) em(16);
 
   background-image: file-url("icon-pointer.png");
   background-repeat: no-repeat;
   background-position: 100% 50%;
-  padding: em(7) em(41) em(4) em(16);
 
   @include device-pixel-ratio {
     background-image: file-url("icon-pointer-2x.png");
