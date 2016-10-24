@@ -1,7 +1,6 @@
 'use strict'
 
 const packageJson = require('./package.json')
-const version = packageJson.version
 
 // Gulp utility
 const gulp = require('gulp')
@@ -30,6 +29,10 @@ const mocha = require('gulp-mocha')
 const jasmineBrowser = require('gulp-jasmine-browser')
 const SpecReporter = require('jasmine-spec-reporter')
 
+// Packaging
+const tar = require('gulp-tar')
+const gzip = require('gulp-gzip')
+
 // Configuration
 const paths = require('./config/paths.js')
 
@@ -41,7 +44,7 @@ gulp.task('clean', () => {
 // Task for transpiling the templates
 let transpileRunner = templateLanguage => {
   return gulp.src(paths.templates + '*.html')
-    .pipe(transpiler(templateLanguage, version))
+    .pipe(transpiler(templateLanguage, packageJson.version))
     .pipe(rename({extname: '.html.' + templateLanguage}))
     .pipe(gulp.dest(paths.distTemplates))
 }
@@ -58,10 +61,10 @@ gulp.task('build:styles', cb => {
 gulp.task('build:styles:compile', () => {
   gulp.src(paths.assetsScss + '**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(paths.distCSS))
+    .pipe(gulp.dest(paths.distCss))
     .pipe(rename({ suffix: '.min' }))
     .pipe(nano())
-    .pipe(gulp.dest(paths.distCSS))
+    .pipe(gulp.dest(paths.distCss))
 })
 gulp.task('build:styles:copy', () => {
   gulp.src(paths.assetsScss + '**/*.scss')
@@ -152,4 +155,13 @@ gulp.task('lint:tests', () => {
 // Build distribution
 gulp.task('build', cb => {
   runSequence('clean', ['build:templates', 'build:styles', 'build:scripts'], cb)
+})
+
+// Package the contents of dist
+gulp.task('package', ['package:tgz'])
+gulp.task('package:tgz', () => {
+  gulp.src(paths.dist + '*')
+    .pipe(tar(packageJson.name + '-' + packageJson.version + '.tar'))
+    .pipe(gzip())
+    .pipe(gulp.dest(paths.distPkg))
 })

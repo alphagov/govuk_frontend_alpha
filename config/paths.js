@@ -1,14 +1,14 @@
 const paths = {
   config: 'config/',
-  assets: 'app/assets/',
   assetsScss: 'app/assets/scss/',
   assetsJs: 'app/assets/js/',
   templates: 'app/templates/',
   dist: 'dist/',
-  distCSS: 'dist/assets/css/',
+  distCss: 'dist/assets/css/',
   distScss: 'dist/assets/scss/',
-  distJs: 'dist/assets/javascripts/',
+  distJs: 'dist/assets/js/',
   distTemplates: 'dist/templates/',
+  distPkg: 'dist/pkg/',
   npm: 'node_modules/',
   test: 'test/',
   testSpecs: 'test/specs/'
