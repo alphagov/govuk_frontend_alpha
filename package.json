@@ -19,6 +19,7 @@
     "gulp-jasmine-browser": "^1.7.0",
     "gulp-mocha": "^3.0.1",
     "gulp-rename": "^1.2.2",
+    "gulp-run": "^1.7.1",
     "gulp-sass": "^2.3.2",
     "gulp-sass-lint": "^1.2.0",
     "gulp-standard": "^8.0.2",

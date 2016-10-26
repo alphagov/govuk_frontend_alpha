@@ -32,6 +32,8 @@ const SpecReporter = require('jasmine-spec-reporter')
 // Packaging
 const tar = require('gulp-tar')
 const gzip = require('gulp-gzip')
+const run = require('gulp-run')
+const packageName = packageJson.name + '-' + packageJson.version
 
 // Configuration
 const paths = require('./config/paths.js')
@@ -46,7 +48,7 @@ let transpileRunner = templateLanguage => {
   return gulp.src(paths.templates + '*.html')
     .pipe(transpiler(templateLanguage, packageJson.version))
     .pipe(rename({extname: '.html.' + templateLanguage}))
-    .pipe(gulp.dest(paths.distTemplates))
+    .pipe(gulp.dest(paths.bundleTemplates))
 }
 gulp.task('build:templates', ['build:templates:nunjucks', 'build:templates:erb', 'build:templates:handlebars', 'build:templates:django'])
 gulp.task('build:templates:nunjucks', transpileRunner.bind(null, 'nunjucks'))
@@ -61,14 +63,14 @@ gulp.task('build:styles', cb => {
 gulp.task('build:styles:compile', () => {
   gulp.src(paths.assetsScss + '**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest(paths.distCss))
+    .pipe(gulp.dest(paths.bundleCss))
     .pipe(rename({ suffix: '.min' }))
     .pipe(nano())
-    .pipe(gulp.dest(paths.distCss))
+    .pipe(gulp.dest(paths.bundleCss))
 })
 gulp.task('build:styles:copy', () => {
   gulp.src(paths.assetsScss + '**/*.scss')
-    .pipe(gulp.dest(paths.distScss))
+    .pipe(gulp.dest(paths.bundleScss))
 })
 
 // Build single Javascript file from modules
@@ -78,13 +80,13 @@ let scriptsBuilder = fileName => {
     context: 'window'
   })
     .pipe(vinylSource(fileName + '.js'))
-    .pipe(gulp.dest(paths.distJs))
+    .pipe(gulp.dest(paths.bundleJs))
     .pipe(vinylBuffer())
     .pipe(rename({ suffix: '.min' }))
     .pipe(uglify({
       preserveComments: uglifySaveLicense
     }))
-    .pipe(gulp.dest(paths.distJs))
+    .pipe(gulp.dest(paths.bundleJs))
 }
 gulp.task('build:scripts', cb => {
   runSequence('lint:scripts', [
@@ -101,7 +103,7 @@ gulp.task('build:scripts:govuk-template-ie', scriptsBuilder.bind(null, 'govuk-te
 gulp.task('build:scripts:toolkit', scriptsBuilder.bind(null, 'toolkit'))
 gulp.task('build:scripts:copy', () => {
   gulp.src(paths.assetsJs + '**/*.js')
-    .pipe(gulp.dest(paths.distJs))
+    .pipe(gulp.dest(paths.bundleJs))
 })
 
 // Task to run the tests
@@ -160,8 +162,14 @@ gulp.task('build', cb => {
 // Package the contents of dist
 gulp.task('package', ['package:tgz'])
 gulp.task('package:tgz', () => {
-  gulp.src(paths.dist + '*')
-    .pipe(tar(packageJson.name + '-' + packageJson.version + '.tar'))
+  gulp.src(paths.bundle + '*')
+    .pipe(tar(packageName + '.tar'))
     .pipe(gzip())
-    .pipe(gulp.dest(paths.distPkg))
+    .pipe(gulp.dest(paths.pkg))
 })
+gulp.task('package:gem', () => {
+  runSequence('package:gem:build', 'package:gem:copy', 'package:gem:clean')
+})
+gulp.task('package:gem:build', () => run(`gem build ${packageJson.name}.gemspec`).exec())
+gulp.task('package:gem:copy', () => gulp.src(`${packageName}.gem`).pipe(gulp.dest(paths.pkg)))
+gulp.task('package:gem:clean', () => del(`${packageName}.gem`))
