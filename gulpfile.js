@@ -36,7 +36,7 @@ const run = require('gulp-run')
 const packageName = packageJson.name + '-' + packageJson.version
 
 // Configuration
-const paths = require('./config/paths.js')
+const paths = require('./config/paths.json')
 
 // Task for cleaning the distribution
 gulp.task('clean', () => {
