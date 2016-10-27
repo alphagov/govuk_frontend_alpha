@@ -11,6 +11,5 @@ module GovukFrontendAlpha
   AUTHOR = @package_json['author']
   LICENSE = @package_json['license']
   HOMEPAGE = @package_json['homepage']
-
-  FILES = Dir[@paths_json['gem'] + '**/*']
+  FILES = Dir['**/*']
 end
