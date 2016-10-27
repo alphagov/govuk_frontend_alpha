@@ -1,4 +1,8 @@
-lib = File.expand_path('../lib', __FILE__)
+# This gemspec is stored here but designed to be run during gem build
+# Prior to that it’s copied into the build folder
+# lib (below) refers to the expected folder rather than this one
+
+lib = File.expand_path('../../../lib/packaging/gem', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'govuk_frontend_alpha'
 
