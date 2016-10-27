@@ -170,6 +170,12 @@ gulp.task('package:tgz', () => {
 gulp.task('package:gem', () => {
   runSequence('package:gem:build', 'package:gem:copy', 'package:gem:clean')
 })
-gulp.task('package:gem:build', () => run(`gem build ${packageJson.name}.gemspec`).exec())
+gulp.task('package:gem:build', () => {
+  gulp.src(paths.bundleCss + '**/*').pipe(gulp.dest(paths.gemCss))
+  gulp.src(paths.bundleScss + '**/*').pipe(gulp.dest(paths.gemScss))
+  gulp.src(paths.bundleJs + '**/*').pipe(gulp.dest(paths.gemJs))
+  gulp.src(paths.bundleTemplates + '**/*').pipe(gulp.dest(paths.gemTemplates))
+  return run(`gem build ${packageJson.name}.gemspec`).exec()
+})
 gulp.task('package:gem:copy', () => gulp.src(`${packageName}.gem`).pipe(gulp.dest(paths.pkg)))
 gulp.task('package:gem:clean', () => del(`${packageName}.gem`))

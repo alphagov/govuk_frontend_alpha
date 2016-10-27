@@ -9,6 +9,5 @@ Gem::Specification.new do |s|
   s.author      = GovukFrontendAlpha::AUTHOR
   s.homepage    = GovukFrontendAlpha::HOMEPAGE
   s.license     = GovukFrontendAlpha::LICENSE
-
-  #s.files       = ["lib/hola.rb"]
+  s.files       = GovukFrontendAlpha::FILES
 end
