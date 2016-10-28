@@ -7,6 +7,7 @@ const gulp = require('gulp')
 const del = require('del')
 const rename = require('gulp-rename')
 const runSequence = require('run-sequence')
+const taskListing = require('gulp-task-listing')
 
 // Templates
 const transpiler = require('./lib/transpilation/transpiler.js')
@@ -37,6 +38,9 @@ const packageName = packageJson.name + '-' + packageJson.version
 
 // Configuration
 const paths = require('./config/paths.json')
+
+// Run 'gulp help' to list available tasks
+gulp.task('help', taskListing)
 
 // Task for cleaning the distribution
 gulp.task('clean', () => {
