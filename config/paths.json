@@ -1,0 +1,21 @@
+{
+  "config": "config/",
+  "assetsScss": "app/assets/scss/",
+  "assetsJs": "app/assets/js/",
+  "templates": "app/templates/",
+  "dist": "dist/",
+  "bundle": "dist/bundle/",
+  "bundleCss": "dist/bundle/assets/css/",
+  "bundleScss": "dist/bundle/assets/scss/",
+  "bundleJs": "dist/bundle/assets/js/",
+  "bundleTemplates": "dist/bundle/templates/",
+  "gem": "dist/gem/",
+  "gemCss": "dist/gem/assets/stylesheets/",
+  "gemScss": "dist/gem/assets/stylesheets/",
+  "gemJs": "dist/gem/assets/javascripts/",
+  "gemTemplates": "dist/gem/views/layouts/",
+  "pkg": "dist/pkg/",
+  "npm": "node_modules/",
+  "test": "test/",
+  "testSpecs": "test/specs/"
+}
