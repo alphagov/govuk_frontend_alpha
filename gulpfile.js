@@ -40,7 +40,7 @@ const packageName = packageJson.name + '-' + packageJson.version
 const paths = require('./config/paths.json')
 
 // Run 'gulp help' to list available tasks
-gulp.task('help', taskListing)
+gulp.task('help', taskListing.withFilters(null, 'help'))
 
 // Task for cleaning the distribution
 gulp.task('clean', () => {
