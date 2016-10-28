@@ -24,6 +24,7 @@
     "gulp-sass-lint": "^1.2.0",
     "gulp-standard": "^8.0.2",
     "gulp-tar": "^1.9.0",
+    "gulp-task-listing": "^1.0.1",
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
     "jasmine-spec-reporter": "^2.7.0",
