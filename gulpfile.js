@@ -1,6 +1,7 @@
 'use strict'
 
 const packageJson = require('./package.json')
+const fs = require('fs')
 
 // Gulp utility
 const gulp = require('gulp')
@@ -188,8 +189,21 @@ gulp.task('package:gem:build', () => run(`cd ${paths.gem} && gem build ${package
 gulp.task('package:gem:copy', () => gulp.src(`${paths.gem}${packageName}.gem`).pipe(gulp.dest(paths.pkg)))
 gulp.task('package:gem:clean', () => del(`${paths.gem}${packageName}.gem`))
 
+const buildNpmPackageJson = () => {
+  const npmPackageJson = {}
+  npmPackageJson['name'] = packageJson.name
+  npmPackageJson['version'] = packageJson.version
+  npmPackageJson['description'] = packageJson.description
+  npmPackageJson['repository'] = packageJson.repository
+  npmPackageJson['author'] = packageJson.author
+  npmPackageJson['license'] = packageJson.license
+  npmPackageJson['bugs'] = packageJson.bugs
+  npmPackageJson['homepage'] = packageJson.homepage
+  return JSON.stringify(npmPackageJson)
+}
+
 gulp.task('package:npm', () => {
-  runSequence('build', 'package:npm:prepare', 'package:npm:build')
+  runSequence('build', 'package:npm:prepare', 'package:npm:json', 'package:npm:build')
 })
 
 gulp.task('package:npm:prepare', () => {
@@ -197,7 +211,12 @@ gulp.task('package:npm:prepare', () => {
   gulp.src(paths.bundleScss + '**/*').pipe(gulp.dest(paths.npmScss))
   gulp.src(paths.bundleJs + '**/*').pipe(gulp.dest(paths.npmJs))
   gulp.src(paths.bundleTemplates + '**/*').pipe(gulp.dest(paths.npmTemplates))
-  return gulp.src('./lib/packaging/npm/package.json').pipe(gulp.dest(paths.npm))
+  return gulp.src('./package.json').pipe(gulp.dest(paths.npm))
+})
+
+gulp.task('package:npm:json', function (cb) {
+  const npmPackageJson = buildNpmPackageJson()
+  fs.writeFile(paths.npm + 'package.json', npmPackageJson , cb)
 })
 
 gulp.task('package:npm:build', () => run(`cd ${paths.npm} && npm pack`).exec())
