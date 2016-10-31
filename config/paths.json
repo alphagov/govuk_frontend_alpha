@@ -14,8 +14,13 @@
   "gemScss": "dist/gem/assets/stylesheets/",
   "gemJs": "dist/gem/assets/javascripts/",
   "gemTemplates": "dist/gem/views/layouts/",
+  "npm": "dist/npm/",
+  "npmCss": "dist/npm/assets/css/",
+  "npmScss": "dist/npm/assets/scss/",
+  "npmJs": "dist/npm/assets/js/",
+  "npmTemplates": "dist/npm/templates/",
   "pkg": "dist/pkg/",
-  "npm": "node_modules/",
+  "node_modules": "node_modules/",
   "test": "test/",
   "testSpecs": "test/specs/"
 }

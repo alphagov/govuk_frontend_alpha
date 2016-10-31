@@ -1,6 +1,7 @@
 'use strict'
 
 const packageJson = require('./package.json')
+const fs = require('fs')
 
 // Gulp utility
 const gulp = require('gulp')
@@ -31,8 +32,6 @@ const jasmineBrowser = require('gulp-jasmine-browser')
 const SpecReporter = require('jasmine-spec-reporter')
 
 // Packaging
-const tar = require('gulp-tar')
-const gzip = require('gulp-gzip')
 const run = require('gulp-run')
 const packageName = packageJson.name + '-' + packageJson.version
 
@@ -118,7 +117,7 @@ gulp.task('test:lib', () => gulp.src(paths.testSpecs + '*.js', {read: false})
 // Ideally these pre-existing toolkit tests will be rewritten at some point
 // to use mocha rather than requiring Jasmine as well.
 gulp.task('test:toolkit', () => gulp.src([
-  paths.npm + 'jquery/dist/jquery.js',
+  paths.node_modules + 'jquery/dist/jquery.js',
   paths.assetsJs + 'toolkit/**/*.js',
   paths.testSpecs + 'toolkit/unit/**/*.spec.js'
 ])
@@ -164,16 +163,14 @@ gulp.task('build', cb => {
 })
 
 // Package the contents of dist
-gulp.task('package', ['package:tgz'])
-gulp.task('package:tgz', () => {
-  gulp.src(paths.bundle + '*')
-    .pipe(tar(packageName + '.tar'))
-    .pipe(gzip())
-    .pipe(gulp.dest(paths.pkg))
+gulp.task('package', () => {
+  runSequence('build', ['package:gem', 'package:npm'])
 })
+
 gulp.task('package:gem', () => {
   runSequence('package:gem:prepare', 'package:gem:build', 'package:gem:copy', 'package:gem:clean')
 })
+
 gulp.task('package:gem:prepare', () => {
   gulp.src(paths.bundleCss + '**/*').pipe(gulp.dest(paths.gemCss))
   gulp.src(paths.bundleScss + '**/*').pipe(gulp.dest(paths.gemScss))
@@ -181,6 +178,37 @@ gulp.task('package:gem:prepare', () => {
   gulp.src(paths.bundleTemplates + '**/*').pipe(gulp.dest(paths.gemTemplates))
   return gulp.src(`lib/packaging/gem/${packageJson.name}.gemspec`).pipe(gulp.dest(paths.gem))
 })
+
 gulp.task('package:gem:build', () => run(`cd ${paths.gem} && gem build ${packageJson.name}.gemspec`).exec())
 gulp.task('package:gem:copy', () => gulp.src(`${paths.gem}${packageName}.gem`).pipe(gulp.dest(paths.pkg)))
 gulp.task('package:gem:clean', () => del(`${paths.gem}${packageName}.gem`))
+
+const buildNpmPackageJson = () => {
+  const npmPackageJson = {}
+  npmPackageJson['name'] = packageJson.name
+  npmPackageJson['version'] = packageJson.version
+  npmPackageJson['description'] = packageJson.description
+  npmPackageJson['repository'] = packageJson.repository
+  npmPackageJson['author'] = packageJson.author
+  npmPackageJson['license'] = packageJson.license
+  npmPackageJson['bugs'] = packageJson.bugs
+  npmPackageJson['homepage'] = packageJson.homepage
+  return JSON.stringify(npmPackageJson)
+}
+
+gulp.task('package:npm', () => {
+  runSequence('package:npm:prepare', 'package:npm:json', 'package:npm:build', 'package:npm:copy', 'package:npm:clean')
+})
+
+gulp.task('package:npm:prepare', () => {
+  gulp.src(paths.bundleCss + '**/*').pipe(gulp.dest(paths.npmCss))
+  gulp.src(paths.bundleScss + '**/*').pipe(gulp.dest(paths.npmScss))
+  gulp.src(paths.bundleJs + '**/*').pipe(gulp.dest(paths.npmJs))
+  gulp.src(paths.bundleTemplates + '**/*').pipe(gulp.dest(paths.npmTemplates))
+  return gulp.src('./package.json').pipe(gulp.dest(paths.npm))
+})
+
+gulp.task('package:npm:json', cb => fs.writeFile(paths.npm + 'package.json', buildNpmPackageJson(), cb))
+gulp.task('package:npm:build', () => run(`cd ${paths.npm} && npm pack`).exec())
+gulp.task('package:npm:copy', () => gulp.src(`${paths.npm}${packageName}.tgz`).pipe(gulp.dest(paths.pkg)))
+gulp.task('package:npm:clean', () => del(`${paths.npm}${packageName}.tgz`))
