@@ -43,7 +43,7 @@ gulp.task('help', taskListing.withFilters(null, 'help'))
 
 // Task for cleaning the distribution
 gulp.task('clean', () => {
-  return del([paths.dist + '*'])
+  return del([paths.dist + '*', paths.public + '*'])
 })
 
 // Task for transpiling the templates
@@ -212,3 +212,23 @@ gulp.task('package:npm:json', cb => fs.writeFile(paths.npm + 'package.json', bui
 gulp.task('package:npm:build', () => run(`cd ${paths.npm} && npm pack`).exec())
 gulp.task('package:npm:copy', () => gulp.src(`${paths.npm}${packageName}.tgz`).pipe(gulp.dest(paths.pkg)))
 gulp.task('package:npm:clean', () => del(`${paths.npm}${packageName}.tgz`))
+
+// Copy files to /public
+gulp.task('preview', cb => {
+  runSequence('build', ['preview:copy:styles', 'preview:copy:images', 'preview:copy:js'], cb)
+})
+
+gulp.task('preview:copy:styles', () => {
+  return gulp.src(paths.bundleCss + '*.css')
+    .pipe(gulp.dest(paths.publicCss))
+})
+
+gulp.task('preview:copy:images', () => {
+  return gulp.src(paths.bundleImg + '**/*')
+    .pipe(gulp.dest(paths.publicImg))
+})
+
+gulp.task('preview:copy:js', () => {
+  return gulp.src(paths.bundleJs + '**/*.js')
+    .pipe(gulp.dest(paths.publicJs))
+})
