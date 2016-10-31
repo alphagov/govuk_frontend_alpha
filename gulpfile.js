@@ -118,7 +118,7 @@ gulp.task('test:lib', () => gulp.src(paths.testSpecs + '*.js', {read: false})
 // Ideally these pre-existing toolkit tests will be rewritten at some point
 // to use mocha rather than requiring Jasmine as well.
 gulp.task('test:toolkit', () => gulp.src([
-  paths.npm + 'jquery/dist/jquery.js',
+  paths.node_modules + 'jquery/dist/jquery.js',
   paths.assetsJs + 'toolkit/**/*.js',
   paths.testSpecs + 'toolkit/unit/**/*.spec.js'
 ])
@@ -171,9 +171,11 @@ gulp.task('package:tgz', () => {
     .pipe(gzip())
     .pipe(gulp.dest(paths.pkg))
 })
+
 gulp.task('package:gem', () => {
   runSequence('package:gem:prepare', 'package:gem:build', 'package:gem:copy', 'package:gem:clean')
 })
+
 gulp.task('package:gem:prepare', () => {
   gulp.src(paths.bundleCss + '**/*').pipe(gulp.dest(paths.gemCss))
   gulp.src(paths.bundleScss + '**/*').pipe(gulp.dest(paths.gemScss))
@@ -181,6 +183,15 @@ gulp.task('package:gem:prepare', () => {
   gulp.src(paths.bundleTemplates + '**/*').pipe(gulp.dest(paths.gemTemplates))
   return gulp.src(`lib/packaging/gem/${packageJson.name}.gemspec`).pipe(gulp.dest(paths.gem))
 })
+
 gulp.task('package:gem:build', () => run(`cd ${paths.gem} && gem build ${packageJson.name}.gemspec`).exec())
 gulp.task('package:gem:copy', () => gulp.src(`${paths.gem}${packageName}.gem`).pipe(gulp.dest(paths.pkg)))
 gulp.task('package:gem:clean', () => del(`${paths.gem}${packageName}.gem`))
+
+gulp.task('package:npm', () => {
+  gulp.src(paths.bundleCss + '**/*').pipe(gulp.dest(paths.npmCss))
+  gulp.src(paths.bundleScss + '**/*').pipe(gulp.dest(paths.npmScss))
+  gulp.src(paths.bundleJs + '**/*').pipe(gulp.dest(paths.npmJs))
+  gulp.src(paths.bundleTemplates + '**/*').pipe(gulp.dest(paths.npmTemplates))
+  return gulp.src('./lib/packaging/npm/package.json').pipe(gulp.dest(paths.npm))
+})
