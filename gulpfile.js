@@ -189,9 +189,15 @@ gulp.task('package:gem:copy', () => gulp.src(`${paths.gem}${packageName}.gem`).p
 gulp.task('package:gem:clean', () => del(`${paths.gem}${packageName}.gem`))
 
 gulp.task('package:npm', () => {
+  runSequence('build', 'package:npm:prepare', 'package:npm:build')
+})
+
+gulp.task('package:npm:prepare', () => {
   gulp.src(paths.bundleCss + '**/*').pipe(gulp.dest(paths.npmCss))
   gulp.src(paths.bundleScss + '**/*').pipe(gulp.dest(paths.npmScss))
   gulp.src(paths.bundleJs + '**/*').pipe(gulp.dest(paths.npmJs))
   gulp.src(paths.bundleTemplates + '**/*').pipe(gulp.dest(paths.npmTemplates))
   return gulp.src('./lib/packaging/npm/package.json').pipe(gulp.dest(paths.npm))
 })
+
+gulp.task('package:npm:build', () => run(`cd ${paths.npm} && npm pack`).exec())
