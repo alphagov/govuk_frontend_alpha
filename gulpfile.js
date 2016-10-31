@@ -32,8 +32,6 @@ const jasmineBrowser = require('gulp-jasmine-browser')
 const SpecReporter = require('jasmine-spec-reporter')
 
 // Packaging
-const tar = require('gulp-tar')
-const gzip = require('gulp-gzip')
 const run = require('gulp-run')
 const packageName = packageJson.name + '-' + packageJson.version
 
@@ -165,12 +163,8 @@ gulp.task('build', cb => {
 })
 
 // Package the contents of dist
-gulp.task('package', ['package:tgz'])
-gulp.task('package:tgz', () => {
-  gulp.src(paths.bundle + '*')
-    .pipe(tar(packageName + '.tar'))
-    .pipe(gzip())
-    .pipe(gulp.dest(paths.pkg))
+gulp.task('package', () => {
+  runSequence('build', ['package:gem', 'package:npm'])
 })
 
 gulp.task('package:gem', () => {
@@ -203,7 +197,7 @@ const buildNpmPackageJson = () => {
 }
 
 gulp.task('package:npm', () => {
-  runSequence('build', 'package:npm:prepare', 'package:npm:json', 'package:npm:build')
+  runSequence('package:npm:prepare', 'package:npm:json', 'package:npm:build', 'package:npm:copy', 'package:npm:clean')
 })
 
 gulp.task('package:npm:prepare', () => {
@@ -214,9 +208,7 @@ gulp.task('package:npm:prepare', () => {
   return gulp.src('./package.json').pipe(gulp.dest(paths.npm))
 })
 
-gulp.task('package:npm:json', function (cb) {
-  const npmPackageJson = buildNpmPackageJson()
-  fs.writeFile(paths.npm + 'package.json', npmPackageJson , cb)
-})
-
+gulp.task('package:npm:json', cb => fs.writeFile(paths.npm + 'package.json', buildNpmPackageJson(), cb))
 gulp.task('package:npm:build', () => run(`cd ${paths.npm} && npm pack`).exec())
+gulp.task('package:npm:copy', () => gulp.src(`${paths.npm}${packageName}.tgz`).pipe(gulp.dest(paths.pkg)))
+gulp.task('package:npm:clean', () => del(`${paths.npm}${packageName}.tgz`))
