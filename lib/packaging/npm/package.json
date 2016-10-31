@@ -1,0 +1,12 @@
+{
+  "name": "govuk_frontend_alpha",
+  "version": "0.0.1",
+  "description": "govuk_frontend_alpha",
+  "repository": "alphagov/govuk_frontend_alpha",
+  "author": "Government Digital Service developers (https://gds.blog.gov.uk/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alphagov/govuk_frontend_alpha/issues"
+  },
+  "homepage": "https://github.com/alphagov/govuk_frontend_alpha#readme"
+}
