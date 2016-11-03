@@ -116,9 +116,13 @@ gulp.task('build:scripts:copy', () => {
 })
 
 // Task to run the tests
-gulp.task('test', ['test:lib', 'test:toolkit'])
-gulp.task('test:lib', () => gulp.src(paths.testSpecs + '*.js', {read: false})
-  .pipe(mocha())
+// This runs preview first, to copy assets from dist/bundle to /public, then runs the tests
+gulp.task('test', cb => {
+  runSequence('preview', 'test:lib', 'test:toolkit', 'test:preview', cb)
+})
+
+gulp.task('test:lib', () => gulp.src(paths.testSpecs + 'transpiler_spec.js', {read: false})
+  .pipe(mocha({reporter: 'spec'}))
 )
 // Ideally these pre-existing toolkit tests will be rewritten at some point
 // to use mocha rather than requiring Jasmine as well.
@@ -129,6 +133,16 @@ gulp.task('test:toolkit', () => gulp.src([
 ])
   .pipe(jasmineBrowser.specRunner({console: true}))
   .pipe(jasmineBrowser.headless({reporter: new SpecReporter()}))
+)
+
+gulp.task('test:preview', () => gulp.src(paths.testSpecs + 'preview_spec.js', {read: false})
+  .pipe(mocha({reporter: 'spec'}))
+  .once('error', () => {
+    process.exit(1)
+  })
+  .once('end', () => {
+    process.exit()
+  })
 )
 
 // Linting
@@ -164,6 +178,7 @@ gulp.task('lint:tests', () => {
 })
 
 // Build distribution
+// This runs the build task to build the assets from app to dist/bundle
 gulp.task('build', cb => {
   runSequence('clean', ['build:templates', 'build:images', 'build:styles', 'build:scripts'], cb)
 })
@@ -222,6 +237,7 @@ gulp.task('package:npm:copy', () => gulp.src(`${paths.npm}${packageName}.tgz`).p
 gulp.task('package:npm:clean', () => del(`${paths.npm}${packageName}.tgz`))
 
 // Copy files to /public
+// This runs the build task first, then copies the assets from dist/bundle to /public
 gulp.task('preview', cb => {
   runSequence('build', ['preview:copy:styles', 'preview:copy:images', 'preview:copy:js'], cb)
 })
