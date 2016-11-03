@@ -38,6 +38,9 @@ const packageName = packageJson.name + '-' + packageJson.version
 // Configuration
 const paths = require('./config/paths.json')
 
+// Development
+const nodemon = require('gulp-nodemon')
+
 // Run 'gulp help' to list available tasks
 gulp.task('help', taskListing.withFilters(null, 'help'))
 
@@ -255,4 +258,21 @@ gulp.task('preview:copy:images', () => {
 gulp.task('preview:copy:js', () => {
   return gulp.src(paths.bundleJs + '**/*.js')
     .pipe(gulp.dest(paths.publicJs))
+})
+
+// Start server
+// This runs the preview task first then starts the server
+gulp.task('start', cb => {
+  runSequence('preview', ['start:server'], cb)
+})
+
+gulp.task('start:server', function () {
+  nodemon({
+    script: 'server.js',
+    ext: 'js html',
+    env: { 'NODE_ENV': 'development' }
+  })
+    .on('restart', function () {
+      console.log('App restarted...')
+    })
 })
