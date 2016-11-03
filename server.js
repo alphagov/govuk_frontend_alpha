@@ -35,5 +35,6 @@ app.get('/', function (req, res) {
 
 // Log when app is running
 app.listen(3000, function () {
-  console.log('App is running...')
+  console.log('GOV.UK Frontend Alpha\n')
+  console.log('Listening on port 3000   url: http://localhost:3000')
 })
