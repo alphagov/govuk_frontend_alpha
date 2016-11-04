@@ -5,6 +5,7 @@
   "repository": "alphagov/govuk_frontend_alpha",
   "author": "Government Digital Service developers (https://gds.blog.gov.uk/)",
   "license": "MIT",
+  "engines" : { "node" : ">= 6.0" },
   "bugs": {
     "url": "https://github.com/alphagov/govuk_frontend_alpha/issues"
   },
