@@ -3,6 +3,8 @@ const app = express()
 const path = require('path')
 const nunjucks = require('nunjucks')
 
+module.exports = app
+
 // Set up App
 const appViews = [
   path.join(__dirname, '/app/views/'),
