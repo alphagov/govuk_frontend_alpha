@@ -33,7 +33,7 @@
     "phantomjs-prebuilt": "^2.1.13",
     "rollup-stream": "^1.14.0",
     "run-sequence": "^1.2.2",
-    "sass-lint": "git://github.com/sasstools/sass-lint.git#feature/disable-linters",
+    "sass-lint": "1.10.0",
     "through2": "^2.0.1",
     "uglify-save-license": "^0.4.1",
     "vinyl-buffer": "^1.0.0",
