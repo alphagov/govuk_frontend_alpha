@@ -1,7 +1,7 @@
 .gv-c-step {
 
   display: inline-block;
-  @include border-radius(50%);
+  border-radius: 50%;
 
   background: $black;
   color: $white;

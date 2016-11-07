@@ -6,8 +6,7 @@
 @mixin button($colour: $button-colour) {
 
   @include inline-block;
-
-  @include border-radius(0);
+  border-radius: 0;
 
   position: relative;
   padding: .526315em .789473em .263157em; // 10px 15px 5px
