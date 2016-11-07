@@ -8,7 +8,7 @@
     margin-bottom: $gutter;
   }
 
-  @include box-sizing(border-box);
+  box-sizing: border-box;
 
   @include clearfix;
 
@@ -47,7 +47,7 @@
 
   // Used for inputs and textareas
   &__control {
-    @include box-sizing(border-box);
+    box-sizing: border-box;
     @include core-19;
     width: 100%;
 

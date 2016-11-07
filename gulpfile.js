@@ -17,6 +17,7 @@ const transpiler = require('./lib/transpilation/transpiler.js')
 const sass = require('gulp-sass')
 const sasslint = require('gulp-sass-lint')
 const nano = require('gulp-cssnano')
+const autoprefixer = require('gulp-autoprefixer')
 
 // Javascript
 const standard = require('gulp-standard')
@@ -75,6 +76,9 @@ gulp.task('build:styles', cb => {
 gulp.task('build:styles:compile', () => {
   return gulp.src(paths.assetsScss + '**/*.scss')
     .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer({
+      browsers: ['IE >= 8', 'iOS >= 3.2', 'Firefox > 20', 'Chrome > 20', 'Safari > 5', 'last 2 versions']
+    }))
     .pipe(gulp.dest(paths.bundleCss))
     .pipe(rename({ suffix: '.min' }))
     .pipe(nano())

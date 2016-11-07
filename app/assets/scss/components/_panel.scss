@@ -2,7 +2,7 @@
 // https://github.com/alphagov/govuk_elements/blob/master/public/sass/elements/_panels.scss
 
 .gv-c-panel {
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   @include clearfix;
 
   clear: both;

@@ -6,8 +6,7 @@
 @mixin button($colour: $button-colour) {
 
   @include inline-block;
-
-  @include border-radius(0);
+  border-radius: 0;
 
   position: relative;
   padding: .526315em .789473em .263157em; // 10px 15px 5px
@@ -26,7 +25,7 @@
   -webkit-appearance: none;
 
   // Bottom edge effect
-  @include box-shadow(0 2px 0 darken($colour, 15%));
+  box-shadow: 0 2px 0 darken($colour, 15%);
   @include ie-lte(8) {
     border-bottom: 2px solid darken($colour, 15%);
   }
@@ -42,14 +41,14 @@
 
   &:active {
     top: 2px;
-    @include box-shadow(0 0 0 $colour);
+    box-shadow: 0 0 0 $colour;
   }
 
   // Disabled button styles
   &.disabled,
   &[disabled="disabled"],
   &[disabled] {
-    @include opacity(0.5);
+    opacity: 0.5;
 
     &:hover {
       background-color: $colour;
@@ -58,7 +57,7 @@
 
     &:active {
       top: 0;
-      @include box-shadow(0 2px 0 darken($colour, 15%));
+      box-shadow: 0 2px 0 darken($colour, 15%);
       @include ie-lte(8) {
         border-bottom: 2px solid darken($colour, 15%);
       }
@@ -142,7 +141,7 @@
 .gv-c-button {
   @include button ($button-colour);
 
-  @include box-sizing (border-box);
+  box-sizing: border-box;
   vertical-align: top;
 
   @include media (mobile) {
