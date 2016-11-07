@@ -125,7 +125,7 @@ gulp.task('build:scripts:copy', () => {
 // Task to run the tests
 // This runs preview first, to copy assets from dist/bundle to /public, then runs the tests
 gulp.task('test', cb => {
-  runSequence('preview', 'test:lib', 'test:toolkit', 'test:preview', cb)
+  runSequence('lint', 'preview', 'test:lib', 'test:toolkit', 'test:preview', cb)
 })
 
 gulp.task('test:lib', () => gulp.src(paths.testSpecs + 'transpiler_spec.js', {read: false})
