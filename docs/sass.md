@@ -32,6 +32,7 @@ Ground zero styles, normalize, resets, box sizing
 ### Elements
 
 Unclassed HTML elements (type selectors)
+
 h1 - h6, basic links, lists
 
 ### Objects
@@ -41,7 +42,9 @@ Site wrapper and grid
 ### Components
 
 Fully designed chunks of UI
+
 Private mixins sit in relevant file
+
 Use BEM
 
     .component-name {}
@@ -59,7 +62,6 @@ Very high specificity, usually carry !important
 This is the most specific layer.
 
 We are progressively adding and never undoing.
-Causes rules to trickle together and we are adding on layers, not undoing.
 
 ## Namespaces / Prefixes
 
