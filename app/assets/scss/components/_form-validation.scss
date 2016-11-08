@@ -8,7 +8,7 @@
 .error {
 
   // Ensure the .error class is applied to .form-group, otherwide box-sizing(border-box) will need to be used
-  // box-sizing: border-box;
+  // @include box-sizing(border-box);
   margin-right: 15px;
 
   // Error messages should be red and bold

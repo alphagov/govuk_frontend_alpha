@@ -23,7 +23,7 @@
 }
 
 .gv-o-grid-item {
-  box-sizing: border-box;
+  @include box-sizing(border-box);
 
   @include media(tablet) {
     float: left;
@@ -67,7 +67,7 @@
   }
 
   padding: 0 $gutter-half;
-  box-sizing: border-box;
+  @include box-sizing(border-box);
 }
 
 // Use .grid-column to create a grid column with 15px gutter
