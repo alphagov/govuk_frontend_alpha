@@ -8,7 +8,8 @@ module.exports = app
 // Set up App
 const appViews = [
   path.join(__dirname, '/app/views/'),
-  path.join(__dirname, '/app/templates/')
+  path.join(__dirname, '/app/templates/'),
+  path.join(__dirname, '/app/components/')
 ]
 
 nunjucks.configure(appViews, {
