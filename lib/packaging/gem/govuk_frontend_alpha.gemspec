@@ -1,17 +1,16 @@
-# This gemspec is stored here but designed to be run during gem build
-# Prior to that it’s copied into the build folder
-# lib (below) refers to the expected folder rather than this one
+require 'json'
 
-lib = File.expand_path('../../../lib/packaging/gem', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'govuk_frontend_alpha'
+# `package.json` is created as part of the `gem:prepare` step
+@package_json = JSON.parse File.read(File.expand_path("../config/package.json", __FILE__))
 
 Gem::Specification.new do |s|
-  s.name        = GovukFrontendAlpha::NAME
-  s.version     = GovukFrontendAlpha::VERSION
-  s.summary     = GovukFrontendAlpha::DESCRIPTION
-  s.author      = GovukFrontendAlpha::AUTHOR
-  s.homepage    = GovukFrontendAlpha::HOMEPAGE
-  s.license     = GovukFrontendAlpha::LICENSE
-  s.files       = GovukFrontendAlpha::FILES
+  s.name        = @package_json['name']
+  s.version     = @package_json['version']
+  s.summary     = @package_json['description']
+  s.author      = @package_json['author']
+  s.homepage    = @package_json['homepage']
+  s.license     = @package_json['license']
+  s.files = Dir["{app,config,lib}/**/*"]
+
+  s.add_dependency "rails", ">= 3.1"
 end
