@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 const app = require('../../server.js')
 const server = app.listen()
 const request = require('supertest').agent(server)
@@ -36,10 +37,11 @@ describe('Copy assets to public and run the app...', function () {
         .expect('Content-Type', /text\/html/)
         .expect(200)
         .end(function (err, res) {
-          if (err)
+          if (err) {
             done(err)
-          else
+          } else {
             done()
+          }
         })
     })
   })
