@@ -58,7 +58,7 @@ describe('Transpilation', function () {
       transpilationTest(erbTranspiler, nunjucksAssetPath, erbStylesheetsAssetPath, done)
     })
     it('should have a correct asset_path for javascript', function (done) {
-      const nunjucksJavascriptAssetPath = `<script src="{{ asset_path + 'javascript/govuk-template.js' }}"></script>`
+      const nunjucksJavascriptAssetPath = `<script src="{{ asset_path + 'javascripts/govuk-template.js' }}"></script>`
       const erbJavascriptAssetPath = `<script src="<%= asset_path 'govuk-template.js?1.0.0' %>"></script>`
       transpilationTest(erbTranspiler, nunjucksJavascriptAssetPath, erbJavascriptAssetPath, done)
     })
