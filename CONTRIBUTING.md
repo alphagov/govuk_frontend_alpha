@@ -20,9 +20,17 @@ We supply templates in different languages. If you use a language that we don’
 
 ## Code standards
 
-### Indentation and whitespace
+In general:
+- two spaces
+- no tabs
+- no trailing whitespace
+- empty line at the end of the file.
 
-Two spaces, no tabs, no trailing whitespace, empty line at the end of the file. Your JavaScript should follow the [standard JS](http://standardjs.com/) guidelines.
+If your editor supports it you can use the [`.editorconfig`](https://github.com/alphagov/govuk_frontend_alpha/blob/master/.editorconfig) file in this repo to make sure these standards are followed.
+
+Your JavaScript should follow the [standard JS](http://standardjs.com/) guidelines. [SASS is linted using sass-lint](https://github.com/alphagov/govuk_frontend_alpha/blob/master/docs/sass-linting.md).
+
+You can lint the codebase with `gulp lint`.
 
 ### Versioning
 
