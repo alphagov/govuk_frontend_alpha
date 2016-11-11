@@ -30,5 +30,6 @@
   "pkg": "dist/pkg/",
   "node_modules": "node_modules/",
   "test": "test/",
-  "testSpecs": "test/specs/"
+  "testSpecs": "test/specs/",
+  "lib": "lib/"
 }
