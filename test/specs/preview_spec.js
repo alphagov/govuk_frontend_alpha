@@ -23,7 +23,6 @@ describe('Copy assets to public and run the app...', function () {
         fs.accessSync(path.resolve(__dirname, '../../public/images/crests/bis_crest_13px.png'))
         fs.accessSync(path.resolve(__dirname, '../../public/images/template/apple-touch-icon-120x120.png'))
         fs.accessSync(path.resolve(__dirname, '../../public/images/toolkit/accordion-arrow-2x.png'))
-        fs.accessSync(path.resolve(__dirname, '../../public/stylesheets/fonts.css'))
         fs.accessSync(path.resolve(__dirname, '../../public/stylesheets/govuk-template-print.css'))
         fs.accessSync(path.resolve(__dirname, '../../public/stylesheets/main.css'))
       })
