@@ -65,12 +65,11 @@
   &--search {
     @include icon(icon-search, 30, 22);
   }
-}
 
-
-// GOV.UK step icons
-@for $i from 1 through 14 {
-  &--step-#{$i} {
-    @include icon(icon-step--#{$i}, 23, 23, icon-steps);
+  // GOV.UK step icons
+  @for $i from 1 through 14 {
+    &--step-#{$i} {
+      @include icon(icon-step--#{$i}, 23, 23, icon-steps);
+    }
   }
 }
