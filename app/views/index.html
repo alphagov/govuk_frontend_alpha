@@ -4,12 +4,12 @@
   <main class="gv-o-wrapper">
     {% import "../components/button.nunjucks" as button %}
 
-    <div class="govuk-u-mb-10">
+    <div class="gv-u-mb-10">
     {{ button.buttonComponent(text=buttonData.context.text,
                               type=buttonData.context.type) }}
     </div>
 
-    <div class="govuk-u-mb-10">
+    <div class="gv-u-mb-10">
     {{ button.buttonComponent(text=buttonPrimaryData.context.text,
                               type=buttonPrimaryData.context.type,
                               isPrimary=buttonPrimaryData.context.isPrimary) }}
@@ -17,7 +17,7 @@
 
     {% import "../components/form-group.nunjucks" as formGroup %}
 
-    <div class="govuk-u-mb-10">
+    <div class="gv-u-mb-10">
     <!-- To refer to, for the examples below -->
     <!--
       {{ formGroup.formGroupComponent(id=formGroupData.context.id,
@@ -29,20 +29,20 @@
     -->
     </div>
 
-    <div class="govuk-u-mb-10">
+    <div class="gv-u-mb-10">
     {{ formGroup.formGroupComponent("full-name",
                                     "full-name",
                                     "Full name") }}
     </div>
 
-    <div class="govuk-u-mb-10">
+    <div class="gv-u-mb-10">
     {{ formGroup.formGroupComponent("full-name",
                                     "full-name",
                                     "Full name",
                                     "As shown on your birth certificate or passport") }}
     </div>
 
-    <div class="govuk-u-mb-10">
+    <div class="gv-u-mb-10">
     {{ formGroup.formGroupComponent("full-name",
                                     "full-name",
                                     "Full name",
@@ -50,7 +50,7 @@
                                     "Error message about full name goes here") }}
     </div>
 
-    <div class="govuk-u-mb-10">
+    <div class="gv-u-mb-10">
     {{ formGroup.formGroupComponent("nino",
                                     "nino",
                                     "What is your National Insurance number",
@@ -58,7 +58,7 @@
                                     "") }}
     </div>
 
-    <div class="govuk-u-mb-10">
+    <div class="gv-u-mb-10">
     {{ formGroup.formGroupComponent("nino",
                                     "nino",
                                     "What is your National Insurance number",
@@ -66,7 +66,7 @@
                                     "Error message about National Insurance number goes here") }}
     </div>
 
-    <div class="govuk-u-mb-10">
+    <div class="gv-u-mb-10">
     {{ formGroup.formGroupComponent("nino",
                                     "nino",
                                     "What is your National Insurance number",
@@ -76,7 +76,7 @@
                                     }}
     </div>
 
-    <div class="govuk-u-mb-10">
+    <div class="gv-u-mb-10">
     {{ formGroup.formGroupComponent("nino",
                                     "nino",
                                     "What is your National Insurance number",
