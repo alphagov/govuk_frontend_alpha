@@ -5,11 +5,14 @@
     {% import "../components/button.nunjucks" as button %}
 
     <div class="govuk-u-mb-10">
-    {{ button.buttonComponent(class=buttonData.context.class, type=buttonData.context.type, text=buttonData.context.text) }}
+    {{ button.buttonComponent(text=buttonData.context.text,
+                              type=buttonData.context.type) }}
     </div>
 
     <div class="govuk-u-mb-10">
-    {{ button.buttonComponent(class=buttonPrimaryData.context.class, type=buttonPrimaryData.context.type, text=buttonPrimaryData.context.text) }}
+    {{ button.buttonComponent(text=buttonPrimaryData.context.text,
+                              type=buttonPrimaryData.context.type,
+                              isPrimary=buttonPrimaryData.context.isPrimary) }}
     </div>
 
     {% import "../components/form-group.nunjucks" as formGroup %}

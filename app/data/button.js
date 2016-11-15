@@ -1,8 +1,8 @@
 module.exports = {
   title: 'Button',
   context: {
-    class: 'gv-c-button',
-    text: 'Default button text',
-    'is-primary': false
+    text: 'Button text',
+    isPrimary: false,
+    type: 'submit'
   }
 }

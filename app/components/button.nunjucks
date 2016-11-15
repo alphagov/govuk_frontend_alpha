@@ -1,5 +1,5 @@
-{% macro buttonComponent(class="gv-c-button", text="", type="") %}
-  <button class="{{ class }}" type="{{ type }}">
+{% macro buttonComponent(isPrimary, text, type) %}
+  <button class="gv-c-button {% if isPrimary %}gv-c-button--primary{% endif %}" {% if type %}type="{{ type }}"{% endif %}>
     {{ text }}
   </button>
 {% endmacro %}
