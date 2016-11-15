@@ -1,5 +1,4 @@
 .gv-c-form-group {
-
   // Set spacing here for now
   // TODO: this should be moved into a utility class
   margin-bottom: $gutter-half;
@@ -11,57 +10,86 @@
   @include box-sizing(border-box);
 
   @include clearfix;
-
-  // This is standard form label
-  &__label {
-    @include core-19;
-
-    display: block;
-    color: $text-colour;
-    padding-bottom: 2px;
-  }
-
-  // Sometimes bold labels are needed
-  &__label--bold {
-    @include bold-19;
-  }
-
-  // Form hints and example text are light grey and sit above a form control
-  // These might not be grey in the future, we need evidence to support this
-  &__hint {
-    @include core-19;
-    display: block;
-    color: $secondary-text-colour;
-    font-weight: normal;
-
-    margin-top: -2px;
-    padding-bottom: 2px;
-  }
-
-  // If a hint sits inside a label, we need to remove the spacing
-  // todo: This shoud be refactored but exists to have a class for how things are at present
-  &__hint--no-spacing {
-    margin-top: 0;
-    padding-bottom: 0;
-  }
-
-  // Used for inputs and textareas
-  &__control {
-    @include box-sizing(border-box);
-    @include core-19;
-    width: 100%;
-
-    padding: 4px;
-    background-color: $white;
-    border: 2px solid $grey-1;
-  }
-
-  // Used for native controls
-  &__native-control {
-    padding-right: 4px;
-  }
-
 }
+
+// Apply a left border to a form group
+// Use a state class, ensure this is chained to another element
+.gv-c-form-group.has-error {
+  border-left: 4px solid $error-colour;
+  padding-left: 10px;
+
+  @include media(tablet) {
+    border-left: 5px solid $error-colour;
+    padding-left: $gutter-half;
+  }
+}
+
+// This is standard form label
+.gv-c-form-group__label {
+  @include core-19;
+
+  display: block;
+  color: $text-colour;
+  padding-bottom: 2px;
+}
+
+// Sometimes bold labels are needed
+.gv-c-form-group__label--bold {
+  font-weight: 600;
+}
+
+// Form hints and example text are light grey and sit above a form control
+// These might not be grey in the future, we need evidence to support this
+.gv-c-form-group__hint {
+  @include core-19;
+  display: block;
+  color: $secondary-text-colour;
+  font-weight: normal;
+
+  margin-top: -2px;
+  padding-bottom: 2px;
+}
+
+// If a hint sits inside a label, we need to remove the spacing
+// todo: This shoud be refactored but exists to have a class for how things are at present
+.gv-c-form-group__hint--no-spacing {
+  margin-top: 0;
+  padding-bottom: 0;
+}
+
+// Used for inputs and textareas
+.gv-c-form-group__control {
+  @include box-sizing(border-box);
+  @include core-19;
+  width: 100%;
+
+  padding: 4px;
+  background-color: $white;
+  border: 2px solid $grey-1;
+}
+
+.gv-c-form-group__control.has-error {
+  border: 4px solid $error-colour;
+}
+
+// Used for native controls
+.gv-c-form-group__native-control {
+  padding-right: 4px;
+}
+
+// Error message styling
+.gv-c-form-group__error-message {
+  @include core-19;
+  color: $error-colour;
+  font-weight: bold;
+
+  display: block;
+  clear: both;
+
+  margin: 0;
+  padding: 4px 0 2px 0;
+}
+
 
 // Default radio buttons and checkboxes - not sure about these, own components, or .form-component--modifiers?
 // Using component names but leaving in this file for now
