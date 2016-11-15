@@ -19,11 +19,14 @@
 
     <div class="govuk-u-mb-10">
     <!-- To refer to, for the examples below -->
-    <!-- {{ formGroup.formGroupComponent(id=formGroupData.context.id,
+    <!--
+      {{ formGroup.formGroupComponent(id=formGroupData.context.id,
                                     name=formGroupData.context.name,
                                     label=formGroupData.context.label,
                                     hint=formGroupData.context.hint,
-                                    error=formGroupData.context.error) }} -->
+                                    error=formGroupData.context.error,
+                                    isTextarea==formGroupData.context.isTextarea) }}
+    -->
     </div>
 
     <div class="govuk-u-mb-10">
@@ -61,6 +64,26 @@
                                     "What is your National Insurance number",
                                     "It'll be on your last payslip. For example, VO 12 34 56 D.",
                                     "Error message about National Insurance number goes here") }}
+    </div>
+
+    <div class="govuk-u-mb-10">
+    {{ formGroup.formGroupComponent("nino",
+                                    "nino",
+                                    "What is your National Insurance number",
+                                    "It'll be on your last payslip. For example, VO 12 34 56 D.",
+                                    "",
+                                    "true")
+                                    }}
+    </div>
+
+    <div class="govuk-u-mb-10">
+    {{ formGroup.formGroupComponent("nino",
+                                    "nino",
+                                    "What is your National Insurance number",
+                                    "It'll be on your last payslip. For example, VO 12 34 56 D.",
+                                    "Error message about National Insurance number goes here",
+                                    "true")
+                                    }}
     </div>
 
   </main>
