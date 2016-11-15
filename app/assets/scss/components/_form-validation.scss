@@ -4,6 +4,11 @@
 // Form validation
 // ==========================================================================
 
+// Form inputs should have a red border
+.gv-c-form-group__control.error {
+  border: 4px solid $error-colour;
+}
+
 // Using the classname .error as it's shorter than .validation and easier to type!
 .error {
 

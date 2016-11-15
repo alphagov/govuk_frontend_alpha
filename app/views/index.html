@@ -15,7 +15,49 @@
     {% import "../components/form-group.nunjucks" as formGroup %}
 
     <div class="govuk-u-mb-10">
-    {{ formGroup.formGroupComponent(class=formGroupData.context.class, labelText=formGroupData.context.labelText) }}
+    <!-- To refer to, for the examples below -->
+    <!-- {{ formGroup.formGroupComponent(id=formGroupData.context.id,
+                                    name=formGroupData.context.name,
+                                    label=formGroupData.context.label,
+                                    hint=formGroupData.context.hint,
+                                    error=formGroupData.context.error) }} -->
+    </div>
+
+    <div class="govuk-u-mb-10">
+    {{ formGroup.formGroupComponent("full-name",
+                                    "full-name",
+                                    "Full name") }}
+    </div>
+
+    <div class="govuk-u-mb-10">
+    {{ formGroup.formGroupComponent("full-name",
+                                    "full-name",
+                                    "Full name",
+                                    "As shown on your birth certificate or passport") }}
+    </div>
+
+    <div class="govuk-u-mb-10">
+    {{ formGroup.formGroupComponent("full-name",
+                                    "full-name",
+                                    "Full name",
+                                    "As shown on your birth certificate or passport",
+                                    "Error message about full name goes here") }}
+    </div>
+
+    <div class="govuk-u-mb-10">
+    {{ formGroup.formGroupComponent("nino",
+                                    "nino",
+                                    "What is your National Insurance number",
+                                    "It'll be on your last payslip. For example, VO 12 34 56 D.",
+                                    "") }}
+    </div>
+
+    <div class="govuk-u-mb-10">
+    {{ formGroup.formGroupComponent("nino",
+                                    "nino",
+                                    "What is your National Insurance number",
+                                    "It'll be on your last payslip. For example, VO 12 34 56 D.",
+                                    "Error message about National Insurance number goes here") }}
     </div>
 
   </main>

@@ -35,8 +35,8 @@ app.use(function (req, res, next) {
 app.get('/', function (req, res) {
   let buttonData = require('./app/data/button.js')
   let buttonPrimaryData = require('./app/data/button-primary.js')
-  let formGroupData = require('./app/data/form-group.js')
-  res.render('index', { buttonData: buttonData, buttonPrimaryData: buttonPrimaryData, formGroupData: formGroupData })
+  // let formGroupData = require('./app/data/form-group.js')
+  res.render('index', { buttonData: buttonData, buttonPrimaryData: buttonPrimaryData })
 })
 
 // Log when app is running
