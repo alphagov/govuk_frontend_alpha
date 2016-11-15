@@ -21,7 +21,7 @@ There are many ways to install GOV.UK Frontend.
 
 If you’re using NPM to manage packages then you can include the latest version directly in your project with the command `npm install govuk_frontend`.
 
-If you are building your project with Ruby then we publish this as a gem. Adding `govuk_frontend` to your Gemfile and running `bundle install` will install the latest version.
+If you are building your project with Ruby then we publish this as a gem. Adding `govuk_frontend` to your Gemfile and running `bundle install` will install the latest version. In the mean time you can [follow these instructions](docs/using-with-rails.md).
 
 We publish a bundle of the code as a zip. This can be downloaded from [the latest release page](https://github.com/alphagov/govuk_elements/releases/latest), and manually copied into the right place for your system.
 
