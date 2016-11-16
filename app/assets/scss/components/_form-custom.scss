@@ -54,10 +54,6 @@
       border-color: $black;
     }
 
-    &--last {
-      margin-bottom: 0;
-    }
-
   }
 
   // To stack horizontally, use .--inline, to sit block labels next to each other
@@ -75,4 +71,8 @@
   // &--checkbox {
   // }
 
+}
+
+.gv-c-form-custom:last-child {
+  margin-bottom: 0;
 }

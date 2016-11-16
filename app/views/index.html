@@ -20,12 +20,12 @@
     <div class="gv-u-mb-10">
     <!-- To refer to, for the examples below -->
     <!--
-      {{ formGroup.formGroupComponent(id=formGroupData.context.id,
-                                    name=formGroupData.context.name,
-                                    label=formGroupData.context.label,
-                                    hint=formGroupData.context.hint,
-                                    error=formGroupData.context.error,
-                                    isTextarea==formGroupData.context.isTextarea) }}
+      {{ formGroup.formGroupComponent(id=formRadioGroupData.context.id,
+                                    name=formRadioGroupData.context.name,
+                                    label=formRadioGroupData.context.label,
+                                    hint=formRadioGroupData.context.hint,
+                                    error=formRadioGroupData.context.error,
+                                    isTextarea==formRadioGroupData.context.isTextarea) }}
     -->
     </div>
 
@@ -66,25 +66,45 @@
                                     "Error message about National Insurance number goes here") }}
     </div>
 
-    <div class="gv-u-mb-10">
-    {{ formGroup.formGroupComponent("nino",
-                                    "nino",
-                                    "What is your National Insurance number",
-                                    "It'll be on your last payslip. For example, VO 12 34 56 D.",
-                                    "",
-                                    "true")
-                                    }}
-    </div>
+    {% import "../components/form-radio-group.nunjucks" as formRadioGroup %}
 
     <div class="gv-u-mb-10">
-    {{ formGroup.formGroupComponent("nino",
-                                    "nino",
-                                    "What is your National Insurance number",
-                                    "It'll be on your last payslip. For example, VO 12 34 56 D.",
-                                    "Error message about National Insurance number goes here",
-                                    "true")
-                                    }}
+    {{ formRadioGroup.formRadioGroupComponent(id=formRadioGroupData.context.id,
+                                  name=formRadioGroupData.context.name,
+                                  legend=formRadioGroupData.context.legend,
+                                  hint=formRadioGroupData.context.hint,
+                                  error=formRadioGroupData.context.error,
+                                  radioGroup=formRadioGroupData.context.radioGroup
+                                  ) }}
     </div>
+
+    <!-- Example of passing data to the above macro:
+    <div class="gv-u-mb-10">
+
+      {{ formRadioGroup.formRadioGroupComponent("contact",
+                                    "contact-group",
+                                    "How do you want to be contacted?",
+                                    "Hint text in here",
+                                    "Error text in here",
+                                    {
+                                      radio1: {
+                                        id: 'example-contact-by-email-1',
+                                        value: 'contact-by-email',
+                                        label: 'Email'
+                                      },
+                                      radio2: {
+                                        id: 'example-contact-by-phone-2',
+                                        value: 'contact-by-phone',
+                                        label: 'Text'
+                                      },
+                                      radio3: {
+                                        id: 'example-contact-by-text-3',
+                                        value: 'contact-by-text',
+                                        label: 'Phone'
+                                      }
+                                    }
+                                    ) }}
+    </div> -->
 
   </main>
 {% endblock %}
