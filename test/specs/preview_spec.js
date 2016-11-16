@@ -1,19 +1,12 @@
 /* eslint-env mocha */
+const request = require('supertest')
 const app = require('../../server.js')
-const server = app.listen()
-const request = require('supertest').agent(server)
 const path = require('path')
 const fs = require('fs')
 const assert = require('assert')
 
 // Check that assets are copied and the app runs
 describe('Copy assets to public and run the app...', function () {
-  after(function (done) {
-    server.close()
-    done()
-    console.log('Stopping server...')
-  })
-
   describe('the preview task', function () {
     it('should copy assets into the /public folder', function () {
       assert.doesNotThrow(function () {
@@ -31,7 +24,7 @@ describe('Copy assets to public and run the app...', function () {
 
   describe('the index page', function () {
     it('should return a 200 on a get to "/"', function (done) {
-      request
+      request(app)
         .get('/')
         .expect('Content-Type', /text\/html/)
         .expect(200)
