@@ -1,4 +1,4 @@
-{% macro buttonComponent(isPrimary, text, type) %}
+{% macro buttonComponent(text, type, isPrimary) %}
   <button class="gv-c-button {% if isPrimary %}gv-c-button--primary{% endif %}" {% if type %}type="{{ type }}"{% endif %}>
     {{ text }}
   </button>
