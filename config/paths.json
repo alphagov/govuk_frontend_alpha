@@ -30,7 +30,7 @@
   "publicCss": "public/stylesheets/",
   "publicJs": "public/javascripts/",
   "pkg": "dist/pkg/",
-  "node_modules": "node_modules/",
+  "nodeModules": "node_modules/",
   "test": "test/",
   "testSpecs": "test/specs/",
   "lib": "lib/"
