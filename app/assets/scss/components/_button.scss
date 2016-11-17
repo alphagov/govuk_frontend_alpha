@@ -158,14 +158,18 @@
   &:focus {
     outline: 3px solid $focus-colour;
   }
+}
 
-  &--disabled {
-    background: $button-colour;
+.gv-c-button--primary {
+  @include button ($button-colour);
+}
 
-    &:focus {
-      outline: none;
-    }
-  }
+.gv-c-button--disabled {
+  background: $button-colour;
+}
+
+.gv-c-button--disabled:focus {
+  outline: none;
 }
 
 
