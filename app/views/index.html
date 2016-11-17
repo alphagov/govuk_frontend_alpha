@@ -76,7 +76,31 @@
                                                   radioGroup=formRadioGroupData.context.radioGroup
                                                   ) }}
     -->
-
+    <div class="gv-u-mb-10">
+      {{ formRadioGroup.formRadioGroupComponent("contact",
+                                                "contact-group",
+                                                "How do you want to be contacted?",
+                                                "Hint text in here",
+                                                "",
+                                                {
+                                                  radio1: {
+                                                    id: 'example-contact-by-email-1',
+                                                    value: 'contact-by-email',
+                                                    label: 'Email'
+                                                  },
+                                                  radio2: {
+                                                    id: 'example-contact-by-phone-2',
+                                                    value: 'contact-by-phone',
+                                                    label: 'Text'
+                                                  },
+                                                  radio3: {
+                                                    id: 'example-contact-by-text-3',
+                                                    value: 'contact-by-text',
+                                                    label: 'Phone'
+                                                  }
+                                                }
+                                                ) }}
+    </div>
     <div class="gv-u-mb-10">
       {{ formRadioGroup.formRadioGroupComponent("contact",
                                                 "contact-group",
