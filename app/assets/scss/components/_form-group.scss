@@ -14,7 +14,7 @@
 
 // Apply a left border to a form group
 // Use a state class, ensure this is chained to another element
-.gv-c-form-group.has-error {
+.gv-c-form-group--has-error {
   border-left: 4px solid $error-colour;
   padding-left: 10px;
 
@@ -68,7 +68,7 @@
   border: 2px solid $grey-1;
 }
 
-.gv-c-form-group__control.has-error {
+.gv-c-form-group__control--has-error {
   border: 4px solid $error-colour;
 }
 

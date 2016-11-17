@@ -1,5 +1,5 @@
 {% macro formGroupComponent(id, name, label, hint, error, isTextarea) %}
-  <div class="gv-c-form-group {% if error %}has-error{% endif %}">
+  <div class="gv-c-form-group {% if error %}gv-c-form-group--has-error{% endif %}">
     <label class="gv-c-form-group__label" for="{{ id }}">
       {{ label }}
       {% if hint %}
@@ -10,11 +10,11 @@
       {% endif %}
     </label>
     {% if isTextarea %}
-      <textarea class="gv-c-form-group__control {% if error %}has-error{% endif %}" id="{{ id }}" name="{{ name }}" cols="30" rows="5">
+      <textarea class="gv-c-form-group__control {% if error %}gv-c-form-group__control--has-error{% endif %}" id="{{ id }}" name="{{ name }}" cols="30" rows="5">
       </textarea>
     {% endif %}
     {% if not isTextarea %}
-      <input class="gv-c-form-group__control {% if error %}has-error{% endif %}" id="{{ id }}" name="{{ name }}" value="" type="text">
+      <input class="gv-c-form-group__control {% if error %}gv-c-form-group__control--has-error{% endif %}" id="{{ id }}" name="{{ name }}" value="" type="text">
     {% endif %}
   </div>
 {% endmacro %}

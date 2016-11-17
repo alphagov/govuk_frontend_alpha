@@ -1,5 +1,5 @@
 {% macro formRadioGroupComponent(id, name, legend, hint, error, radioGroup) %}
-  <div class="gv-c-form-group {% if error %}has-error{% endif %}">
+  <div class="gv-c-form-group {% if error %}gv-c-form-group--has-error{% endif %}">
     <fieldset>
 
       <legend>
