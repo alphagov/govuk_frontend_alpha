@@ -45,9 +45,9 @@ gulp.task('build', cb => {
 gulp.task('lint', ['lint:styles', 'lint:scripts', 'lint:tests'])
 
 // Task to run the tests
-// This runs preview first, to copy assets from dist/bundle to /public, then runs the tests
+// This runs build before testing the preview task, to copy assets to dist/bundle and /public
 gulp.task('test', cb => {
-  runSequence('lint', 'preview', 'test:lib', 'test:toolkit', 'test:preview', cb)
+  runSequence('lint', 'test:lib', 'test:toolkit', 'build', 'test:preview', cb)
 })
 
 // Package the contents of dist
