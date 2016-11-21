@@ -58,5 +58,5 @@ gulp.task('package', cb => {
 // Preview
 // This runs the build task first, watches and starts the server
 gulp.task('preview', cb => {
-  runSequence('build', ['browser-sync', 'watch', 'start:server'], cb)
+  runSequence('build', 'start:server', ['browser-sync', 'watch'], cb)
 })
