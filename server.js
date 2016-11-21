@@ -40,6 +40,10 @@ app.get('/', function (req, res) {
 })
 
 // Log when app is running
+
+// Set the app to run on port 2950
+// as browser sync is running on port 3000
+
 app.listen(3000 - 50, function () {
   console.log('GOV.UK Frontend Alpha\n')
   console.log('Listening on port 3000   url: http://localhost:3000')
