@@ -5,12 +5,15 @@
   "repository": "alphagov/govuk_frontend_alpha",
   "author": "Government Digital Service developers (https://gds.blog.gov.uk/)",
   "license": "MIT",
-  "engines" : { "node" : ">= 6.0" },
+  "engines": {
+    "node": ">= 6.0"
+  },
   "bugs": {
     "url": "https://github.com/alphagov/govuk_frontend_alpha/issues"
   },
   "homepage": "https://github.com/alphagov/govuk_frontend_alpha#readme",
   "devDependencies": {
+    "browser-sync": "^2.18.1",
     "chai": "^3.5.0",
     "del": "^2.2.2",
     "event-stream": "^3.3.4",
