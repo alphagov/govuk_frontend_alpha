@@ -10,5 +10,6 @@
       "isPrimary": true,
       "text": "Primary button text"
     }
-  }]
+  }],
+  "arguments": ["text", "type", "isPrimary"]
 }

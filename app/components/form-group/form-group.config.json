@@ -32,5 +32,6 @@
     "context": {
       "isTextarea": "true"
     }
-  }]
+  }],
+  "arguments": ["id", "name", "label", "hint", "error", "isTextarea"]
 }

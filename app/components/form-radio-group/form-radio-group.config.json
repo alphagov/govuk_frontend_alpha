@@ -39,5 +39,6 @@
       "hint": "Hint text in here",
       "error": "Error text in here"
     }
-  }]
+  }],
+  "arguments": ["id", "name", "legend", "hint", "error", "radioGroup"]
 }

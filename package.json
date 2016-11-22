@@ -67,5 +67,8 @@
       "$",
       "_gaq"
     ]
+  },
+  "dependencies": {
+    "change-case": "^3.0.0"
   }
 }
