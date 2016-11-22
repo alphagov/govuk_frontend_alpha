@@ -2,7 +2,7 @@
 
 {% block content %}
   <main class="gv-o-wrapper">
-    {% import "../components/button.nunjucks" as button %}
+    {% import "../components/button.html.nunjucks" as button %}
      <!-- To refer to, for the examples below -->
      <!--
      {{ button.buttonComponent(text=buttonPrimaryData.context.text,
@@ -21,7 +21,7 @@
     </div>
 
 
-    {% import "../components/form-group.nunjucks" as formGroup %}
+    {% import "../components/form-group.html.nunjucks" as formGroup %}
     <!-- To refer to, for the examples below -->
     <!--
       {{ formGroup.formGroupComponent(id=formRadioGroupData.context.id,
@@ -65,7 +65,7 @@
                                     "Error message about National Insurance number goes here") }}
     </div>
 
-    {% import "../components/form-radio-group.nunjucks" as formRadioGroup %}
+    {% import "../components/form-radio-group.html.nunjucks" as formRadioGroup %}
     <!-- To refer to, for the examples below -->
     <!--
         {{ formRadioGroup.formRadioGroupComponent(id=formRadioGroupData.context.id,
