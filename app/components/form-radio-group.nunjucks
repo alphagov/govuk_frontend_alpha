@@ -1,0 +1,28 @@
+{% macro formRadioGroupComponent(id, name, legend, hint, error, radioGroup) %}
+  <div class="gv-c-form-group {% if error %}gv-c-form-group--has-error{% endif %}">
+    <fieldset>
+
+      <legend>
+        <span class="form-label">{{ legend }}</span>
+        {% if hint %}
+          <span class="gv-c-form-group__hint">{{ hint }}</span>
+        {% endif %}
+        {% if error %}
+          <span class="gv-c-form-group__error-message">{{ error }}</span>
+        {% endif %}
+      </legend>
+
+      {% for name, radio in radioGroup %}
+        <label class="gv-c-form-custom" for="{{radio.id}}">
+          <input class="gv-c-form-custom__control"
+                 id="{{radio.id}}"
+                 type="radio"
+                 name="{{ id }}"
+                 value="{{ radio.value }}" {% if value == radio.value %} checked{% endif %}>
+          {{ radio.label }}
+        </label>
+      {% endfor %}
+
+    </fieldset>
+  </div>
+{% endmacro %}

@@ -5,6 +5,7 @@ module.exports = {
     name: '',
     label: '',
     hint: '',
-    error: ''
+    error: '',
+    isTextarea: ''
   }
 }

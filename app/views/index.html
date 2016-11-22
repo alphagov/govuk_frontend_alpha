@@ -3,64 +3,128 @@
 {% block content %}
   <main class="gv-o-wrapper">
     {% import "../components/button.nunjucks" as button %}
-
-    <div class="govuk-u-mb-10">
-    {{ button.buttonComponent(text=buttonData.context.text,
-                              type=buttonData.context.type) }}
-    </div>
-
-    <div class="govuk-u-mb-10">
-    {{ button.buttonComponent(text=buttonPrimaryData.context.text,
+     <!-- To refer to, for the examples below -->
+     <!--
+     {{ button.buttonComponent(text=buttonPrimaryData.context.text,
                               type=buttonPrimaryData.context.type,
                               isPrimary=buttonPrimaryData.context.isPrimary) }}
+    -->
+
+    <div class="gv-u-mb-10">
+    {{ button.buttonComponent("Button text",
+                              "") }}
     </div>
+    <div class="gv-u-mb-10">
+    {{ button.buttonComponent("Primary button text",
+                              "submit",
+                              "isPrimary") }}
+    </div>
+
 
     {% import "../components/form-group.nunjucks" as formGroup %}
-
-    <div class="govuk-u-mb-10">
     <!-- To refer to, for the examples below -->
-    <!-- {{ formGroup.formGroupComponent(id=formGroupData.context.id,
-                                    name=formGroupData.context.name,
-                                    label=formGroupData.context.label,
-                                    hint=formGroupData.context.hint,
-                                    error=formGroupData.context.error) }} -->
-    </div>
+    <!--
+      {{ formGroup.formGroupComponent(id=formRadioGroupData.context.id,
+                                      name=formRadioGroupData.context.name,
+                                      label=formRadioGroupData.context.label,
+                                      hint=formRadioGroupData.context.hint,
+                                      error=formRadioGroupData.context.error,
+                                      isTextarea==formRadioGroupData.context.isTextarea) }}
+    -->
 
-    <div class="govuk-u-mb-10">
+    <div class="gv-u-mb-10">
     {{ formGroup.formGroupComponent("full-name",
                                     "full-name",
                                     "Full name") }}
     </div>
-
-    <div class="govuk-u-mb-10">
+    <div class="gv-u-mb-10">
     {{ formGroup.formGroupComponent("full-name",
                                     "full-name",
                                     "Full name",
                                     "As shown on your birth certificate or passport") }}
     </div>
-
-    <div class="govuk-u-mb-10">
+    <div class="gv-u-mb-10">
     {{ formGroup.formGroupComponent("full-name",
                                     "full-name",
                                     "Full name",
                                     "As shown on your birth certificate or passport",
                                     "Error message about full name goes here") }}
     </div>
-
-    <div class="govuk-u-mb-10">
+    <div class="gv-u-mb-10">
     {{ formGroup.formGroupComponent("nino",
                                     "nino",
                                     "What is your National Insurance number",
                                     "It'll be on your last payslip. For example, VO 12 34 56 D.",
                                     "") }}
     </div>
-
-    <div class="govuk-u-mb-10">
+    <div class="gv-u-mb-10">
     {{ formGroup.formGroupComponent("nino",
                                     "nino",
                                     "What is your National Insurance number",
                                     "It'll be on your last payslip. For example, VO 12 34 56 D.",
                                     "Error message about National Insurance number goes here") }}
+    </div>
+
+    {% import "../components/form-radio-group.nunjucks" as formRadioGroup %}
+    <!-- To refer to, for the examples below -->
+    <!--
+        {{ formRadioGroup.formRadioGroupComponent(id=formRadioGroupData.context.id,
+                                                  name=formRadioGroupData.context.name,
+                                                  legend=formRadioGroupData.context.legend,
+                                                  hint=formRadioGroupData.context.hint,
+                                                  error=formRadioGroupData.context.error,
+                                                  radioGroup=formRadioGroupData.context.radioGroup
+                                                  ) }}
+    -->
+    <div class="gv-u-mb-10">
+      {{ formRadioGroup.formRadioGroupComponent("contact",
+                                                "contact-group",
+                                                "How do you want to be contacted?",
+                                                "Hint text in here",
+                                                "",
+                                                {
+                                                  radio1: {
+                                                    id: 'example-contact-by-email-1',
+                                                    value: 'contact-by-email',
+                                                    label: 'Email'
+                                                  },
+                                                  radio2: {
+                                                    id: 'example-contact-by-phone-2',
+                                                    value: 'contact-by-phone',
+                                                    label: 'Text'
+                                                  },
+                                                  radio3: {
+                                                    id: 'example-contact-by-text-3',
+                                                    value: 'contact-by-text',
+                                                    label: 'Phone'
+                                                  }
+                                                }
+                                                ) }}
+    </div>
+    <div class="gv-u-mb-10">
+      {{ formRadioGroup.formRadioGroupComponent("contact",
+                                                "contact-group",
+                                                "How do you want to be contacted?",
+                                                "Hint text in here",
+                                                "Error text in here",
+                                                {
+                                                  radio1: {
+                                                    id: 'example-contact-by-email-1',
+                                                    value: 'contact-by-email',
+                                                    label: 'Email'
+                                                  },
+                                                  radio2: {
+                                                    id: 'example-contact-by-phone-2',
+                                                    value: 'contact-by-phone',
+                                                    label: 'Text'
+                                                  },
+                                                  radio3: {
+                                                    id: 'example-contact-by-text-3',
+                                                    value: 'contact-by-text',
+                                                    label: 'Phone'
+                                                  }
+                                                }
+                                                ) }}
     </div>
 
   </main>
