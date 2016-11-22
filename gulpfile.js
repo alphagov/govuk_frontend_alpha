@@ -14,6 +14,7 @@ const taskListing = require('gulp-task-listing')
 
 // Gulp sub-tasks
 require('./lib/tasks/build-templates.js')
+require('./lib/tasks/build-components.js')
 require('./lib/tasks/build-images.js')
 require('./lib/tasks/build-styles.js')
 require('./lib/tasks/build-scripts.js')
