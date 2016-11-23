@@ -39,7 +39,7 @@ gulp.task('clean', () => del([paths.dist + '*', paths.public + '*']))
 // Build distribution
 // This runs the build task to build the assets from app to dist/bundle
 gulp.task('build', cb => {
-  runSequence('clean', ['build:templates', 'build:images', 'build:styles', 'build:scripts'], cb)
+  runSequence('clean', ['build:templates', 'build:components', 'build:images', 'build:styles', 'build:scripts'], cb)
 })
 
 // Linting
