@@ -1,0 +1,24 @@
+{
+  "title": "Form radio group",
+  "status": "wip",
+  "context": {
+    "id": "contact",
+    "name": "contact-group",
+    "legend": "How do you want to be contacted?",
+    "hint": "Hint text in here",
+    "error": "Error text in here",
+    "radioGroup": [{
+      "id": "example-contact-by-email",
+      "value": "contact-by-email",
+      "label": "Email"
+    }, {
+      "id": "example-contact-by-phone",
+      "value": "contact-by-phone",
+      "label": "Phone"
+    }, {
+      "id": "example-contact-by-text",
+      "value": "contact-by-text",
+      "label": "Text"
+    }]
+  }
+}
