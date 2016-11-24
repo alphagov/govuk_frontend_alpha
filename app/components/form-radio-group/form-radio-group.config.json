@@ -5,8 +5,8 @@
     "id": "contact",
     "name": "contact-group",
     "legend": "How do you want to be contacted?",
-    "hint": "Hint text in here",
-    "error": "Error text in here",
+    "hint": "",
+    "error": "",
     "radioGroup": [{
       "id": "example-contact-by-email",
       "value": "contact-by-email",
@@ -20,5 +20,24 @@
       "value": "contact-by-text",
       "label": "Text"
     }]
-  }
+  },
+  "variants": [{
+    "name": "has hint",
+    "context": {
+      "hint": "Hint text in here"
+    }
+  },
+  {
+    "name": "has error",
+    "context": {
+      "error": "Error text in here"
+    }
+  },
+  {
+    "name": "has hint and error",
+    "context": {
+      "hint": "Hint text in here",
+      "error": "Error text in here"
+    }
+  }]
 }
