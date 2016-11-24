@@ -25,6 +25,7 @@ require('./lib/tasks/package-gem.js')
 require('./lib/tasks/lint.js')
 require('./lib/tasks/test.js')
 
+require('./lib/tasks/fractal.js')
 require('./lib/tasks/preview.js')
 require('./lib/tasks/browser-sync.js')
 require('./lib/tasks/watch.js')
@@ -60,4 +61,10 @@ gulp.task('package', cb => {
 // This runs the build task first, watches and starts the server
 gulp.task('preview', cb => {
   runSequence('build', 'start:server', ['browser-sync', 'watch'], cb)
+})
+
+// Fractal
+// This runs the build task first, then starts Fractal
+gulp.task('fractal', cb => {
+  runSequence('build', ['fractal:start'], cb)
 })

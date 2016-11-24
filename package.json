@@ -13,6 +13,8 @@
   },
   "homepage": "https://github.com/alphagov/govuk_frontend_alpha#readme",
   "devDependencies": {
+    "@frctl/fractal": "^1.0.8",
+    "@frctl/nunjucks": "^1.0.1",
     "browser-sync": "^2.18.1",
     "chai": "^3.5.0",
     "del": "^2.2.2",
