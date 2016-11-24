@@ -4,6 +4,7 @@
   "assetsJs": "app/assets/js/",
   "assetsScss": "app/assets/scss/",
   "templates": "app/templates/",
+  "views": "app/views/",
   "components": "app/components/",
   "dist": "dist/",
   "bundle": "dist/bundle/",

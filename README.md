@@ -29,8 +29,13 @@ If you just want some CSS and JavaScript to include then you can link directly t
 
 ## Usage
 
-To follow.
+### to add styleguide route in
 
+import the routes by passing your app in, theis will add /styleguide to your app
+```
+const govuk = require('govuk_frontend_alpha')
+govuk.addRoutes(app);
+```
 ## Contributing back
 
 More information about contributing to this project is in our [contribution guidelines](https://github.com/alphagov/govuk_frontend_alpha/blob/master/CONTRIBUTING.md).
