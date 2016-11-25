@@ -29,9 +29,11 @@ If you just want some CSS and JavaScript to include then you can link directly t
 
 ## Usage
 
+To follow.
+
 ### to add styleguide route in
 
-import the routes by passing your app in, theis will add /styleguide to your app
+import the routes by passing your app in, theis will add /govuk_styleguide to your app
 ```
 const govuk = require('govuk_frontend_alpha')
 govuk.addRoutes(app);

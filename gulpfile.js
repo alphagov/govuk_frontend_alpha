@@ -14,6 +14,7 @@ const taskListing = require('gulp-task-listing')
 
 // Gulp sub-tasks
 require('./lib/tasks/build-templates.js')
+require('./lib/tasks/build-views.js')
 require('./lib/tasks/build-components.js')
 require('./lib/tasks/build-images.js')
 require('./lib/tasks/build-styles.js')
@@ -39,7 +40,7 @@ gulp.task('clean', () => del([paths.dist + '*', paths.public + '*']))
 // Build distribution
 // This runs the build task to build the assets from app to dist/bundle
 gulp.task('build', cb => {
-  runSequence('clean', ['build:templates', 'build:components', 'build:images', 'build:styles', 'build:scripts'], cb)
+  runSequence('clean', ['build:templates', 'build:components','build:views', 'build:images', 'build:styles', 'build:scripts'], cb)
 })
 
 // Linting
