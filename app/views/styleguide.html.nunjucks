@@ -1,4 +1,4 @@
-{% extends "templates/govuk_template.html.nunjucks" %}
+{% extends "govuk_template.html.nunjucks" %}
 
 {% block content %}
   <main class="gv-o-wrapper">

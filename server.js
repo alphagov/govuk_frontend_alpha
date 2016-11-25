@@ -37,7 +37,7 @@ app.get('/', function (req, res) {
   let buttonPrimaryData = require('./app/data/button-primary.js')
   let formGroupData = require('./app/data/form-group.js')
   let formRadioGroupData = require('./app/data/form-radio-group.js')
-  res.render('index', { buttonData: buttonData, buttonPrimaryData: buttonPrimaryData, formGroupData: formGroupData, formRadioGroupData: formRadioGroupData })
+  res.render('styleguide.html.nunjucks', { buttonData: buttonData, buttonPrimaryData: buttonPrimaryData, formGroupData: formGroupData, formRadioGroupData: formRadioGroupData })
 })
 
 // Log when app is running
