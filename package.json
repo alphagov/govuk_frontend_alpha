@@ -34,6 +34,7 @@
     "gulp-task-listing": "^1.0.1",
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
+    "html": "^1.0.0",
     "jasmine-spec-reporter": "^2.7.0",
     "jquery": "^3.1.1",
     "meta-template": "https://github.com/dsingleton/meta-template/tarball/add-erb-support",
