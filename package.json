@@ -35,6 +35,7 @@
     "gulp-util": "^3.0.7",
     "jasmine-spec-reporter": "^2.7.0",
     "jquery": "^3.1.1",
+    "meta-template": "https://github.com/dsingleton/meta-template/tarball/add-erb-support",
     "nunjucks": "^2.5.2",
     "phantomjs-prebuilt": "^2.1.13",
     "rollup-stream": "^1.14.0",
@@ -67,5 +68,8 @@
       "$",
       "_gaq"
     ]
+  },
+  "dependencies": {
+    "change-case": "^3.0.0"
   }
 }

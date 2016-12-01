@@ -23,6 +23,7 @@
   "gemScss": "dist/gem/app/assets/stylesheets/",
   "gemJs": "dist/gem/app/assets/javascripts/",
   "gemTemplates": "dist/gem/app/views/layouts/",
+  "gemComponents": "dist/gem/app/views/components/",
   "npm": "dist/npm/",
   "npmCss": "dist/npm/assets/stylesheets/",
   "npmImg": "dist/npm/assets/images/",

@@ -23,4 +23,10 @@ module GovukFrontendAlpha
       )
     end
   end
+
+  module ApplicationHelper
+    def govuk_component(name, props)
+      render partial: "components/#{name}", locals: props
+    end
+  end
 end
