@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link media="all" rel="stylesheet" href="{{ '/stylesheets/govuk-frontend.css' | path }}">
+    <title>Preview Layout</title>
+    <style>
+      html {
+        background-color: white;
+      }
+    </style>
+</head>
+<body>
+  {{ yield }}
+</body>
+</html>
