@@ -33,11 +33,7 @@ app.use(function (req, res, next) {
 
 // Render views/index
 app.get('/', function (req, res) {
-  let buttonData = require('./app/data/button.js')
-  let buttonPrimaryData = require('./app/data/button-primary.js')
-  let formGroupData = require('./app/data/form-group.js')
-  let formRadioGroupData = require('./app/data/form-radio-group.js')
-  res.render('index', { buttonData: buttonData, buttonPrimaryData: buttonPrimaryData, formGroupData: formGroupData, formRadioGroupData: formRadioGroupData })
+  res.render('index')
 })
 
 // Log when app is running

@@ -1,10 +1,12 @@
 {
   "config": "config/",
+  "app": "app",
+  "appComponents": "app/components/",
+  "appDocs": "app/docs/",
   "assetsImg": "app/assets/images/",
   "assetsJs": "app/assets/js/",
   "assetsScss": "app/assets/scss/",
   "templates": "app/templates/",
-  "components": "app/components/",
   "dist": "dist/",
   "bundle": "dist/bundle/",
   "bundleImg": "dist/bundle/assets/img/",

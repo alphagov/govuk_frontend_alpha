@@ -1,0 +1,18 @@
+{% for radio in radioGroup %}
+  <label class="gv-c-form-custom" for="{{radio.id}}" {% if radio.dataTarget %} data-target="{{ radio.dataTarget }}"{% endif %}>
+    <input class="gv-c-form-custom__control"
+           id="{{radio.id}}"
+           type="radio"
+           name="{{ name }}"
+           value="{{ radio.value }}" {% if value == radio.value %} checked{% endif %}>
+    {{ radio.label }}
+  </label>
+  {% if radio.dataTarget %}
+  <div class="gv-c-panel gv-c-panel--border-narrow" id="{{ radio.dataTarget }}">
+    <div class="gv-c-form-group gv-u-mb-0">
+      <label class="gv-c-form-group__label" for="contact-email">Email address</label>
+      <input class="gv-c-form-group__control" name="contact-email" type="text" id="contact-email">
+    </div>
+  </div>
+  {% endif %}
+{% endfor %}
