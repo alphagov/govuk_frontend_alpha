@@ -1,0 +1,31 @@
+<a href="#content" class="skip-link">Skip to main content</a>
+
+<header class="header header--full-width">
+  <div class="header__container">
+    <div class="header__brand">
+      <a href="/">
+        <span class="govuk-logo">
+          <img class="govuk-logo__printable-crown" src="/images/template/gov.uk_logotype_crown_invert_trans.png" height="32" width="36">
+          GOV.UK
+        </span>
+        <span class="header__title">
+          Frontend Alpha <span class="phase-tag">ALPHA</span>
+        </span>
+      </a>
+    </div>
+
+    <input class="header__navigation-toggle-checkbox" type="checkbox" id="show-menu" />
+    <label class="header__navigation-toggle" for="show-menu">
+      Menu
+    </label>
+
+    <nav id="navigation" class="header__navigation" aria-label="Top Level Navigation">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#getstarted">Get started</a></li>
+        <li class="active"><a href="#documentation">Documentation</a></li>
+        <li><a href="#feedback">Feedback</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
