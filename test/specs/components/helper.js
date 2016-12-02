@@ -1,11 +1,12 @@
 const expect = require('chai').expect
 const nunjucks = require('nunjucks')
 const html = require('html')
+const components = require('../../../lib/components')
 
 const normaliseHtml = string => html.prettyPrint(string, {indent_size: 2})
 
 const renderComponent = (name, input) => {
-  const componentPath = `app/components/${name}/${name}.nunj`
+  const componentPath = components.templatePathFor(name)
   return nunjucks.render(componentPath, input)
 }
 
