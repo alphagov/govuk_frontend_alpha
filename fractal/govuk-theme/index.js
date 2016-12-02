@@ -1,7 +1,5 @@
 'use strict'
 
-const path = require('path')
-
 /* Fractal theme
 ----------------------------------------------------------------------------- */
 
@@ -29,7 +27,7 @@ const customTheme = mandelbrot({
   // The URL of a stylesheet to apply the to the UI
   styles: [
     'default', // link to the default mandelbrot stylesheet
-    'fractal-govuk-theme.css' // override with a custom stylesheet
+    '/theme/css/fractal-govuk-theme.css' // override with a custom stylesheet
   ],
   // Virtual path prefix for the theme’s static assets. The value of this is prepended to the generated theme static asset URLs.
   'static': {
@@ -38,10 +36,10 @@ const customTheme = mandelbrot({
 })
 
 // Specify a template directory to override any view templates
-customTheme.addLoadPath(path.join(__dirname, '/fractal/govuk-theme/theme-overrides'))
+customTheme.addLoadPath('./fractal/govuk-theme/views')
 
 // Specify the static assets directory that contains the custom stylesheet
-customTheme.addStatic('./fractal/govuk-theme/stylesheet')
+customTheme.addStatic('./fractal/govuk-theme/assets/', '/theme')
 
 // Export the customised theme instance so it can be used in Fractal projects
 module.exports = customTheme
