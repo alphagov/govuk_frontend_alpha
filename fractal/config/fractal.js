@@ -5,7 +5,7 @@ const packageJson = require('../../package.json')
 
 // Create a new Fractal instance and export it for use elsewhere if required
 const fractal = module.exports = require('@frctl/fractal').create()
-const govukFractalTheme = require('govuk-theme/index.js')
+const govukFractalTheme = require('../govuk-theme/index.js')
 
 /* Fractal project config
 ----------------------------------------------------------------------------- */
