@@ -26,6 +26,7 @@ require('./lib/tasks/lint.js')
 require('./lib/tasks/test.js')
 
 require('./lib/tasks/fractal.js')
+require('./lib/tasks/fractal-theme.js')
 require('./lib/tasks/preview.js')
 require('./lib/tasks/browser-sync.js')
 require('./lib/tasks/watch.js')
@@ -66,5 +67,12 @@ gulp.task('preview', cb => {
 // Fractal
 // This runs the build task first, then starts Fractal
 gulp.task('fractal', cb => {
-  runSequence('build', ['fractal:start'], cb)
+  runSequence('build', 'fractal:theme', ['fractal:start'], cb)
+})
+
+// Test Fractal
+// This runs gulp:build before testing the Fractal task, to copy assets to /public
+// This also runs the fractal:styles task to compile the fractal theme stylesheet
+gulp.task('fractal:test', cb => {
+  runSequence('build', 'fractal:theme', 'test:fractal', cb)
 })
