@@ -36,7 +36,7 @@ const customTheme = mandelbrot({
 })
 
 // Specify a template directory to override any view templates
-customTheme.addLoadPath('./fractal/govuk-theme/views')
+customTheme.addLoadPath('./fractal/govuk-theme/views/')
 
 // Specify the static assets directory that contains the custom stylesheet
 customTheme.addStatic('./fractal/govuk-theme/assets/', '/theme')
