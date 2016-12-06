@@ -58,4 +58,4 @@ fractal.web.theme(govukFractalTheme)
 fractal.web.set('static.path', paths.public)
 
 // Set the static HTML build destination
-fractal.web.set('builder.dest', paths.dist)
+fractal.web.set('builder.dest', paths.distFractal)

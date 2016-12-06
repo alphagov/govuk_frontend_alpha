@@ -8,6 +8,7 @@
   "assetsScss": "app/assets/scss/",
   "templates": "app/templates/",
   "dist": "dist/",
+  "distFractal": "dist/fractal/",
   "bundle": "dist/bundle/",
   "bundleImg": "dist/bundle/assets/img/",
   "bundleCss": "dist/bundle/assets/css/",
