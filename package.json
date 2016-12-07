@@ -50,7 +50,8 @@
   },
   "scripts": {
     "start": "gulp start",
-    "test": "gulp test"
+    "test": "gulp test",
+    "postinstall": "gulp fractal:build"
   },
   "standard": {
     "globals": [
