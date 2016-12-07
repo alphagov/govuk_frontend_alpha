@@ -97,12 +97,12 @@
           height: 20px;
           float: right;
 
-          background-image: image-url('govuk-icn-numbered-list.png');
+          background-image: file-url('govuk-icn-numbered-list.png');
           background-repeat: no-repeat;
           background-position: left center;
 
           @include device-pixel-ratio {
-            background-image: image-url('govuk-icn-numbered-list@2x.png');
+            background-image: file-url('govuk-icn-numbered-list@2x.png');
             background-size: 20px 20px;
           }
         }
