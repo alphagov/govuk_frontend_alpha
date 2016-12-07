@@ -1,11 +1,207 @@
 // Override the the "black" theme settings
 // https://github.com/frctl/mandelbrot/blob/master/assets/scss/skins/black.scss
-$color-header-background: $black;
-$color-header-content: $white;
-$color-link: $govuk-blue;
+
+@import "govuk_frontend_toolkit/colours/palette";
 
 // Let's quickly make this look a bit more like GOV.UK
 html {
   font-family: $toolkit-font-stack;
-  @include core-19;
 }
+
+a:link,
+a:visited {
+  color: $link-colour;
+}
+
+a:hover {
+  color: $link-hover-colour;
+}
+
+a:active {
+  color: $link-active-colour;
+}
+
+/*
+  Sidebar
+------------------------------ */
+
+// Sidebar background
+.Frame-panel--sidebar {
+  background: $white;
+}
+
+// Left hand navigation
+.Tree,
+.Tree-title,
+.Tree-item {
+  font-family: 'nta';
+  letter-spacing: normal;
+}
+
+.Tree-title {
+  color: $secondary-text-colour;
+  text-transform: none;
+  @include core-19;
+  margin-top: 0.5em;
+  margin-bottom: 0.75em;
+}
+
+.Tree-entityLink {
+  @include bold-16;
+  padding-top: 0.5rem;
+  padding-bottom: 0.4rem;
+}
+
+.Tree-entityLink:hover {
+  color: $link-hover-colour;
+  background: $white;
+}
+
+.is-current .Tree-entityLink {
+  color: $white;
+  background: $govuk-blue;
+}
+
+/*
+  Components title & preview
+------------------------------ */
+
+.Pen {
+  margin: 15px 20px;
+}
+
+// Component boxes
+.Pen-panel {
+  margin-bottom: 15px;
+}
+
+// Component title and status wrapper
+.Pen-header {
+  max-height: 4rem;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+// Component title
+.Pen-title {
+  color: $black;
+  @include bold-36;
+  letter-spacing: normal;
+  padding: 1em 0;
+}
+
+// Component preview link
+.Pen-previewLink svg {
+  fill: $govuk-blue;
+  margin-bottom: 10px;
+}
+.Pen-previewLink:after{
+  content: "Preview";
+  @include bold-16;
+  color: $link-colour;
+}
+
+.Pen-previewLink:link,
+.Pen-previewLink:visited,
+.Pen-previewLink:hover,
+.Pen-previewLink:active {
+  color: $black;
+  text-decoration: none;
+}
+
+// Component preview box
+.Preview {
+  border-color: $border-colour;
+}
+
+
+/*
+  Components (Notes, HTML, View, tabs)
+------------------------------ */
+
+// Component info box
+.Pen-info {
+  border-color: $white;
+}
+
+.Browser-controls {
+  margin-bottom: 30px;
+}
+
+.Browser-tab a:link,
+.Browser-tab a:visited,
+.Browser-tab a:hover,
+.Browser-tab a:active {
+  color: $black;
+  border-bottom-width: 5px;
+  @include core-16;
+}
+
+.Browser-tab a:hover {
+  background: $highlight-colour;
+  border-bottom-color: $link-hover-colour;
+}
+
+.Browser-tab.is-active a {
+  background: $highlight-colour;
+  border-bottom-width: 5px;
+  border-bottom-color: $govuk-blue;
+}
+
+.Browser-tab svg {
+  width: 25px;
+  height: 25px;
+}
+
+.Browser-panel {
+  background: #fff;
+  padding: 0;
+}
+
+.Browser-panel .Code {
+  background: #fff;
+  width: 100%;
+}
+
+.Browser-panel .Code pre {
+  background: #fff;
+}
+
+/*
+  Documentation
+------------------------------ */
+
+.Document-header {
+  border-bottom: none;
+}
+
+.Document-title {
+  color: $black;
+  @include bold-36;
+  padding-top: 0.5em;
+}
+
+/*
+  Documentation text styles
+------------------------------ */
+
+.Prose {
+  @include core-19;
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: $black;
+    letter-spacing: normal;
+  }
+
+  h1 {
+    @include bold-24;
+  }
+  h2 {
+    @include bold-19;
+  }
+
+}
+
