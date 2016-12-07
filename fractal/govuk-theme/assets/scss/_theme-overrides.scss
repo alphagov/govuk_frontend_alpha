@@ -1,0 +1,11 @@
+// Override the the "black" theme settings
+// https://github.com/frctl/mandelbrot/blob/master/assets/scss/skins/black.scss
+$color-header-background: $black;
+$color-header-content: $white;
+$color-link: $govuk-blue;
+
+// Let's quickly make this look a bit more like GOV.UK
+html {
+  font-family: $toolkit-font-stack;
+  @include core-19;
+}
