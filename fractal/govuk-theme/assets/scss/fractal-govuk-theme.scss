@@ -3,6 +3,8 @@
 $tablet-breakpoint: 768px !default;
 $desktop-breakpoint: 992px !default;
 
+$path: '/theme/images/';
+
 @import "utilities/fonts";
 @import "utilities/printable";
 
