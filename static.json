@@ -1,4 +1,4 @@
 {
-  "root": "dist/fractal/",
+  "root": "dist/fractal",
   "basic_auth": true
 }
