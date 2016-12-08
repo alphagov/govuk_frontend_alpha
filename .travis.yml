@@ -1,6 +1,6 @@
 language: node_js
 node_js:
- - "6.6.0"
+- 6.6.0
 before_install:
 - npm install -g mocha
 - npm install -g gulp
@@ -11,3 +11,11 @@ script:
 notifications:
   email: false
 sudo: false
+deploy:
+  provider: heroku
+  api_key:
+    secure: fr+/E8WEOoq/jiiUeN/MtEXZQNls+UP1yvDfzz0i1IbooUj+T6c6PXol+OEcZIdCGkgtSK910GtBKqfv/vtA8asT9IvH50GrHDn1q9uKIvO33LKxhhweJ/IIOOhzZR8CVVL6i02KethB92dCggdPWeCuT5DyeqPMHgnussw8SNubAGUQYGbhHItNlSSOnudj05pWNMQtt2QjENwpkb/ic+ma2qKWxt6RIg3ku/aRpPNtn5RzzESjoYFamkA/zRSMESI4spbf70MpOtKmgVgrV3B0gd5BPP32rSv68yzOq7Z+BckQ+P48ismkfox/YlEcH/k4jA9be4SDkw6XW7dKAaDSN2MHtwFAuWzCyc/o6+eR8mZw0Q6osyF9sUfjI1CiromVv6gu8DIw8RbpmNFhVanFxQeq9UMHBXzD4gEHmU1RhHaVOWkcBFe/PtHfGm5YuBpIXO0WCZSvj1XhgG39rAwxhcMplTcDyS3Czf3lPpIHiQH9hr0pHXjTXOlP78pqi/+lFS9ZOGMp/60GRB1Q1LI3eLWaUknI/63kpD9+y8OB3HF9SiVv8btg6zV7BIt3S5xRnPwW3nl0lO7qbT5qexrlrkPrnmewl3RCteW3tgteLj6D+2gF5XTME/8LH77ZU2HuKGrJbY49TAcZLJwPBghqLfnvOC/ieN1ZEKCMRBk=
+  app: govuk-frontend-alpha
+  on:
+    repo: alphagov/govuk_frontend_alpha
+    branch: master
