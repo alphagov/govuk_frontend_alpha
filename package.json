@@ -12,8 +12,9 @@
     "url": "https://github.com/alphagov/govuk_frontend_alpha/issues"
   },
   "homepage": "https://github.com/alphagov/govuk_frontend_alpha#readme",
-  "devDependencies": {
+  "dependencies": {
     "@frctl/fractal": "^1.0.8",
+    "@frctl/mandelbrot": "^1.0.7",
     "@frctl/nunjucks": "^1.0.1",
     "browser-sync": "^2.18.1",
     "chai": "^3.5.0",
@@ -45,7 +46,9 @@
     "through2": "^2.0.1",
     "uglify-save-license": "^0.4.1",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0",
+    "change-case": "^3.0.0"
+
   },
   "scripts": {
     "start": "gulp start",
@@ -68,8 +71,5 @@
       "$",
       "_gaq"
     ]
-  },
-  "dependencies": {
-    "change-case": "^3.0.0"
   }
 }

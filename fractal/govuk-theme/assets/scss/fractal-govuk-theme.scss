@@ -1,0 +1,13 @@
+// Import GOV.UK Frontend Alpha
+@import "settings";
+@import "tools";
+@import "objects";
+@import "utilities";
+
+// GOV.UK Tech Docs
+@import "tech-docs-template/skip-link";
+@import "tech-docs-template/header";
+@import "tech-docs-template/govuk-logo";
+
+// Override theme here
+@import "theme-settings";

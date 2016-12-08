@@ -7,7 +7,6 @@ exports.packageName = packageJson.name + '-' + packageJson.version
 
 // Gulp utility
 const gulp = require('gulp')
-const browserSync = require('browser-sync')
 const del = require('del')
 const runSequence = require('run-sequence')
 const taskListing = require('gulp-task-listing')
@@ -26,10 +25,9 @@ require('./lib/tasks/lint.js')
 require('./lib/tasks/test.js')
 
 require('./lib/tasks/fractal.js')
-require('./lib/tasks/preview.js')
-require('./lib/tasks/browser-sync.js')
-require('./lib/tasks/watch.js')
-require('./lib/tasks/start-server.js')
+require('./lib/tasks/fractal-assets.js')
+require('./lib/tasks/fractal-build.js')
+require('./lib/tasks/fractal-watch.js')
 
 // Run 'gulp help' to list available tasks
 gulp.task('help', taskListing.withFilters(null, 'help'))
@@ -47,9 +45,8 @@ gulp.task('build', cb => {
 gulp.task('lint', ['lint:styles', 'lint:scripts', 'lint:tests'])
 
 // Task to run the tests
-// This runs build before testing the preview task, to copy assets to dist/bundle and /public
 gulp.task('test', cb => {
-  runSequence('lint', 'test:lib', 'test:toolkit', 'build', 'test:preview', cb)
+  runSequence('lint', 'test:lib', 'test:toolkit', 'fractal:test', cb)
 })
 
 // Package the contents of dist
@@ -57,14 +54,15 @@ gulp.task('package', cb => {
   runSequence('build', ['package:gem', 'package:npm'], cb)
 })
 
-// Preview
-// This runs the build task first, watches and starts the server
-gulp.task('preview', cb => {
-  runSequence('build', 'start:server', ['browser-sync', 'watch'], cb)
+// Fractal
+// This compiles the Fractal theme's assets, starts Fractal and watches for changes to the assets
+gulp.task('fractal', cb => {
+  runSequence('build', 'fractal:assets', 'fractal:server', 'fractal:watch', cb)
 })
 
-// Fractal
-// This runs the build task first, then starts Fractal
-gulp.task('fractal', cb => {
-  runSequence('build', ['fractal:start'], cb)
+// Test Fractal
+// This runs gulp:build before testing the Fractal task, to copy assets to /public
+// This also runs the fractal:assets task to compile the fractal theme stylesheet
+gulp.task('fractal:test', cb => {
+  runSequence('build', 'fractal:assets', 'test:fractal', cb)
 })

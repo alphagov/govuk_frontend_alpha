@@ -1,0 +1,9 @@
+{
+  "name": "govuk-frontend-alpha-fractal",
+  "version": "0.0.1",
+  "description": "Fractal theme, based on Mandelbrot.",
+  "main": "theme.js",
+  "dependencies": {
+    "@frctl/mandelbrot": "^1.0.0"
+  }
+}
