@@ -1,6 +1,10 @@
 const expect = require('chai').expect
 const File = require('vinyl')
+const components = require('../../lib/components')
 const transpiler = require('../../lib/transpilation/transpiler.js')
+const nunjucks = require('nunjucks')
+const changeCase = require('change-case')
+var fs = require('fs')
 
 const transpilationTest = function (transpiler, originalString, expectedString, callback) {
   let inputFile = new File({contents: new Buffer(originalString)})
@@ -121,6 +125,26 @@ describe('Transpilation', function () {
     it('should have a correct block_for', function (done) {
       const djangoBlockFor = `{% block top_of_page %}{% endblock %}`
       transpilationTest(djangoTranspiler, nunjucksBlockFor, djangoBlockFor, done)
+    })
+  })
+
+  describe('Component transpilation equivalence', function () {
+    const allComponents = components.all
+
+    Object.keys(allComponents).map(name => {
+      const component = allComponents[name]
+      const sourcePath = components.templatePathFor(name)
+      const expected = nunjucks.render(sourcePath, component.context)
+
+      describe('into Nunjucks', function () {
+        it(`${name} should have the same output after transpile`, function () {
+          let transpiledTemplate = transpiler.transpileComponentSync('nunjucks', name, fs.readFileSync(sourcePath).toString())
+          let invocation = `{{ ${changeCase.camelCase(name)}(${component.arguments.join(', ')}) }}`
+          let output = nunjucks.renderString(transpiledTemplate + invocation, component.context)
+          // Trim leading/trailing whistespace, macro def results in new lines
+          expect(output.trim()).to.equal(expected.trim())
+        })
+      })
     })
   })
 })
