@@ -2,10 +2,10 @@
 
 const paths = require('../../config/paths.json')
 const packageJson = require('../../package.json')
-
-// Create a new Fractal instance and export it for use elsewhere if required
-const fractal = module.exports = require('@frctl/fractal').create()
+// Create a new Fractal instance
+const fractal = require('@frctl/fractal').create()
 const govukFractalTheme = require('../govuk-theme/index.js')
+const nunjucks = require('@frctl/nunjucks')
 
 /* Fractal project config
 ----------------------------------------------------------------------------- */
@@ -17,10 +17,8 @@ fractal.set('project.author', 'Government Digital Service developers')
 
 /* Fractal components
 ----------------------------------------------------------------------------- */
-
 // Load the Nunjucks template engine
-fractal.components.engine('@frctl/nunjucks')
-
+fractal.components.engine(nunjucks)
 // Specify a preview layout for a component
 fractal.components.set('default.preview', '@preview')
 
@@ -40,7 +38,7 @@ fractal.components.set('path', paths.appComponents)
 ----------------------------------------------------------------------------- */
 
 // Load the Nunjucks template engine
-fractal.docs.engine('@frctl/nunjucks')
+fractal.docs.engine(nunjucks)
 
 // Set the file extension for documentation files
 fractal.docs.set('ext', '.md')
@@ -59,3 +57,6 @@ fractal.web.set('static.path', paths.public)
 
 // Set the static HTML build destination
 fractal.web.set('builder.dest', paths.distFractal)
+
+// export fractal for use elsewhere if required
+module.exports = fractal
