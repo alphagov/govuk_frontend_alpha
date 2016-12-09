@@ -18,6 +18,7 @@
     "@frctl/nunjucks": "^1.0.1",
     "browser-sync": "^2.18.1",
     "chai": "^3.5.0",
+    "change-case": "^3.0.0",
     "del": "^2.2.2",
     "event-stream": "^3.3.4",
     "express": "^4.14.0",
@@ -43,17 +44,17 @@
     "rollup-stream": "^1.14.0",
     "run-sequence": "^1.2.2",
     "sass-lint": "1.10.0",
+    "standard": "^8.6.0",
     "supertest": "^2.0.1",
     "through2": "^2.0.1",
     "uglify-save-license": "^0.4.1",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
-    "change-case": "^3.0.0"
-
+    "vinyl-source-stream": "^1.1.0"
   },
   "scripts": {
     "start": "gulp start",
-    "test": "gulp test"
+    "lint": "standard",
+    "test": "npm run lint && gulp test"
   },
   "standard": {
     "globals": [
@@ -71,6 +72,11 @@
       "spyOn",
       "$",
       "_gaq"
+    ],
+    "ignore": [
+      "app/assets/js/template/vendor/",
+      "app/assets/js/toolkit/vendor/*",
+      "app/assets/js/toolkit/vendor/**/*"
     ]
   }
 }
