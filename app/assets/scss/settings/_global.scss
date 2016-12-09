@@ -51,18 +51,18 @@ $path:                false !default;
 // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/_font_stack.scss#L7
 // sass-lint:disable variable-name-format
 
-$NTA-Light: "nta", Arial, sans-serif;
-$NTA-Light-Tabular: "ntatabularnumbers", $NTA-Light;
+$nta-light: "nta", Arial, sans-serif;
+$nta-light-tabular: "ntatabularnumbers", $nta-light;
 
 // Helvetica Regular
 // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/_font_stack.scss#L11
-$Helvetica-Regular: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+$helvetica-regular: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
 
 // Allow font stack to be overridden
 // Not all apps using toolkit use New Transport
 // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/_font_stack.scss#L15
-$toolkit-font-stack: $NTA-Light !default;
-$toolkit-font-stack-tabular: $NTA-Light-Tabular !default;
+$toolkit-font-stack: $nta-light !default;
+$toolkit-font-stack-tabular: $nta-light-tabular !default;
 
 // Print stylesheets (template)
 // https://github.com/alphagov/govuk_template/blob/master/source/assets/stylesheets/styleguide/_print.scss
@@ -71,3 +71,12 @@ $is-print:          false !default;
 // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/_font_stack.scss#L19
 // Font reset for print
 $print-reset:       sans-serif;
+
+// Fallback variable names after renaming previous uppercase names to be lowercase
+// @deprecated, please only use the lowercase versions
+// Make an exception to the linting as these are still used a lot
+// scss-lint:disable NameFormat
+$NTA-Light: $nta-light;
+$NTA-Light-Tabular: $nta-light-tabular;
+$Helvetica-Regular: $helvetica-regular;
+$Print-reset: $print-reset;
