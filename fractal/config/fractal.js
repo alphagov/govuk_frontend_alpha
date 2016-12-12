@@ -22,8 +22,8 @@ fractal.components.engine(nunjucks)
 // Specify a preview layout for a component
 fractal.components.set('default.preview', '@preview')
 
-// Variants should default to being collated in rendered previews
-fractal.components.set('default.collated', true)
+// Don't collate variants for rendered previews
+fractal.components.set('default.collated', false)
 
 // Set a default status for all components (TODO: default to WIP?)
 // fractal.components.set('default.status', null);
