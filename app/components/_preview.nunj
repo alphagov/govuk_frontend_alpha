@@ -13,4 +13,7 @@
 <body>
   {{ yield }}
 </body>
+<script src="{{ '/javascripts/govuk-template.min.js' | path }}"></script>
+<script src="{{ '/javascripts/toolkit.min.js' | path }}"></script>
+<script src="{{ '/javascripts/elements.min.js' | path }}"></script>
 </html>
