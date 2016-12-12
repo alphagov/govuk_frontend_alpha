@@ -17,6 +17,7 @@ require('./lib/tasks/build-components.js')
 require('./lib/tasks/build-images.js')
 require('./lib/tasks/build-styles.js')
 require('./lib/tasks/build-scripts.js')
+require('./lib/tasks/build-watch.js')
 
 require('./lib/tasks/package-npm.js')
 require('./lib/tasks/package-gem.js')
@@ -55,9 +56,10 @@ gulp.task('package', cb => {
 })
 
 // Fractal
-// This compiles the Fractal theme's assets, starts Fractal and watches for changes to the assets
+// This compiles the Fractal theme's assets, starts Fractal and watches for changes to Fractal's assets
+// and re-runs the build tasks if any of the apps assets have changed
 gulp.task('fractal', cb => {
-  runSequence('build', 'fractal:assets', 'fractal:server', 'fractal:watch', cb)
+  runSequence('build', 'fractal:assets', 'fractal:server', 'fractal:watch', 'watch', cb)
 })
 
 // Test Fractal
