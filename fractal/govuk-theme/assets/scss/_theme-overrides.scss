@@ -38,6 +38,7 @@ a:active {
   letter-spacing: normal;
 }
 
+// Sidebar section title
 .Tree-title {
   color: $secondary-text-colour;
   text-transform: none;
@@ -46,8 +47,15 @@ a:active {
   margin-bottom: 0.75em;
 }
 
+// Component name
+.Tree-collectionLabel {
+  @include core-16;
+  color: $text-colour;
+}
+
+// Left hand navigation item
 .Tree-entityLink {
-  @include bold-16;
+  @include core-16;
   padding-top: 0.5rem;
   padding-bottom: 0.4rem;
 }
