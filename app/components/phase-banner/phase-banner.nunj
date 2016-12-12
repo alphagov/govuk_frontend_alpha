@@ -1,0 +1,6 @@
+<div class="gv-c-phase-banner">
+  <p class="gv-c-phase-banner__content">
+    <strong class="gv-c-phase-tag">{{ phase }}</strong>
+    <span class="gv-c-phase-banner__text">{{ message }}</span>
+  </p>
+</div>
