@@ -30,4 +30,19 @@ describe('Phase banner component', function () {
       </div>`
     )
   })
+
+  it('should allow trusted a HTML message', function () {
+    expectComponent(
+      'phase-banner',
+      {
+        phase: 'beta',
+        message_html: 'This service is new  – your <a href="#">feedback</a> will help us to improve it.'
+      },
+      `<div class="gv-c-phase-banner">
+        <p class="gv-c-phase-banner__content"> <strong class="gv-c-phase-tag">beta</strong>
+          <span class="gv-c-phase-banner__text">This service is new  – your <a href="#">feedback</a> will help us to improve it.</span>
+        </p>
+      </div>`
+    )
+  })
 })
