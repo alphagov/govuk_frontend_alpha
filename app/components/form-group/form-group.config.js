@@ -6,12 +6,19 @@ module.exports = {
     name: 'full-name',
     label: 'Full name',
     hint: '',
-    error: ''
+    error: '',
+    value: ''
   },
   variants: [{
     name: 'has hint',
     context: {
       hint: 'As shown on your birth certificate or passport'
+    }
+  },
+  {
+    name: 'has value',
+    context: {
+      value: 'Example name'
     }
   },
   {
@@ -30,8 +37,9 @@ module.exports = {
   {
     name: 'textarea',
     context: {
-      isTextarea: 'true'
+      isTextarea: 'true',
+      value: 'Content of text area'
     }
   }],
-  arguments: ['id', 'name', 'label', 'hint', 'error', 'isTextarea']
+  arguments: ['id', 'name', 'label', 'hint', 'error', 'isTextarea', 'value']
 }
