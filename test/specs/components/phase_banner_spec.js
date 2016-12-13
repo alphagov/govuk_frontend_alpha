@@ -1,6 +1,6 @@
 const expectComponent = require('./helper').expectComponent
 
-describe('Phase banner component', function () {
+describe('Phase banner component', () => {
   it('should render', () => {
     expectComponent(
       'phase-banner',

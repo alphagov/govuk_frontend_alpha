@@ -20,7 +20,7 @@ const nunjucksAssetVersion = '1.0.0'
 const nunjucksTextFor = `<a href="#content" class="skiplink">{{ skip_link_message|default('Skip to main content') }}</a>`
 const nunjucksBlockFor = `{% block top_of_page %}{% endblock %}`
 
-describe('Transpilation', function () {
+describe('Transpilation', () => {
   it('should return a Buffer', function (done) {
     let inputFile = new File({contents: new Buffer('test')})
     let testTranspiler = transpiler.transpileTemplate('erb', nunjucksAssetVersion)
@@ -31,7 +31,7 @@ describe('Transpilation', function () {
     })
   })
 
-  describe('into Nunjucks', function () {
+  describe('into Nunjucks', () => {
     let nunjucksTranspiler
 
     beforeEach(function () {
@@ -50,7 +50,7 @@ describe('Transpilation', function () {
     })
   })
 
-  describe('into ERB', function () {
+  describe('into ERB', () => {
     let erbTranspiler
 
     beforeEach(function () {
@@ -86,7 +86,7 @@ describe('Transpilation', function () {
     })
   })
 
-  describe('into Handlebars', function () {
+  describe('into Handlebars', () => {
     let handlebarsTranspiler
 
     beforeEach(function () {
@@ -107,7 +107,7 @@ describe('Transpilation', function () {
     })
   })
 
-  describe('into Django', function () {
+  describe('into Django', () => {
     let djangoTranspiler
 
     beforeEach(function () {
@@ -128,7 +128,7 @@ describe('Transpilation', function () {
     })
   })
 
-  describe('Component transpilation equivalence', function () {
+  describe('Component transpilation equivalence', () => {
     const allComponents = components.all
 
     Object.keys(allComponents).map(name => {
@@ -136,7 +136,7 @@ describe('Transpilation', function () {
       const sourcePath = components.templatePathFor(name)
       const expected = nunjucks.render(sourcePath, component.context)
 
-      describe('into Nunjucks', function () {
+      describe('into Nunjucks', () => {
         it(`${name} should have the same output after transpile`, function () {
           let transpiledTemplate = transpiler.transpileComponentSync('nunjucks', name, fs.readFileSync(sourcePath).toString())
           let invocation = `{{ ${changeCase.camelCase(name)}(${component.arguments.join(', ')}) }}`

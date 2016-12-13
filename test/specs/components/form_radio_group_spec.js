@@ -1,6 +1,6 @@
 const expectComponent = require('./helper').expectComponent
 
-describe('Form radio group component', function () {
+describe('Form radio group component', () => {
   it('should render', () => {
     expectComponent(
       'form-radio-group',

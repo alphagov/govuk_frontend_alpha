@@ -1,6 +1,6 @@
 const expectComponent = require('./helper').expectComponent
 
-describe('Button component', function () {
+describe('Button component', () => {
   it('should render', () => {
     expectComponent(
       'button',

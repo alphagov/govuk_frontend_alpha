@@ -6,8 +6,8 @@ const fs = require('fs')
 const assert = require('assert')
 
 // Check that assets are copied and the app runs
-describe('Copy assets to public and run the app...', function () {
-  describe('the preview task', function () {
+describe('Copy assets to public and run the app...', () => {
+  describe('the preview task', () => {
     it('should copy assets into the /public folder', function () {
       assert.doesNotThrow(function () {
         fs.accessSync(path.resolve(__dirname, '../../public/javascripts/elements.js'))
@@ -22,7 +22,7 @@ describe('Copy assets to public and run the app...', function () {
     })
   })
 
-  describe('the index page', function () {
+  describe('the index page', () => {
     it('should return a 200 on a get to "/"', function (done) {
       request(app)
         .get('/')
