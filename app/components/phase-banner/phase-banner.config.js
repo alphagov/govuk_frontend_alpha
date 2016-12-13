@@ -19,7 +19,7 @@ module.exports = {
     name: 'message_html',
     context: {
       phase: 'beta',
-      message_html: 'This service is new – your <a href="#">feedback</a> will help us to improve it.'
+      messageHtml: 'This service is new – your <a href="#">feedback</a> will help us to improve it.'
     }
   }],
   arguments: ['phase', 'message']
