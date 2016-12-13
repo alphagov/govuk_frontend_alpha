@@ -1,6 +1,6 @@
 const expectComponent = require('./helper').expectComponent
 
-describe('Form group component', function () {
+describe('Form group component', () => {
   it('should render', () => {
     expectComponent(
       'form-group',

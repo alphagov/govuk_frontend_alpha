@@ -6,7 +6,7 @@ const assert = require('assert')
 // Check that everything is in place for Fractal to run
 
 // Check the build tasks has copied the assets to public
-describe('the build task', function () {
+describe('the build task', () => {
   it('should copy assets into the /public directory', function () {
     assert.doesNotThrow(function () {
       fs.accessSync(path.resolve(__dirname, '../../public/javascripts/elements.js'))
@@ -22,7 +22,7 @@ describe('the build task', function () {
 })
 
 // Check the theme tasks has compiled the theme stylesheet
-describe('the theme task', function () {
+describe('the theme task', () => {
   it('should compile the sass to css in the /fractal/govuk-theme directory', function () {
     assert.doesNotThrow(function () {
       fs.accessSync(path.resolve(__dirname, '../../fractal/govuk-theme/assets/css/fractal-govuk-theme.css'))

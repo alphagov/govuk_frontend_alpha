@@ -9,7 +9,7 @@ const expectComponentRenders = (name, input) => {
   }).to.not.throw()
 }
 
-describe('Components render examples without errors', function () {
+describe('Components render examples without errors', () => {
   Object.keys(components.all).map(name => {
     it(`${name} component renders all variants without errors`, () => {
       let component = components.get(name)
