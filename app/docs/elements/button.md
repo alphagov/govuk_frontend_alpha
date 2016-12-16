@@ -6,7 +6,7 @@
 
 Button text should be short and describe the action the button performs.
 
-<input class="gv-c-button" type="submit" value="Save and continue">
+{% render '@button' %}
 
 ### Button alignment
 
