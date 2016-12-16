@@ -1,3 +1,5 @@
+<link media="all" rel="stylesheet" href="{{ '/stylesheets/govuk-frontend.css' | path }}">
+
 # Buttons
 
 ## Use buttons to move though a transaction, aim to use only one button per page.
