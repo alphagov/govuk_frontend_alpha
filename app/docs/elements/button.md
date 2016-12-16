@@ -1,4 +1,3 @@
-<link media="all" rel="stylesheet" href="{{ '/stylesheets/govuk-frontend.css' | path }}">
 
 # Buttons
 
@@ -8,7 +7,15 @@
 
 Button text should be short and describe the action the button performs.
 
-{% render '@button' %}
+{{ '@button'|preview(60) }}
+
+```nunj
+{% view '@button' %}
+```
+
+```json
+{% context '@button' %}
+```
 
 ### Button alignment
 
@@ -21,4 +28,6 @@ Disabled buttons
 - an example of a useful disabled option is a calendar with greyed out days where no bookings are available
 - provide another way for the user to continue, add an error message or text to explain why the button is disabled
 
+```html
 <input class="button" type="submit" value="Save and continue" disabled="disabled">
+```

@@ -38,7 +38,9 @@ fractal.components.set('path', paths.appComponents)
 ----------------------------------------------------------------------------- */
 
 // Load the Nunjucks template engine
-fractal.docs.engine(nunjucks)
+fractal.docs.engine(nunjucks({
+  filters: require('../extensions').filters
+}))
 
 // Set the file extension for documentation files
 fractal.docs.set('ext', '.md')
