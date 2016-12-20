@@ -17,7 +17,15 @@
   </style>
 </head>
 <body>
+  {% if _target.context.openWrapper %}
+    {{ _target.context.openWrapper }}
+  {% endif %}
+
   {{ yield }}
+
+  {% if _target.context.closeWrapper %}
+    {{ _target.context.closeWrapper }}
+  {% endif %}
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="{{ '/javascripts/govuk-template.min.js' | path }}"></script>
