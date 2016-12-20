@@ -3,4 +3,4 @@ node_modules/
 dist/
 public/
 npm-debug.log*
-fractal/govuk-theme/assets/css/
+lib/fractal/govuk-theme/assets/css/
