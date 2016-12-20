@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <link media="all" rel="stylesheet" href="{{ '/stylesheets/govuk-frontend.css' | path }}">
+    <link rel="shortcut icon" href="{{ '/images/template/favicon.ico' | path }}" type="image/ico">
     <title>Preview Layout</title>
     <script>
     // govuk_template sets js-enabled
