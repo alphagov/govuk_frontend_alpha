@@ -32,7 +32,7 @@ fractal.components.set('default.collated', false)
 fractal.components.set('ext', '.nunj')
 
 // Tell Fractal where the components will live
-fractal.components.set('path', paths.appComponents)
+fractal.components.set('path', paths.srcComponents)
 
 /* Fractal docs
 ----------------------------------------------------------------------------- */
@@ -46,7 +46,7 @@ fractal.docs.engine(nunjucks({
 fractal.docs.set('ext', '.md')
 
 // Tell Fractal where the documentation pages will live
-fractal.docs.set('path', paths.appDocs)
+fractal.docs.set('path', paths.srcDocs)
 
 /* Fractal web UI
 ----------------------------------------------------------------------------- */
