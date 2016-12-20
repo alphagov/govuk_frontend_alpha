@@ -23,4 +23,10 @@
 <script src="{{ '/javascripts/govuk-template.min.js' | path }}"></script>
 <script src="{{ '/javascripts/toolkit.min.js' | path }}"></script>
 <script src="{{ '/javascripts/elements.min.js' | path }}"></script>
+<!-- TODO: Fix how this works, for now, initialise component js by updating initScript in the component's config file -->
+{% if _target.context.initScript %}
+  <script>
+    {{ _target.context.initScript }}
+  </script>
+{% endif %}
 </html>
