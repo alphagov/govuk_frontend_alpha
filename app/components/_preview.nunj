@@ -17,14 +17,19 @@
   </style>
 </head>
 <body>
-  {% if _target.context.openWrapper %}
-    {{ _target.context.openWrapper }}
+  {% if _target.context.setup.openWrapper %}
+    {{ _target.context.setup.openWrapper }}
   {% endif %}
 
   {{ yield }}
 
-  {% if _target.context.closeWrapper %}
-    {{ _target.context.closeWrapper }}
+  {{ _target.title }}
+  {{ _target.status }}
+  {{ _target.context.id }}
+  {{ _target.context.setup }}
+
+  {% if _target.context.setup.closeWrapper %}
+    {{ _target.context.setup.closeWrapper }}
   {% endif %}
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -32,9 +37,9 @@
 <script src="{{ '/javascripts/toolkit.min.js' | path }}"></script>
 <script src="{{ '/javascripts/elements.min.js' | path }}"></script>
 <!-- TODO: Fix how this works, for now, initialise component js by updating initScript in the component's config file -->
-{% if _target.context.initScript %}
+{% if _target.context.setup.initScript %}
   <script>
-    {{ _target.context.initScript }}
+    {{ _target.context.setup.initScript }}
   </script>
 {% endif %}
 </html>
