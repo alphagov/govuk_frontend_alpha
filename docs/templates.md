@@ -4,7 +4,7 @@ This package has templates that you can directly include into your service. Thes
 
 ## Overview
 
-The standard templates live in `app/templates` and are written in [Nunjucks](https://mozilla.github.io/nunjucks/). From these we automatically build the same set of templates in a variety of different templating languages.
+The standard templates live in `src/templates` and are written in [Nunjucks](https://mozilla.github.io/nunjucks/). From these we automatically build the same set of templates in a variety of different templating languages.
 
 The default template is branded as GOV.UK, but we also have an unbranded version suitable for use in projects outside of central government in the UK. If you are not going to be hosting your application on www.gov.uk, *.blog.gov.uk or *.service.gov.uk then you *must not* use the branded template.
 

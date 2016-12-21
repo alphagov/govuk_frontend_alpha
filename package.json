@@ -74,9 +74,9 @@
       "_gaq"
     ],
     "ignore": [
-      "app/assets/js/template/vendor/",
-      "app/assets/js/toolkit/vendor/*",
-      "app/assets/js/toolkit/vendor/**/*"
+      "src/assets/js/template/vendor/",
+      "src/assets/js/toolkit/vendor/*",
+      "src/assets/js/toolkit/vendor/**/*"
     ]
   }
 }
