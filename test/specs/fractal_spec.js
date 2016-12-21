@@ -25,7 +25,7 @@ describe('the build task', () => {
 describe('the theme task', () => {
   it('should compile the sass to css in the /fractal/govuk-theme directory', function () {
     assert.doesNotThrow(function () {
-      fs.accessSync(path.resolve(__dirname, '../../fractal/govuk-theme/assets/css/fractal-govuk-theme.css'))
+      fs.accessSync(path.resolve(__dirname, '../../lib/fractal/govuk-theme/assets/css/fractal-govuk-theme.css'))
     })
   })
 })
