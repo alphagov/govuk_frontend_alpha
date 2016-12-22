@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <link media="all" rel="stylesheet" href="{{ '/stylesheets/govuk-frontend.css' | path }}">
-  <title>Preview Layout</title>
+  <title>{{ _target.title }} &#9670; GOV.UK Frontend Alpha</title>
   <script>
   // govuk_template sets js-enabled
   // we're not loading the template as a wrapper for components, so this class must be set in the preview template
