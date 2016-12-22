@@ -2,7 +2,9 @@ module.exports = {
   title: 'Form radio group',
   status: 'wip',
   setup: {
-    initScript: 'var $blockLabels = $(".gv-c-form-custom input[type=\'radio\'], .gv-c-form-custom input[type=\'checkbox\']"); new GOVUK.SelectionButtons($blockLabels);'
+    initScript: 'var $blockLabels = $(".gv-c-form-custom input[type=\'radio\'], .gv-c-form-custom input[type=\'checkbox\']"); new GOVUK.SelectionButtons($blockLabels);',
+    openWrapper: '<form>',
+    closeWrapper: '</form>'
   },
   context: {
     id: 'contact',
