@@ -9,13 +9,15 @@ const expectComponentRenders = (name, input) => {
   }).to.not.throw()
 }
 
-describe('Components render examples without errors', () => {
+describe('All components variants render without errrors', () => {
   Object.keys(components.all).map(name => {
-    it(`${name} component renders all variants without errors`, () => {
+    describe(`${name}`, () => {
       let component = components.get(name)
-      let variants = [{context: component.context}].concat(component.variants)
+      let variants = [{name: 'defaut', context: component.context}].concat(component.variants)
       for (let variant of variants) {
-        expectComponentRenders(name, variant.context)
+        it(`${variant.name}`, () => {
+          expectComponentRenders(name, variant.context)
+        })
       }
     })
   })
