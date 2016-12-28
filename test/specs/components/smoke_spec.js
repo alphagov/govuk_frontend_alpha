@@ -12,10 +12,10 @@ const expectComponentRenders = (name, input) => {
 describe('All components variants render without errrors', () => {
   Object.keys(components.all).map(name => {
     describe(`${name}`, () => {
-      let component = components.get(name)
-      let variants = [{name: 'defaut', context: component.context}].concat(component.variants)
+      let variants = components.getVariantsFor(name)
       for (let variant of variants) {
         it(`${variant.name}`, () => {
+          console.log(variant.context)
           expectComponentRenders(name, variant.context)
         })
       }
