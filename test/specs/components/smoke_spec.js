@@ -13,9 +13,9 @@ describe('Components render examples without errors', () => {
   Object.keys(components.all).map(name => {
     it(`${name} component renders all variants without errors`, () => {
       let component = components.get(name)
-      let variants = [component.context].concat(component.variants)
+      let variants = [{context: component.context}].concat(component.variants)
       for (let variant of variants) {
-        expectComponentRenders(name, variant)
+        expectComponentRenders(name, variant.context)
       }
     })
   })
