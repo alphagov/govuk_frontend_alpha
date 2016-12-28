@@ -151,4 +151,29 @@ describe('Transpilation', () => {
       })
     })
   })
+
+  describe('Components arguments are defined', () => {
+    Object.keys(components.all).map(name => {
+      it(`${name}`, () => {
+        const component = components.get(name)
+        const variants = components.getVariantsFor(name)
+
+        const expectedArgs = component.arguments
+        // We're using `setup` to hack around leaky components, it shouldn't
+        // exist long term, if it does clearly mark it as magic, eg `__setup`
+        const allExpectedArgs = expectedArgs.concat(['setup'])
+
+        // Extract array of context keys (arguments) for each variant
+        let allVariantArgs = variants.map(v => Object.keys(v.context))
+        // Flattern arrays of argument names (@TODO use underscore `flatten`)
+        allVariantArgs = [].concat.apply([], allVariantArgs)
+        // Cast to a Set to get unique arg names, and back to array
+        allVariantArgs = [...new Set(allVariantArgs)]
+        // for (let variant of variants) {
+        for (let variantArg of allVariantArgs) {
+          expect(variantArg).to.be.oneOf(allExpectedArgs, 'Missing argument definition')
+        }
+      })
+    })
+  })
 })

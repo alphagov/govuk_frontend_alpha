@@ -22,5 +22,5 @@ module.exports = {
       messageHtml: 'This service is new – your <a href="#">feedback</a> will help us to improve it.'
     }
   }],
-  arguments: ['phase', 'message']
+  arguments: ['phase', 'message', 'messageHtml']
 }
