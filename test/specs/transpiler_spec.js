@@ -132,18 +132,22 @@ describe('Transpilation', () => {
     const allComponents = components.all
 
     Object.keys(allComponents).map(name => {
-      const component = allComponents[name]
+      const component = components.get(name)
       const sourcePath = components.templatePathFor(name)
-      const expected = nunjucks.render(sourcePath, component.context)
+      const variants = components.getVariantsFor(name)
 
-      describe('into Nunjucks', () => {
-        it(`${name} should have the same output after transpile`, function () {
-          let transpiledTemplate = transpiler.transpileComponentSync('nunjucks', name, fs.readFileSync(sourcePath).toString())
-          let invocation = `{{ ${changeCase.camelCase(name)}(${component.arguments.join(', ')}) }}`
-          let output = nunjucks.renderString(transpiledTemplate + invocation, component.context)
-          // Trim leading/trailing whistespace, macro def results in new lines
-          expect(output.trim()).to.equal(expected.trim())
-        })
+      describe(`${component.title} into Nunjucks`, () => {
+        for (let variant of variants) {
+          let expected = nunjucks.render(sourcePath, variant.context)
+
+          it(`${name}:${variant.name} should have the same output after transpile`, function () {
+            let transpiledTemplate = transpiler.transpileComponentSync('nunjucks', name, fs.readFileSync(sourcePath).toString())
+            let invocation = `{{ ${changeCase.camelCase(name)}(${component.arguments.join(', ')}) }}`
+            let output = nunjucks.renderString(transpiledTemplate + invocation, variant.context)
+            // Trim leading/trailing whistespace, macro def results in new lines
+            expect(output.trim()).to.equal(expected.trim())
+          })
+        }
       })
     })
   })
