@@ -132,18 +132,47 @@ describe('Transpilation', () => {
     const allComponents = components.all
 
     Object.keys(allComponents).map(name => {
-      const component = allComponents[name]
+      const component = components.get(name)
       const sourcePath = components.templatePathFor(name)
-      const expected = nunjucks.render(sourcePath, component.context)
+      const variants = components.getVariantsFor(name)
 
-      describe('into Nunjucks', () => {
-        it(`${name} should have the same output after transpile`, function () {
-          let transpiledTemplate = transpiler.transpileComponentSync('nunjucks', name, fs.readFileSync(sourcePath).toString())
-          let invocation = `{{ ${changeCase.camelCase(name)}(${component.arguments.join(', ')}) }}`
-          let output = nunjucks.renderString(transpiledTemplate + invocation, component.context)
-          // Trim leading/trailing whistespace, macro def results in new lines
-          expect(output.trim()).to.equal(expected.trim())
-        })
+      describe(`${component.title} into Nunjucks`, () => {
+        for (let variant of variants) {
+          let expected = nunjucks.render(sourcePath, variant.context)
+
+          it(`${name}:${variant.name} should have the same output after transpile`, function () {
+            let transpiledTemplate = transpiler.transpileComponentSync('nunjucks', name, fs.readFileSync(sourcePath).toString())
+            let invocation = `{{ ${changeCase.camelCase(name)}(${component.arguments.join(', ')}) }}`
+            let output = nunjucks.renderString(transpiledTemplate + invocation, variant.context)
+            // Trim leading/trailing whistespace, macro def results in new lines
+            expect(output.trim()).to.equal(expected.trim())
+          })
+        }
+      })
+    })
+  })
+
+  describe('Components arguments are defined', () => {
+    Object.keys(components.all).map(name => {
+      it(`${name}`, () => {
+        const component = components.get(name)
+        const variants = components.getVariantsFor(name)
+
+        const expectedArgs = component.arguments
+        // We're using `setup` to hack around leaky components, it shouldn't
+        // exist long term, if it does clearly mark it as magic, eg `__setup`
+        const allExpectedArgs = expectedArgs.concat(['setup'])
+
+        // Extract array of context keys (arguments) for each variant
+        let allVariantArgs = variants.map(v => Object.keys(v.context))
+        // Flattern arrays of argument names (@TODO use underscore `flatten`)
+        allVariantArgs = [].concat.apply([], allVariantArgs)
+        // Cast to a Set to get unique arg names, and back to array
+        allVariantArgs = [...new Set(allVariantArgs)]
+        // for (let variant of variants) {
+        for (let variantArg of allVariantArgs) {
+          expect(variantArg).to.be.oneOf(allExpectedArgs, 'Missing argument definition')
+        }
       })
     })
   })
