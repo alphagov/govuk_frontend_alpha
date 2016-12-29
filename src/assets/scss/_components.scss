@@ -3,12 +3,12 @@
 
 @import "components/box";
 @import "components/breadcrumb";
-@import "components/button";
+@import "../../components/button/button";
 @import "components/details";
 @import "components/external-links";
-@import "components/form-custom";
+@import "../../components/form-radio-group/form-radio-group";
 @import "components/form-date";
-@import "components/form-group";
+@import "../../components/form-group/form-group";
 @import "components/form-validation";
 @import "components/global-footer";
 @import "components/global-header";
@@ -18,7 +18,7 @@
 @import "components/message-bar";
 @import "components/notice";
 @import "components/panel";
-@import "components/phase-banner";
+@import "../../components/phase-banner/phase-banner";
 @import "components/phase-tag";
 @import "components/step";
 @import "components/tables";
