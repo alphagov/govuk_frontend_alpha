@@ -1,4 +1,4 @@
-const expectComponent = require('./helper').expectComponent
+const expectComponent = require('../../../test/specs/components/helper').expectComponent
 
 describe('Phase banner component', () => {
   it('should render', () => {
