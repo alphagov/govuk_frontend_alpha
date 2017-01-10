@@ -1,0 +1,126 @@
+.gv-s-prose {
+
+  -webkit-font-smoothing: antialiased;
+
+  // Headings
+  h2 {
+    @include bold-36();
+
+    margin-top: em(25, 24);
+    margin-bottom: em(10, 24);
+
+    @include media(tablet) {
+      margin-top: em(45, 36);
+      margin-bottom: em(20, 36);
+    }
+  }
+
+  h3 {
+    @include bold-24();
+
+    margin-top: em(25, 20);
+    margin-bottom: em(10, 20);
+
+    @include media(tablet) {
+      margin-top: em(45, 24);
+      margin-bottom: em(20, 24);
+    }
+  }
+
+  h4 {
+    @include bold-19();
+
+    margin-top: em(10, 16);
+    margin-bottom: em(5, 16);
+
+    @include media(tablet) {
+      margin-top: em(20, 19);
+    }
+
+  }
+
+  // Body copy
+  p {
+    @include core-19;
+
+    margin-bottom: 20px;
+  }
+
+  // Lede, or intro text
+  p:first-child {
+    @include core-24;
+  }
+
+  // Lists
+  ul,
+  ol {
+    @include core-19;
+
+    margin-bottom: 20px;
+    padding: 0;
+  }
+
+  ul li,
+  ol li {
+    margin-bottom: 5px;
+  }
+
+  ul li {
+    list-style-type: disc;
+  }
+
+  ol li {
+    list-style-type: decimal;
+  }
+
+  // Link styles
+  a {
+    color: $link-colour;
+    text-decoration: underline;
+  }
+
+  a:visited {
+    color: $link-visited-colour;
+  }
+
+  a:hover {
+    color: $link-hover-colour;
+  }
+
+  a:active {
+    color: $link-colour;
+  }
+
+  // Bold text
+  strong {
+    font-weight: 700;
+  }
+
+  // Code styles
+  code {
+    color: $text-colour;
+    background-color: $highlight-colour;
+
+    text-shadow: 0 1px $page-colour;
+    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    font-size: 14px;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+
+    border: 1px solid $border-colour;
+    padding: 4px 4px 2px;
+  }
+}
