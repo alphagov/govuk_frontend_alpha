@@ -47,7 +47,7 @@ gulp.task('lint', ['lint:styles', 'lint:scripts', 'lint:tests'])
 
 // Task to run the tests
 gulp.task('test', cb => {
-  runSequence('lint', 'test:lib', 'test:components', 'test:toolkit', 'fractal:test', cb)
+  runSequence('lint', 'test:smoke', 'test:lib', 'test:components', 'test:toolkit', 'fractal:test', cb)
 })
 
 // Package the contents of dist
