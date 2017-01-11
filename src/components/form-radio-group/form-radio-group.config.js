@@ -3,7 +3,7 @@ module.exports = {
   status: 'wip',
   context: {
     setup: {
-      initScript: 'var $blockLabels = $(".gv-c-form-custom input[type=\'radio\'], .gv-c-form-custom input[type=\'checkbox\']"); new GOVUK.SelectionButtons($blockLabels);',
+      initScript: 'var $blockLabels = $(".gv-c-form-custom input[type=\'radio\']"); new GOVUK.SelectionButtons($blockLabels);',
       openWrapper: '<form>',
       closeWrapper: '</form>'
     },
