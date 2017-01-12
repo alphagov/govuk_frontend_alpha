@@ -12,14 +12,15 @@
     </legend>
 
     {% for radio in radioGroup %}
-      <label class="gv-c-form-custom selection-button-radio" for="{{radio.id}}">
-        <input class="gv-c-form-custom__control"
-               id="{{radio.id}}"
+      <div class="gv-c-multiple-choice">
+        <input class="gv-c-multiple-choice__control"
+               id="{{ radio.id }}"
                type="radio"
                name="{{ id }}"
-               value="{{ radio.value }}" {% if value == radio.value %} checked{% endif %}>
-        {{ radio.label }}
-      </label>
+               value="{{ radio.value }}"
+               {% if value == radio.value %}checked{% endif %}>
+        <label class="gv-c-multiple-choice__label" for="{{ radio.id }}">{{ radio.label }}</label>
+      </div>
     {% endfor %}
 
   </fieldset>

@@ -1,8 +1,7 @@
-// Large hit area
 // Radio buttons & checkboxes
 
-// By default, block labels stack vertically
-.gv-c-form-custom {
+// By default, multiple choice inputs stack vertically
+.gv-c-multiple-choice {
 
   display: block;
   float: none;
@@ -12,9 +11,9 @@
   padding: (8px $gutter-one-third 9px 50px);
   margin-bottom: $gutter-one-third;
 
-  cursor: pointer; // Encourage clicking on block labels
+  cursor: pointer; // Encourage clicking on the label
 
-  // remove 300ms pause on mobile
+   // remove 300ms pause on mobile
   -ms-touch-action: manipulation;
   touch-action: manipulation;
 
@@ -36,68 +35,57 @@
 
     // IE8 doesn’t support pseudoelements, so we don’t want to hide native elements there.
     @if ($is-ie == false) or ($ie-version == 9) {
-      .js-enabled & {
-        margin: 0;
-        @include opacity(0);
-      }
+      margin: 0;
+      @include opacity(0);
     }
   }
 
-  .js-enabled & {
+  &__label {
+    cursor: pointer;
+  }
 
-    &.selection-button-checkbox::before {
-      content: "";
-      border: 2px solid;
-      background: transparent;
-      width: 34px;
-      height: 34px;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
+  [type=checkbox] + &__label::before {
+    content: "";
+    border: 2px solid;
+    background: transparent;
+    width: 34px;
+    height: 34px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 
-    &.selection-button-checkbox::after {
-      content: "";
-      border: solid;
-      border-width: 0 0 5px 5px;
-      background: transparent;
-      width: 17px;
-      height: 7px;
-      position: absolute;
-      top: 10px;
-      left: 8px;
-      -moz-transform: rotate(-45deg); // Firefox 15 compatibility
-      -o-transform: rotate(-45deg); // Opera 12.0 compatibility
-      -webkit-transform: rotate(-45deg); // Safari 8 compatibility
-      -ms-transform: rotate(-45deg); // IE9 compatibility
-      transform: rotate(-45deg);
-      @include opacity(0);
-    }
+  [type=checkbox] + &__label::after {
+    content: "";
+    border: solid;
+    border-width: 0 0 5px 5px;
+    background: transparent;
+    width: 17px;
+    height: 7px;
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    -moz-transform: rotate(-45deg); // Firefox 15 compatibility
+    -o-transform: rotate(-45deg); // Opera 12.0 compatibility
+    -webkit-transform: rotate(-45deg); // Safari 8 compatibility
+    -ms-transform: rotate(-45deg); // IE9 compatibility
+    transform: rotate(-45deg);
+    @include opacity(0);
+  }
 
-    // Focused state
-    &.selection-button-checkbox {
-      &.focused::before {
-        @include box-shadow(0 0 0 5px $focus-colour);
-      }
-      // IE8 focus outline should stay as a border around the entire label
-      // Lack of padding doesn’t matter as IE8 won’t resize the inputs.
-      @include ie-lte(8) {
-        &.focused {
-          outline: 3px solid $focus-colour;
+  // Focused state
+  &__control:focus + &__label::before {
+    @include box-shadow(0 0 0 5px $focus-colour);
+  }
 
-          input:focus {
-            outline: none;
-          }
-        }
-      }
-    }
+  // Selected state
+  &__control:checked + &__label::after {
+    @include opacity(1);
+  }
 
-    // Selected state
-    &.selection-button-checkbox {
-      &.selected::after {
-        @include opacity(1);
-      }
-    }
+  // Disabled state
+  &__control:disabled + &__label {
+    @include opacity(0.5);
   }
 
   &:last-child,
@@ -106,8 +94,8 @@
   }
 }
 
-// To stack horizontally, use .inline on parent, to sit block labels next to each other
-.inline .block-label {
+// To sit multiple choice inputs next to each other, use .inline on parent
+.inline .gv-c-multiple-choice {
   clear: none;
 
   @include media (tablet) {
