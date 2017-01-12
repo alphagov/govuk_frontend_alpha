@@ -31,15 +31,21 @@ describe('Form checkbox group component', () => {
           <legend>
             <span class="gv-c-form-group__label">How do you want to be contacted?</span>
           </legend>
-          <label class="gv-c-form-custom selection-button-checkbox" for="example-contact-by-email">
-            <input class="gv-c-form-custom__control" id="example-contact-by-email"
-            type="checkbox" name="contact" value="contact-by-email">Email</label>
-          <label class="gv-c-form-custom selection-button-checkbox" for="example-contact-by-phone">
-            <input class="gv-c-form-custom__control" id="example-contact-by-phone"
-            type="checkbox" name="contact" value="contact-by-phone">Phone</label>
-          <label class="gv-c-form-custom selection-button-checkbox" for="example-contact-by-text">
-            <input class="gv-c-form-custom__control" id="example-contact-by-text"
-            type="checkbox" name="contact" value="contact-by-text">Text</label>
+          <div class="gv-c-multiple-choice">
+            <input class="gv-c-multiple-choice__control" id="example-contact-by-email"
+            type="checkbox" name="contact" value="contact-by-email">
+            <label class="gv-c-multiple-choice__label" for="example-contact-by-email">Email</label>
+          </div>
+          <div class="gv-c-multiple-choice">
+            <input class="gv-c-multiple-choice__control" id="example-contact-by-phone"
+            type="checkbox" name="contact" value="contact-by-phone">
+            <label class="gv-c-multiple-choice__label" for="example-contact-by-phone">Phone</label>
+          </div>
+          <div class="gv-c-multiple-choice">
+            <input class="gv-c-multiple-choice__control" id="example-contact-by-text"
+            type="checkbox" name="contact" value="contact-by-text">
+            <label class="gv-c-multiple-choice__label" for="example-contact-by-text">Text</label>
+          </div>
         </fieldset>
       </div>`
     )
