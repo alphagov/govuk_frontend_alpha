@@ -1,0 +1,26 @@
+<div class="gv-c-form-group {% if error %}gv-c-form-group--has-error{% endif %}">
+  <fieldset>
+
+    <legend>
+      <span class="gv-c-form-group__label">{{ legend }}</span>
+      {% if hint %}
+        <span class="gv-c-form-group__hint">{{ hint }}</span>
+      {% endif %}
+      {% if error %}
+        <span class="gv-c-form-group__error-message">{{ error }}</span>
+      {% endif %}
+    </legend>
+
+    {% for checkbox in checkboxGroup %}
+      <label class="gv-c-form-custom selection-button-checkbox" for="{{checkbox.id}}">
+        <input class="gv-c-form-custom__control"
+               id="{{checkbox.id}}"
+               type="checkbox"
+               name="{{ id }}"
+               value="{{ checkbox.value }}" {% if value == checkbox.value %} checked{% endif %}>
+        {{ checkbox.label }}
+      </label>
+    {% endfor %}
+
+  </fieldset>
+</div>

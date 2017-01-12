@@ -1,9 +1,9 @@
 module.exports = {
-  title: 'Form radio group',
+  title: 'Form checkbox group',
   status: 'wip',
   context: {
     setup: {
-      initScript: 'var $blockLabels = $(".gv-c-form-custom input[type=\'radio\']"); new GOVUK.SelectionButtons($blockLabels);',
+      initScript: 'var $blockLabels = $(".gv-c-form-custom input[type=\'checkbox\']"); new GOVUK.SelectionButtons($blockLabels);',
       openWrapper: '<form>',
       closeWrapper: '</form>'
     },
@@ -12,7 +12,7 @@ module.exports = {
     legend: 'How do you want to be contacted?',
     hint: '',
     error: '',
-    radioGroup: [{
+    checkboxGroup: [{
       id: 'example-contact-by-email',
       value: 'contact-by-email',
       label: 'Email'
@@ -45,5 +45,5 @@ module.exports = {
       error: 'Error text in here'
     }
   }],
-  arguments: ['id', 'name', 'legend', 'hint', 'error', 'radioGroup']
+  arguments: ['id', 'name', 'legend', 'hint', 'error', 'checkboxGroup']
 }
