@@ -38,3 +38,16 @@ Call **formGroup** like a normal function, set values for arguments `'id', 'name
 ) }}
 {% endraw %}
 ```
+
+### Form group - label and textarea
+
+```nunjucks
+{% raw %}
+{{ govuk_components.formGroup(
+  id="textarea",
+  name="textarea",
+  label="This isthe label text",
+  isTextarea="true"
+) }}
+{% endraw %}
+```
