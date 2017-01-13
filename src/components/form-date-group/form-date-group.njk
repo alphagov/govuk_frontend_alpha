@@ -12,7 +12,7 @@
     </legend>
 
     <div class="gv-c-form-group gv-c-form-group__date-day">
-      <label class="gv-c-form-group__label" for="{{ day.id }}">{{ day.label }}</label>
+      <label class="gv-c-form-group__label" for="{{ day.id }}">{{ day.label|default('Day') }}</label>
       <input class="gv-c-form-group__control gv-c-form-group-date__control"
              id="{{ day.id }}"
              name="{{ id }}-day"
@@ -24,7 +24,7 @@
              aria-describedby="{{ id }}-hint">
     </div>
     <div class="gv-c-form-group gv-c-form-group__date-month">
-      <label class="gv-c-form-group__label" for="{{ month.id }}">Month</label>
+      <label class="gv-c-form-group__label" for="{{ month.id }}">{{ month.label|default('Month') }}</label>
       <input class="gv-c-form-group__control gv-c-form-group-date__control"
              id="{{ month.id }}"
              name="{{ id }}-month"
@@ -35,7 +35,7 @@
              {% if month.max %} max="{{ month.max }}" {% endif %}>
     </div>
     <div class="gv-c-form-group gv-c-form-group__date-year">
-      <label class="gv-c-form-group__label" for="{{ year.id }}">Year</label>
+      <label class="gv-c-form-group__label" for="{{ year.id }}">{{ year.label|default('Year') }}</label>
       <input class="gv-c-form-group__control gv-c-form-group-date__control"
              id="{{ year.id }}"
              name="{{ id }}-year"
