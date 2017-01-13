@@ -5,6 +5,7 @@ module.exports = {
     name: 'default',
     context: {
       content: '\n' +
+      '<h1>A 48px heading</h1>\n' +
       '<p>\n' +
       'This is an intro paragraph at 24px. Maecenas faucibus mollis interdum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Vestibulum id ligula porta felis euismod semper.\n' +
       '</p>\n' +
