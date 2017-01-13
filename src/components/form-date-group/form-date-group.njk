@@ -1,0 +1,49 @@
+<div class="gv-c-form-group gv-c-form-group-date {% if error %}gv-c-form-group--has-error{% endif %}">
+  <fieldset>
+
+    <legend>
+      <span class="gv-c-form-group__label">{{ legend }}</span>
+      {% if hint %}
+        <span class="gv-c-form-group__hint" id="{{ id }}-hint">{{ hint }}</span>
+      {% endif %}
+      {% if error %}
+        <span class="gv-c-form-group__error-message">{{ error }}</span>
+      {% endif %}
+    </legend>
+
+    <div class="gv-c-form-group gv-c-form-group__date-day">
+      <label class="gv-c-form-group__label" for="{{ day.id }}">{{ day.label }}</label>
+      <input class="gv-c-form-group__control gv-c-form-group-date__control"
+             id="{{ day.id }}"
+             name="{{ id }}-day"
+             value="{{ day.value }}"
+             type="number"
+             pattern="[0-9]*"
+             {% if day.min %} min="{{ day.min }}" {% endif %}
+             {% if day.max %} max="{{ day.max }}" {% endif %}
+             aria-describedby="{{ id }}-hint">
+    </div>
+    <div class="gv-c-form-group gv-c-form-group__date-month">
+      <label class="gv-c-form-group__label" for="{{ month.id }}">Month</label>
+      <input class="gv-c-form-group__control gv-c-form-group-date__control"
+             id="{{ month.id }}"
+             name="{{ id }}-month"
+             value="{{ month.value }}"
+             type="number"
+             pattern="[0-9]*"
+             {% if month.min %} min="{{ month.min }}" {% endif %}
+             {% if month.max %} max="{{ month.max }}" {% endif %}>
+    </div>
+    <div class="gv-c-form-group gv-c-form-group__date-year">
+      <label class="gv-c-form-group__label" for="{{ year.id }}">Year</label>
+      <input class="gv-c-form-group__control gv-c-form-group-date__control"
+             id="{{ year.id }}"
+             name="{{ id }}-year"
+             value="{{ year.value }}"
+             type="number"
+             pattern="[0-9]*"
+             {% if year.min %} min="{{ year.min }}" {% endif %}
+             {% if year.max %} max="{{ year.max }}" {% endif %}>
+    </div>
+  </fieldset>
+</div>
