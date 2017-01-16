@@ -1,0 +1,35 @@
+// Notice, text with an icon to the left
+.gv-c-notice {
+  @include clearfix;
+
+  position: relative;
+}
+
+.gv-c-notice__icon {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -17px; // Half the height of the important icon
+}
+
+.gv-c-notice__icon-fallback-text {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  margin: -1px;
+  padding: 0;
+
+  border: 0;
+
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.gv-c-notice__text {
+  @include bold-19;
+  display: block;
+  margin-left: -$gutter-half;
+  padding-left: (35 + 30) + px;
+}
