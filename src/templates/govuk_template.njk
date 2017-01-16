@@ -86,7 +86,11 @@
 
     <div id="global-app-error" class="app-error hidden"></div>
 
-    <!--[if gte IE 8]><!--><script src="{{ asset_path + 'javascripts/govuk-template.js' }}"></script><!--<![endif]-->
+    <!--[if gte IE 8]><!-->
+      <script src="{{ asset_path + 'javascripts/govuk-template.min.js' }}"></script>
+      <script src="{{ asset_path + 'javascripts/toolkit.min.js' }}"></script>
+      <script src="{{ asset_path + 'javascripts/components.min.js' }}"></script>
+    <!--<![endif]-->
 
     {% block body_end %}{% endblock %}
 
