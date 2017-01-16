@@ -9,7 +9,7 @@ const assert = require('assert')
 describe('the build task', () => {
   it('should copy assets into the /public directory', function () {
     assert.doesNotThrow(function () {
-      fs.accessSync(path.resolve(__dirname, '../../public/javascripts/elements.js'))
+      fs.accessSync(path.resolve(__dirname, '../../public/javascripts/components.js'))
       fs.accessSync(path.resolve(__dirname, '../../public/javascripts/govuk-template.js'))
       fs.accessSync(path.resolve(__dirname, '../../public/javascripts/toolkit.js'))
       fs.accessSync(path.resolve(__dirname, '../../public/images/crests/bis_crest_13px.png'))
