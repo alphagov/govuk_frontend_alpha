@@ -40,7 +40,7 @@
     "html": "^1.0.0",
     "jasmine-spec-reporter": "^2.7.0",
     "jquery": "^3.1.1",
-    "meta-template": "https://github.com/dsingleton/meta-template/tarball/add-erb-support",
+    "meta-template": "https://github.com/dsingleton/meta-template/tarball/default-filter",
     "nunjucks": "^2.5.2",
     "phantomjs-prebuilt": "^2.1.13",
     "rollup-stream": "^1.14.0",
