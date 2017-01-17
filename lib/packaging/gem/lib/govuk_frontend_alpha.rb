@@ -8,7 +8,9 @@ module GovukFrontendAlpha
         govuk-frontend*.css
         govuk-template*.css
         fonts*.css
-        govuk-template.js
+        govuk-template.min.js
+        toolkit.min.js
+        components.min.js
         ie-shim.js
         template/favicon.ico
         template/apple-touch-icon-120x120.png
