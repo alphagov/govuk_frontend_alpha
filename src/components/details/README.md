@@ -18,7 +18,7 @@ Call **details** like a normal function, set values for arguments `'summary', 't
 {% raw %}
 {{ govuk_components.details(
   summary="Summary text goes in here",
-  details="Details text goes in here"
+  content="Details text goes in here"
 ) }}
 {% endraw %}
 ```
@@ -27,7 +27,7 @@ Call **details** like a normal function, set values for arguments `'summary', 't
 {% raw %}
 {{ govuk_components.details(
   summary="Summary text goes in here",
-  detailsHtml="<p>We need to know your nationality so we can work out which elections you’re entitled to vote in.</p> <a href="#">I can’t provide my nationality</a>"
+  contentHtml="<p>We need to know your nationality so we can work out which elections you’re entitled to vote in.</p> <a href=\"#\">I can’t provide my nationality</a>"
 ) }}
 {% endraw %}
 ```
