@@ -28,7 +28,7 @@ module GovukFrontendAlpha
 
   module ApplicationHelper
     def govuk_component(name, props)
-      render partial: "components/#{name}", locals: props
+      render partial: "components/#{name}", locals: props.with_indifferent_access
     end
   end
 end
