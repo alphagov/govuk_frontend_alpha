@@ -40,5 +40,5 @@ module.exports = {
       error: 'Error text in here'
     }
   }],
-  arguments: ['id', 'name', 'legend', 'hint', 'error', 'radioGroup']
+  arguments: ['id', 'name', 'legend', 'hint', 'error', 'radioGroup', 'value']
 }
