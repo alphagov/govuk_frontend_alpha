@@ -5,6 +5,7 @@ module.exports = {
     id: 'contact',
     name: 'contact-group',
     legend: 'How do you want to be contacted?',
+    legendIsVisuallyHidden: false,
     hint: '',
     error: '',
     checkboxGroup: [{
@@ -40,5 +41,5 @@ module.exports = {
       error: 'Error text in here'
     }
   }],
-  arguments: ['id', 'name', 'legend', 'hint', 'error', 'checkboxGroup', 'value']
+  arguments: ['id', 'name', 'legend', 'legendIsVisuallyHidden', 'hint', 'error', 'checkboxGroup', 'value']
 }
