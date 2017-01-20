@@ -5,6 +5,7 @@ module.exports = {
     id: 'contact',
     name: 'contact-group',
     legend: 'How do you want to be contacted?',
+    legendIsVisuallyHidden: false,
     hint: '',
     error: '',
     radioGroup: [{
@@ -40,5 +41,5 @@ module.exports = {
       error: 'Error text in here'
     }
   }],
-  arguments: ['id', 'name', 'legend', 'hint', 'error', 'radioGroup', 'value']
+  arguments: ['id', 'name', 'legend', 'legendIsVisuallyHidden', 'hint', 'error', 'radioGroup', 'value']
 }

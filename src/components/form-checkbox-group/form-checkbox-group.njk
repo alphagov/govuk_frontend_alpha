@@ -2,7 +2,7 @@
   <fieldset>
 
     <legend>
-      <span class="gv-c-form-group__label">{{ legend }}</span>
+      <span class="gv-c-form-group__label {% if legendIsVisuallyHidden %}gv-u-visually-hidden{% endif %}">{{ legend }}</span>
       {% if hint %}
         <span class="gv-c-form-group__hint">{{ hint }}</span>
       {% endif %}
