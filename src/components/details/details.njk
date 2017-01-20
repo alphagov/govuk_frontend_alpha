@@ -3,6 +3,11 @@
     <span class="gv-c-details__summary-text">{{ summary }}</span>
   </summary>
   <div class="panel panel-border-narrow">
-    {{ text }}
+    {% if content %}
+      {{ content }}
+    {% endif %}
+    {% if contentHtml %}
+      {{ contentHtml | safe }}
+    {% endif %}
   </div>
 </details>
