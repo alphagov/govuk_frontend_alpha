@@ -19,8 +19,19 @@ You’re building a service that will live on GOV.UK. This will give your servic
 
 There are many ways to install GOV.UK Frontend.
 
-If you’re using NPM to manage packages then you can include the latest version directly in your project with the command `npm install govuk_frontend`. In the meantime you can [follow these instructions for NPM](docs/using-with-node.md).
+If you're using [Yarn](https://yarnpkg.com/) to manage packages, you can include the latest version with:
 
+`yarn add gouvk_frontend`.
+
+Instructions for [installing Yarn are here](https://yarnpkg.com/en/docs/install).
+
+If you're using [NPM](https://www.npmjs.com/):
+
+`npm install govuk_frontend`. 
+
+In the meantime you can [follow these instructions for Node](docs/using-with-node.md).
+
+Instructions for [migrating from NPM to Yarn are here](https://yarnpkg.com/en/docs/migrating-from-npm).
 
 If you are building your project with Ruby then we publish this as a gem. Adding `govuk_frontend` to your Gemfile and running `bundle install` will install the latest version. In the meantime you can [follow these instructions](docs/using-with-rails.md).
 
