@@ -54,8 +54,7 @@
   },
   "scripts": {
     "start": "gulp fractal",
-    "lint": "standard",
-    "test": "npm run lint && gulp test"
+    "test": "standard && gulp test"
   },
   "standard": {
     "globals": [

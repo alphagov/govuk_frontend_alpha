@@ -24,6 +24,16 @@ Amend your package.json file to include govuk_frontend_alpha as a dependency.
 
 Install the govuk_frontend_alpha package
 
+If you're using [Yarn](https://yarnpkg.com/) to manage packages, you can install the govuk_frontend_alpha dependency with:
+
+```bash
+yarn install
+```
+
+Instructions for [installing Yarn are here](https://yarnpkg.com/en/docs/install).
+
+or if you're using [NPM](https://www.npmjs.com/) to manage pagckages:
+
 ```bash
 npm install
 ```
@@ -31,8 +41,15 @@ npm install
 Note: In future the package will be published to npm and the steps above can be replaced with
 
 ```bash
+yarn add govuk-frontend-alpha
+```
+
+or
+
+```bash
 npm install govuk-frontend-alpha --save
 ```
+Instructions for [migrating from NPM to Yarn are here](https://yarnpkg.com/en/docs/migrating-from-npm).
 
 ## Use the layout
 
