@@ -1,28 +1,21 @@
-// Refactoring:
-// https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/design-patterns/_breadcrumbs.scss
-// .breadcrumbs
+@import '../settings/colours';
+@import '../tools/device-pixels';
 
-.gv-c-breadcrumb {
-  // TODO: Use consistent units
+.gv-c-breadcrumbs {
   padding-top: 0.75em;
   padding-bottom: 0.75em;
 
-  &__list {
-    @include clearfix;
-  }
-
   &__list-item {
-    @include core-16;
     margin-bottom: 0.4em;
     margin-left: 0.6em;
     padding-left: 0.9em;
 
     float: left;
 
-    background-image: file-url("separator.png");
+    background-image: file-url("toolkit/separator.png");
 
     @include device-pixel-ratio {
-      background-image: file-url("separator-2x.png");
+      background-image: file-url("toolkit/separator-2x.png");
       background-size: 6px 11px;
     }
 
@@ -36,7 +29,7 @@
     color: $text-colour;
   }
 
-  &__list-item--first {
+  &__list-item:first-child {
     margin-left: 0;
     padding-left: 0;
 

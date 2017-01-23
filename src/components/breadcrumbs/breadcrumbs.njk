@@ -1,0 +1,13 @@
+<div class="gv-c-breadcrumbs">
+  <ol class="gv-c-breadcrumbs__list gv-u-cf">
+  {% for item in items %}
+    <li class="gv-c-breadcrumbs__list-item">
+      {% if item.url %}
+        <a class="gv-c-breadcrumbs__list-link" href="{{ item.url }}">{{ item.title }}</a>
+      {% else %}
+        {{ item.title }}
+      {% endif %}
+    </li>
+  {% endfor %}
+  </ol>
+</div>
