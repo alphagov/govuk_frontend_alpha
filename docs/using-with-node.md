@@ -1,102 +1,177 @@
 # Using with Node
 
-*Note: These instructions describe setting up the alpha version of govuk_frontend and can/will change*
 
-## Add to package.json
+## Download the Node starter app
 
-From this repo, build a local version of the npm package:
+[Download the Node/Express starter app](https://github.com/alphagov/govuk-frontend-alpha-starter-kit-node)
 
-```bash
-gulp package
-```
 
-This will create a tgz file in `dist/npm/`
+#### Add the govuk_frontend_alpha package as a dependency
 
-Copy the govuk_frontend_alpha-0.0.1.tgz file to the root of your project.
+The package is not available on the NPM registry.
 
-Amend your package.json file to include govuk_frontend_alpha as a dependency.
+You will need to manually include it as a dependency.
+
+* Amend the package.json file in the root of the starter app
 
 ```bash
 "dependencies": {
- "govuk_frontend_alpha": "file:govuk_frontend_alpha-0.0.1.tgz"
+  "govuk_frontend_alpha": "https://github.com/alphagov/govuk_frontend_alpha/releases/download/0.0.1-alpha/govuk_frontend_alpha-0.0.1-npm.tgz",
  }
 ```
 
-Install the govuk_frontend_alpha package
+* Install the govuk_frontend_alpha package
 
-If you're using [Yarn](https://yarnpkg.com/) to manage packages, you can install the govuk_frontend_alpha dependency with:
+If you're using [Yarn](https://yarnpkg.com/):
 
 ```bash
-yarn install
+yarn
 ```
 
-Instructions for [installing Yarn are here](https://yarnpkg.com/en/docs/install).
-
-or if you're using [NPM](https://www.npmjs.com/) to manage pagckages:
+If you're using [NPM](https://www.npmjs.com/):
 
 ```bash
 npm install
 ```
 
-Note: In future the package will be published to npm and the steps above can be replaced with
 
-```bash
-yarn add govuk-frontend-alpha
-```
+## Set up your application
 
-or
+The starter application uses the Nunjucks templating language.
 
-```bash
-npm install govuk-frontend-alpha --save
-```
-Instructions for [migrating from NPM to Yarn are here](https://yarnpkg.com/en/docs/migrating-from-npm).
+The starter app has already set the view engine for the app to use Nunjucks:
+`app.set('view engine', 'nunjucks')`
+[TODO: link to config for starter app]
 
-## Use the layout
+### Use the GOV.UK layout template
 
-Create a layout template (usually `app/views/layout.nunjucks`)
+#### Amend the layout template to extend the GOV.UK layout
 
-These instructions assume use of the Nunjucks templating language.
+In `app/views`, amend the `layout.njk` template to extend the GOV.UK template.
 
-Add this line to the layout.njk file, to use the govuk_frontend_alpha's layout template
+Replace the text 'Layout template' at the top of the `layout.njk` file with:
 
 ```nunjucks
 {% extends "govuk_template.njk" %}
 ```
 
-## Importing SASS
-
-In your main stylesheet `main.scss`, add this to the start:
-
-```scss
-@import '../../../node_modules/govuk_frontend_alpha/';
-```
-
-Or configure includePaths to include node_modules and use:
-
-```scss
-@import 'govuk_frontend_alpha/';
-```
-
-You will then need to include your main stylesheet in the `head` content block - see below.
-
-## Customise the template
-
-`govuk_template` provides blocks you can insert content into, to customise the basic layout.
-
-For example, to set a `<title>` for your page you can override the `page_title` block, and it will be inserted into the `govuk_template` layout.:
+The starter app has already set the path to the GOV.UK layout template in its config:
 
 ```nunjucks
-{% block page_title %}
-  My project title
+var path = require('path')
+
+var appViews = [
+  path.join(__dirname, 'views'),
+  path.join(__dirname, '/node_modules/govuk_frontend_alpha/templates/')
+  ]
+
+app.set('views', appViews)
+```
+
+Start your app using `node app.js`
+
+Go to http://localhost:3000, you will see the GOV.UK template, with the text "Hello world!".
+
+
+### GOV.UK template blocks - content
+
+In `index.njk` there is a content block:
+
+```nunjucks
+{% block content %}
+Hello world!
 {% endblock %}
 ```
 
-Or to add content to `<head>`, for stylesheets or similar:
+Use the content block to insert your content into the template.
+
+Here is a [full list of blocks](template-blocks.md) you can use to customise the template.
+
+<<<<<<< HEAD
+```scss
+@import '../../../node_modules/govuk_frontend_alpha/';
+=======
+### Import all the file of all components
+
+In `index.njk`:
+
+Add this line underneath `{% extends "layout.nunjucks" %}`
+
+```nunjucks
+{% import "components.njk" as govuk_components %}
+>>>>>>> WIP - Update using with Node instructions
+```
+
+`views/index.nunjucks` should now look like this:
+
+<<<<<<< HEAD
+```scss
+@import 'govuk_frontend_alpha/';
+=======
+```nunjucks
+{% extends "layout.njk" %}
+{% import "components.njk" as govuk_components %}
+>>>>>>> WIP - Update using with Node instructions
+```
+
+### Add a component
+
+For the application to find the path to components, the following path has been configured:
+
+```nunjucks
+var applicationViews = [
+  '/app/views',
+  '/node_modules/govuk_frontend_alpha/templates',
+  '/node_modules/govuk_frontend_alpha/components',
+  ]
+app.set('views', applicationViews)
+```
+[TODO: link to config for starter app]
+
+
+[You can see all the components here](TODO: link to Heroku)
+
+* Copy the macro to implement a component
+
+Include the macro for a button component:
+
+```nunjucks
+{{ govuk_components.button("Change this button text") }}
+```
+
+Change the button text:
+
+```nunjucks
+{{ govuk_components.button("Save and continue") }}
+```
+
+Go to http://localhost:3000, you should see a 'Save and continue' button in your application.
+
+
+### Add a stylesheet to the layout template
 
 ```nujucks
+{% extends "govuk_template.njk" %}
+
 {% block head %}
   <link href="/public/css/main.css" media="screen" rel="stylesheet" type="text/css">
 {% endblock %}
 ```
 
 Check out the [full list of blocks](template-blocks.md) you can use to customise the template.
+
+
+### Import the Sass files
+
+In your main stylesheet `main.scss`, add this to the start:
+
+```scss
+@import '../../../node_modules/govuk_frontend_alpha/;
+```
+
+Or configure includePaths to include node_modules and use:
+[TODO: Add example of this from starter app]
+
+```scss
+@import 'govuk_frontend_alpha/;
+```
