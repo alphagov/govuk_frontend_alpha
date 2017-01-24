@@ -23,7 +23,6 @@ describe('All components variants render without errors', () => {
       let variants = components.getVariantsFor(name)
       for (let variant of variants) {
         it(`${variant.name}`, () => {
-          console.log(variant.context)
           expectComponentRenders(name, variant.context)
         })
       }
