@@ -68,13 +68,13 @@ Add this line to the layout.njk file, to use the govuk_frontend_alpha's layout t
 In your main stylesheet `main.scss`, add this to the start:
 
 ```scss
-@import '../../../node_modules/govuk_frontend_alpha/;
+@import '../../../node_modules/govuk_frontend_alpha/';
 ```
 
 Or configure includePaths to include node_modules and use:
 
 ```scss
-@import 'govuk_frontend_alpha/;
+@import 'govuk_frontend_alpha/';
 ```
 
 You will then need to include your main stylesheet in the `head` content block - see below.
