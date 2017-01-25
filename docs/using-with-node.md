@@ -1,18 +1,17 @@
 # Using with Node
 
-
-## Download the Node starter app
+## 1. Download the Node starter app
 
 [Download the Node/Express starter app](https://github.com/alphagov/govuk-frontend-alpha-starter-kit-node)
 
 
-#### Add the govuk_frontend_alpha package as a dependency
+## 2. Add the govuk_frontend_alpha package as a dependency
 
 The package is not available on the NPM registry.
 
 You will need to manually include it as a dependency.
 
-* Amend the package.json file in the root of the starter app
+### Amend the package.json file in the root of your application
 
 ```bash
 "dependencies": {
@@ -20,7 +19,7 @@ You will need to manually include it as a dependency.
  }
 ```
 
-* Install the govuk_frontend_alpha package
+### Install the govuk_frontend_alpha package
 
 If you're using [Yarn](https://yarnpkg.com/):
 
@@ -35,37 +34,32 @@ npm install
 ```
 
 
-## Set up your application
+## 3. Set up your application
 
-The starter application uses the Nunjucks templating language.
+These instructions assume you will be using the Nunjucks templating language.
 
-The starter app has already set the view engine for the app to use Nunjucks:
-`app.set('view engine', 'nunjucks')`
-[TODO: link to config for starter app]
+Refer to the [starter application commit history if you would like to know how it has been set up](https://github.com/alphagov/govuk-frontend-alpha-starter-kit-node/commits/master).
 
-### Use the GOV.UK layout template
+### Get the GOV.UK layout
 
-#### Amend the layout template to extend the GOV.UK layout
+In `node_modules/govuk_frontend_alpha/templates` there is a `govuk_template.njk` layout file.
 
-In `app/views`, amend the `layout.njk` template to extend the GOV.UK template.
+#### Extend the GOV.UK layout template
 
-Replace the text 'Layout template' at the top of the `layout.njk` file with:
+Create a file `layout.njk` in `views`, use this file to extend the GOV.UK template.
+
+Insert into `layout.njk`:
 
 ```nunjucks
 {% extends "govuk_template.njk" %}
 ```
 
-The starter app has already set the path to the GOV.UK layout template in its config:
+If you are using the starter application, the `layout.njk` file has already been created for you.
+
+Replace the text **'Layout template'** at the top of the `layout.njk` file with:
 
 ```nunjucks
-var path = require('path')
-
-var appViews = [
-  path.join(__dirname, 'views'),
-  path.join(__dirname, '/node_modules/govuk_frontend_alpha/templates/')
-  ]
-
-app.set('views', appViews)
+{% extends "govuk_template.njk" %}
 ```
 
 Start your app using `node app.js`
@@ -73,13 +67,13 @@ Start your app using `node app.js`
 Go to http://localhost:3000, you will see the GOV.UK template, with the text "Hello world!".
 
 
-### GOV.UK template blocks - content
+### Adding content to a GOV.UK layout template block
 
-In `index.njk` there is a content block:
+The starter app provides a template block 'content', in `index.njk` as an example of how to use template blocks.
 
 ```nunjucks
 {% block content %}
-Hello world!
+  Hello world!
 {% endblock %}
 ```
 
@@ -87,91 +81,39 @@ Use the content block to insert your content into the template.
 
 Here is a [full list of blocks](template-blocks.md) you can use to customise the template.
 
-<<<<<<< HEAD
-```scss
-@import '../../../node_modules/govuk_frontend_alpha/';
-=======
-### Import all the file of all components
+### Component setup
 
-In `index.njk`:
+#### Import all components into your application
 
-Add this line underneath `{% extends "layout.nunjucks" %}`
+In your index template, add this line underneath `{% extends "layout.njk" %}`
 
 ```nunjucks
 {% import "components.njk" as govuk_components %}
->>>>>>> WIP - Update using with Node instructions
 ```
 
-`views/index.nunjucks` should now look like this:
+Your index template, `views/index.njk` should now look like this:
 
-<<<<<<< HEAD
-```scss
-@import 'govuk_frontend_alpha/';
-=======
 ```nunjucks
 {% extends "layout.njk" %}
 {% import "components.njk" as govuk_components %}
->>>>>>> WIP - Update using with Node instructions
 ```
 
-### Add a component
+### Use a component in your application
 
-For the application to find the path to components, the following path has been configured:
+[You can find all the components here](http://govuk-frontend-alpha.herokuapp.com/).
 
-```nunjucks
-var applicationViews = [
-  '/app/views',
-  '/node_modules/govuk_frontend_alpha/templates',
-  '/node_modules/govuk_frontend_alpha/components',
-  ]
-app.set('views', applicationViews)
-```
-[TODO: link to config for starter app]
+Copy the Nunjucks macro to implement a component.
 
-
-[You can see all the components here](TODO: link to Heroku)
-
-* Copy the macro to implement a component
-
-Include the macro for a button component:
+Here is an example of a macro for a button component:
 
 ```nunjucks
-{{ govuk_components.button("Change this button text") }}
+{{ govuk_components.button(text="Change this button text") }}
 ```
 
-Change the button text:
+Copy and paste this macro into your index template and change the button text.
 
 ```nunjucks
-{{ govuk_components.button("Save and continue") }}
+{{ govuk_components.button(text="Save and continue") }}
 ```
 
 Go to http://localhost:3000, you should see a 'Save and continue' button in your application.
-
-
-### Add a stylesheet to the layout template
-
-```nujucks
-{% extends "govuk_template.njk" %}
-
-{% block head %}
-  <link href="/public/css/main.css" media="screen" rel="stylesheet" type="text/css">
-{% endblock %}
-```
-
-Check out the [full list of blocks](template-blocks.md) you can use to customise the template.
-
-
-### Import the Sass files
-
-In your main stylesheet `main.scss`, add this to the start:
-
-```scss
-@import '../../../node_modules/govuk_frontend_alpha/;
-```
-
-Or configure includePaths to include node_modules and use:
-[TODO: Add example of this from starter app]
-
-```scss
-@import 'govuk_frontend_alpha/;
-```
