@@ -1,0 +1,27 @@
+{% import "macros/image.nunj" as img %}
+
+<div class="Browser-controls">
+    <ul class="Browser-tabs">
+        {% for panel in frctl.theme.get('panels') %}
+        {% if panel == 'resources' %}
+        {% for collection in entity.resources().items() %}
+        {% if collection.size %}
+        <li class="Browser-tab Browser-tab--resources{% if not collection.size %} is-disabled{% endif %}" data-role="tab">
+            <a href="#browser-{{ entity.id }}-panel-{{ collection.name }}">
+                {{ img.tabIcon(panel) }}
+                <span>{{ collection.label }}</span>
+            </a>
+        </li>
+        {% endif %}
+        {% endfor %}
+        {% elseif panel != 'view' %}
+        <li class="Browser-tab Browser-tab--{{ panel }}{% if loop.first %} is-active {% endif %}" data-role="tab">
+            <a href="#browser-{{ entity.id }}-panel-{{ panel }}">
+                {{ img.tabIcon(panel) }}
+                <span>{% if panel == 'html' %}HTML{% elseif panel == 'context'%}Invocation{% else %}{{ panel | capitalize }}{% endif %}</span>
+            </a>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</div>
