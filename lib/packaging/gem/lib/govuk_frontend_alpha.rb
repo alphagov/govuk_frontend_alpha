@@ -27,8 +27,23 @@ module GovukFrontendAlpha
   end
 
   module ApplicationHelper
-    def govuk_component(name, props)
-      render partial: "components/#{name}", locals: props.with_indifferent_access
+    def govuk_component
+      # allows components to be called like this:
+      # `govuk_component.button(text: 'Start now')`
+      DynamicComponentRenderer.new(self)
+    end
+
+    class DynamicComponentRenderer
+      def initialize(view_context)
+        @view_context = view_context
+      end
+
+      def method_missing(method, *args, &block)
+        @view_context.render(
+          partial: "components/#{method.to_s}",
+          locals: args.first.with_indifferent_access
+        )
+      end
     end
   end
 end
