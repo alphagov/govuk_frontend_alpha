@@ -1,0 +1,16 @@
+{% set compHandle = entity.component().handle %}
+
+<div class="Browser-panel Browser-code Browser-nunjucks" data-role="tab-panel" id="browser-{{ entity.id }}-panel-nunjucks">
+  <div class="Prose Prose--condensed">
+    <h3>To call this component using Nunjucks:</h3>
+    <code class="Code Code--lang-html">
+      <pre>
+        <span class="hljs-tag">
+          <span class="hljs-attr">
+            {% raw %} {{ {% endraw %} govuk_component.{{ compHandle }}(text='Start now') {% raw %} }} {% endraw %}
+          </span>
+        </span>
+      </pre>
+    </code>
+  </div>
+</div>
