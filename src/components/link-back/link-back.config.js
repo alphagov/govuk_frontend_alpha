@@ -1,9 +1,21 @@
 module.exports = {
   title: 'Back link',
   status: 'wip',
-  context: {
-    link: '#',
-    text: 'Back'
-  },
+  variants: [
+    {
+      name: 'default',
+      context: {
+        link: '#',
+        text: 'Back'
+      }
+    },
+    {
+      name: 'longer',
+      context: {
+        link: '#',
+        text: 'Back to the start of this transaction'
+      }
+    }
+  ],
   arguments: ['link', 'text']
 }
