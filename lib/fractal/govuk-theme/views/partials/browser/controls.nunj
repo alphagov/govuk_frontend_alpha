@@ -17,8 +17,12 @@
         {% elseif panel != 'view' %}
         <li class="Browser-tab Browser-tab--{{ panel }}{% if loop.first %} is-active {% endif %}" data-role="tab">
             <a href="#browser-{{ entity.id }}-panel-{{ panel }}">
-                {{ img.tabIcon(panel) }}
-                <span>{% if panel == 'html' %}HTML{% elseif panel == 'context'%}Invocation{% else %}{{ panel | capitalize }}{% endif %}</span>
+                {% if panel != 'context' %}
+                  {{ img.tabIcon('html') }}
+                {% else %}
+                  {{ img.tabIcon(panel) }}
+                {% endif %}
+                <span>{% if panel == 'html' %}HTML{% elseif panel == 'context'%}Context{% else %}{{ panel | capitalize }}{% endif %}</span>
             </a>
         </li>
         {% endif %}
