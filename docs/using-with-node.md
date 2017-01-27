@@ -1,25 +1,22 @@
 # Using with Node
 
-## 1. Download the Node starter app
+*Note: These instructions describe setting up the alpha version of govuk_frontend and can/will change*
 
-[Download the Node/Express starter app](https://github.com/alphagov/govuk-frontend-alpha-starter-kit-node)
-
-
-## 2. Add the govuk_frontend_alpha package as a dependency
+## Add govuk_frontend_alpha to your application
 
 The package is not available on the NPM registry.
 
 You will need to manually include it as a dependency.
 
-### Amend the package.json file in the root of your application
+## Amend package.json
+
+Add this line to your dependencies in `package.json`:
 
 ```bash
-"dependencies": {
-  "govuk_frontend_alpha": "https://github.com/alphagov/govuk_frontend_alpha/releases/download/0.0.1-alpha/govuk_frontend_alpha-0.0.1-npm.tgz",
- }
+  "govuk_frontend_alpha": "https://github.com/alphagov/govuk_frontend_alpha/releases/download/0.0.1-alpha/govuk_frontend_alpha-0.0.1-npm.tgz"
 ```
 
-### Install the govuk_frontend_alpha package
+## Install the govuk_frontend_alpha dependency
 
 If you're using [Yarn](https://yarnpkg.com/):
 
@@ -33,18 +30,9 @@ If you're using [NPM](https://www.npmjs.com/):
 npm install
 ```
 
+## Use the GOV.UK layout
 
-## 3. Set up your application
-
-These instructions assume you will be using the Nunjucks templating language.
-
-Refer to the [starter application commit history if you would like to know how it has been set up](https://github.com/alphagov/govuk-frontend-alpha-starter-kit-node/commits/master).
-
-### Get the GOV.UK layout
-
-In `node_modules/govuk_frontend_alpha/templates` there is a `govuk_template.njk` layout file.
-
-#### Extend the GOV.UK layout template
+The govuk_frontend_alpha package provides a GOV.UK layout, `govuk_template.njk`.
 
 Create a file `layout.njk` in `views`, use this file to extend the GOV.UK template.
 
@@ -54,7 +42,7 @@ Insert into `layout.njk`:
 {% extends "govuk_template.njk" %}
 ```
 
-If you are using the starter application, the `layout.njk` file has already been created for you.
+If you are using the [starter application](https://github.com/alphagov/govuk-frontend-alpha-starter-kit-node), the `layout.njk` file has already been created for you.
 
 Replace the text **'Layout template'** at the top of the `layout.njk` file with:
 
@@ -64,12 +52,29 @@ Replace the text **'Layout template'** at the top of the `layout.njk` file with:
 
 Start your app using `node app.js`
 
-Go to http://localhost:3000, you will see the GOV.UK template, with the text "Hello world!".
+Go to http://localhost:3000, you should see the familiar GOV.UK brand, with the text "Hello world!".
 
+### Customise the layout
 
-### Adding content to a GOV.UK layout template block
+GOV.UK Frontend has [template blocks](https://mozilla.github.io/nunjucks/templating.html#block) that you can use to override bits of the layout.
 
-The starter app provides a template block 'content', in `index.njk` as an example of how to use template blocks.
+You'll need to set the `page_title` and `head` blocks (illustrated below), but there are [many other blocks](template-blocks.md) you can use if you need to.
+
+In `index.njk`:
+
+```nunjucks
+{% block page_title %}
+  My page title
+{% endblock %}
+```
+
+```nunjucks
+{% block head %}
+  <link rel="stylesheet" href="styles.css">
+{% endblock %}
+```
+
+[The starter app provides a template block 'content'](https://github.com/alphagov/govuk-frontend-alpha-starter-kit-node/blob/master/views/index.njk#L3), in `index.njk` as an example.
 
 ```nunjucks
 {% block content %}
@@ -77,15 +82,25 @@ The starter app provides a template block 'content', in `index.njk` as an exampl
 {% endblock %}
 ```
 
-Use the content block to insert your content into the template.
+## Importing SCSS
 
-Here is a [full list of blocks](template-blocks.md) you can use to customise the template.
+In your stylesheet `styles.scss`, add this to the start:
 
-### Component setup
+```scss
+@import '../../../node_modules/govuk_frontend_alpha/;
+```
 
-#### Import all components into your application
+Or configure includePaths to include node_modules and instead use:
 
-In your index template, add this line underneath `{% extends "layout.njk" %}`
+```scss
+@import 'govuk_frontend_alpha/;
+```
+
+You will need to ensure your stylesheet is included in the `head` block - see above.
+
+## Calling components
+
+In your index template, add this line underneath `{% extends "layout.njk" %}` to import all components:
 
 ```nunjucks
 {% import "components.njk" as govuk_components %}
@@ -98,7 +113,7 @@ Your index template, `views/index.njk` should now look like this:
 {% import "components.njk" as govuk_components %}
 ```
 
-### Use a component in your application
+## Use a component in your application
 
 [You can find all the components here](http://govuk-frontend-alpha.herokuapp.com/).
 
@@ -116,4 +131,6 @@ Copy and paste this macro into your index template and change the button text.
 {{ govuk_components.button(text="Save and continue") }}
 ```
 
-Go to http://localhost:3000, you should see a 'Save and continue' button in your application.
+Go to http://localhost:3000
+
+This will render the Button component with the `text` of 'Save and continue'
