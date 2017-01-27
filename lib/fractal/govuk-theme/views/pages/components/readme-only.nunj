@@ -1,0 +1,35 @@
+{% extends "layouts/pjax.nunj" if request.isPjax else "layouts/frame.nunj" %}
+{% import "macros/image.nunj" as img %}
+{% import "macros/status.nunj" as status %}
+{% import "macros/errors.nunj" as errors %}
+
+{% set entity = frctl.components.find('@' + request.params.handle) %}
+{% if not entity %}{{ throw(404, "Component '" + request.params.handle + "' not found.") }}{% endif %}
+
+{% set page = {
+    title: entity.title
+} %}
+
+{% block content %}
+
+<div class="Pen" data-behaviour="pen" id="pen-{{ entity.id }}">
+
+    {% block penContent %}
+
+    {% include "partials/pen/header.nunj" %}
+
+    <div style="padding: 10px">
+        <div class="Prose">
+           {% if entity.notes %}
+           {{ frctl.docs.renderString(entity.notes, renderEnv) | async }}
+           {% else %}
+           <p class="Browser-isEmptyNote">There are no notes for this item.</p>
+           {% endif %}
+       </div>
+    </div>
+
+    {% endblock %}
+
+</div>
+
+{% endblock %}

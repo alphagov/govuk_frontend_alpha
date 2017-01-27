@@ -1,30 +1,16 @@
-# Use this component
+## Text
 
-## Nunjucks
+Button text should be short and describe the action the button performs.
 
-[Import](https://mozilla.github.io/nunjucks/templating.html#import) the components template and bind all of its exported values to a variable so that we can use it:
+{{ '@button'|preview(60) }}
 
-```nunjucks
-{% raw %}
-  {% import "components.njk" as govuk_components %}
-{% endraw %}
-```
+## Alignment
 
-Call **button** like a normal function, set values for arguments `'text', 'type', 'isPrimary'` to alter its content.
+Align the primary action button to the left edge of your form, in the user’s line of sight.
 
-### Button
+## Disabled state
 
-```nunjucks
-{% raw %}
-  {{ govuk_components.button("Button text") }}
-{% endraw %}
-```
-
-
-### Primary button
-
-```nunjucks
-{% raw %}
-  {{ govuk_components.button("Primary button text", isPrimary=true) }}
-{% endraw %}
-```
+- don’t disable buttons, unless there’s a good reason to
+- if you have to disable buttons, make sure they look like you can’t click them (use 50% opacity)
+- an example of a useful disabled option is a calendar with greyed out days where no bookings are available
+- provide another way for the user to continue, add an error message or text to explain why the button is disabled
