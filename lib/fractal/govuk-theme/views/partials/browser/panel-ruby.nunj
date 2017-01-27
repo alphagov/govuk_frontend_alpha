@@ -1,0 +1,16 @@
+{% set compHandle = entity.component().handle %}
+
+<div class="Browser-panel Browser-code Browser-ruby" data-role="tab-panel" id="browser-{{ entity.id }}-panel-ruby">
+  <div class="Prose Prose--condensed">
+    <h3>To call this component in Rails:</h3>
+    <code class="Code Code--lang-nunjucks">
+      <pre>
+        <span class="hljs-tag">
+          <span class="hljs-attr">
+            <%= govuk_component.{{ compHandle }}(text: 'Start now') %>
+          </span>
+        </span>
+      </pre>
+    </code>
+  </div>
+</div>
