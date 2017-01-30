@@ -6,7 +6,7 @@
 
 ```nunjucks
 {% raw %}
-  {% import "components.njk" as govuk_components %}
+  {% import "components.njk" as govuk %}
 {% endraw %}
 ```
 
@@ -17,7 +17,7 @@ Call **formCheckboxGroup** like a normal function, set values for arguments `'id
 ```nunjucks
 
 {% raw %}
-  {{ govuk_components.formCheckboxGroup(
+  {{ govuk.formCheckboxGroup(
     id="contact-c",
     name="contact-group",
     legend="How do you want to be contacted?",
@@ -48,7 +48,7 @@ Call **formCheckboxGroup** like a normal function, set values for arguments `'id
 
 ```nunjucks
 {% raw %}
-{{ govuk_components.formCheckboxGroup(
+{{ govuk.formCheckboxGroup(
   id="contact-d",
   name="contact-group",
   legend="How do you want to be contacted?",

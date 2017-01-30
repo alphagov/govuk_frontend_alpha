@@ -27,9 +27,9 @@ module GovukFrontendAlpha
   end
 
   module ApplicationHelper
-    def govuk_component
+    def govuk
       # allows components to be called like this:
-      # `govuk_component.button(text: 'Start now')`
+      # `govuk.button(text: 'Start now')`
       DynamicComponentRenderer.new(self)
     end
 

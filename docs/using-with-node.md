@@ -103,14 +103,14 @@ You will need to ensure your stylesheet is included in the `head` block - see ab
 In your index template, add this line underneath `{% extends "layout.njk" %}` to import all components:
 
 ```nunjucks
-{% import "components.njk" as govuk_components %}
+{% import "components.njk" as govuk %}
 ```
 
 Your index template, `views/index.njk` should now look like this:
 
 ```nunjucks
 {% extends "layout.njk" %}
-{% import "components.njk" as govuk_components %}
+{% import "components.njk" as govuk %}
 ```
 
 ## Use a component in your application
@@ -122,13 +122,13 @@ Copy the Nunjucks macro to implement a component.
 Here is an example of a macro for a button component:
 
 ```nunjucks
-{{ govuk_components.button(text="Change this button text") }}
+{{ govuk.button(text="Change this button text") }}
 ```
 
 Copy and paste this macro into your index template and change the button text.
 
 ```nunjucks
-{{ govuk_components.button(text="Save and continue") }}
+{{ govuk.button(text="Save and continue") }}
 ```
 
 Go to http://localhost:3000

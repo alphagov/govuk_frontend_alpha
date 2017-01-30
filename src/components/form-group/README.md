@@ -6,7 +6,7 @@
 
 ```nunjucks
 {% raw %}
-  {% import "components.njk" as govuk_components %}
+  {% import "components.njk" as govuk %}
 {% endraw %}
 ```
 
@@ -16,7 +16,7 @@ Call **formGroup** like a normal function, set values for arguments `'id', 'name
 
 ```nunjucks
 {% raw %}
-{{ govuk_components.formGroup(
+{{ govuk.formGroup(
   id="nino",
   name="nino",
   label="What is your National Insurance number",
@@ -29,7 +29,7 @@ Call **formGroup** like a normal function, set values for arguments `'id', 'name
 
 ```nunjucks
 {% raw %}
-{{ govuk_components.formGroup(
+{{ govuk.formGroup(
   id="nino",
   name="nino",
   label="What is your National Insurance number",
@@ -43,7 +43,7 @@ Call **formGroup** like a normal function, set values for arguments `'id', 'name
 
 ```nunjucks
 {% raw %}
-{{ govuk_components.formGroup(
+{{ govuk.formGroup(
   id="textarea",
   name="textarea",
   label="This isthe label text",

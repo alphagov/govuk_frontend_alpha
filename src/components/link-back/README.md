@@ -6,7 +6,7 @@
 
 ```nunjucks
 {% raw %}
-  {% import "components.njk" as govuk_components %}
+  {% import "components.njk" as govuk %}
 {% endraw %}
 ```
 
@@ -16,7 +16,7 @@ Call **linkBack** like a normal function, set values for arguments `'link', 'tex
 
 ```nunjucks
 {% raw %}
-{{ govuk_components.linkBack(
+{{ govuk.linkBack(
   link="/",
   text="Back"
 ) }}

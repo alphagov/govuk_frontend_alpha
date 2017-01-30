@@ -6,7 +6,7 @@
 
 ```nunjucks
 {% raw %}
-  {% import "components.njk" as govuk_components %}
+  {% import "components.njk" as govuk %}
 {% endraw %}
 ```
 
@@ -16,7 +16,7 @@ Call **formDateGroup** like a normal function, set values for arguments `'id', '
 
 ```nunjucks
 {% raw %}
-{{ govuk_components.formDateGroup(
+{{ govuk.formDateGroup(
   id="dob",
   name="dob",
   legend="What is your date of birth?",
@@ -33,7 +33,7 @@ Call **formDateGroup** like a normal function, set values for arguments `'id', '
 
 ```nunjucks
 {% raw %}
-{{ govuk_components.formDateGroup(
+{{ govuk.formDateGroup(
   id="dob",
   name="dob",
   legend="What is your date of birth?",

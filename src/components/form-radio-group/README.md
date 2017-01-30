@@ -6,7 +6,7 @@
 
 ```nunjucks
 {% raw %}
-  {% import "components.njk" as govuk_components %}
+  {% import "components.njk" as govuk %}
 {% endraw %}
 ```
 
@@ -16,7 +16,7 @@ Call **formRadioGroup** like a normal function, set values for arguments `'id', 
 
 ```nunjucks
 {% raw %}
-{{ govuk_components.formRadioGroup(
+{{ govuk.formRadioGroup(
   id="contact-1a",
   name="contact-group",
   legend="How do you want to be contacted?",
@@ -46,7 +46,7 @@ Call **formRadioGroup** like a normal function, set values for arguments `'id', 
 
 ```nunjucks
 {% raw %}
-{{ govuk_components.formRadioGroup(
+{{ govuk.formRadioGroup(
   id="contact-1b",
   name="contact-group",
   legend="How do you want to be contacted?",
