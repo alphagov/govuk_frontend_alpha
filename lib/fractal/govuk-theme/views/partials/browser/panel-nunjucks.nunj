@@ -1,10 +1,10 @@
 {% set compHandle = entity.component().handle %}
 
 <div class="Browser-panel Browser-code Browser-nunjucks" data-role="tab-panel" id="browser-{{ entity.id }}-panel-nunjucks">
-  <div class="Prose Prose--condensed">
+  <div class="Prose" style="width: 100%">
     <h3>To call this component using Nunjucks:</h3>
     <code class="Code Code--lang-njk">
-      <pre contenteditable >{{ "{{ " + (entity.getResolvedContext() | async | generateComponentInvocation('njk', compHandle)) + " }}" | highlight('js') }}</pre>
+      <pre style="margin: 0; padding: .5em 1.5em; background: #f6f6f6" contenteditable >{{ "{{ " + (entity.getResolvedContext() | async | generateComponentInvocation('njk', compHandle)) + " }}" | highlight('js') }}</pre>
     </code>
   </div>
 </div>
