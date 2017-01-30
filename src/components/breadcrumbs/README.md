@@ -5,7 +5,7 @@
 [Import](https://mozilla.github.io/nunjucks/templating.html#import) the components template and bind all of its exported values to a variable so that we can use it:
 
 ```nunjucks
-{% raw %}{% import "components.njk" as govuk_components %}
+{% raw %}{% import "components.njk" as govuk %}
 {% endraw %}
 ```
 
@@ -16,7 +16,7 @@ Call **breadcrumbs** like a normal function, set values for object keys `'title'
 ### Default
 
 ```nunjucks
-{% raw %}{{ govuk_components.breadcrumbs(
+{% raw %}{{ govuk.breadcrumbs(
   [
     { title: 'Home', url: '/' },
     { title: 'Section', url:'/section' }
@@ -28,7 +28,7 @@ Call **breadcrumbs** like a normal function, set values for object keys `'title'
 ### Single section
 
 ```nunjucks
-{% raw %}{{ govuk_components.breadcrumbs(
+{% raw %}{{ govuk.breadcrumbs(
   [
     { title: 'Home', url: '/' }
   ]
@@ -39,7 +39,7 @@ Call **breadcrumbs** like a normal function, set values for object keys `'title'
 ### Multiple sections
 
 ```nunjucks
-{% raw %}{{ govuk_components.breadcrumbs(
+{% raw %}{{ govuk.breadcrumbs(
   [
     { title: 'Home', url: '/' },
     { title: 'Section', url:'/section' },
@@ -53,7 +53,7 @@ Call **breadcrumbs** like a normal function, set values for object keys `'title'
 ### Last breadcrumb is current page
 
 ```nunjucks
-{% raw %}{{ govuk_components.breadcrumbs(
+{% raw %}{{ govuk.breadcrumbs(
   [
     { title: 'Home', url: '/' },
     { title: 'Section'}

@@ -6,7 +6,7 @@
 
 ```nunjucks
 {% raw %}
-  {% import "notice.njk" as govuk_components %}
+  {% import "notice.njk" as govuk %}
 {% endraw %}
 ```
 
@@ -16,7 +16,7 @@ Call **notice** like a normal function, set values for arguments `'summary', 'te
 
 ```nunjucks
 {% raw %}
-{{ govuk_components.notice(
+{{ govuk.notice(
   iconDescription="Warning",
   text="Legal text goes in here"
 ) }}

@@ -6,7 +6,7 @@
 
 ```nunjucks
 {% raw %}
-  {% import "components.njk" as govuk_components %}
+  {% import "components.njk" as govuk %}
 {% endraw %}
 ```
 
@@ -16,7 +16,7 @@ Call **phaseBanner** like a normal function, set values for arguments `'phase', 
 
 ```nunjucks
 {% raw %}
-{{ govuk_components.phaseBanner(
+{{ govuk.phaseBanner(
   "Beta",
   message="This service is in Beta – your feedback will help us to improve it."
 ) }}
@@ -28,7 +28,7 @@ Call **phaseBanner** like a normal function, set values for arguments `'phase', 
 
 ```nunjucks
 {% raw %}
-{{ govuk_components.phaseBanner(
+{{ govuk.phaseBanner(
   "Beta",
   messageHtml='This service is new – your <a href="#">feedback</a> will help us to improve it.'
 ) }}
