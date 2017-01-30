@@ -51,6 +51,12 @@ a:active {
 .Tree-collectionLabel {
   @include core-16;
   color: $text-colour;
+
+  //
+  a {
+    color: $text-colour;
+    text-decoration: none;
+  }
 }
 
 // Left hand navigation item
@@ -217,7 +223,7 @@ a:active {
   padding: 10px 30px;
   background-color: #f6f6f6;
   border-bottom: 1px solid rgba(83, 83, 99, 0.25);
-  
+
   .phase-banner {
     margin-right: 5px;
   }
