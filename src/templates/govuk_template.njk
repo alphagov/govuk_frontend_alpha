@@ -6,10 +6,9 @@
     <meta charset="utf-8" />
     <title>{% block page_title %}GOV.UK - The best place to find government services and information{% endblock %}</title>
 
-    <!--[if gt IE 8]><!--><link href="{{ asset_path + 'stylesheets/govuk-frontend.css' }}" media="screen" rel="stylesheet" /><!--<![endif]-->
-    <!--[if IE 6]><link href="{{ asset_path + 'stylesheets/govuk-template-ie6.css' }}" media="screen" rel="stylesheet" /><![endif]-->
-    <!--[if IE 7]><link href="{{ asset_path + 'stylesheets/govuk-template-ie7.css' }}" media="screen" rel="stylesheet" /><![endif]-->
-    <!--[if IE 8]><link href="{{ asset_path + 'stylesheets/govuk-template-ie8.css' }}" media="screen" rel="stylesheet" /><![endif]-->
+    {% block stylesheet %}
+    <link href="{{ asset_path + 'stylesheets/'+ govuk-frontend.css' }}" media="screen" rel="stylesheet" />
+    {% endblock %}
     <link href="{{ asset_path + 'stylesheets/govuk-template-print.css' }}" media="print" rel="stylesheet" />
 
     <!--[if lte IE 8]><script src="{{ asset_path + 'javascripts/ie-shim.js' }}"></script><![endif]-->
