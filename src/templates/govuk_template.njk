@@ -58,7 +58,11 @@
 
     <div id="global-header-bar"></div>
 
-    {% block content %}{% endblock %}
+    {% block content_wrapper %}
+    <div id="content" class="gv-o-wrapper ">
+      {% block content %}{% endblock %}
+    </div>
+    {% endblock %}
 
     <footer class="group js-footer" id="footer" role="contentinfo">
 
