@@ -1,5 +1,3 @@
-## Text
-
 Button text should be short and describe the action the button performs.
 
 {{ '@button'|preview(60) }}
