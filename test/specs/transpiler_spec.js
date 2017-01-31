@@ -19,6 +19,7 @@ const nunjucksAssetPath = `<link href="{{ asset_path + 'stylesheets/govuk-templa
 const nunjucksAssetVersion = '1.0.0'
 const nunjucksTextFor = `<a href="#content" class="skiplink">{{ skip_link_message|default('Skip to main content') }}</a>`
 const nunjucksBlockFor = `{% block top_of_page %}{% endblock %}`
+const nunjucksBlockForWithAssetPath = `{% block stylesheets %}<link href="{{ asset_path + 'file.css' }}" />{% endblock %}`
 
 describe('Transpilation', () => {
   it('should return a Buffer', function (done) {
@@ -48,6 +49,10 @@ describe('Transpilation', () => {
     it('should have a correct block_for', function (done) {
       transpilationTest(nunjucksTranspiler, nunjucksBlockFor, nunjucksBlockFor, done)
     })
+    it('should have a nested correct block_for with asset path inside', function (done) {
+      const transpiledBlockForWithAssetPath = `{% block stylesheets %}<link href="{{ asset_path }}file.css?1.0.0" />{% endblock %}`
+      transpilationTest(nunjucksTranspiler, nunjucksBlockForWithAssetPath, transpiledBlockForWithAssetPath, done)
+    })
   })
 
   describe('into ERB', () => {
@@ -72,17 +77,21 @@ describe('Transpilation', () => {
       transpilationTest(erbTranspiler, nunjucksImageAssetPath, erbImageAssetPath, done)
     })
     it('should have a correct text_for', function (done) {
-      const erbTextFor = `<a href="#content" class="skiplink"><%= content_for?(:skip_link_message) ? yield(:skip_link_message) : 'Skip to main content'.html_safe %></a>`
+      const erbTextFor = `<a href="#content" class="skiplink"><% if content_for?(:skip_link_message) %><%= yield(:skip_link_message) %><% else %>Skip to main content<% end %></a>`
       transpilationTest(erbTranspiler, nunjucksTextFor, erbTextFor, done)
     })
     it('should have a correct block_for', function (done) {
-      const erbBlockFor = `<%= content_for?(:top_of_page) ? yield(:top_of_page) : ''.html_safe %>`
+      const erbBlockFor = `<% if content_for?(:top_of_page) %><%= yield(:top_of_page) %><% else %><% end %>`
       transpilationTest(erbTranspiler, nunjucksBlockFor, erbBlockFor, done)
     })
     it('should have a correct block_for for the special case content block', function (done) {
       const nunjucksContentBlockFor = `{% block content %}{% endblock %}`
       const erbContentBlockFor = `<%= content_for?(:content) ? yield(:content) : yield %>`
       transpilationTest(erbTranspiler, nunjucksContentBlockFor, erbContentBlockFor, done)
+    })
+    it('should have a nested correct block_for with asset path inside', function (done) {
+      const erbBlockForWithAssetPath = `<% if content_for?(:stylesheets) %><%= yield(:stylesheets) %><% else %><link href="<%= asset_path 'file.css?1.0.0' %>" /><% end %>`
+      transpilationTest(erbTranspiler, nunjucksBlockForWithAssetPath, erbBlockForWithAssetPath, done)
     })
   })
 
