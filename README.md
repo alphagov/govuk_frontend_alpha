@@ -17,7 +17,7 @@ You’re building a service that will live on GOV.UK. This will give your servic
 
 ### Node
 
-[Installation instuctions](docs/using-with-node.md).
+[Installation instructions](docs/using-with-node.md).
 
 ### Rails
 
