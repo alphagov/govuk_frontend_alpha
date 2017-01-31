@@ -1,47 +1,11 @@
-# Use this component
+To ask for memorable dates, like dates of birth, use text fields for users to complete.
 
-## Nunjucks
+{{ '@form-date-group'|preview(230) }}
 
-[Import](https://mozilla.github.io/nunjucks/templating.html#import) the components template and bind all of its exported values to a variable so that we can use it:
+## Asking for memorable dates
 
-```nunjucks
-{% raw %}
-  {% import "components.njk" as govuk %}
-{% endraw %}
-```
+Use 3 fields as it’ll be easier for you to validate each part rather than trying to review a single field.
 
-Call **formDateGroup** like a normal function, set values for arguments `'id', 'name', 'label', 'hint', 'error', 'isTextarea', 'value'` to alter its content.
+Don’t automatically tab users between fields because this can clash with normal keyboard controls and confuse people.
 
-### Form date group
-
-```nunjucks
-{% raw %}
-{{ govuk.formDateGroup(
-  id="dob",
-  name="dob",
-  legend="What is your date of birth?",
-  hint="",
-  error="",
-  day="",
-  month="",
-  year=""
-) }}
-{% endraw %}
-```
-
-### Form date group (with error message)
-
-```nunjucks
-{% raw %}
-{{ govuk.formDateGroup(
-  id="dob",
-  name="dob",
-  legend="What is your date of birth?",
-  hint="This is the hint text",
-  error="This is the error text",
-  day="",
-  month="",
-  year=""
-) }}
-{% endraw %}
-```
+Calendar controls aren’t particularly useful for known dates and some users struggle with select boxes.
