@@ -58,22 +58,6 @@ Go to http://localhost:3000, you should see the familiar GOV.UK brand, with the 
 
 GOV.UK Frontend has [template blocks](https://mozilla.github.io/nunjucks/templating.html#block) that you can use to override bits of the layout.
 
-You'll need to set the `page_title` and `head` blocks (illustrated below), but there are [many other blocks](template-blocks.md) you can use if you need to.
-
-In `index.njk`:
-
-```nunjucks
-{% block page_title %}
-  My page title
-{% endblock %}
-```
-
-```nunjucks
-{% block head %}
-  <link rel="stylesheet" href="styles.css">
-{% endblock %}
-```
-
 [The starter app provides a template block 'content'](https://github.com/alphagov/govuk-frontend-alpha-starter-kit-node/blob/master/views/index.njk#L3), in `index.njk` as an example.
 
 ```nunjucks
@@ -81,6 +65,27 @@ In `index.njk`:
   Hello world!
 {% endblock %}
 ```
+
+You'll need to set the `page_title` and `stylesheet` blocks (illustrated below), but there are [many other blocks](template-blocks.md) you can use if you need to.
+
+To set the `page_title` block, in `index.njk` add:
+
+```nunjucks
+{% block page_title %}
+  My page title
+{% endblock %}
+```
+
+To set the `stylesheet` block, in `index.njk` add:
+
+
+```nunjucks
+{% block stylesheet %}
+  <link href="{{ asset_path + 'stylesheets/'+ styles.css' }}" media="screen" rel="stylesheet">
+{% endblock %}
+```
+
+Replace `styles.css` with the name of your application's stylesheet.
 
 ## Importing SCSS
 
@@ -96,7 +101,7 @@ Or configure includePaths to include node_modules and instead use:
 @import 'govuk_frontend_alpha/;
 ```
 
-You will need to ensure your stylesheet is included in the `head` block - see above.
+You'll need to ensure your stylesheet is included in the `stylesheet` block - see above.
 
 ## Calling components
 
