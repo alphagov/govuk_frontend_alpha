@@ -25,7 +25,7 @@ module.exports = {
   variants: [{
     name: 'has hint',
     context: {
-      hint: 'Hint text in here'
+      hint: 'Select all that apply'
     }
   },
   {
@@ -37,7 +37,7 @@ module.exports = {
   {
     name: 'has hint and error',
     context: {
-      hint: 'Hint text in here',
+      hint: 'Select all that apply',
       error: 'Error text in here'
     }
   }],
