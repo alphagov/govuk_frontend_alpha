@@ -20,6 +20,7 @@ const nunjucksAssetVersion = '1.0.0'
 const nunjucksTextFor = `<a href="#content" class="skiplink">{{ skip_link_message|default('Skip to main content') }}</a>`
 const nunjucksBlockFor = `{% block top_of_page %}{% endblock %}`
 const nunjucksBlockForWithAssetPath = `{% block stylesheets %}<link href="{{ asset_path + 'file.css' }}" />{% endblock %}`
+const nunjucksNestedBlock = `{% block outer %}{% block inner %}Default{% endblock %}{% endblock %}`
 
 describe('Transpilation', () => {
   it('should return a Buffer', function (done) {
@@ -92,6 +93,10 @@ describe('Transpilation', () => {
     it('should have a nested correct block_for with asset path inside', function (done) {
       const erbBlockForWithAssetPath = `<% if content_for?(:stylesheets) %><%= yield(:stylesheets) %><% else %><link href="<%= asset_path 'file.css?1.0.0' %>" /><% end %>`
       transpilationTest(erbTranspiler, nunjucksBlockForWithAssetPath, erbBlockForWithAssetPath, done)
+    })
+    it('should have a nested blocks', function (done) {
+      const erbNestedBlock = `<% if content_for?(:outer) %><%= yield(:outer) %><% else %><% if content_for?(:inner) %><%= yield(:inner) %><% else %>Default<% end %><% end %>`
+      transpilationTest(erbTranspiler, nunjucksNestedBlock, erbNestedBlock, done)
     })
   })
 
