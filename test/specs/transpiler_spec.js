@@ -81,7 +81,7 @@ describe('Transpilation', () => {
       transpilationTest(erbTranspiler, nunjucksTextFor, erbTextFor, done)
     })
     it('should have a correct block_for', function (done) {
-      const erbBlockFor = `<% if content_for?(:top_of_page) %><%= yield(:top_of_page) %><% else %><% end %>`
+      const erbBlockFor = `<%= yield(:top_of_page) if content_for?(:top_of_page) %>`
       transpilationTest(erbTranspiler, nunjucksBlockFor, erbBlockFor, done)
     })
     it('should have a correct block_for for the special case content block', function (done) {
