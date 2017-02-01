@@ -76,29 +76,37 @@ To set the `page_title` block, in `index.njk` add:
 {% endblock %}
 ```
 
-To set the `stylesheet` block, in `index.njk` add:
+To set the `stylesheet` block, in `layout.njk` add:
 
 
 ```nunjucks
 {% block stylesheet %}
-  <link href="{{ asset_path + 'stylesheets/'+ styles.css' }}" media="screen" rel="stylesheet">
+  <link href="{{ asset_path }}stylesheets/styles.css" media="screen" rel="stylesheet" />
 {% endblock %}
 ```
 
-Replace `styles.css` with the name of your application's stylesheet.
+Replace `styles.css` with the name of your application stylesheet.
 
-## Importing SCSS
+## Importing the govuk-frontend SCSS files
 
 In your stylesheet `styles.scss`, add this to the start:
 
 ```scss
-@import '../../../node_modules/govuk_frontend_alpha/;
+@import '../../node_modules/govuk-frontend/';
 ```
 
-Or configure includePaths to include node_modules and instead use:
+Or configure includePaths to include the path to the govuk_frontend_alpha package, within node_modules and instead use:
 
 ```scss
-@import 'govuk_frontend_alpha/;
+@import 'govuk-frontend';
+```
+
+To configure includePaths for gulp-sass:
+
+```
+.pipe(sass({
+  includePaths: ['node_modules/govuk_frontend_alpha/assets/scss/']
+})
 ```
 
 You'll need to ensure your stylesheet is included in the `stylesheet` block - see above.
