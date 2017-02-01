@@ -1,53 +1,32 @@
-# Use this component
+## Form fields
 
-## Nunjucks
+* make field widths proportional to the input they take
+* ensure that users can enter the information they need at smaller screen sizes
+* snap form fields to 100% width at smaller screen sizes
 
-[Import](https://mozilla.github.io/nunjucks/templating.html#import) the components template and bind all of its exported values to a variable so that we can use it:
+{{ '@form-group'|preview(100) }}
 
-```nunjucks
-{% raw %}
-  {% import "components.njk" as govuk %}
-{% endraw %}
-```
+### Labels
 
-Call **formGroup** like a normal function, set values for arguments `'id', 'name', 'label', 'hint', 'error', 'isTextarea', 'value'` to alter its content.
+* all form fields should be given labels
+* don’t hide labels, unless the surrounding context makes them unnecessary
+* labels should be aligned above their fields
+* label text should be short, direct and in sentence case
+* avoid colons at the end of labels
+* labels should be associated with form fields using the for attribute
 
-### Form group - label and text input
+### Optional and mandatory fields
 
-```nunjucks
-{% raw %}
-{{ govuk.formGroup(
-  id="nino",
-  name="nino",
-  label="What is your National Insurance number",
-  hint="It'll be on your last payslip. For example, VO 12 34 56 D."
-) }}
-{% endraw %}
-```
+* only ask for the information you absolutely need
+* if you do ask for optional information, mark the labels of optional fields with ‘(optional)’
+don’t mark mandatory fields with asterisks
 
-### Form group - label and text input (with error message)
+### Hint text
 
-```nunjucks
-{% raw %}
-{{ govuk.formGroup(
-  id="nino",
-  name="nino",
-  label="What is your National Insurance number",
-  hint="It'll be on your last payslip. For example, VO 12 34 56 D.",
-  error="Error message about National Insurance number goes here"
-) }}
-{% endraw %}
-```
+* don’t use placeholder text in form fields, as this will disappear once content is entered into the form field
+* use hint text for supporting contextual help, this will always be shown
+* hint text should sit above a form field
+* ensure hint text can be read correctly by screen readers
 
-### Form group - label and textarea
+{{ '@form-group--has-hint'|preview(120) }}
 
-```nunjucks
-{% raw %}
-{{ govuk.formGroup(
-  id="textarea",
-  name="textarea",
-  label="This isthe label text",
-  isTextarea="true"
-) }}
-{% endraw %}
-```
