@@ -1,39 +1,112 @@
+{% block top_of_page %}{% endblock %}
 <!DOCTYPE html>
-<html class="no-js">
-<head>
-  <meta charset="utf-8">
-  <link media="all" rel="stylesheet" href="{{ '/stylesheets/govuk-frontend.css' | path }}">
-  <title>{{ _target.title }} &#9670; GOV.UK Frontend Alpha</title>
-  <script>
-  // govuk_template sets js-enabled
-  // we're not loading the template as a wrapper for components, so this class must be set in the preview template
-  document.documentElement.className = document.documentElement.className.replace('no-js', 'js-enabled');
-  </script>
-  <style>
-    html {
-      background-color: white;
-    }
-  </style>
-</head>
-<body>
-  {% if _target.context.setup.openWrapper %}
-    {{ _target.context.setup.openWrapper }}
-  {% endif %}
+<!--[if lt IE 9]><html class="lte-ie8" lang="{{ html_lang|default('en') }}"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="{{ html_lang|default('en') }}"><!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <title>{% block page_title %}{{ _target.title }} &#9670; GOV.UK Frontend Alpha{% endblock %}</title>
+    {% block stylesheet %}
+      <link media="all" rel="stylesheet" href="{{ '/stylesheets/govuk-frontend.css' | path }}">
+    {% endblock %}
+    <link href="{{ asset_path }}stylesheets/govuk-template-print.css?0.0.1" media="print" rel="stylesheet" />
 
-  {{ yield }}
+    <!--[if lte IE 8]><script src="{{ asset_path }}javascripts/ie-shim.js?0.0.1"></script><![endif]-->
 
-  {% if _target.context.setup.closeWrapper %}
-    {{ _target.context.setup.closeWrapper }}
-  {% endif %}
-</body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="{{ '/javascripts/govuk-template.min.js' | path }}"></script>
-<script src="{{ '/javascripts/toolkit.min.js' | path }}"></script>
-<script src="{{ '/javascripts/components.min.js' | path }}"></script>
-<!-- TODO: Fix how this works, for now, initialise component js by updating initScript in the component's config file -->
-{% if _target.context.setup.initScript %}
-  <script>
-    {{ _target.context.setup.initScript }}
-  </script>
-{% endif %}
+    <link rel="shortcut icon" href="{{ asset_path }}images/template/favicon.ico?0.0.1" type="image/x-icon" />
+    <link rel="mask-icon" href="{{ asset_path }}images/template/gov.uk_logotype_crown.svg?0.0.1" color="#0b0c0c">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ asset_path }}images/template/apple-touch-icon-152x152.png?0.0.1">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ asset_path }}images/template/apple-touch-icon-120x120.png?0.0.1">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="{{ asset_path }}images/template/apple-touch-icon-76x76.png?0.0.1">
+    <link rel="apple-touch-icon-precomposed" href="{{ asset_path }}images/template/apple-touch-icon-60x60.png?0.0.1">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="{{ asset_path }}images/template/opengraph-image.png?0.0.1">
+
+    {% block head %}
+    <style>
+      html {
+        background-color: white;
+      }
+    </style>
+    {% endblock %}
+  </head>
+
+  <body class="{% block body_classes %}{% endblock %}">
+    <!--[if gte IE 8]><!--><script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script></script><!--<![endif]-->
+
+    {% block body_start %}{% endblock %}
+
+    <!--
+      <div id="skiplink-container">
+        <div>
+          <a href="#content" class="skiplink">{{ skip_link_message|default('Skip to main content') }}</a>
+        </div>
+      </div>
+
+      <div id="global-cookie-message">{% block cookie_message %}{% endblock %}</div>
+
+      <header role="banner" id="global-header" class="{% block header_class %}{% endblock %}">
+        <div class="header-wrapper">
+          <div class="header-global">
+            <div class="header-logo">
+              <a href="{{ homepage_url|default('https://www.gov.uk') }}" title="{{ logo_link_title|default('Go to the GOV.UK homepage') }}" id="logo" class="content">
+                <img src="{{ asset_path }}images/template/gov.uk_logotype_crown_invert_trans.png?0.0.1" width="35" height="31" alt=""> {{ global_header_text|default('GOV.UK') }}
+              </a>
+            </div>
+            {% block inside_header %}{% endblock %}
+          </div>
+          {% block proposition_header %}{% endblock %}
+        </div>
+      </header>
+
+      {% block after_header %}{% endblock %}
+
+      <div id="global-header-bar"></div>
+    -->
+
+    <div id="content" class="{% block content_class %}gv-o-wrapper{% endblock %}">
+      {% block content %}
+        {{ yield }}
+      {% endblock %}
+    </div>
+
+    <!--
+    <footer class="group js-footer" id="footer" role="contentinfo">
+
+      <div class="footer-wrapper">
+        {% block footer_top %}{% endblock %}
+
+        <div class="footer-meta">
+          <div class="footer-meta-inner">
+            {% block footer_support_links %}{% endblock %}
+
+            <div class="open-government-licence">
+              <p class="logo"><a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence</a></p>
+
+                {% block licence_message %}<p>All content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated</p>{% endblock %}
+
+            </div>
+          </div>
+
+          <div class="copyright">
+            <a href="http://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/copyright-and-re-use/crown-copyright/">{{ crown_copyright_message|default('© Crown copyright') }}</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    -->
+
+    <div id="global-app-error" class="app-error hidden"></div>
+
+    <!--[if gte IE 8]><!-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{{ '/javascripts/govuk-template.min.js' | path }}"></script>
+    <script src="{{ '/javascripts/toolkit.min.js' | path }}"></script>
+    <script src="{{ '/javascripts/components.min.js' | path }}"></script>
+    <!--<![endif]-->
+
+    {% block body_end %}{% endblock %}
+
+    <!--[if gte IE 8]><!--><script>if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script><!--<![endif]-->
+  </body>
 </html>
