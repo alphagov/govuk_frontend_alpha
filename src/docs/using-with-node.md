@@ -29,7 +29,9 @@ Create a file `layout.njk` in `views`, use this file to extend the GOV.UK templa
 In `views/layout.njk` add:
 
 ```nunjucks
+{% raw %}
 {% extends "govuk_template.njk" %}
+{% endraw %}
 ```
 
 If you are using the starter application, this layout file is created already. 
@@ -46,17 +48,21 @@ GOV.UK Frontend has [template blocks](https://mozilla.github.io/nunjucks/templat
 [The starter app provides a template block 'content'](https://github.com/alphagov/govuk-frontend-alpha-starter-kit-node/blob/master/views/index.njk#L3), in `index.njk` as an example.
 
 ```nunjucks
+{% raw %}
 {% block content %}
   Hello world!
 {% endblock %}
+{% endraw %}
 ```
 
 To set the `page_title` block, in `index.njk` add:
 
 ```nunjucks
+{% raw %}
 {% block page_title %}
   My page title
 {% endblock %}
+{% endraw %}
 ```
 
 There are [many other blocks](template-blocks.md) you can use if you need to.
@@ -70,9 +76,11 @@ To set a `stylesheet` block, in `layout.njk` add:
 
 
 ```nunjucks
+{% raw %}
 {% block stylesheet %}
   <link href="{{ asset_path }}stylesheets/styles.css" media="screen" rel="stylesheet" />
 {% endblock %}
+{% endraw %}
 ```
 
 Replace `styles.css` in the example above with the name of your application stylesheet, for example `application.css`.
@@ -122,17 +130,21 @@ Fix this by configuring includePaths for gulp-sass, in your gulpfile.js:
 
 ## Before using a component
 
-In your index template, add this line underneath `{% extends "layout.njk" %}` to import all components:
+In your index template, add this line underneath `{% raw %}{% extends "layout.njk" %}{% endraw %}` to import all components:
 
 ```nunjucks
+{% raw %}
 {% import "components.njk" as govuk %}
+{% endraw %}
 ```
 
 Your index template, `views/index.njk` should now look like this:
 
 ```nunjucks
+{% raw %}
 {% extends "layout.njk" %}
 {% import "components.njk" as govuk %}
+{% endraw %}
 ```
 
 ## Use a component in your application
@@ -144,13 +156,17 @@ Copy the Nunjucks macro to implement a component.
 Here is an example of a macro for a button component:
 
 ```nunjucks
+{% raw %}
 {{ govuk.button(text="Change this button text") }}
+{% endraw %}
 ```
 
 Copy and paste this macro into your index template and change the button text.
 
 ```nunjucks
+{% raw %}
 {{ govuk.button(text="Save and continue") }}
+{% endraw %}
 ```
 
 Go to `http://localhost:3000`
