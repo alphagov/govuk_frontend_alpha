@@ -202,6 +202,8 @@ a:active {
 .Prose {
   @include core-19;
 
+  color: $black;
+
   h1,
   h2,
   h3,
@@ -211,12 +213,32 @@ a:active {
   }
 
   h1 {
-    @include bold-24;
+    @include bold-36;
   }
   h2 {
+    @include bold-24;
+  }
+  h3 {
     @include bold-19;
   }
 
+  p code {
+    padding: .3rem .5rem;
+  }
+
+  code pre {
+    padding: 1rem 1.5rem;
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  blockquote {
+    padding: .25em 0 .25em .75em !important;
+    border-left-width: 10px !important;
+
+    p {
+      margin-bottom: .75rem;
+    }
+  }
 }
 
 .alpha-warning {
