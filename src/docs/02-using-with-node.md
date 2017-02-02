@@ -40,7 +40,7 @@ Go to http://localhost:3000, you should see the familiar GOV.UK brand, with the 
 
 ## Customise the template
 
-GOV.UK Frontend has [template blocks](/docs/template-blocks.md) that you can use to override bits of the layout.
+GOV.UK Frontend has [template blocks](/docs/template-blocks/) that you can use to override bits of the layout.
 
 ### Add content
 
