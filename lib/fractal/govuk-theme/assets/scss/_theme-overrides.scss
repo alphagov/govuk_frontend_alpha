@@ -40,9 +40,9 @@ a:active {
 
 // Sidebar section title
 .Tree-title {
-  color: $secondary-text-colour;
+  color: $text-colour;
   text-transform: none;
-  @include core-19;
+  @include bold-19;
   margin-top: 0.5em;
   margin-bottom: 0.75em;
 }
@@ -192,7 +192,6 @@ a:active {
 .Document-title {
   color: $black;
   @include bold-36;
-  padding-top: 0.5em;
 }
 
 /*
