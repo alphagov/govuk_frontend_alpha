@@ -149,6 +149,14 @@ Your index template, `views/index.njk` should now look like this:
 {% endraw %}
 ```
 
+You'll need to configure your application to find the components.
+
+In server.js, add this line to your application's views:
+
+```
+path.join(__dirname, '/node_modules/govuk_frontend_alpha/components/')
+```
+
 ## Use a component in your application
 
 [You can find all the components here](http://govuk-frontend-alpha.herokuapp.com/).
