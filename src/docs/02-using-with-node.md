@@ -34,8 +34,13 @@ In `views/layout.njk` add:
 {% endraw %}
 ```
 
-If you are using the starter application, this layout file is created already. 
-Replace the text **'Layout template'** with the above.
+You'll need to configure your application to find this template.
+
+In server.js, add this line to your application's views:
+
+```
+path.join(__dirname, '/node_modules/govuk_frontend_alpha/templates/')
+```
 
 Start your app using `npm start`
 
