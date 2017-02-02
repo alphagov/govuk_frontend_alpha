@@ -70,6 +70,17 @@ GOV.UK Frontend has [template blocks](/docs/template-blocks) that you can use to
 {% endraw %}
 ```
 
+## Configure paths for static assets
+
+You'll need to configure the paths to static assets, to server the the govuk_frontend_alpha assets from the node_modules directory.
+
+In server.js add:
+
+```
+app.use('/public', express.static(path.join(__dirname, '/node_modules/govuk_frontend_alpha/assets/')))
+app.use('/images/template', express.static(path.join(__dirname, '/node_modules/govuk_frontend_alpha/assets/images/template/')))
+```
+
 ## Importing the govuk-frontend SCSS files
 
 First, you'll need to add a stylesheet block:
