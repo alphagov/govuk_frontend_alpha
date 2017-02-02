@@ -16,12 +16,6 @@ Add this line to your dependencies in `package.json`:
 
 ## Install the govuk_frontend_alpha dependency
 
-If you're using [Yarn](https://yarnpkg.com/):
-
-```bash
-yarn
-```
-
 If you're using [NPM](https://www.npmjs.com/):
 
 ```bash
@@ -30,29 +24,18 @@ npm install
 
 ## Use the GOV.UK layout
 
-The govuk_frontend_alpha package provides a GOV.UK layout, `govuk_template.njk`.
-
 Create a file `layout.njk` in `views`, use this file to extend the GOV.UK template.
 
-Insert into `layout.njk`:
+In `views/layout.njk` add:
 
 ```nunjucks
-{% raw %}
 {% extends "govuk_template.njk" %}
-{% endraw %}
 ```
 
-If you are using the [starter application](https://github.com/alphagov/govuk-frontend-alpha-starter-kit-node), the `layout.njk` file has already been created for you.
+If you are using the starter application, this layout file is created already. 
+Replace the text **'Layout template'** with the above.
 
-Replace the text **'Layout template'** at the top of the `layout.njk` file with:
-
-```nunjucks
-{% raw %}
-{% extends "govuk_template.njk" %}
-{% endraw %}
-```
-
-Start your app using `node app.js`
+Start your app using `npm start`
 
 Go to http://localhost:3000, you should see the familiar GOV.UK brand, with the text "Hello world!".
 
@@ -63,26 +46,27 @@ GOV.UK Frontend has [template blocks](https://mozilla.github.io/nunjucks/templat
 [The starter app provides a template block 'content'](https://github.com/alphagov/govuk-frontend-alpha-starter-kit-node/blob/master/views/index.njk#L3), in `index.njk` as an example.
 
 ```nunjucks
-{% raw %}
 {% block content %}
   Hello world!
 {% endblock %}
-{% endraw %}
 ```
-
-You'll need to set the `page_title` and `stylesheet` blocks (illustrated below), but there are [many other blocks](template-blocks.md) you can use if you need to.
 
 To set the `page_title` block, in `index.njk` add:
 
 ```nunjucks
-{% raw %}
 {% block page_title %}
   My page title
 {% endblock %}
-{% endraw %}
 ```
 
-To set the `stylesheet` block, in `layout.njk` add:
+There are [many other blocks](template-blocks.md) you can use if you need to.
+
+
+## Importing the govuk-frontend SCSS files
+
+First, you'll need to add a stylesheet block:
+
+To set a `stylesheet` block, in `layout.njk` add:
 
 
 ```nunjucks
@@ -91,23 +75,44 @@ To set the `stylesheet` block, in `layout.njk` add:
 {% endblock %}
 ```
 
-Replace `styles.css` with the name of your application stylesheet.
+Replace `styles.css` in the example above with the name of your application stylesheet, for example `application.css`.
 
-## Importing the govuk-frontend SCSS files
-
-In your stylesheet `styles.scss`, add this to the start:
+In `application.scss`, import the govuk_frontend_alpha stylesheets:
 
 ```scss
-@import '../../node_modules/govuk-frontend/';
+@import '../../node_modules/govuk_frontend_alpha/assets/scss/govuk-frontend';
 ```
 
-Or configure includePaths to include the path to the govuk_frontend_alpha package, within node_modules and instead use:
+To test this has worked, change the colour of the body element.
+
+```
+body {
+  background: pink;
+}
+```
+
+Restart the app to see your changes, you should see the GOV.UK brand, Hello World! and a pink background.
+
+
+_You can delete the pink background._
+
+### Compiling your own scss files
+
+If you'd prefer to configure includePaths to include the path to the govuk_frontend_alpha package, instead use:
 
 ```scss
 @import 'govuk-frontend';
 ```
 
-To configure includePaths for gulp-sass:
+If you haven't defined includePaths, you may well see an error:
+
+```
+Parent style sheet: /assets/scss/application.scss
+        on line 4 of assets/scss/application.scss
+>> @import 'govuk-frontend';
+```
+
+Fix this by configuring includePaths for gulp-sass, in your gulpfile.js:
 
 ```
 .pipe(sass({
@@ -115,25 +120,19 @@ To configure includePaths for gulp-sass:
 })
 ```
 
-You'll need to ensure your stylesheet is included in the `stylesheet` block - see above.
+## Before using a component
 
-## Calling components
-
-In your index template, add this line underneath `{% raw %}{% extends "layout.njk" %}{% endraw %}` to import all components:
+In your index template, add this line underneath `{% extends "layout.njk" %}` to import all components:
 
 ```nunjucks
-{% raw %}
 {% import "components.njk" as govuk %}
-{% endraw %}
 ```
 
 Your index template, `views/index.njk` should now look like this:
 
 ```nunjucks
-{% raw %}
 {% extends "layout.njk" %}
 {% import "components.njk" as govuk %}
-{% endraw %}
 ```
 
 ## Use a component in your application
@@ -145,19 +144,15 @@ Copy the Nunjucks macro to implement a component.
 Here is an example of a macro for a button component:
 
 ```nunjucks
-{% raw %}
 {{ govuk.button(text="Change this button text") }}
-{% endraw %}
 ```
 
 Copy and paste this macro into your index template and change the button text.
 
 ```nunjucks
-{% raw %}
 {{ govuk.button(text="Save and continue") }}
-{% endraw %}
 ```
 
-Go to http://localhost:3000
+Go to `http://localhost:3000`
 
 This will render the Button component with the `text` of 'Save and continue'
