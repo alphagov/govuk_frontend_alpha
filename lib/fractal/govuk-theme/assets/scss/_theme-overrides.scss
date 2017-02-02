@@ -40,9 +40,9 @@ a:active {
 
 // Sidebar section title
 .Tree-title {
-  color: $secondary-text-colour;
+  color: $text-colour;
   text-transform: none;
-  @include core-19;
+  @include bold-19;
   margin-top: 0.5em;
   margin-bottom: 0.75em;
 }
@@ -192,7 +192,6 @@ a:active {
 .Document-title {
   color: $black;
   @include bold-36;
-  padding-top: 0.5em;
 }
 
 /*
@@ -201,6 +200,8 @@ a:active {
 
 .Prose {
   @include core-19;
+
+  color: $black;
 
   h1,
   h2,
@@ -211,12 +212,32 @@ a:active {
   }
 
   h1 {
-    @include bold-24;
+    @include bold-36;
   }
   h2 {
+    @include bold-24;
+  }
+  h3 {
     @include bold-19;
   }
 
+  p code {
+    padding: .3rem .5rem;
+  }
+
+  code pre {
+    padding: 1rem 1.5rem;
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  blockquote {
+    padding: .25em 0 .25em .75em !important;
+    border-left-width: 10px !important;
+
+    p {
+      margin-bottom: .75rem;
+    }
+  }
 }
 
 .alpha-warning {
