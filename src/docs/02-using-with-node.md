@@ -34,6 +34,14 @@ In `views/index.njk` add:
 {% endraw %}
 ```
 
+You'll need to configure your application to find this template.
+
+In server.js, add this line to your application's views:
+
+```
+path.join(__dirname, '/node_modules/govuk_frontend_alpha/templates/')
+```
+
 Start your app using `npm start`
 
 Go to http://localhost:3000, you should see the familiar GOV.UK brand, with the text "Hello world!".
