@@ -26,6 +26,8 @@ npm install
 
 Create a file `index.njk` in `views`, use this file to extend the GOV.UK template.
 
+You can find the GOV.UK template in `/node_modules/govuk_frontend_alpha/templates/`.
+
 In `views/index.njk` add:
 
 ```nunjucks
