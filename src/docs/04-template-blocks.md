@@ -5,6 +5,7 @@
 | top_of_page               | Before doctype                                  | Insertion point
 | html_lang                 | value of the HTML lang attribute                | en
 | page_title                | Text inside the `<title>` element               | GOV.UK - The best place to find government services and information
+| stylesheet                | The default stylesheet                          | <link href="stylesheets/govuk-frontend.css" media="screen" rel="stylesheet" />
 | head                      | Before closing `</head>` element                | Insertion point
 | body_classes              | Classes to be added to the `<body>` element     | Insertion point
 | body_start                | After opening `<body>` element                  | Insertion point
