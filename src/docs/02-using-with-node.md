@@ -43,7 +43,7 @@ Go to http://localhost:3000, you should see the familiar GOV.UK brand, with the 
 
 ### Customise the layout
 
-GOV.UK Frontend has [template blocks](https://mozilla.github.io/nunjucks/templating.html#block) that you can use to override bits of the layout.
+GOV.UK Frontend has [template blocks](/docs/template-blocks) that you can use to override bits of the layout.
 
 [The starter app provides a template block 'content'](https://github.com/alphagov/govuk-frontend-alpha-starter-kit-node/blob/master/views/index.njk#L3), in `index.njk` as an example.
 
@@ -64,9 +64,6 @@ To set the `page_title` block, in `index.njk` add:
 {% endblock %}
 {% endraw %}
 ```
-
-There are [many other blocks](template-blocks.md) you can use if you need to.
-
 
 ## Importing the govuk-frontend SCSS files
 
