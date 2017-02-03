@@ -172,13 +172,13 @@ a:active {
   padding: 0;
 }
 
-.Browser-panel .Code {
-  background: #fff;
-  width: 100%;
+.Browser-panel code {
+  user-select: all;
 }
 
-.Browser-panel .Code pre {
-  background: #fff;
+.Browser-panel code pre {
+  width: 100%;
+  padding: 1em;
 }
 
 /*
