@@ -2,9 +2,11 @@
 
 ## Add govuk_frontend_alpha to your application
 
-The package is not available on the NPM registry.
+```bash
+npm install govuk_frontend_alpha --save
+```
 
-You will need to manually include it as a dependency.
+> ❗️ __Alpha Note:__ *`govuk_frontend_alpha` isn't available on the NPM registry. You'll need to install it manually (see below).*
 
 ## Amend package.json
 
@@ -15,8 +17,6 @@ Add this line to your dependencies in `package.json`:
 ```
 
 ## Install the govuk_frontend_alpha dependency
-
-If you're using [NPM](https://www.npmjs.com/):
 
 ```bash
 npm install
