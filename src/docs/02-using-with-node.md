@@ -41,11 +41,11 @@ Start your app using `npm start`
 
 Go to http://localhost:3000, you should see the familiar GOV.UK brand, with the text "Hello world!".
 
-### Customise the layout
+## Customise the layout
 
 GOV.UK Frontend has [template blocks](/docs/template-blocks) that you can use to override bits of the layout.
 
-[The starter app provides a template block 'content'](https://github.com/alphagov/govuk-frontend-alpha-starter-kit-node/blob/master/views/index.njk#L3), in `index.njk` as an example.
+### The 'content' block
 
 ```nunjucks
 {% raw %}
@@ -55,7 +55,7 @@ GOV.UK Frontend has [template blocks](/docs/template-blocks) that you can use to
 {% endraw %}
 ```
 
-To set the `page_title` block, in `index.njk` add:
+### The 'page_title' block
 
 ```nunjucks
 {% raw %}
