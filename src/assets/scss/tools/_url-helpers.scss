@@ -7,9 +7,14 @@
 @function file-url($file) {
   $url: "";
   @if $path {
+    // Explicitly set by code importing govuk-frontend, always respect `$path`
     $url: url($path + $file);
-  } @else {
+  } @else if function-exists(image-url) {
+    // Defer to `image-url` in enviroments where it exists (`rails`, `compass`)
     $url: image-url($file);
+  } @else {
+    // Default works only with this repo, or projects with identical asset paths
+    $url: url($default-image-path + $file);
   }
   @return $url;
 }
