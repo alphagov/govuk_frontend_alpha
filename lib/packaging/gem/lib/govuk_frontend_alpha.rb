@@ -25,25 +25,29 @@ module GovukFrontendAlpha
       )
     end
   end
+end
 
-  module ApplicationHelper
-    def govuk
-      # allows components to be called like this:
-      # `govuk.button(text: 'Start now')`
-      DynamicComponentRenderer.new(self)
+# Monkey patch the `govuk` helper into all views, to avoid users having to
+# manually load the engine helper in their own ApplicationHelper
+# @TODO: Reconsider loading approach after Alpha. Could be explicit like:
+#  `helper GovukFrontendAlpha::ComponentHelper`, or just cleaner magic
+module ApplicationHelper
+  def govuk
+    # allows components to be called like this:
+    # `govuk.button(text: 'Start now')`
+    DynamicComponentRenderer.new(self)
+  end
+
+  class DynamicComponentRenderer
+    def initialize(view_context)
+      @view_context = view_context
     end
 
-    class DynamicComponentRenderer
-      def initialize(view_context)
-        @view_context = view_context
-      end
-
-      def method_missing(method, *args, &block)
-        @view_context.render(
-          partial: "components/#{method.to_s}",
-          locals: args.first.with_indifferent_access
-        )
-      end
+    def method_missing(method, *args, &block)
+      @view_context.render(
+        partial: "components/#{method.to_s}",
+        locals: args.first.with_indifferent_access
+      )
     end
   end
 end
