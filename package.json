@@ -41,6 +41,7 @@
     "jasmine-spec-reporter": "^2.7.0",
     "jquery": "^3.1.1",
     "meta-template": "https://github.com/dsingleton/meta-template/tarball/default-filter",
+    "mocha": "^3.2.0",
     "nunjucks": "^2.5.2",
     "phantomjs-prebuilt": "^2.1.13",
     "rollup-stream": "^1.14.0",
