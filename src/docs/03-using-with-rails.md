@@ -1,8 +1,49 @@
-# Using with Rails
+## Quick start
 
-## Installing `govuk_frontend`
+**1.** Add it to your `Gemfile`:
 
-Add this to your `Gemfile`:
+```ruby
+gem 'govuk_frontend_alpha'
+```
+
+> ❗️ __Alpha:__ `govuk_frontend_alpha` isn't on RubyGems yet.
+>
+> Using [govuk-frontend-alpha-starter-kit-rails](https://github.com/alphagov/govuk-frontend-alpha-starter-kit-rails)? Run `./bin/install-govuk-frontend`
+
+**2.** Extend the layout by updating your application layout, to look like this:
+
+```erb
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= csrf_meta_tags %>
+<% end %>
+
+<%= render file: 'layouts/govuk_template' %>
+```
+
+**3.** In your view template set a page title like this:
+
+```erb
+<% content_for :page_title, "My page title" %>
+
+<h1>My page</h1>
+```
+
+**4.** Use the `govuk` helper to add a component to your page:
+
+```erb
+<%= govuk.button(text: 'Submit') %>
+```
+
+---
+
+## Setting up GOV.UK Frontend
+
+This is the slow start section. If you want more detail, or are having problems with the quick start.
+
+### Installing
+
+Add GOV.UK Frontend to your `Gemfile`:
 
 ```ruby
 gem 'govuk_frontend_alpha'
@@ -12,7 +53,7 @@ gem 'govuk_frontend_alpha'
 >
 > *If you're using [govuk-frontend-alpha-starter-kit-rails](https://github.com/alphagov/govuk-frontend-alpha-starter-kit-rails) then you can run `./bin/install-govuk-frontend` and follow the instructions.*
 
-## Using the GOV.UK layout
+### Using the GOV.UK layout
 
 Add this line to the **bottom** of your application layout view (usually found in `app/views/layouts/application.html.erb`):
 
@@ -106,7 +147,7 @@ For example, to use the `$govuk-blue` variable you'll need to do this:
 GOV.UK Frontend provides a rails helper, that you can call like this:
 
 ```erb
-<% govuk_component.button(text: 'Start now')
+<%= govuk.button(text: 'Start now') %>
 ```
 
 This will render a Button component with the `text` of 'Start now'.
