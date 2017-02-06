@@ -1,5 +1,10 @@
 *Note: These instructions describe setting up the alpha version of govuk_frontend and can/will change*
 
+* [Quick start](/docs/using-with-node#quick-start)
+* [Setting up GOV.UK frontend](/docs/using-with-node#setting-up-gov-uk-frontend)
+* [Adding your own stylesheet](/docs/using-with-node#adding-your-own-stylesheet)
+* [Using components](/docs/using-with-node#before-using-a-component)
+
 ## Quick start
 
 **1.** Add govuk_frontend_alpha as a dependency
