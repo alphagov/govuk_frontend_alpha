@@ -24,18 +24,17 @@ npm install
 
 ## Use the GOV.UK layout
 
-Create a file `layout.njk` in `views`, use this file to extend the GOV.UK template.
+Create a file `index.njk` in `views`, use this file to extend the GOV.UK template.
 
-In `views/layout.njk` add:
+You can find the GOV.UK template in `/node_modules/govuk_frontend_alpha/templates/`.
+
+In `views/index.njk` add:
 
 ```nunjucks
 {% raw %}
 {% extends "govuk_template.njk" %}
 {% endraw %}
 ```
-
-If you are using the starter application, this layout file is created already. 
-Replace the text **'Layout template'** with the above.
 
 Start your app using `npm start`
 
@@ -69,7 +68,7 @@ GOV.UK Frontend has [template blocks](/docs/template-blocks) that you can use to
 
 First, you'll need to add a stylesheet block:
 
-To set a `stylesheet` block, in `layout.njk` add:
+To set a `stylesheet` block, in `index.njk` add:
 
 
 ```nunjucks
@@ -127,7 +126,7 @@ Fix this by configuring includePaths for gulp-sass, in your gulpfile.js:
 
 ## Before using a component
 
-In your index template, add this line underneath `{% raw %}{% extends "layout.njk" %}{% endraw %}` to import all components:
+In your index template, add this line underneath `{% raw %}{% extends "govuk_template.njk" %}{% endraw %}` to import all components:
 
 ```nunjucks
 {% raw %}
@@ -139,7 +138,7 @@ Your index template, `views/index.njk` should now look like this:
 
 ```nunjucks
 {% raw %}
-{% extends "layout.njk" %}
+{% extends "govuk_template.njk" %}
 {% import "components.njk" as govuk %}
 {% endraw %}
 ```
