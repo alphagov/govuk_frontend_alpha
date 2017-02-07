@@ -117,11 +117,11 @@ Next you need to customise the layout to not load it's own stylesheet, and inste
 
 ```erb
 <% content_for :head do %>
-  <%# Move your own <link> tag to the :styelsheets block %>
+  <%# Move your own <link> tag to the :stylesheet block %>
   <%= csrf_meta_tags %>
 <% end %>
 
-<% content_for :stylesheets do %>
+<% content_for :stylesheet do %>
   <%# Overriding this block prevents GOV.UK Frontend loading it's own CSS %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
 <% end %>
