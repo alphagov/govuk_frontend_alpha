@@ -250,3 +250,12 @@ a:active {
     margin-right: 5px;
   }
 }
+
+/*
+  Status
+------------------------------ */
+
+// Hide status dots in navigation
+.Status-dot {
+  display: none;
+}
