@@ -5,11 +5,11 @@ module.exports = {
     text: 'Default button text'
   },
   variants: [{
-    name: 'primary',
+    name: 'start',
     context: {
-      isPrimary: true,
-      text: 'Primary button text'
+      isStart: true,
+      text: 'Start now'
     }
   }],
-  arguments: ['text', 'type', 'isPrimary']
+  arguments: ['text', 'type', 'isStart']
 }
