@@ -12,3 +12,11 @@ Align the primary action button to the left edge of your form, in the user’s l
 - if you have to disable buttons, make sure they look like you can’t click them (use 50% opacity)
 - an example of a useful disabled option is a calendar with greyed out days where no bookings are available
 - provide another way for the user to continue, add an error message or text to explain why the button is disabled
+
+## Arguments
+
+| Name    | Type    | Default                                | Required | Description                                           
+|---      |---      |---                                     |---       |---                                                   
+| text    | string  | N/A                                    | Yes      | The content of the button                            
+| isStart | boolean | False                                  | Yes      | Render the 'Start' button variant                    
+| type    | string  | submit (if attribute is not specified) | No       | The type of the button (submit, reset, button, menu) 
