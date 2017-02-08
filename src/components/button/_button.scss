@@ -159,10 +159,6 @@
   }
 }
 
-.gv-c-button--primary {
-  @include button ($button-colour);
-}
-
 .gv-c-button--disabled {
   background: $button-colour;
 }
