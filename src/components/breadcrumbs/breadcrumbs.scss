@@ -4,35 +4,35 @@
 .gv-c-breadcrumbs {
   padding-top: 0.75em;
   padding-bottom: 0.75em;
+}
 
-  &__list-item {
-    margin-bottom: 0.4em;
-    margin-left: 0.6em;
-    padding-left: 0.9em;
+.gv-c-breadcrumbs__list-item {
+  margin-bottom: 0.4em;
+  margin-left: 0.6em;
+  padding-left: 0.9em;
 
-    float: left;
+  float: left;
 
-    background-image: file-url("toolkit/separator.png");
+  background-image: file-url("toolkit/separator.png");
 
-    @include device-pixel-ratio {
-      background-image: file-url("toolkit/separator-2x.png");
-      background-size: 6px 11px;
-    }
-
-    background-repeat: no-repeat;
-    background-position: 0% 50%;
-
-    list-style: none;
+  @include device-pixel-ratio {
+    background-image: file-url("toolkit/separator-2x.png");
+    background-size: 6px 11px;
   }
 
-  &__link {
-    color: $text-colour;
-  }
+  background-repeat: no-repeat;
+  background-position: 0% 50%;
 
-  &__list-item:first-child {
-    margin-left: 0;
-    padding-left: 0;
+  list-style: none;
+}
 
-    background-image: none;
-  }
+.gv-c-breadcrumbs__list-item:first-child {
+  margin-left: 0;
+  padding-left: 0;
+
+  background-image: none;
+}
+
+.gv-c-breadcrumbs__link {
+  color: $text-colour;
 }
