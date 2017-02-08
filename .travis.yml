@@ -3,6 +3,8 @@ node_js:
 - 6.6.0
 sudo: false
 script:
+# Ensures `package.json` and `yarn.lock` stay in sync
+- yarn check --integrity
 - yarn test
 notifications:
   email: false
