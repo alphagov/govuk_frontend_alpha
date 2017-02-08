@@ -33,43 +33,43 @@
 
   background-repeat: no-repeat;
   background-position: 0 0;
+}
 
-  &--calendar {
-    @include icon(icon-calendar, 27, 27);
-  }
+.gv-c-icon--calendar {
+  @include icon(icon-calendar, 27, 27);
+}
 
-  &--file-download {
-    @include icon(icon-file-download, 30, 39);
-  }
+.gv-c-icon--file-download {
+  @include icon(icon-file-download, 30, 39);
+}
 
-  &--important {
-    @include icon(icon-important, 35, 35);
-  }
+.gv-c-icon--important {
+  @include icon(icon-important, 35, 35);
+}
 
-  &--information {
-    @include icon(icon-information, 27, 27);
-  }
+.gv-c-icon--information {
+  @include icon(icon-information, 27, 27);
+}
 
-  &--locator {
-    @include icon(icon-locator, 26, 36);
-  }
+.gv-c-icon--locator {
+  @include icon(icon-locator, 26, 36);
+}
 
-  &--pointer {
-    @include icon(icon-pointer, 30, 19);
-  }
+.gv-c-icon--pointer {
+  @include icon(icon-pointer, 30, 19);
+}
 
-  &--pointer-black {
-    @include icon(icon-pointer-black, 23, 23);
-  }
+.gv-c-icon--pointer-black {
+  @include icon(icon-pointer-black, 23, 23);
+}
 
-  &--search {
-    @include icon(icon-search, 30, 22);
-  }
+.gv-c-icon--search {
+  @include icon(icon-search, 30, 22);
+}
 
-  // GOV.UK step icons
-  @for $i from 1 through 14 {
-    &--step-#{$i} {
-      @include icon(icon-step--#{$i}, 23, 23, icon-steps);
-    }
+// GOV.UK step icons
+@for $i from 1 through 14 {
+  .gv-c-icon--step-#{$i} {
+    @include icon(icon-step--#{$i}, 23, 23, icon-steps);
   }
 }

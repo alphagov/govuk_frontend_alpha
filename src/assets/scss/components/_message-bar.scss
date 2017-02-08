@@ -31,15 +31,13 @@
   // TODO: Use consistent units
   padding-top: 10px;
   padding-bottom: 10px;
+}
 
-  &__text {
-    @include core-16;
-  }
+.gv-c-message-bar__text {
+  @include core-16;
 }
 
 // Let's put this in utilities when decide where they sit in the layer structure
-.js-enabled {
-  .js-hidden {
-    display: none;
-  }
+.js-enabled .js-hidden {
+  display: none;
 }

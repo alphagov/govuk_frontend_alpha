@@ -5,22 +5,23 @@
   margin-top: 5px;
   margin-bottom: 20px;
   padding: 0;
+}
 
-  &__item {
-    margin-bottom: 5px;
-  }
+.gv-c-list--bullet {
+  padding-left: 20px;
+  list-style-type: disc;
+}
 
-  &--bullet {
-    padding-left: 20px;
-    list-style-type: disc;
-  }
+.gv-c-list--number {
+  padding-left: 20px;
+  list-style-type: decimal;
 
-  &--number {
-    padding-left: 20px;
-    list-style-type: decimal;
-
-    @include ie-lte(7) {
-      padding-left: 28px;
-    }
+  @include ie-lte(7) {
+    padding-left: 28px;
   }
 }
+
+.gv-c-list__item {
+  margin-bottom: 5px;
+}
+
