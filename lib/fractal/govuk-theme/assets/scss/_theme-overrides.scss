@@ -172,10 +172,6 @@ a:active {
   padding: 0;
 }
 
-.Browser-panel code {
-  user-select: all;
-}
-
 .Browser-panel code pre {
   width: 100%;
   padding: 1em;
@@ -228,7 +224,6 @@ a:active {
   code pre {
     padding: 1rem 1.5rem;
     margin: 1rem 0 1.5rem 0;
-    user-select: all;
   }
 
   blockquote {
