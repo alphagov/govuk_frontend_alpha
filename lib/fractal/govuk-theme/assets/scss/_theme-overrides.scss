@@ -292,7 +292,7 @@ a:active {
 
 .Frame {
   position: relative;
-  height: auto;
+  height: inherit;
   overflow: auto;
 }
 
@@ -304,4 +304,9 @@ a:active {
 
 .Pen-panel .Browser{
   position: relative;
+}
+
+.Frame-header {
+  position: sticky;
+  top: 0px;
 }
