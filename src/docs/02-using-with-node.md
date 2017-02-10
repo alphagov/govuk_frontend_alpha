@@ -1,9 +1,18 @@
 *Note: These instructions describe setting up the alpha version of govuk_frontend and can/will change*
 
-* [Quick start](/docs/using-with-node#quick-start)
-* [Setting up GOV.UK frontend](/docs/using-with-node#setting-up-gov-uk-frontend)
-* [Adding your own stylesheet](/docs/using-with-node#adding-your-own-stylesheet)
-* [Using components](/docs/using-with-node#before-using-a-component)
+- [Quick start](#quick-start)
+- [Setting up GOV.UK Frontend](#setting-up-govuk-frontend)
+  * [Installing](#installing)
+- [Add govuk_frontend_alpha as a dependency](#add-govuk_frontend_alpha-as-a-dependency)
+  * [Using the GOV.UK Frontend layout](#using-the-govuk-frontend-layout)
+  * [Customising the GOV.UK Frontend layout](#customising-the-govuk-frontend-layout)
+  * [Setting page content](#setting-page-content)
+- [Styling the layout](#styling-the-layout)
+  * [Having multiple stylesheets](#having-multiple-stylesheets)
+  * [Having a single stylesheet](#having-a-single-stylesheet)
+  * [Configuring includePaths (optional)](#configuring-includepaths-optional)
+- [Before using GOV.UK Frontend components](#before-using-govuk-frontend-components)
+- [Using GOV.UK Frontend components](#using-govuk-frontend-components)
 
 ## Quick start
 
@@ -27,12 +36,12 @@ Install the govuk_frontend_alpha package:
 npm install
 ```
 
-**2.** Extend the GOV.UK layout by updating your application layout:
+**2.** Extend the GOV.UK Frontend layout by updating your application layout, to look like this:
 
 ```nunjucks
 {% raw %}{% extends "govuk_template.njk" %}{% endraw %}
 ```
-You can find the GOV.UK layout in
+You can find the GOV.UK Frontend layout in
 
 ```bash
 node_modules/govuk_frontend_alpha/templates/
@@ -42,27 +51,27 @@ node_modules/govuk_frontend_alpha/templates/
 
 ## Setting up GOV.UK Frontend
 
-> To customise the GOV.UK layout, add your own stylesheet and use components - follow the instructions below.
+### Installing
 
 ## Add govuk_frontend_alpha as a dependency
 
 Follow the [quick start](/docs/using-with-node#quick-start) instructions above.
 
-## Using the GOV.UK layout
+### Using the GOV.UK Frontend layout
 
-If you haven't done so already, create a file in your application's views directory.
+Create a layout file in your application's views directory:
 
 ```
-views/index.njk
+views/layout.njk
 ```
 
-In your `views/index.njk` file:
+In your `views/layout.njk` file:
 
 ```nunjucks
 {% raw %}{% extends "govuk_template.njk" %}{% endraw %}
 ```
 
-You may need to configure your application's views to find this layout template.
+You may need to configure your application's views to find the GOV.UK Frontend template.
 
 ```javascript
 // Set the location of the component and template files
@@ -77,11 +86,13 @@ var appViews = [
 nunjucks.configure(appViews, { express: app })
 ```
 
-## Customise the layout
+### Customising the GOV.UK Frontend layout
 
 GOV.UK Frontend has [template blocks](/docs/template-blocks) that you can use to override bits of the layout.
 
-### The 'content' block
+### Setting page content
+
+Add a `content` block to your page:
 
 ```nunjucks
 {% raw %}{% block content %}
@@ -89,7 +100,7 @@ GOV.UK Frontend has [template blocks](/docs/template-blocks) that you can use to
 {% endblock %}{% endraw %}
 ```
 
-### The 'page_title' block
+Update the `page_title` block:
 
 ```nunjucks
 {% raw %}{% block page_title %}
@@ -97,11 +108,13 @@ GOV.UK Frontend has [template blocks](/docs/template-blocks) that you can use to
 {% endblock %}{% endraw %}
 ```
 
-## Adding your own stylesheet
+## Styling the layout
 
-The quickest way to add your own stylesheet is to add a new stylesheet to the `head` block.
+By default the GOV.UK Frontend layout will load its own stylesheet, separate from your application.
 
-### The 'head' block
+### Having multiple stylesheets
+
+The quickest way to add your own styling is to add a new stylesheet to the `head` block.
 
 ```nunjucks
 {% raw %}{% block head %}
@@ -109,12 +122,20 @@ The quickest way to add your own stylesheet is to add a new stylesheet to the `h
 {% endblock %}{% endraw %}
 ```
 
-If you would prefer to compile the govuk-frontend scss files and avoid an extra http request -
-you can override the default stylesheet by using a `stylesheet` block.
+If you want to use any of the GOV.UK Frontend SCSS mixins or variables you'll need to import them in to your application SCSS.
 
-### The 'stylesheet' block
+For example, to use the `$govuk-blue` variable you'll need to do this:
 
-To set a `stylesheet` block, in `index.njk` add:
+```SCSS
+// GOV.UK Frontend colour variables
+@import '../../node_modules/govuk_frontend_alpha/assets/scss/settings/colours';
+```
+
+### Having a single stylesheet
+
+> To use a single stylesheet, you will need to override the default `stylesheet` block.
+
+To set a `stylesheet` block, in your application's layout file:
 
 ```nunjucks
 {% raw %}{% block stylesheet %}
@@ -122,7 +143,7 @@ To set a `stylesheet` block, in `index.njk` add:
 {% endblock %}{% endraw %}
 ```
 
-> ❗️__The stylesheet block replaces the default stylesheet.__
+> ❗️__The `stylesheet` block replaces the default stylesheet.__
 
 > Until you import the govuk_frontend_alpha scss files in your application stylesheet, your application styling will be broken.
 
@@ -136,19 +157,8 @@ To set a `stylesheet` block, in `index.njk` add:
 choose files to add to your application.scss file from:
 
 ```bash
-node_modules/govuk_frontend_alpha/assets/scss/govuk-frontend/
+node_modules/govuk_frontend_alpha/assets/scss/
 ```
-
-* To test compiling these scss files has worked, change the colour of the body element.
-
-```
-body {
-  background: pink;
-}
-```
-
-* Restart the app to see your changes
-* You should see the GOV.UK brand, Hello World! and a pink background.
 
 ### Configuring includePaths (optional)
 
@@ -174,7 +184,7 @@ Fix this by configuring includePaths for gulp-sass, in your gulpfile.js:
 })
 ```
 
-## Before using a component
+## Before using GOV.UK Frontend components
 
 In your index template, add this line underneath `{% raw %}{% extends "govuk_template.njk" %}{% endraw %}` to import all components:
 
@@ -189,24 +199,14 @@ Your index template, `views/index.njk` should now look like this:
 {% import "components.njk" as govuk %}{% endraw %}
 ```
 
-## Use a component in your application
+## Using GOV.UK Frontend components
 
-[You can find all the components here](http://govuk-frontend-alpha.herokuapp.com/).
+[You can find all the GOV.UK Frontend components here](http://govuk-frontend-alpha.herokuapp.com/).
 
-Copy the Nunjucks macro to implement a component.
-
-Here is an example of a macro for a button component:
-
-```nunjucks
-{% raw %}{{ govuk.button(text="Change this button text") }}{% endraw %}
-```
-
-Copy and paste this macro into your index template and change the button text.
+Here is an example of a button component:
 
 ```nunjucks
 {% raw %}{{ govuk.button(text="Save and continue") }}{% endraw %}
 ```
 
-Go to `http://localhost:3000`
-
-This will render the Button component with the text 'Save and continue'
+This will render a Button component with the text 'Save and continue'
