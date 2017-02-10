@@ -1,3 +1,14 @@
+- [Quick start](#quick-start)
+- [Setting up GOV.UK Frontend](#setting-up-gov-uk-frontend)
+  * [Installing](#installing)
+  * [Using the GOV.UK layout](#using-the-gov-uk-layout)
+  * [Customising the GOV.UK layout](#customising-the-gov-uk-layout)
+  * [Setting page content](#setting-page-content)
+- [Styling the layout](#styling-the-layout)
+  * [Having a single stylesheet](#having-a-single-stylesheet)
+  * [Having separate stylesheets](#having-separate-stylesheets)
+- [Using GOV.UK Components](#using-govuk-components)
+
 ## Quick start
 
 **1.** Add it to your `Gemfile`:
@@ -14,8 +25,20 @@ gem 'govuk_frontend_alpha'
 
 ```erb
 <% content_for :head do %>
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= csrf_meta_tags %>
+  <%# Move your `<head>` includes here, like:
+    - `stylesheet_link_tag`
+    - `csrf_meta_tags`
+    - `javascript_include_tag`
+  %>
+<% end %>
+
+<% content_for :content do %>
+  <%# Any content not inside a `content_for` block, in this layout, or in a view
+      that uses this layout, will be `yield`ed here, inside the `content` block.
+      See: http://guides.rubyonrails.org/layouts_and_rendering.html#understanding-yield %>
+
+  <%= yield %>
+
 <% end %>
 
 <%= render file: 'layouts/govuk_template' %>
