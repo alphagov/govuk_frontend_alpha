@@ -13,17 +13,15 @@
   font-weight: bold;
   text-align: center;
 
-  // All step circles are 24px x 24px
-  &--step-default {
-    min-width: 24px;
-    min-height: 24px;
-    line-height: 24px;
-  }
+  // Default step circles are 24px x 24px
+  min-width: 24px;
+  min-height: 24px;
+  line-height: 24px;
+}
 
-  &--step-large {
-    font-size: 19px;
-    min-width: 38px;
-    min-height: 38px;
-    line-height: 38px;
-  }
+.gv-c-step-large {
+  font-size: 19px;
+  min-width: 38px;
+  min-height: 38px;
+  line-height: 38px;
 }

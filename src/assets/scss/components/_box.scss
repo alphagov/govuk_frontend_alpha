@@ -7,10 +7,9 @@
   margin: 1em 0;
   padding: 2em 0 1em;
   text-align: center;
+}
 
-  &--highlight {
-    background: $turquoise;
-    color: $white;
-  }
-
+.gv-c-box--highlight {
+  background: $turquoise;
+  color: $white;
 }

@@ -72,11 +72,6 @@
   border: 4px solid $error-colour;
 }
 
-// Used for native controls
-.gv-c-form-group__native-control {
-  padding-right: 4px;
-}
-
 // Error message styling
 .gv-c-form-group__error-message {
   @include core-19;
@@ -88,29 +83,4 @@
 
   margin: 0;
   padding: 4px 0 2px 0;
-}
-
-
-// Default radio buttons and checkboxes - not sure about these, own components, or .form-component--modifiers?
-// Using component names but leaving in this file for now
-.gv-c-form-element-radio {
-  display: block;
-  margin: 10px 0;
-
-  // Input vs. control?
-  &__input {
-    vertical-align: middle;
-    margin: -4px 5px 0 0;
-  }
-}
-
-// Checkboxes
-.gv-c-form-element-checkbox {
-  display: block;
-  margin: $gutter-half 0;
-
-  &__input {
-    vertical-align: middle;
-    margin: -2px 5px 0 0;
-  }
 }
