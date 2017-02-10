@@ -41,7 +41,7 @@ $mobile-ie6:          true !default;
 // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/_url-helpers.scss#L3
 $path:                false !default;
 // New construct
-$default-image-path: "/images/";
+$default-image-path: "../images/";
 
 // https://github.com/alphagov/govuk_frontend_toolkit/blob/master/stylesheets/_font_stack.scss
 //  GOV.UK font stacks, referred to in typography.scss
