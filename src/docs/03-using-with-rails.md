@@ -14,8 +14,11 @@ gem 'govuk_frontend_alpha'
 
 ```erb
 <% content_for :head do %>
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= csrf_meta_tags %>
+  <%# Move your `<head>` includes here, like:
+    - `stylesheet_link_tag`
+    - `csrf_meta_tags`
+    - `javascript_include_tag`
+  %>
 <% end %>
 
 <% content_for :content do %>
