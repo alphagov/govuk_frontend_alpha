@@ -9,7 +9,7 @@
     {% endif %}
   </label>
   {% if isTextarea %}
-    <textarea class="gv-c-form-group__control {% if error %}gv-c-form-group__control--has-error{% endif %}" id="{{ id }}" name="{{ name }}" cols="30" rows="5">{{ value}}</textarea>
+    <textarea class="gv-c-form-group__control {% if error %}gv-c-form-group__control--has-error{% endif %}" id="{{ id }}" name="{{ name }}" cols="30" rows="5">{{ value }}</textarea>
   {% endif %}
   {% if not isTextarea %}
     <input class="gv-c-form-group__control {% if error %}gv-c-form-group__control--has-error{% endif %}" id="{{ id }}" name="{{ name }}" value="{{ value }}" type="text">

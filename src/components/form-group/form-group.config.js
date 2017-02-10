@@ -4,10 +4,7 @@ module.exports = {
   context: {
     id: 'full-name',
     name: 'full-name',
-    label: 'Full name',
-    hint: '',
-    error: '',
-    value: ''
+    label: 'Full name'
   },
   variants: [{
     name: 'has hint',
