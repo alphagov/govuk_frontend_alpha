@@ -1,3 +1,14 @@
+- [Quick start](#quick-start)
+- [Setting up GOV.UK Frontend](#setting-up-gov-uk-frontend)
+  * [Installing](#installing)
+  * [Using the GOV.UK layout](#using-the-gov-uk-layout)
+  * [Customising the GOV.UK layout](#customising-the-gov-uk-layout)
+  * [Setting page content](#setting-page-content)
+- [Styling the layout](#styling-the-layout)
+  * [Having a single stylesheet](#having-a-single-stylesheet)
+  * [Having separate stylesheets](#having-separate-stylesheets)
+- [Using GOV.UK Components](#using-govuk-components)
+
 ## Quick start
 
 **1.** Add it to your `Gemfile`:
