@@ -5,25 +5,20 @@ module.exports = {
     id: 'dob',
     name: 'dob-group',
     legend: 'What is your date of birth?',
-    hint: '',
-    error: '',
     day: {
       id: 'dob-day',
-      value: '',
       label: 'Day',
       min: '0',
       max: '31'
     },
     month: {
       id: 'dob-month',
-      value: '',
       label: 'Month',
       min: '0',
       max: '12'
     },
     year: {
       id: 'dob-year',
-      value: '',
       label: 'Year',
       min: '0',
       max: '2050'

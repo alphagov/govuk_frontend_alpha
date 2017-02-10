@@ -6,8 +6,6 @@ module.exports = {
     name: 'contact-group',
     legend: 'How do you want to be contacted?',
     legendIsVisuallyHidden: false,
-    hint: '',
-    error: '',
     checkboxGroup: [{
       id: 'example-contact-by-email',
       value: 'contact-by-email',
