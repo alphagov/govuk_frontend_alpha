@@ -18,6 +18,15 @@ gem 'govuk_frontend_alpha'
   <%= csrf_meta_tags %>
 <% end %>
 
+<% content_for :content do %>
+  <%# Any content not inside a `content_for` block, in this layout, or in a view
+      that uses this layout, will be `yield`ed here, inside the `content` block.
+      See: http://guides.rubyonrails.org/layouts_and_rendering.html#understanding-yield %>
+
+  <%= yield %>
+
+<% end %>
+
 <%= render file: 'layouts/govuk_template' %>
 ```
 
