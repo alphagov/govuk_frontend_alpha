@@ -255,3 +255,24 @@ a:active {
 .Status-dot {
   display: none;
 }
+
+
+/*
+  Panel scrolling - disabled
+------------------------------ */
+
+.Frame {
+  position: relative;
+  height: auto;
+  overflow: auto;
+}
+
+.Frame-inner {
+  position: relative;
+  height: auto;
+  overflow: auto;
+}
+
+.Pen-panel .Browser{
+  position: relative;
+}
