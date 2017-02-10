@@ -171,10 +171,11 @@ a:active {
   background: #fff;
   padding: 0;
 }
-
-.Browser-panel code pre {
+.Browser-panel .Code {
   width: 100%;
-  padding: 1em;
+}
+.Browser-panel .Code pre {
+  padding: 1rem 1.5rem;
 }
 
 /*

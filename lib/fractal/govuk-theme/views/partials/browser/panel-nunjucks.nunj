@@ -1,9 +1,7 @@
 {% set compHandle = entity.component().handle %}
 
 <div class="Browser-panel Browser-code Browser-nunjucks" data-role="tab-panel" id="browser-{{ entity.id }}-panel-nunjucks">
-  <div class="Prose" style="width: 100%">
-    <code>
-      <pre>{{ ("{{ " + (entity.getResolvedContext() | async | generateComponentInvocation('njk', compHandle)) + " }}") | highlight('javascript') }}</pre>
-    </code>
-  </div>
+  <code class="Code">
+    <pre>{{ ("{{ " + (entity.getResolvedContext() | async | generateComponentInvocation('njk', compHandle)) + " }}") | highlight('javascript') }}</pre>
+  </code>
 </div>
