@@ -55,6 +55,9 @@
 
     <div id="global-header-bar"></div>
 
+    <div class="gv-o-wrapper">
+      {% block phase_banner %}{% endblock %}
+    </div>
 
     <div id="content" class="{% block content_class %}gv-o-wrapper{% endblock %}">
       {% block content %}{% endblock %}
