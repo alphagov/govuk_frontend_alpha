@@ -2,7 +2,7 @@
   "config": "config/",
   "src": "src",
   "srcComponents": "src/components/",
-  "srcScopes": "src/components/scopes/",
+  "srcScopes": "src/components/_scopes/",
   "srcDocs": "src/docs/",
   "assetsImg": "src/assets/images/",
   "assetsJs": "src/assets/js/",
