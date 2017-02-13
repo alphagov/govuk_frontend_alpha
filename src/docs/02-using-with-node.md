@@ -3,7 +3,6 @@
 - [Quick start](#quick-start)
 - [Setting up GOV.UK Frontend](#setting-up-govuk-frontend)
   * [Installing](#installing)
-- [Add govuk_frontend_alpha as a dependency](#add-govuk_frontend_alpha-as-a-dependency)
   * [Using the GOV.UK Frontend layout](#using-the-govuk-frontend-layout)
   * [Customising the GOV.UK Frontend layout](#customising-the-govuk-frontend-layout)
   * [Setting page content](#setting-page-content)
@@ -11,7 +10,6 @@
   * [Having multiple stylesheets](#having-multiple-stylesheets)
   * [Having a single stylesheet](#having-a-single-stylesheet)
   * [Configuring includePaths (optional)](#configuring-includepaths-optional)
-- [Before using GOV.UK Frontend components](#before-using-govuk-frontend-components)
 - [Using GOV.UK Frontend components](#using-govuk-frontend-components)
 
 ## Quick start
@@ -53,7 +51,7 @@ node_modules/govuk_frontend_alpha/templates/
 
 ### Installing
 
-## Add govuk_frontend_alpha as a dependency
+* Add govuk_frontend_alpha as a dependency
 
 Follow the [quick start](/docs/using-with-node#quick-start) instructions above.
 
@@ -184,24 +182,31 @@ Fix this by configuring includePaths for gulp-sass, in your gulpfile.js:
 })
 ```
 
-## Before using GOV.UK Frontend components
 
-In your index template, add this line underneath `{% raw %}{% extends "govuk_template.njk" %}{% endraw %}` to import all components:
+## Using GOV.UK Frontend components
+
+### Importing all components
+
+> In your layout template, add this line underneath `{% raw %}{% extends "govuk_template.njk" %}{% endraw %}` to import all components:
 
 ```nunjucks
 {% raw %}{% import "components.njk" as govuk %}{% endraw %}
 ```
 
-Your index template, `views/index.njk` should now look like this:
+Your layout template, `views/layout.njk` should now look like this:
 
 ```nunjucks
 {% raw %}{% extends "govuk_template.njk" %}
 {% import "components.njk" as govuk %}{% endraw %}
 ```
 
-## Using GOV.UK Frontend components
+
+### The GOV.UK Frontend component library
 
 [You can find all the GOV.UK Frontend components here](http://govuk-frontend-alpha.herokuapp.com/).
+
+
+### An example component
 
 Here is an example of a button component:
 
