@@ -113,11 +113,6 @@ a:active {
   margin: 15px 20px;
 }
 
-// Component boxes
-.Pen-panel {
-  margin-bottom: 15px;
-}
-
 // Component title and status wrapper
 .Pen-header {
   max-height: 4rem;
@@ -163,14 +158,6 @@ a:active {
 ------------------------------ */
 
 // Component info box
-.Pen-info {
-  border-color: $white;
-}
-
-.Browser-controls {
-  margin-bottom: 30px;
-}
-
 .Browser-tab a:link,
 .Browser-tab a:visited,
 .Browser-tab a:hover,
