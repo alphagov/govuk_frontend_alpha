@@ -14,7 +14,7 @@ a:visited {
 }
 
 a:hover {
-  color: $link-hover-colour;
+  text-decoration: underline;
 }
 
 a:active {
@@ -28,6 +28,7 @@ a:active {
 // Sidebar background
 .Frame-panel--sidebar {
   background: $white;
+  width: 310px;
 }
 
 // Left hand navigation
@@ -43,8 +44,9 @@ a:active {
   color: $text-colour;
   text-transform: none;
   @include bold-19;
-  margin-top: 0.5em;
-  margin-bottom: 0.75em;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin: 0;
 }
 
 // Component name
@@ -62,8 +64,8 @@ a:active {
 // Left hand navigation item
 .Tree-entityLink {
   @include core-16;
-  padding-top: 0.5rem;
-  padding-bottom: 0.4rem;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .Tree-entityLink:hover {
@@ -76,17 +78,39 @@ a:active {
   background: $govuk-blue;
 }
 
+[dir="ltr"] .Tree-title {
+  padding-left: 30px;
+}
+[dir="ltr"] .Tree-title,
+[dir="ltr"] .Tree-depth-1 .Tree-entityLink,
+[dir="ltr"] .Tree-depth-1 .Tree-collectionLabel,
+[dir="ltr"] .Tree-depth-2 .Tree-collectionLabel {
+  padding-left: 30px;
+}
+
+[dir="ltr"] .Tree-depth-2 .Tree-collectionLabel span {
+  margin-left: 0;
+}
+
+[dir="ltr"] .Tree-depth-2 .Tree-entityLink {
+  padding-left: 45px;
+}
+
+[dir="ltr"] .Tree-collectionLabel span {
+  padding-left: 0;
+  color: $link-colour;
+}
+
+.Tree-collectionLabel span::before {
+  display: none;
+}
+
 /*
   Components title & preview
 ------------------------------ */
 
 .Pen {
   margin: 15px 20px;
-}
-
-// Component boxes
-.Pen-panel {
-  margin-bottom: 15px;
 }
 
 // Component title and status wrapper
@@ -134,14 +158,6 @@ a:active {
 ------------------------------ */
 
 // Component info box
-.Pen-info {
-  border-color: $white;
-}
-
-.Browser-controls {
-  margin-bottom: 30px;
-}
-
 .Browser-tab a:link,
 .Browser-tab a:visited,
 .Browser-tab a:hover,
@@ -254,4 +270,30 @@ a:active {
 // Hide status dots in navigation
 .Status-dot {
   display: none;
+}
+
+
+/*
+  Panel scrolling - disabled
+------------------------------ */
+
+.Frame {
+  position: relative;
+  height: inherit;
+  overflow: auto;
+}
+
+.Frame-inner {
+  position: relative;
+  height: auto;
+  overflow: auto;
+}
+
+.Pen-panel .Browser{
+  position: relative;
+}
+
+.Frame-header {
+  position: sticky;
+  top: 0px;
 }

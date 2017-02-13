@@ -10,13 +10,9 @@
         </span>
         <span class="header__title">
           Frontend
+          <span class="phase-banner" title="This tool is not ready for use in production">Alpha</span>
         </span>
       </a>
     </div>
   </div>
 </header>
-
-<div class="alpha-warning">
-  <span class="phase-banner">ALPHA</span>
-  This tool is a prototype and not intended for use on production services. <a href="https://github.com/alphagov/govuk_frontend_alpha">Find out more and give feedback</a>
-</div>
