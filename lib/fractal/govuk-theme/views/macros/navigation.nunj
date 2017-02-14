@@ -2,7 +2,7 @@
 
 {% macro tree(root, current, request) %}
 <div class="Tree" data-behaviour="tree" id="tree-{{ root.name }}">
-    <h3 class="Tree-title">{{ root.title }}</h3>
+    <h3 class="Tree-title"  style="font-size: 1.7em">{% if root.title == 'Components' %}Patterns{% else %}{{ root.title }}{% endif %}</h3>
     <ul class="Tree-items Tree-depth-1">
         {{ leaves(root.filter('isHidden', false).items(), root, current, 2, request) }}
     </ul>
@@ -12,21 +12,30 @@
 {% macro leaves(items, root, current, depth, request) %}
     {% for item in items %}
         {% if item.isCollection or (item.isComponent and not item.isCollated and item.variants().filter('isHidden', false).size > 1) %}
-        <li class="Tree-item Tree-collection Tree-depth-{{ depth }}" data-behaviour="collection" id="tree-{{ root.name }}-collection-{{ item.handle }}">
-            <h4 class="Tree-collectionLabel" data-role="toggle">
-                <span>{{ item.label }}</span>
+        <li class="Tree-item Tree-collection Tree-depth-{{ depth }}" data-behaviour="{% if depth > 2 %}collection{% endif %}" id="tree-{{ root.name }}-collection-{{ item.handle }}">
+            {% if depth == 2 %}
+            <h4 class="Tree-title" data-role="toggle" style="font-size: 1.5em">
+              <span>{{ item.label }}</span>
             </h4>
+            {% else %}
+            <h5 class="Tree-collectionLabel" data-role="toggle">
+              <span>{{ item.label }}</span>
+            </h5>
+            {% endif %}
+
             <ul class="Tree-collectionItems" data-role="items">
             {% if item.isComponent and not item.isCollated %}
             {% set items = item.variants().filter('isHidden', false).items() %}
             {% else %}
             {% set items = item.filter('isHidden', false).items() %}
             {% endif %}
+            {% if depth > 2 %}
             <li class="Tree-item Tree-entity data-role="item">
                 <a class="Tree-entityLink" href="/components/detail/{{ item.handle }}" data-pjax>
                     <span><b>Introduction</b></span>
                 </a>
             </li>
+            {% endif %}
             {{ leaves(items, root, current, (depth + 1), request) }}
             </ul>
         </li>

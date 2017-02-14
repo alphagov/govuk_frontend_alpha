@@ -77,24 +77,29 @@ a:active {
   color: $white;
   background: $govuk-blue;
 }
+//
+// [dir="ltr"] .Tree-title {
+//   padding-left: 30px;
+// }
+// [dir="ltr"] .Tree-title,
+// [dir="ltr"] .Tree-depth-1 .Tree-entityLink,
+// [dir="ltr"] .Tree-depth-1 .Tree-collectionLabel,
+// [dir="ltr"] .Tree-depth-2 .Tree-collectionLabel {
+//   padding-left: 30px;
+// }
+//
+// [dir="ltr"] .Tree-depth-2 .Tree-collectionLabel span {
+//   margin-left: 0;
+// }
+//
+// [dir="ltr"] .Tree-depth-2 .Tree-entityLink {
+//   padding-left: 45px;
+// }
+//
+// [dir="ltr"] .Tree-depth-3 .Tree-entityLink {
+//   padding-left: 45px;
+// }
 
-[dir="ltr"] .Tree-title {
-  padding-left: 30px;
-}
-[dir="ltr"] .Tree-title,
-[dir="ltr"] .Tree-depth-1 .Tree-entityLink,
-[dir="ltr"] .Tree-depth-1 .Tree-collectionLabel,
-[dir="ltr"] .Tree-depth-2 .Tree-collectionLabel {
-  padding-left: 30px;
-}
-
-[dir="ltr"] .Tree-depth-2 .Tree-collectionLabel span {
-  margin-left: 0;
-}
-
-[dir="ltr"] .Tree-depth-2 .Tree-entityLink {
-  padding-left: 45px;
-}
 
 [dir="ltr"] .Tree-collectionLabel span {
   padding-left: 0;

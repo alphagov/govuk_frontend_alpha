@@ -1,1 +1,1 @@
-import '../../components/details/_details.js'
+import '../../patterns/components/details/_details.js'

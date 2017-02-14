@@ -1,8 +1,8 @@
 {
   "config": "config/",
-  "src": "src",
-  "srcComponents": "src/components/",
-  "srcScopes": "src/components/scopes/",
+  "src": "src/patterns",
+  "srcComponents": "src/patterns/components/",
+  "srcScopes": "src/patterns/scopes/",
   "srcDocs": "src/docs/",
   "assetsImg": "src/assets/images/",
   "assetsJs": "src/assets/js/",
