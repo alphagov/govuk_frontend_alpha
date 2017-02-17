@@ -185,24 +185,6 @@ Fix this by configuring includePaths for gulp-sass, in your gulpfile.js:
 
 ## Using GOV.UK Frontend components
 
-### Importing all components
-
-> In your layout template, add this line underneath `{% raw %}{% extends "govuk_template.njk" %}{% endraw %}` to import all components:
-
-```nunjucks
-{% raw %}{% import "components.njk" as govuk %}{% endraw %}
-```
-
-Your layout template, `views/layout.njk` should now look like this:
-
-```nunjucks
-{% raw %}{% extends "govuk_template.njk" %}
-{% import "components.njk" as govuk %}{% endraw %}
-```
-
-
-### The GOV.UK Frontend component library
-
 [You can find all the GOV.UK Frontend components here](http://govuk-frontend-alpha.herokuapp.com/).
 
 
