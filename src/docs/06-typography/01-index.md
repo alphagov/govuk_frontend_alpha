@@ -4,7 +4,9 @@ context:
   lede: For GOV.UK domains, always use the GDS Transport Website font in Light and Bold.
 ---
 
-{{ lede }}
+<div class="lede">
+  {{ lede }}
+</div>
 
 ## Font
 

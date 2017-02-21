@@ -4,6 +4,10 @@ context:
   lede: Always use the GOV.UK colour palette.
 ---
 
+<div class="lede">
+  {{ lede }}
+</div>
+
 ### Colour contrast
 
 The colour contrast ratio for text and interactive elements should be at least 4.5:1 as recommended by the W3C.

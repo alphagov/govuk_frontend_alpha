@@ -4,7 +4,9 @@ context:
   lede: Use white space to create a visual hierarchy on the page.
 ---
 
-{{ lede }}
+<div class="lede">
+  {{ lede }}
+</div>
 
 ## Page width
 
