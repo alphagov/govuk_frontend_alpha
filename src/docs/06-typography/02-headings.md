@@ -6,18 +6,21 @@ title: Headings
 * use sentence case for headings
 * use headings consistently to create a clear hierarchy
 
-```
-TODO: [Insert example from here](http://govuk-elements.herokuapp.com/typography/)
-```
+
+<div class="example example--typography">
+  <div class="gv-s-prose">
+    <h1>A 48px heading</h1>
+    <h2>A 36px heading</h2>
+    <h3>A 24px heading</h3>
+    <h4>A 19px heading</h4>
+  </div>
+</div>
 
 ```html
-<h1 class="heading-xlarge">A 48px Bold heading</h1>
-
-<h2 class="heading-large">A 36px Bold heading</h2>
-
-<h3 class="heading-medium">A 24px Bold heading</h3>
-
-<h4 class="heading-small">A 19px Bold heading</h4>
+<div class="gv-s-prose">
+  <h1>A 48px heading</h1>
+  <h2>A 36px heading</h2>
+  <h3>A 24px heading</h3>
+  <h4>A 19px heading</h4>
+</div>
 ```
-
-[next section: Body copy](/docs/elements/typography/body-copy/)

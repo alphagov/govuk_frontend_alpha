@@ -68,7 +68,12 @@
   }
 }
 
-.example:before {
+.example-preview {
+  position: relative;
+}
+
+.example:before,
+.example-preview:before {
   content: "EXAMPLE";
 
   position: absolute;
@@ -81,7 +86,8 @@
   color: white;
 }
 
-// Layout - spacing
+// Example boxes - Layout - Spacing
+// ==========================================================================
 .example--spacing img {
   float: left;
   width: 50%;
