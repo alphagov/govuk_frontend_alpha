@@ -1,3 +1,19 @@
+// Mixins
+// ==========================================================================
+
+@mixin clearfix {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+
+  @include ie-lte(7) {
+    zoom: 1;
+  }
+}
+
+
 // Typography
 // ==========================================================================
 .lede {
@@ -48,3 +64,68 @@
   width: 50%;
 }
 
+// Layout - grid
+.example--grid {
+
+  // Copy grid styles here (scoped to parent example box)
+  // until we can get iframes working to render grid examples
+
+  .gv-o-grid-row {
+    @include clearfix;
+    margin: 0 (-$gutter-half);
+  }
+
+  .gv-o-grid-item {
+    @include box-sizing(border-box);
+    @include media(tablet) {
+      float: left;
+    }
+
+    padding: 0 $gutter-half;
+  }
+
+  // Add a background to paragraphs in grid examples
+  .gv-o-grid-row p {
+    width: 100%;
+    background-image: url("../images/example--grid.png");
+    background-position: 0 0;
+    background-repeat: repeat;
+    margin-bottom: 0;
+    height: 30px;
+    @include media(tablet) {
+      height: 60px;
+    }
+    overflow: hidden;
+    text-indent: -999em;
+  }
+
+
+  @mixin grid-column($width) {
+    @include media(tablet) {
+      width: percentage($width);
+    }
+    @include ie-lte(7) {
+      width: (($site-width + $gutter) * $width) - $gutter;
+    }
+  }
+  .gv-u-full {
+    @include grid-column(1);
+  }
+
+  .gv-u-one-quarter {
+    @include grid-column(1 / 4);
+  }
+
+  .gv-u-one-half {
+    @include grid-column(1 / 2);
+  }
+
+  .gv-u-one-third {
+    @include grid-column(1 / 3);
+  }
+
+  .gv-u-two-thirds {
+    @include grid-column(2 / 3);
+  }
+
+}
