@@ -282,3 +282,39 @@
   }
 }
 
+// Swatches
+// ==========================================================================
+
+.swatch-section {
+  clear: both;
+  padding-top: 20px;
+}
+
+.swatch-wrapper {
+  width: 30%;
+  float: left;
+}
+.swatch {
+  width: 150px;
+  height: 60px;
+  margin-bottom: $gutter-half;
+}
+
+.swatch ul {
+  list-style-type: none;
+  padding-bottom: $gutter-half;
+  @include media(mobile) {
+    min-height: 50px;
+    padding-top: 10px;
+  }
+}
+
+.swatch-scss {
+  @include core-16;
+}
+
+.swatch-hex  {
+  display: block;
+  font-weight: bold;
+  text-transform: uppercase;
+}
