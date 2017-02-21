@@ -8,81 +8,67 @@ context:
   {{ lede }}
 </div>
 
-## Font
+## Prose
 
-Use the GDS Transport Website font in Light and Bold. It’s licensed for use on the GOV.UK domains only.
-
-For services publicly available on different domains, use an alternative typeface like Arial.
-
-## Typography
-
-```
-TODO: [Insert full page typography example from here](http://govuk-elements.herokuapp.com/typography/example-typography/)
-```
+Styles for headings, paragraph text and lists can be applied using a `prose` scope.
 
 ```html
-<h1 class="heading-xlarge">
-  <span class="heading-secondary">Typography</span>
-  Example: Typography
-</h1>
-
-<h1 class="heading-xlarge">
-  <span class="heading-secondary">A 27px section heading</span>
-  A 48px heading
-</h1>
-
-<p class="lede">
-  This is an intro paragraph at 24px. Maecenas faucibus mollis interdum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Vestibulum id ligula porta felis euismod semper.
-</p>
-
-<h2 class="heading-large">A 36px heading</h2>
-
-<p>
-  This is a body copy paragraph at 19px. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. Aenean lacinia bibendum nulla sed consectetur. Sed posuere consectetur est at lobortis.
-</p>
-
-<h3 class="heading-medium">A 24px heading</h3>
-
-<p>
-  Etiam porta sem malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed posuere consectetur est at lobortis. Maecenas faucibus mollis interdum. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus.
-</p>
-
-<h4 class="heading-small">A 19px heading</h4>
-
-<p>
-  Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo.
-</p>
-
-<ul class="list list-bullet">
-  <li>here is a bulleted list</li>
-  <li>vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</li>
-  <li>vestibulum id ligula porta felis euismod semper</li>
-  <li>integer posuere erat a ante venenatis dapibus posuere velit aliquet</li>
-</ul>
-
-<ol class="list list-number">
-  <li>here is a numbered list</li>
-  <li>vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</li>
-  <li>vestibulum id ligula porta felis euismod semper</li>
-  <li>integer posuere erat a ante venenatis dapibus posuere velit aliquet</li>
-</ol>
-
-<ul class="list">
-  <li><a href="#">Related link</a></li>
-  <li><a href="#">Related link</a></li>
-  <li><a href="#">Related link</a></li>
-  <li><a href="#" class="bold-xsmall">More</a></li>
-</ul>
-
-<p>
-  Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo.
-</p>
-
-<hr>
-
-<p>
-  Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo.
-</p>
+<div class="gv-s-prose">
+</div>
 ```
+A scope requires a parent class to style its children, the `prose` scope uses the parent class `.gv-s-prose`.
 
-[next section: Headings](/docs/elements/typography/headings/)
+
+## Prose example
+
+<div class="example-preview example--typography">
+  {{ '@prose'|preview(600) }}
+</div>
+
+```html
+<div class="gv-s-prose">
+
+  <h1>A 48px heading</h1>
+
+  <p>
+  This is an intro paragraph at 24px. Maecenas faucibus mollis interdum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Vestibulum id ligula porta felis euismod semper.
+  </p>
+
+  <h2>A 36px heading</h2>
+
+  <p>
+  This is a body copy paragraph at 19px. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. Aenean lacinia bibendum nulla sed consectetur. Sed posuere consectetur est at lobortis.
+  </p>
+
+  <h3>A 24px heading</h3>
+
+  <p>
+  Etiam porta sem malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed posuere consectetur est at lobortis. Maecenas faucibus mollis interdum. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus.
+  </p>
+
+  <h4>A 19px heading</h4>
+
+  <p>
+  Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo.
+  </p>
+
+  <ul>
+    <li>here is a bulleted list</li>
+    <li>vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</li>
+    <li>vestibulum id ligula porta felis euismod semper</li>
+    <li>integer posuere erat a ante venenatis dapibus posuere velit aliquet</li>
+  </ul>
+
+  <ol>
+    <li>here is a numbered list</li>
+    <li>vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</li>
+    <li>vestibulum id ligula porta felis euismod semper</li>
+    <li>integer posuere erat a ante venenatis dapibus posuere velit aliquet</li>
+  </ol>
+
+  <p>
+    Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo.
+  </p>
+
+</div>
+```
