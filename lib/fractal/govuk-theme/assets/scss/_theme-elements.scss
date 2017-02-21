@@ -43,3 +43,46 @@
   text-transform: uppercase;
 }
 
+
+// Example boxes
+// ==========================================================================
+
+.example {
+  @extend %contain-floats;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid $grey-2;
+  margin-top: $gutter-half;
+  margin-bottom: $gutter-half;
+
+  padding-top: $gutter;
+  padding-right: $gutter-half;
+  padding-bottom: $gutter-half;
+  padding-left: $gutter-half;
+
+  @include media(tablet) {
+    padding-top: $gutter*1.5;
+    padding-right: $gutter;
+    padding-bottom: $gutter;
+    padding-left: $gutter;
+  }
+}
+
+.example:before {
+  content: "EXAMPLE";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  padding: 5px 15px 5px 15px;
+  @include core-14;
+  background: $grey-2;
+  color: white;
+}
+
+// Layout - spacing
+.example--spacing img {
+  float: left;
+  width: 50%;
+}
