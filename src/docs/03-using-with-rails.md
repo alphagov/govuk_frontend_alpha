@@ -21,7 +21,7 @@ gem 'govuk_frontend_alpha'
 >
 > Using [govuk-frontend-alpha-starter-kit-rails](https://github.com/alphagov/govuk-frontend-alpha-starter-kit-rails)? Run `./bin/install-govuk-frontend`
 
-**2.** Extend the layout by updating your application layout, to look like this:
+**2.** Replace your application layout, to look like this:
 
 ```erb
 <% content_for :head do %>
