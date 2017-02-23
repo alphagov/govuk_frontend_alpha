@@ -1,6 +1,6 @@
 Button text should be short and describe the action the button performs.
 
-{{ '@button'|preview(60) }}
+{{ '@button--default'|preview(60) }}
 
 ## Alignment
 
