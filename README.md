@@ -17,11 +17,11 @@ You’re building a service that will live on GOV.UK. This will give your servic
 
 ### Node
 
-[Installation instructions](docs/using-with-node.md).
+[Installation instructions](http://govuk-frontend-alpha.herokuapp.com/docs/using-with-node).
 
 ### Rails
 
-[Installation instructions](docs/using-with-rails.md).
+[Installation instructions](http://govuk-frontend-alpha.herokuapp.com/docs/using-with-rails).
 
 ## Contributing
 
