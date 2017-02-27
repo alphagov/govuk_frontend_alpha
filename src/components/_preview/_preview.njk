@@ -12,6 +12,19 @@
   <link media="all" rel="stylesheet" href="{{ '/stylesheets/govuk-template-print.css' | path }}">
 {% endblock %}
 
+{% block header_class %} hidden {% endblock %}
+
+{% block after_header %}
+  <style>
+    html {
+      background: white;
+    }
+  </style>
+{% endblock %}
+
+{% block global_header_bar %}
+{% endblock %}
+
 {% block logo_src %}
   {{ '/images/template/gov.uk_logotype_crown_invert_trans.png' | path }}
 {% endblock %}
@@ -19,6 +32,8 @@
 {% block content %}
   {{ yield }}
 {% endblock %}
+
+{% block footer_class %} hidden {% endblock %}
 
 {% block scripts %}
 <!--[if gte IE 8]><!-->

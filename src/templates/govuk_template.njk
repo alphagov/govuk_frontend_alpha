@@ -53,7 +53,9 @@
 
     {% block after_header %}{% endblock %}
 
+    {% block global_header_bar %}
     <div id="global-header-bar"></div>
+    {% endblock %}
 
     <div class="gv-o-wrapper">
       {% block phase_banner %}{% endblock %}
@@ -64,7 +66,7 @@
     </div>
 
 
-    <footer class="group js-footer" id="footer" role="contentinfo">
+    <footer class="{% block footer_class %}{% endblock %} group js-footer" id="footer" role="contentinfo">
 
       <div class="footer-wrapper">
         {% block footer_top %}{% endblock %}
