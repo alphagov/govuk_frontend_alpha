@@ -1,39 +1,22 @@
-<!DOCTYPE html>
-<html class="no-js">
-<head>
-  <meta charset="utf-8">
+{% extends "govuk_template.njk" %}
+
+{% block page_title %}
+  {{ _target.title }} &#9670; GOV.UK Frontend Alpha
+{% endblock %}
+
+{% block stylesheet %}
   <link media="all" rel="stylesheet" href="{{ '/stylesheets/govuk-frontend.css' | path }}">
-  <title>{{ _target.title }} &#9670; GOV.UK Frontend Alpha</title>
-  <script>
-  // govuk_template sets js-enabled
-  // we're not loading the template as a wrapper for components, so this class must be set in the preview template
-  document.documentElement.className = document.documentElement.className.replace('no-js', 'js-enabled');
-  </script>
-  <style>
-    html {
-      background-color: white;
-    }
-  </style>
-</head>
-<body>
-  {% if _target.context.setup.openWrapper %}
-    {{ _target.context.setup.openWrapper }}
-  {% endif %}
+{% endblock %}
 
+{% block content %}
   {{ yield }}
+{% endblock %}
 
-  {% if _target.context.setup.closeWrapper %}
-    {{ _target.context.setup.closeWrapper }}
-  {% endif %}
-</body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="{{ '/javascripts/govuk-template.min.js' | path }}"></script>
-<script src="{{ '/javascripts/toolkit.min.js' | path }}"></script>
-<script src="{{ '/javascripts/components.min.js' | path }}"></script>
-<!-- TODO: Fix how this works, for now, initialise component js by updating initScript in the component's config file -->
-{% if _target.context.setup.initScript %}
-  <script>
-    {{ _target.context.setup.initScript }}
-  </script>
-{% endif %}
-</html>
+{% block scripts %}
+<!--[if gte IE 8]><!-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="{{ '/javascripts/govuk-template.min.js' | path }}"></script>
+  <script src="{{ '/javascripts/toolkit.min.js' | path }}"></script>
+  <script src="{{ '/javascripts/components.min.js' | path }}"></script>
+<!--<![endif]-->
+{% endblock %}
