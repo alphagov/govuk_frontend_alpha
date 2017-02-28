@@ -10,10 +10,19 @@ The colour contrast ratio for text and interactive elements should be at least 4
 Test your service to meet this standard.
 
 ### Sass variables
-
 Use Sass variables in case colour values need to be updated.
 
-### Extended palette
+<h3 class="swatch-section">Colours</h3>
 
-* used for graphs and supporting material
-* for tints of the extended palette use 50% or 25%
+{% for scss, hex in colors %}
+  <div class="swatch-wrapper">
+    <div class="swatch" style="background-color:{{ hex }};">
+    </div>
+    <b class="swatch-hex">
+      {{ hex }}
+    </b>
+    <p class="swatch-scss">
+      {{ scss }}
+    </p>
+  </div>
+{% endfor %}
