@@ -47,6 +47,7 @@
     "phantomjs-prebuilt": "^2.1.13",
     "rollup-stream": "^1.14.0",
     "run-sequence": "^1.2.2",
+    "scss-to-json": "^1.1.0",
     "standard": "^8.6.0",
     "supertest": "^2.0.1",
     "through2": "^2.0.1",
