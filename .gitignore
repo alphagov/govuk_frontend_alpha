@@ -4,3 +4,4 @@ dist/
 public/
 npm-debug.log*
 lib/fractal/govuk-theme/assets/css/
+src/docs/07-colour/07-colour.config.json
