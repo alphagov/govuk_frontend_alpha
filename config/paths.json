@@ -3,6 +3,7 @@
   "src": "src",
   "srcComponents": "src/components/",
   "srcScopes": "src/components/_scopes/",
+  "srcTemplates": "src/templates/",
   "srcDocs": "src/docs/",
   "assetsImg": "src/assets/images/",
   "assetsJs": "src/assets/js/",

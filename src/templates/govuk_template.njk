@@ -7,7 +7,7 @@
     <title>{% block page_title %}GOV.UK - The best place to find government services and information{% endblock %}</title>
 
     {% block stylesheet %}<link href="{{ asset_path + 'stylesheets/govuk-frontend.css' }}" media="screen" rel="stylesheet" />{% endblock %}
-    <link href="{{ asset_path + 'stylesheets/govuk-template-print.css' }}" media="print" rel="stylesheet" />
+    {% block stylesheet_print %}<link href="{{ asset_path + 'stylesheets/govuk-template-print.css' }}" media="print" rel="stylesheet" />{% endblock %}
 
     <!--[if lte IE 8]><script src="{{ asset_path + 'javascripts/ie-shim.js' }}"></script><![endif]-->
 
@@ -42,7 +42,7 @@
         <div class="header-global">
           <div class="header-logo">
             <a href="{{ homepage_url|default('https://www.gov.uk') }}" title="{{ logo_link_title|default('Go to the GOV.UK homepage') }}" id="logo" class="content">
-              <img src="{{ asset_path + 'images/template/gov.uk_logotype_crown_invert_trans.png' }}" width="35" height="31" alt=""> {{ global_header_text|default('GOV.UK') }}
+              <img src="{% block logo_src %}{{ asset_path + 'images/template/gov.uk_logotype_crown_invert_trans.png' }}{%endblock %}" width="35" height="31" alt=""> {{ global_header_text|default('GOV.UK') }}
             </a>
           </div>
           {% block inside_header %}{% endblock %}
@@ -53,7 +53,9 @@
 
     {% block after_header %}{% endblock %}
 
+    {% block global_header_bar %}
     <div id="global-header-bar"></div>
+    {% endblock %}
 
     <div class="gv-o-wrapper">
       {% block phase_banner %}{% endblock %}
@@ -64,7 +66,7 @@
     </div>
 
 
-    <footer class="group js-footer" id="footer" role="contentinfo">
+    <footer class="{% block footer_class %}{% endblock %} group js-footer" id="footer" role="contentinfo">
 
       <div class="footer-wrapper">
         {% block footer_top %}{% endblock %}
@@ -90,12 +92,14 @@
 
     <div id="global-app-error" class="app-error hidden"></div>
 
+    {% block scripts %}
     <!--[if gte IE 8]><!-->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script src="{{ asset_path + 'javascripts/govuk-template.min.js' }}"></script>
       <script src="{{ asset_path + 'javascripts/toolkit.min.js' }}"></script>
       <script src="{{ asset_path + 'javascripts/components.min.js' }}"></script>
     <!--<![endif]-->
+    {% endblock %}
 
     {% block body_end %}{% endblock %}
 
