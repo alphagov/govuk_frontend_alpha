@@ -1,0 +1,45 @@
+// Mixins
+// ==========================================================================
+
+@mixin clearfix {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+
+  @include ie-lte(7) {
+    zoom: 1;
+  }
+}
+
+
+// Swatches
+// ==========================================================================
+
+.swatch-section {
+  clear: both;
+  padding-top: 20px;
+}
+
+.swatch-wrapper {
+  width: 30%;
+  float: left;
+}
+
+.swatch {
+  width: 150px;
+  height: 60px;
+  margin-bottom: $gutter-half;
+}
+
+.swatch-scss {
+  @include core-16;
+}
+
+.swatch-hex  {
+  display: block;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
