@@ -14,7 +14,7 @@ These elements are only supported by a few modern browsers at the moment so youâ
 
 | Name        | Type    | Default | Required               | Description                                           
 |---          |---      |---      |---                     |---           
-| summary     | string  | N/A     | Yes                    | The content of the summary element              
-| content     | string  | N/A     | content or contentHtml | The content of the details element              
-| contentHtml | string  | N/A     | content or contentHtml | The content of the details element - allows HTML
+| summary     | string  |         | Yes                    | The content of the summary element              
+| content     | string  |         | content or contentHtml | The content of the details element              
+| contentHtml | string  |         | content or contentHtml | The content of the details element - allows HTML
 

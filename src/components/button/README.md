@@ -17,6 +17,6 @@ Align the primary action button to the left edge of your form, in the user’s l
 
 | Name    | Type    | Default                                | Required | Description                                           
 |---      |---      |---                                     |---       |---                                                   
-| text    | string  | N/A                                    | Yes      | The content of the button                            
+| text    | string  |                                        | Yes      | The content of the button                            
 | isStart | boolean | False                                  | Yes      | Render the 'Start' button variant                    
 | type    | string  | submit (if attribute is not specified) | No       | The type of the button (submit, reset, button, menu) 

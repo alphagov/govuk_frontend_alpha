@@ -34,12 +34,12 @@ don’t mark mandatory fields with asterisks
 
 | Name                    | Type    | Default | Required  | Description                                           
 |---                      |---      |---      |---        |---        
-| id                      | string  | N/A     | Yes       | Checkbox id attribute value
-| name                    | string  | N/A     | Yes       | Checkbox name attribute value
-| legend                  | string  | N/A     | Yes       | Legend text for the checkbox group
+| id                      | string  |         | Yes       | Checkbox id attribute value
+| name                    | string  |         | Yes       | Checkbox name attribute value
+| legend                  | string  |         | Yes       | Legend text for the checkbox group
 | legendIsVisuallyHidden  | boolean | false   | No        | Option to hide legend text (to provide legend text for AT, but not visually)
-| hint                    | string  | N/A     | No        | Hint text for a question 
-| error                   | string  | N/A     | No        | Error text for a question
-| checkboxGroup           | array   | N/A     | Yes       | An array of checkboxes, with ID, value and label keys
-| value                   | string  | N/A     | Yes       | The value of a checkbox
+| hint                    | string  |         | No        | Hint text for a question 
+| error                   | string  |         | No        | Error text for a question
+| checkboxGroup           | array   |         | Yes       | An array of checkboxes, with ID, value and label keys
+| value                   | string  |         | Yes       | The value of a checkbox
 
