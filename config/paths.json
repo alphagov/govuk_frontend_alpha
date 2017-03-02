@@ -12,7 +12,7 @@
   "dist": "dist/",
   "distFractal": "dist/fractal/",
   "bundle": "dist/bundle/",
-  "bundleImg": "dist/bundle/assets/img/",
+  "bundleImg": "dist/bundle/assets/images/",
   "bundleCss": "dist/bundle/assets/css/",
   "bundleScss": "dist/bundle/assets/scss/",
   "bundleJs": "dist/bundle/assets/js/",
