@@ -30,3 +30,16 @@ don’t mark mandatory fields with asterisks
 
 {{ '@form-group--has-hint'|preview(120) }}
 
+## Arguments
+
+| Name                    | Type    | Default | Required  | Description                                           
+|---                      |---      |---      |---        |---        
+| id                      | string  |         | Yes       | Checkbox id attribute value
+| name                    | string  |         | Yes       | Checkbox name attribute value
+| legend                  | string  |         | Yes       | Legend text for the checkbox group
+| legendIsVisuallyHidden  | boolean | false   | No        | Option to hide legend text (to provide legend text for AT, but not visually)
+| hint                    | string  |         | No        | Hint text for a question 
+| error                   | string  |         | No        | Error text for a question
+| checkboxGroup           | array   |         | Yes       | An array of checkboxes, with ID, value and label keys
+| value                   | string  |         | Yes       | The value of a checkbox
+
