@@ -19,12 +19,41 @@ context:
 
 ### Full width
 
-<div class="example example--grid">
-  <div class="gv-o-grid-row">
-    <div class="gv-o-grid-item gv-u-full">
-      <p>Content</p>
+<div class="example">
+  <iframe srcdoc='
+    <link media="all" rel="stylesheet" href="/stylesheets/govuk-frontend.css">
+    <style>
+      html {
+        background: white;
+      }
+      p {
+        width: 100%;
+        background-image: repeating-linear-gradient(180deg, #7DADD3, #7DADD3 15px, #B7CFE1 15px, #B7CFE1 30px);
+        margin-bottom: 0;
+        height: 60px;
+        overflow: hidden;
+        text-indent: -999em;
+      }
+    </style>
+    <div class="gv-o-grid-row">
+      <div class="gv-o-grid-item gv-u-full">
+        <p>Content</p>
+      </div>
     </div>
-  </div>
+  '
+  marginwidth="0"
+  marginheight="0"
+  frameborder="0"
+  vspace="0"
+  hspace="0"
+  scrolling="yes"
+  style="
+    height: 60px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  ">
+  </iframe>
 </div>
 
 ```html
@@ -38,15 +67,44 @@ context:
 
 ### Halves
 
-<div class="example example--grid">
-  <div class="gv-o-grid-row">
-    <div class="gv-o-grid-item gv-u-one-half">
-      <p>Content</p>
+<div class="example">
+  <iframe srcdoc='
+    <link media="all" rel="stylesheet" href="/stylesheets/govuk-frontend.css">
+    <style>
+      html {
+        background: white;
+      }
+      p {
+        width: 100%;
+        background-image: repeating-linear-gradient(180deg, #7DADD3, #7DADD3 15px, #B7CFE1 15px, #B7CFE1 30px);
+        margin-bottom: 0;
+        height: 60px;
+        overflow: hidden;
+        text-indent: -999em;
+      }
+    </style>
+    <div class="gv-o-grid-row">
+      <div class="gv-o-grid-item gv-u-one-half">
+        <p>Content</p>
+      </div>
+      <div class="gv-o-grid-item gv-u-one-half">
+        <p>Content</p>
+      </div>
     </div>
-    <div class="gv-o-grid-item gv-u-one-half">
-      <p>Content</p>
-    </div>
-  </div>
+  '
+  marginwidth="0"
+  marginheight="0"
+  frameborder="0"
+  vspace="0"
+  hspace="0"
+  scrolling="yes"
+  style="
+    height: 60px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  ">
+  </iframe>
 </div>
 
 ```html
@@ -62,18 +120,47 @@ context:
 
 ### Thirds
 
-<div class="example example--grid">
-  <div class="gv-o-grid-row">
-    <div class="gv-o-grid-item gv-u-one-third">
-      <p>Content</p>
+<div class="example">
+  <iframe srcdoc='
+    <link media="all" rel="stylesheet" href="/stylesheets/govuk-frontend.css">
+    <style>
+      html {
+        background: white;
+      }
+      p {
+        width: 100%;
+        background-image: repeating-linear-gradient(180deg, #7DADD3, #7DADD3 15px, #B7CFE1 15px, #B7CFE1 30px);
+        margin-bottom: 0;
+        height: 60px;
+        overflow: hidden;
+        text-indent: -999em;
+      }
+    </style>
+    <div class="gv-o-grid-row">
+      <div class="gv-o-grid-item gv-u-one-third">
+        <p>Content</p>
+      </div>
+      <div class="gv-o-grid-item gv-u-one-third">
+        <p>Content</p>
+      </div>
+      <div class="gv-o-grid-item gv-u-one-third">
+        <p>Content</p>
+      </div>
     </div>
-    <div class="gv-o-grid-item gv-u-one-third">
-      <p>Content</p>
-    </div>
-    <div class="gv-o-grid-item gv-u-one-third">
-      <p>Content</p>
-    </div>
-  </div>
+  '
+  marginwidth="0"
+  marginheight="0"
+  frameborder="0"
+  vspace="0"
+  hspace="0"
+  scrolling="yes"
+  style="
+    height: 60px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  ">
+  </iframe>
 </div>
 
 ```html
@@ -92,8 +179,23 @@ context:
 
 ### Two thirds / One third
 
-<div class="example example--grid">
-  <div class="gv-o-grid-row">
+<div class="example">
+  <iframe srcdoc='
+    <link media="all" rel="stylesheet" href="/stylesheets/govuk-frontend.css">
+    <style>
+      html {
+        background: white;
+      }
+      p {
+        width: 100%;
+        background-image: repeating-linear-gradient(180deg, #7DADD3, #7DADD3 15px, #B7CFE1 15px, #B7CFE1 30px);
+        margin-bottom: 0;
+        height: 60px;
+        overflow: hidden;
+        text-indent: -999em;
+      }
+    </style>
+    <div class="gv-o-grid-row">
     <div class="gv-o-grid-item gv-u-two-thirds">
       <p>Content</p>
     </div>
@@ -101,6 +203,20 @@ context:
       <p>Content</p>
     </div>
   </div>
+  '
+  marginwidth="0"
+  marginheight="0"
+  frameborder="0"
+  vspace="0"
+  hspace="0"
+  scrolling="yes"
+  style="
+    height: 60px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  ">
+  </iframe>
 </div>
 
 ```html
@@ -116,15 +232,44 @@ context:
 
 ### One third / Two thirds
 
-<div class="example example--grid">
-  <div class="gv-o-grid-row">
-    <div class="gv-o-grid-item gv-u-one-third">
-      <p>Content</p>
+<div class="example">
+  <iframe srcdoc='
+    <link media="all" rel="stylesheet" href="/stylesheets/govuk-frontend.css">
+    <style>
+      html {
+        background: white;
+      }
+      p {
+        width: 100%;
+        background-image: repeating-linear-gradient(180deg, #7DADD3, #7DADD3 15px, #B7CFE1 15px, #B7CFE1 30px);
+        margin-bottom: 0;
+        height: 60px;
+        overflow: hidden;
+        text-indent: -999em;
+      }
+    </style>
+    <div class="gv-o-grid-row">
+      <div class="gv-o-grid-item gv-u-one-third">
+        <p>Content</p>
+      </div>
+      <div class="gv-o-grid-item gv-u-two-thirds">
+        <p>Content</p>
+      </div>
     </div>
-    <div class="gv-o-grid-item gv-u-two-thirds">
-      <p>Content</p>
-    </div>
-  </div>
+  '
+  marginwidth="0"
+  marginheight="0"
+  frameborder="0"
+  vspace="0"
+  hspace="0"
+  scrolling="yes"
+  style="
+    height: 60px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  ">
+  </iframe>
 </div>
 
 ```html
@@ -140,21 +285,50 @@ context:
 
 ### Quarters
 
-<div class="example example--grid">
-  <div class="gv-o-grid-row">
-    <div class="gv-o-grid-item gv-u-one-quarter">
-      <p>Content</p>
+<div class="example">
+  <iframe srcdoc='
+    <link media="all" rel="stylesheet" href="/stylesheets/govuk-frontend.css">
+    <style>
+      html {
+        background: white;
+      }
+      p {
+        width: 100%;
+        background-image: repeating-linear-gradient(180deg, #7DADD3, #7DADD3 15px, #B7CFE1 15px, #B7CFE1 30px);
+        margin-bottom: 0;
+        height: 60px;
+        overflow: hidden;
+        text-indent: -999em;
+      }
+    </style>
+    <div class="gv-o-grid-row">
+      <div class="gv-o-grid-item gv-u-one-quarter">
+        <p>Content</p>
+      </div>
+      <div class="gv-o-grid-item gv-u-one-quarter">
+        <p>Content</p>
+      </div>
+      <div class="gv-o-grid-item gv-u-one-quarter">
+        <p>Content</p>
+      </div>
+      <div class="gv-o-grid-item gv-u-one-quarter">
+        <p>Content</p>
+      </div>
     </div>
-    <div class="gv-o-grid-item gv-u-one-quarter">
-      <p>Content</p>
-    </div>
-    <div class="gv-o-grid-item gv-u-one-quarter">
-      <p>Content</p>
-    </div>
-    <div class="gv-o-grid-item gv-u-one-quarter">
-      <p>Content</p>
-    </div>
-  </div>
+  '
+  marginwidth="0"
+  marginheight="0"
+  frameborder="0"
+  vspace="0"
+  hspace="0"
+  scrolling="yes"
+  style="
+    height: 60px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  ">
+  </iframe>
 </div>
 
 ```html
