@@ -27,6 +27,14 @@
          {% else %}
           <p class="Browser-isEmptyNote">There are no notes for this item.</p>
          {% endif %}
+
+         <h2>Examples</h2>
+
+         <ul>
+         {% for variant in entity.variants().toArray() %}
+           <li><a href="/components/browser/{{ variant.handle }}">{{ variant.title }}</a></li>
+         {% endfor %}
+         </ul>
      </div>
     {% endblock %}
   </div>

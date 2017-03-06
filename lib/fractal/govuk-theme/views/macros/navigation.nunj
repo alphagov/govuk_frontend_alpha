@@ -11,8 +11,18 @@
 
 {% macro leaves(items, root, current, depth, request) %}
     {% for item in items %}
-        {% if item.isCollection or (item.isComponent and not item.isCollated and item.variants().filter('isHidden', false).size > 1) %}
+        {% if item.isCollection %}
+          {% if item.label == 'Layout' %}
+              </ul>
+            </div>
+          </div>
+          <div class="Navigation-group">
+            <div class="Tree" data-behaviour="tree" id="tree-styles">
+              <h3 class="Tree-title">Styles</h3>
+              <ul class="Tree-items Tree-depth-1">
+          {% endif %}
         <li class="Tree-item Tree-collection Tree-depth-{{ depth }}" data-behaviour="collection" id="tree-{{ root.name }}-collection-{{ item.handle }}">
+
             <h4 class="Tree-collectionLabel" data-role="toggle">
                 <span>{{ item.label }}</span>
             </h4>
@@ -22,20 +32,13 @@
             {% else %}
             {% set items = item.filter('isHidden', false).items() %}
             {% endif %}
-            {% if item.isComponent %}
-            <li class="Tree-item Tree-entity data-role="item">
-                <a class="Tree-entityLink" href="/components/detail/{{ item.handle }}" data-pjax>
-                    <span><b>Overview</b></span>
-                </a>
-            </li>
-            {% endif %}
             {{ leaves(items, root, current, (depth + 1), request) }}
             </ul>
         </li>
         {% else %}
         {% set isCurrent = true if (current and (current.id == item.id)) else false %}
         <li class="Tree-item Tree-entity{% if isCurrent %} is-current{% endif %}"{% if isCurrent %} data-state="current"{% endif %} data-role="item">
-            <a class="Tree-entityLink" href="{% if item.isDoc %}{{ path( (item | url), request) }}{% else %}/components/browser/{{ item.handle }}{% endif %}" data-pjax>
+            <a class="Tree-entityLink" href="{{ path( (item | url), request) }}" data-pjax>
                 <span>{{ item.label }}</span>
                 {% if item.status %}{{ status.unlabelled(item.status) }}{% endif %}
             </a>
