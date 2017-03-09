@@ -58,7 +58,7 @@
   }
 
   // Lede, or intro text
-  p:first-child {
+  .lede {
     @include core-24;
   }
 
@@ -68,7 +68,11 @@
     @include core-19;
 
     margin-bottom: 20px;
-    padding: 0;
+
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 1em;
   }
 
   ul li,

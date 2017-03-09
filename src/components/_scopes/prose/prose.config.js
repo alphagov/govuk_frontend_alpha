@@ -6,7 +6,7 @@ module.exports = {
     context: {
       content: '\n' +
       '<h1>A 48px heading</h1>\n' +
-      '<p>\n' +
+      '<p class="lede">\n' +
       'This is an intro paragraph at 24px. Maecenas faucibus mollis interdum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Curabitur blandit tempus porttitor. Vestibulum id ligula porta felis euismod semper.\n' +
       '</p>\n' +
       '<h2>A 36px heading</h2>\n' +
@@ -34,7 +34,7 @@ module.exports = {
         '<li>integer posuere erat a ante venenatis dapibus posuere velit aliquet</li>\n' +
       '</ol>\n' +
       '<p>\n' +
-        'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo.\n' +
+        'Fusce dapibus, <strong>this is text with strong emphasis</strong> tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo.\n' +
       '</p>'
     }
   }]
