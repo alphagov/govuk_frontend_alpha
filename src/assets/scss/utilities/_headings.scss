@@ -2,96 +2,64 @@
 // as we don't have a base .heading block
 .gv-u-heading-xxxlarge {
   @include bold-80;
+  margin-bottom: 0.5em;
 }
 
 .gv-u-heading-xxlarge {
   @include bold-48;
+
+  margin-top: em(15, 32);
+  margin-bottom: em(30, 32);
+
+  @include media(tablet) {
+    margin-top: em(30, 48);
+    margin-bottom: em(60, 48);
+  }
 }
 
 .gv-u-heading-xlarge {
-  @include bold-36
+  @include bold-36;
+
+  margin-top: em(25, 24);
+  margin-bottom: em(10, 24);
+
+  @include media(tablet) {
+    margin-top: em(45, 36);
+    margin-bottom: em(20, 36);
+  }
 }
 
 .gv-u-heading-large {
   @include bold-27;
+
+  margin-top: em(25, 20);
+  margin-bottom: em(10, 20);
+
+  @include media(tablet) {
+    margin-top: em(45, 24);
+    margin-bottom: em(20, 24);
+  }
 }
 
 .gv-u-heading-medium {
   @include bold-24;
+
+  margin-top: em(25, 20);
+  margin-bottom: em(10, 20);
+
+  @include media(tablet) {
+    margin-top: em(45, 24);
+    margin-bottom: em(20, 24);
+  }
 }
-// We don't have this yet, but we probably need a heading-small
-// .gv-u-heading-small {
-//   @include heading-19;
-// }
 
-// These are the GOV.UK elements version of these headings
-// TODO: Figure out how to combine utility classes for these
+.gv-u-heading-small {
+  @include bold-19;
 
-// Common heading sizes
-// Using the bold-xx mixins from the govuk_toolkit _typography.scss file
-// Spacing is set in em, using the px to em function in the elements _helpers.scss file
+  margin-top: em(10, 16);
+  margin-bottom: em(5, 16);
 
-// Headings
-// .gv-heading-xlarge {
-//   @include bold-48();
-
-//   margin-top: em(15, 32);
-//   margin-bottom: em(30, 32);
-
-//   @include media(tablet) {
-//     margin-top: em(30, 48);
-//     margin-bottom: em(60, 48);
-//   }
-
-//   &__context {
-//     @include heading-27();
-
-//     display: block;
-//     color: $secondary-text-colour;
-//   }
-
-// }
-// .gv-heading-large {
-//   @include bold-36();
-
-//   margin-top: em(25, 24);
-//   margin-bottom: em(10, 24);
-
-//   @include media(tablet) {
-//     margin-top: em(45, 36);
-//     margin-bottom: em(20, 36);
-//   }
-
-//   .heading-secondary {
-//     @include heading-24();
-
-//     display: block;
-//     color: $secondary-#{$prefix-utility}colour;
-//   }
-
-// }
-
-// .gv-heading-medium {
-//   @include bold-24();
-
-//   margin-top: em(25, 20);
-//   margin-bottom: em(10, 20);
-
-//   @include media(tablet) {
-//     margin-top: em(45, 24);
-//     margin-bottom: em(20, 24);
-//   }
-
-// }
-
-// .gv-heading-small {
-//   @include bold-19();
-
-//   margin-top: em(10, 16);
-//   margin-bottom: em(5, 16);
-
-//   @include media(tablet) {
-//     margin-top: em(20, 19);
-//   }
-
-// }
+  @include media(tablet) {
+    margin-top: em(20, 19);
+  }
+}
