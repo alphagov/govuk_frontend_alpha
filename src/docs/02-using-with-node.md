@@ -1,16 +1,16 @@
 *Note: These instructions describe setting up the alpha version of govuk_frontend and can/will change*
 
 - [Quick start](#quick-start)
-- [Setting up GOV.UK Frontend](#setting-up-govuk-frontend)
+- [Setting up GOV.UK Frontend](#setting-up-gov-uk-frontend)
   * [Installing](#installing)
-  * [Using the GOV.UK Frontend layout](#using-the-govuk-frontend-layout)
-  * [Customising the GOV.UK Frontend layout](#customising-the-govuk-frontend-layout)
+  * [Using the GOV.UK Frontend layout](#using-the-gov-uk-frontend-layout)
+  * [Customising the GOV.UK Frontend layout](#customising-the-gov-uk-frontend-layout)
   * [Setting page content](#setting-page-content)
 - [Styling the layout](#styling-the-layout)
   * [Having multiple stylesheets](#having-multiple-stylesheets)
   * [Having a single stylesheet](#having-a-single-stylesheet)
   * [Configuring includePaths (optional)](#configuring-includepaths-optional)
-- [Using GOV.UK Frontend components](#using-govuk-frontend-components)
+- [Using GOV.UK Frontend components](#using-gov-uk-frontend-components)
 
 ## Quick start
 
