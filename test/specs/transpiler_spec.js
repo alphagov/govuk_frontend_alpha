@@ -19,6 +19,8 @@ const nunjucksAssetPath = `<link href="{{ asset_path + 'stylesheets/govuk-templa
 const nunjucksAssetVersion = '1.0.0'
 const nunjucksTextFor = `<a href="#content" class="skiplink">{{ skip_link_message|default('Skip to main content') }}</a>`
 const nunjucksBlockFor = `{% block top_of_page %}{% endblock %}`
+const nunjucksBlockForWithContent = `{% block top_of_page %}Top of page default block content{% endblock %}`
+const nunjucksBlockForWithMultilineContent = `{% block top_of_page %}\nTop of page.\nDefault block content\n{% endblock %}`
 const nunjucksBlockForWithAssetPath = `{% block stylesheets %}<link href="{{ asset_path + 'file.css' }}" />{% endblock %}`
 const nunjucksNestedBlock = `{% block outer %}{% block inner %}Default{% endblock %}{% endblock %}`
 
@@ -49,6 +51,12 @@ describe('Transpilation', () => {
     })
     it('should have a correct block_for', function (done) {
       transpilationTest(nunjucksTranspiler, nunjucksBlockFor, nunjucksBlockFor, done)
+    })
+    it('should have a correct block_for with content', function (done) {
+      transpilationTest(nunjucksTranspiler, nunjucksBlockForWithContent, nunjucksBlockForWithContent, done)
+    })
+    it('should have a correct block_for with multiline content', function (done) {
+      transpilationTest(nunjucksTranspiler, nunjucksBlockForWithMultilineContent, nunjucksBlockForWithMultilineContent, done)
     })
     it('should have a nested correct block_for with asset path inside', function (done) {
       const transpiledBlockForWithAssetPath = `{% block stylesheets %}<link href="{{ asset_path }}file.css?1.0.0" />{% endblock %}`
@@ -84,6 +92,14 @@ describe('Transpilation', () => {
     it('should have a correct block_for', function (done) {
       const erbBlockFor = `<%= yield(:top_of_page) if content_for?(:top_of_page) %>`
       transpilationTest(erbTranspiler, nunjucksBlockFor, erbBlockFor, done)
+    })
+    it('should have a correct block_for with content', function (done) {
+      const erbBlockForWithContent = `<% if content_for?(:top_of_page) %><%= yield(:top_of_page) %><% else %>Top of page default block content<% end %>`
+      transpilationTest(erbTranspiler, nunjucksBlockForWithContent, erbBlockForWithContent, done)
+    })
+    it('should have a correct block_for with multiline content', function (done) {
+      const erbBlockForWithMultilineContent = `<% if content_for?(:top_of_page) %><%= yield(:top_of_page) %><% else %>\nTop of page.\nDefault block content\n<% end %>`
+      transpilationTest(erbTranspiler, nunjucksBlockForWithMultilineContent, erbBlockForWithMultilineContent, done)
     })
     it('should have a correct block_for for the special case content block', function (done) {
       const nunjucksContentBlockFor = `{% block content %}{% endblock %}`
