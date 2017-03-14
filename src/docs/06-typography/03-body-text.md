@@ -57,12 +57,6 @@ title: Body text
         background: white;
       }
     </style>
-  
-    <main>
-      <p>
-        A 19px body copy paragraph, maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
-      </p> 
-    </main>
 
     <p class="gv-u-text-small">
       A 19px body copy paragraph, maecenas sed diam eget risus varius blandit sit amet non magna. Donec ullamcorper nulla non metus auctor fringilla.
