@@ -8,7 +8,7 @@ $path: "/public/images/";
 
 // Import the remaining govuk-frontend-toolkit partials listed in _govuk-frontend-toolkit.scss
 // (that aren't included by govuk-elements) so we provide all fet functionality
-// @import "toolkit/govuk-frontend-toolkit";
+@import "toolkit/govuk-frontend-toolkit";
 
 // Import all the govuk-elements partials listed in _govuk-elements.scss
 @import "elements/govuk-elements";
