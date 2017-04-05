@@ -15,6 +15,7 @@
 
 // Components (chunks of UI)
 @import "elements-typography";           // Typography
+@import "breadcrumbs";                   // Breadcrumbs
 @import "buttons";                       // Buttons
 @import "icons";                         // Icons - numbered steps, calendar, search
 @import "lists";                         // Lists - numbered, bulleted
@@ -25,7 +26,6 @@
 @import "forms/form-multiple-choice";    // Custom radio buttons and checkboxes
 @import "forms/form-date";               // Date of birth pattern
 @import "forms/form-validation";         // Errors and validation
-@import "breadcrumbs";                   // Breadcrumbs
 @import "phase-banner";                  // Alpha and beta banners and tags
 @import "components";                    // GOV.UK prefixed styles - blue highlighted box
 @import "shame";                         // Hacks and workarounds that will go away eventually
