@@ -6,7 +6,7 @@
 
 $is-print: true;
 @import "styleguide/print";
-@import "typography";
+@import "../toolkit/typography";
 
 // OUTPUT
 // The following files and inline CSS will form the output of print.css
@@ -14,5 +14,5 @@ $is-print: true;
 html {
   font-size: 62.5%;
 }
-    
+
 @import "core-print";

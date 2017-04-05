@@ -1,6 +1,6 @@
-@import '_shims';
-@import '_conditionals';
-@import '_measurements';
+@import '../toolkit/shims';
+@import '../toolkit/conditionals';
+@import '../toolkit/measurements';
 
 #global-header {
   background-color: $black;
